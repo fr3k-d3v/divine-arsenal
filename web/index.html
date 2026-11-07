@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b16">
+<title>Divine Arsenal // Universal</title>
+<style>
+:root {color-scheme:dark;--bg:#090a14;--surface:#13182a;--line:#303851;--text:#f6f0e7;--muted:#aeb9c9;--gold:#e8bc6e;--cyan:#5de2f0;--pink:#d6a5ff;--danger:#ff8e94}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#30203d 0,transparent 40%),radial-gradient(ellipse at 10% 40%,#10263a 0,transparent 55%),var(--bg);font:15px/1.55 system-ui,Segoe UI,sans-serif;color:var(--text);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.10;background-image:radial-gradient(#f8dfa4 1px,transparent 1px);background-size:37px 37px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+main{max-width:1250px;margin:auto;padding:24px 22px 80px;position:relative}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px}
+.brand{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:800}.brand b{display:block;font-size:29px;letter-spacing:.045em;color:var(--text)}.sub{color:var(--muted);font-size:12px;letter-spacing:.08em}
+.state{border:1px solid var(--line);border-radius:99px;padding:6px 12px;color:var(--cyan);font-size:12px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+button,select,input,textarea{font:inherit}
+button,.btn{background:linear-gradient(140deg,#2c334d,#1c2236);color:var(--text);border:1px solid #44506a;border-radius:9px;padding:10px 14px;cursor:pointer;transition:.16s}
+button:hover{border-color:var(--gold);transform:translateY(-1px)}button.primary{background:linear-gradient(115deg,#ffdc90,#dba151);color:#1a1620;border:none;font-weight:800}
+button[disabled]{opacity:.35;cursor:default;transform:none}
+nav button.active{border-color:var(--gold);color:var(--gold);background:#242436}
+h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,55px);font-weight:500;letter-spacing:-.025em;margin:12px 0 0}
+h2{font:normal 27px Georgia,serif;margin:4px 0 15px}
+h3{font-size:15px;letter-spacing:.09em;color:var(--gold);text-transform:uppercase;margin:0 0 8px}
+p{margin:6px 0 12px}.muted{color:var(--muted)}.micro{font-size:12px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:1.08fr .92fr;gap:18px}.card{background:linear-gradient(145deg,rgba(22,27,48,.92),rgba(13,17,31,.92));border:1px solid var(--line);border-radius:15px;padding:22px;box-shadow:0 8px 30px #0002}
+.card.soft{background:#12172970}.card + .card{margin-top:16px}.gold{color:var(--gold)}.cyan{color:var(--cyan)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}.metric{background:#0b1426;padding:12px;border:1px solid #253249;border-radius:11px}.metric strong{font:normal 21px Georgia,serif;display:block;color:var(--gold)}
+fieldset{border:1px solid var(--line);border-radius:12px;padding:16px;margin:16px 0}legend{color:var(--gold);padding:0 7px;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 5px}
+input:not([type=checkbox]),textarea,select{background:#0c1222;border:1px solid #35445b;border-radius:8px;color:var(--text);padding:10px 12px;width:100%;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+input[type=checkbox]{accent-color:var(--gold);vertical-align:middle}.check{display:inline-flex;align-items:center;gap:5px;margin-right:15px;padding:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.between{justify-content:space-between}
+.hero{padding:18px 0}.hero p{color:var(--muted);max-width:750px}
+.hidden{display:none!important}
+.notice{border-left:3px solid var(--cyan);background:#13243799;padding:11px 13px;border-radius:5px;margin:12px 0;font-size:13px}
+.warning{border-left-color:var(--gold);background:#272019aa}
+#message{min-height:22px;color:var(--cyan);font-size:13px;margin:10px 0}
+canvas{max-width:100%;width:100%;aspect-ratio:1/1;display:block;margin:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;font-size:11px;letter-spacing:.05em;color:var(--muted)}
+td,th{padding:8px;border-bottom:1px solid #273147}tr.now{background:#19374a77;color:var(--cyan)}
+small{color:var(--muted)}.pill{border:1px solid #405174;border-radius:30px;color:var(--cyan);padding:3px 9px;font-size:11px}
+.role{background:#101d31;border-left:2px solid var(--gold);padding:12px;margin:9px 0;border-radius:8px}
+.planet-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.planet-grid span{font-size:12px;background:#162033;border-radius:8px;padding:8px 3px;text-align:center}
+.magic{display:grid;gap:4px;max-width:560px;margin:18px auto}.magic span{background:#142239;min-height:35px;display:grid;place-items:center;border:1px solid #2b3b51;border-radius:4px;color:var(--gold);font-size:13px}
+a{color:var(--cyan);overflow-wrap:anywhere}footer{padding:25px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px;margin-top:35px}
+@media(max-width:830px){.layout,.grid3{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}main{padding:14px 12px 55px}.card{padding:14px}.brand b{font-size:23px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+ <div class="brand">FR3KD3V / CELESTIAL WORKBENCH<b>⚔ DIVINE ARSENAL</b><span class="sub">UNIVERSAL // LOCAL-FIRST // v0.1.0</span></div>
+ <div class="row"><span class="state" id="status">● CHECKING LOCAL ENGINE</span><select id="profileSelect" aria-label="Select private profile" style="max-width:230px"><option value="">Choose a profile</option></select></div>
+</header>
+<div class="hero"><h1>The sky, understood.<br><span class="gold">Your agents, designed.</span></h1>
+<p>Precise astronomical calculations, historical symbolic traditions and an AI workforce configured around the goals you explicitly choose. Your birth information stays on this computer.</p></div>
+<nav aria-label="Application sections">
+ <button data-view="onboard" class="active">✧ Personal onboarding</button>
+ <button data-view="sky">☉ Celestial dashboard</button>
+ <button data-view="agents">◈ Agent Architect</button>
+ <button data-view="studio">◇ Kamea studio</button>
+ <button data-view="sources">⌘ Sources & evidence</button>
+</nav>
+<div id="message" role="status" aria-live="polite"></div>
+
+<section id="onboard" class="view">
+<div class="layout">
+<div class="card"><h2>Create a private profile</h2>
+<p class="muted">What matters to you, what you want done, and which agents are actually available. Birth time is optional; unknown stays unknown.</p>
+<form id="onboardForm">
+<fieldset><legend>Identity & birth information</legend>
+<label for="alias">Profile name</label><input id="alias" required maxlength="64" placeholder="How you'd like this profile called">
+<div class="grid2"><div><label for="dob">Date of birth</label><input id="dob" type="date" required></div>
+<div><label for="btime">Recorded birth time (optional)</label><input id="btime" type="time"></div></div>
+<label for="birthplace">Birthplace / city</label><div class="row"><input id="birthplace" placeholder="Type a town and click Search" style="flex:1;min-width:180px">
+<button id="geocode" type="button">Search birthplace</button></div>
+<select id="places" class="hidden" aria-label="Birthplace search results"></select>
+<div class="grid2">
+ <div><label for="birthlat">Birth latitude (°)</label><input id="birthlat" type="number" min="-90" max="90" step="any" placeholder="e.g. -33.8688"></div>
+ <div><label for="birthlon">Birth longitude (°)</label><input id="birthlon" type="number" min="-180" max="180" step="any" placeholder="e.g. 151.2093"></div>
+</div>
+<label for="birthtz">Birthplace IANA timezone (required)</label><input id="birthtz" placeholder="e.g. Australia/Brisbane" required>
+<label class="check"><input type="checkbox" id="birthconfirmed"> I have confirmed the birthplace details.</label>
+<div class="notice warning">Historical timezones matter. Birthplace coordinates and timezone must be entered or confirmed. If you don't know the time, the chart will explicitly omit Ascendant, houses and exact natal aspects.</div>
+</fieldset>
+<fieldset><legend>Where should planetary timing apply?</legend>
+<p class="micro">Your current location is independent of your birthplace.</p>
+<div class="grid2"><div><label for="currentlat">Current latitude</label><input id="currentlat" type="number" min="-90" max="90" step="any" placeholder="-33.8688"></div>
+<div><label for="currentlon">Current longitude</label><input id="currentlon" type="number" min="-180" max="180" step="any" placeholder="151.2093"></div></div>
+<label for="currenttz">Current timezone</label><input id="currenttz" placeholder="Australia/Brisbane">
+</fieldset>
+<fieldset><legend>Your AI mission</legend>
+<label for="goals">What would you want your AI agents to achieve?</label>
+<textarea id="goals" rows="5" maxlength="5000" placeholder="Examples: maintain my Linux devices, write and test software, research obscure repositories, produce videos, run a business..."></textarea>
+<p class="micro">Roles are generated from these stated goals, never inferred from astrological symbolism.</p>
+<label>Which agents do you want to use?</label>
+<label class="check"><input type="checkbox" name="agent" value="hermes" checked> Hermes</label>
+<label class="check"><input type="checkbox" name="agent" value="codex" checked> Codex</label>
+<label class="check"><input type="checkbox" name="agent" value="opencode" checked> OpenCode</label>
+</fieldset>
+<div class="notice">Astrology and Hermetic traditions are interpretive. All generated agent workflows begin disabled and read-only. Actions outside this project require separate permission.</div>
+<label class="check"><input id="consent" type="checkbox" required> I consent to saving this profile locally on this machine.</label>
+<div class="row"><button type="submit" class="primary">Generate my Arsenal</button><button type="button" id="clearForm">Clear form</button></div>
+</form></div>
+<div><div class="card">
+<h2>Five layers of personalisation</h2>
+<div class="role"><h3>01 · Astronomical context</h3>Verified positions and sunrise timing, precision stated.</div>
+<div class="role"><h3>02 · Historical traditions</h3>Choose the symbolic systems you want to explore.</div>
+<div class="role"><h3>03 · Real-world goals</h3>Your declared outcomes drive agent specialisations.</div>
+<div class="role"><h3>04 · Installed capabilities</h3>Hermes, Codex and OpenCode, checked on this machine.</div>
+<div class="role"><h3>05 · Outcome evidence</h3>Proposed workflows are separate from successfully completed work.</div>
+</div><div class="card soft"><h3>Strict authority</h3><p>OBSERVE → AUTO (bounded) → APPROVAL → PHYSICAL</p><p class="micro">This first build only stages agent configuration. No automated scheduler, writes to remote services, or physical actions are turned on.</p></div></div>
+</div></section>
+
+<section id="sky" class="view hidden">
+<div class="row between"><h2>Celestial dashboard</h2><button id="refreshSky">Refresh observations</button></div>
+<div id="skyMissing" class="notice warning">Select or create a profile to see personal astronomy.</div>
+<div id="skyPresent" class="hidden">
+<div class="metrics"><div class="metric">Current planetary hour<strong id="mHour">—</strong><small id="mRange"></small></div>
+<div class="metric">Lunar phase<strong id="mMoon">—</strong><small id="mIllum"></small></div><div class="metric">Natal precision<strong id="mPrecision">—</strong><small id="mChartNote"></small></div></div>
+<div class="layout"><div class="card"><h3>Apparent geocentric tropical chart</h3><canvas id="chart" width="620" height="620" role="img" aria-label="Planet positions drawn around the zodiac"></canvas><div class="micro" id="chartStamp"></div></div>
+<div class="card"><h3>Natal positions · recorded input</h3><div id="natalInfo" class="notice"></div><table><thead><tr><th>Planet</th><th>Position</th><th>Traditional dignity</th></tr></thead><tbody id="natalRows"></tbody></table></div></div>
+<div class="card"><h3>24 planetary hours · solar day</h3><div class="notice">Each interval spans a fraction of daylight or nighttime between calculated solar events. These are NOT ordinary 60-minute hours.</div><table><thead><tr><th>#</th><th>Local start</th><th>Local end</th><th>Ruler</th><th>Period</th></tr></thead><tbody id="hourRows"></tbody></table></div>
+</div></section>
+
+<section id="agents" class="view hidden">
+<div class="layout"><div class="card"><h2>Your Agent Architect</h2><p class="muted">See exactly what roles are proposed, which runtimes are installed, and which commands they could use before creating a private project workspace.</p><div id="agentInfo" class="notice warning">Select a profile.</div>
+<div id="agentRoles"></div><button id="stageAgents" class="primary" disabled>Stage profile-specific agent workspace</button><p class="micro">Staging is a local file write only. No global settings are replaced and no external tasks run.</p></div>
+<div class="card"><h3>Adapter readiness</h3><div id="agentCapabilities"></div><h3>Compiled workspace</h3><pre id="agentResult" style="white-space:pre-wrap;overflow-wrap:anywhere;color:var(--cyan);font-size:12px"></pre><p class="micro">Open your new workspace as a trusted project. Review the configuration before enabling tools. Staged Hermes skill is not globally installed.</p></div></div></section>
+
+<section id="studio" class="view hidden">
+<div class="layout"><div class="card"><h2>Planetary Kamea Studio</h2><p>Mathematically validated 3×3–9×9 magic squares associated with the seven classical planets. These orientations are generated, not asserted as exact historical reproductions.</p>
+<label for="planetSelect">Traditional planet</label><select id="planetSelect"><option>Saturn</option><option>Jupiter</option><option>Mars</option><option>Sun</option><option>Venus</option><option>Mercury</option><option>Moon</option></select><button id="renderMagic">Generate square</button>
+<div id="magicMeta" class="notice"></div><div class="magic" id="magicSquare"></div></div>
+<div class="card"><h3>Source interpretation</h3><div id="correspondence"></div><div class="notice warning">Magic-square arithmetic is testable; esoteric associations are cultural traditions and are not experimentally established effects.</div></div></div></section>
+
+<section id="sources" class="view hidden">
+<div class="card"><h2>Sources, limitations & evidence</h2>
+<div class="grid2">
+<div><h3>Scientific calculation layer</h3><p><a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener">Astronomy Engine</a> — astronomical ephemeris and planetary positions.</p><p><a href="https://github.com/sffjunkie/astral" target="_blank" rel="noopener">Astral</a> — solar sunrise/sunset calculations.</p><p>Timezone handling uses IANA zoneinfo. Natal houses and ascendant calculations remain unavailable.</p></div>
+<div><h3>Interpretive layer</h3><p>Planetary hours, the Arbatel associations, lunar mansions and kamea are presented as traditional correspondences.</p><p>Birth dates never grant agent abilities or authorize actions. No prediction of real-world events is scientifically claimed.</p></div>
+</div>
+<h3>Zero-star GitHub research leads</h3><div id="sourceRepos"></div>
+<div class="notice warning">Third-party project capabilities are discovery leads, not security approvals. Unverified licenses or code must not be copied into the core.</div>
+<h3>Privacy and runtime constraints</h3><p>This early local build is restricted to the trusted X1 operating-system account. It is not suitable for public hosting or shared-machine access. Saving a profile is opt-in; only the explicit birthplace search sends a place string externally.</p>
+</div></section>
+
+<footer><span class="gold">FR3KD3V // VERIFY REALITY</span> · OBSERVE → VERIFY → RECONCILE → IMPROVE → TEST → RECORD · Experimental local preview · No unverified prediction or authority transfer</footer>
+</main>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const state = {id:null, profile:null, astro:null, plan:null, places:[]};
+const glyphs = {Sun:'☉',Moon:'☽',Mercury:'☿',Venus:'♀',Mars:'♂',Jupiter:'♃',Saturn:'♄'};
+const signs = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
+function text(el,value){el.textContent=String(value===null||value===undefined?'—':value);}
+function node(tag,value,cls){const e=document.createElement(tag);if(value!==undefined)text(e,value);if(cls)e.className=cls;return e;}
+function note(value,err){const msg=$('message');text(msg,value);msg.style.color=err?'var(--danger)':'var(--cyan)';}
+async function api(path,method='GET',payload){
+ const opt={method,headers:{}};if(payload!==undefined){opt.headers['Content-Type']='application/json';opt.body=JSON.stringify(payload);}
+ const r=await fetch(path,opt);let data;try{data=await r.json()}catch{throw new Error('Invalid server response');}
+ if(!r.ok){let detail=data.detail||'Request failed';if(Array.isArray(detail))detail=detail.map(x=>x.msg).join('; ');throw new Error(detail);}
+ return data;
+}
+function view(which){document.querySelectorAll('section.view').forEach(e=>e.classList.toggle('hidden',e.id!==which));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===which));if(which==='studio')renderMagic();if(which==='sources')loadSources();if(which==='agents')loadPlan();if(which==='sky')loadSky();}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>view(b.dataset.view)));
+function selectedNumber(id){const v=$(id).value.trim();return v===''?null:Number(v);}
+function profilePayload(){
+ const bLat=selectedNumber('birthlat'),bLon=selectedNumber('birthlon'),cLat=selectedNumber('currentlat'),cLon=selectedNumber('currentlon');
+ if((bLat===null)!==(bLon===null))throw new Error('Enter both birthplace latitude and longitude');
+ if((cLat===null)!==(cLon===null))throw new Error('Enter both current location coordinates');
+ const tz=$('birthtz').value.trim();
+ const birth={date:$('dob').value,time:$('btime').value||null,timezone:tz,birthplace_confirmed:$('birthconfirmed').checked};
+ if(bLat!==null)birth.birthplace={name:$('birthplace').value.trim(),latitude:bLat,longitude:bLon,timezone:tz};
+ const payload={alias:$('alias').value.trim(),birth,goals:$('goals').value,
+     agents:[...document.querySelectorAll('input[name=agent]:checked')].map(e=>e.value),
+     traditions:['planetary_hours','hermetic','kamea','lunar_mansions'],
+     privacy_consent:$('consent').checked};
+ if(cLat!==null)payload.current_location={name:'User-selected observation point',latitude:cLat,longitude:cLon,timezone:$('currenttz').value.trim()};
+ return payload;
+}
+$('onboardForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ try{const data=profilePayload();if(!data.alias)throw Error('Enter profile name');
+ let saved;
+ if(state.id&&state.profile&&state.profile.alias===data.alias){saved=await api('/api/profiles/'+state.id,'PUT',data);}
+ else{saved=await api('/api/profiles','POST',data);}
+ state.id=saved.id;state.profile=saved;await loadProfiles();note('Profile saved locally. Calculating precise sky positions.');view('sky');
+ }catch(err){note(err.message,true);}
+});
+$('clearForm').onclick=()=>{$('onboardForm').reset();state.id=null;state.profile=null;state.astro=null;note('Form cleared; stored profiles are not deleted.');};
+$('geocode').onclick=async()=>{
+ const q=$('birthplace').value.trim();
+ if(q.length<3){note('Type a city or town name first.',true);return;}
+ note('Searching OpenStreetMap Nominatim; the place string is sent to its service.');
+ try{state.places=await api('/api/geo/search?q='+encodeURIComponent(q));const el=$('places');el.replaceChildren();
+ state.places.forEach((p,i)=>{const o=node('option',p.name);o.value=String(i);el.append(o);});
+ if(!state.places.length)throw Error('No location matches');el.classList.remove('hidden');applyPlace(0);note('Place results found. Confirm the city and supply the historical IANA timezone.');
+ }catch(err){note(err.message,true);}
+};
+function applyPlace(i){const p=state.places[i];if(!p)return;text($('birthplace'),p.name);$('birthplace').value=p.name;$('birthlat').value=p.latitude;$('birthlon').value=p.longitude;}
+$('places').onchange=e=>applyPlace(Number(e.target.value));
+async function loadProfiles(){
+ const rows=await api('/api/profiles');const sel=$('profileSelect');sel.replaceChildren();const first=node('option','Choose private profile');first.value='';sel.append(first);
+ rows.forEach(p=>{const o=node('option',p.alias);o.value=p.id;sel.append(o);});
+ sel.value=state.id||'';return rows;
+}
+function setForm(p){
+ $('alias').value=p.alias||'';$('dob').value=p.birth.date||'';$('btime').value=p.birth.time||'';
+ $('birthtz').value=p.birth.timezone||'';$('birthconfirmed').checked=!!p.birth.birthplace_confirmed;
+ const b=p.birth.birthplace||{};$('birthplace').value=b.name||'';$('birthlat').value=b.latitude??'';$('birthlon').value=b.longitude??'';
+ const c=p.current_location||{};$('currentlat').value=c.latitude??'';$('currentlon').value=c.longitude??'';$('currenttz').value=c.timezone||'';
+ $('goals').value=p.goals||'';$('consent').checked=!!p.privacy_consent;
+ document.querySelectorAll('input[name=agent]').forEach(el=>el.checked=(p.agents||[]).includes(el.value));
+}
+$('profileSelect').onchange=async e=>{
+ state.id=e.target.value||null;state.astro=null;state.plan=null;
+ if(!state.id){state.profile=null;note('Select or create a profile.');view('onboard');return;}
+ try{state.profile=await api('/api/profiles/'+state.id);setForm(state.profile);note('Loaded private profile: '+state.profile.alias);view('sky');}
+ catch(err){note(err.message,true);}
+};
+function localTime(iso){if(!iso)return '—';const zone=state.profile&&state.profile.current_location?state.profile.current_location.timezone:undefined;return new Date(iso).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',timeZone:zone});}
+function renderTable(tbody,items,fn){tbody.replaceChildren();for(const item of items){const tr=document.createElement('tr');fn(item,tr);tbody.append(tr);}}
+function td(tr,val){tr.append(node('td',val));}
+function drawChart(positions){
+ const cv=$('chart'),c=cv.getContext('2d');const w=cv.width,h=cv.height,r=w*.36,cx=w/2,cy=h/2;
+ c.clearRect(0,0,w,h);c.save();c.translate(cx,cy);c.strokeStyle='#7c674f';c.lineWidth=2;
+ [r,r*.76,r*1.12].forEach(rad=>{c.beginPath();c.arc(0,0,rad,0,Math.PI*2);c.stroke();});
+ c.font='23px Georgia';c.textAlign='center';c.textBaseline='middle';
+ for(let i=0;i<12;i++){const a=-Math.PI/2+i*Math.PI/6;c.strokeStyle='#4b516b';c.beginPath();c.moveTo(Math.cos(a)*r*.76,Math.sin(a)*r*.76);c.lineTo(Math.cos(a)*r*1.12,Math.sin(a)*r*1.12);c.stroke();const b=a+Math.PI/12;c.fillStyle='#e4c285';c.fillText(signs[i],Math.cos(b)*r*.95,Math.sin(b)*r*.95);}
+ const els=Object.entries(positions||{});
+ els.forEach(([name,v],i)=>{const a=-Math.PI/2+(v.longitude/360)*Math.PI*2;const rr=r*(.55+(i%3)*.055);const x=Math.cos(a)*rr,y=Math.sin(a)*rr;
+ c.beginPath();c.arc(x,y,22,0,Math.PI*2);c.fillStyle='#101829';c.fill();c.lineWidth=1;c.strokeStyle='#55c3d1';c.stroke();
+ c.fillStyle='#ebd7a4';c.font='25px Georgia';c.fillText(glyphs[name]||'•',x,y+1);});
+ c.font='20px Georgia';c.fillStyle='#eed39e';c.fillText('DIVINE',0,-15);c.fillText('ARSENAL',0,16);c.restore();
+}
+async function loadSky(){
+ if(!state.id){$('skyMissing').classList.remove('hidden');$('skyPresent').classList.add('hidden');return;}
+ try{
+ const data=await api('/api/astro/'+state.id);state.astro=data;$('skyMissing').classList.add('hidden');$('skyPresent').classList.remove('hidden');
+ const clock=data.planetary_clock||{},cur=clock.current;
+ text($('mHour'),cur?glyphs[cur.ruler]+' '+cur.ruler:'Unknown');text($('mRange'),cur?localTime(cur.start_local)+' – '+localTime(cur.end_local):(clock.error||'Provide current location'));
+ text($('mMoon'),data.moon.phase_name);text($('mIllum'),data.moon.approx_illumination_pct+'% approximate illumination');
+ text($('mPrecision'),data.natal.precision==='date_only'?'Date-only':'Recorded time');
+ text($('mChartNote'),data.natal.precision==='date_only'?'No houses or exact angles':'Houses still unavailable');
+ text($('natalInfo'),data.natal.limitations.join(' '));
+ text($('chartStamp'),'Calculated UTC '+data.at_utc+' · geocentric tropical true ecliptic of date');
+ drawChart(data.natal.positions);
+ renderTable($('natalRows'),Object.entries(data.natal.positions),(pair,tr)=>{
+ const [p,v]=pair;td(tr,glyphs[p]+' '+p);td(tr,v.degree_in_sign.toFixed(2)+'° '+v.sign+(v.approximate?' ≈':''));td(tr,v.dignity_traditional);
+ });
+ renderTable($('hourRows'),clock.hours||[],(h,tr)=>{if(cur&&cur.number===h.number)tr.className='now';td(tr,h.number);td(tr,localTime(h.start_local));td(tr,localTime(h.end_local));td(tr,glyphs[h.ruler]+' '+h.ruler);td(tr,h.part);});
+ note('Calculated using astronomical positions; interpretations are separate.');
+ }catch(err){note(err.message,true);}
+}
+$('refreshSky').onclick=loadSky;
+async function loadPlan(){
+ if(!state.id){text($('agentInfo'),'Select a profile to design your agents.');$('stageAgents').disabled=true;return;}
+ try{const p=await api('/api/agents/'+state.id+'/preview');state.plan=p;
+ text($('agentInfo'),'Goals: '+(p.goal||'No goals declared; generic research role until you update your profile.'));
+ const roles=$('agentRoles');roles.replaceChildren();p.roles.forEach(r=>{const box=node('div',undefined,'role');box.append(node('h3',r.title),node('p',r.deliverable));roles.append(box);});
+ const cap=$('agentCapabilities');cap.replaceChildren();Object.entries(p.availability).forEach(([name,c])=>{const box=node('div',undefined,'role');box.append(node('h3',name.toUpperCase()),node('p',c.installed?'Installed on this machine':'Not found in PATH'));cap.append(box);});
+ $('stageAgents').disabled=false;text($('agentResult'),'Default OBSERVE · proposed tasks disabled · explicit approval for writes.');}
+ catch(err){note(err.message,true);}
+}
+$('stageAgents').onclick=async()=>{if(!state.id)return;try{const p=await api('/api/agents/'+state.id+'/compile','POST',{});text($('agentResult'),p.status+'\n'+p.path+'\nFiles:\n'+p.files.join('\n'));note('Private workspace staged and readable; no global agent files were changed.');}
+catch(err){note(err.message,true);}};
+async function renderMagic(){
+ const planet=$('planetSelect').value;try{const k=await api('/api/kamea/'+encodeURIComponent(planet));
+ text($('magicMeta'),planet+' · '+k.order+'×'+k.order+' · magic constant '+k.constant+' · mathematically validated');
+ const board=$('magicSquare');board.replaceChildren();board.style.gridTemplateColumns='repeat('+k.order+',1fr)';
+ k.grid.flat().forEach(n=>board.append(node('span',n)));
+ const co=await api('/api/correspondence/'+planet);const b=$('correspondence');b.replaceChildren();
+ Object.entries(co.details).forEach(([key,value])=>{b.append(node('p',key+': '+value));});
+ }catch(err){note(err.message,true);}
+}
+$('planetSelect').onchange=renderMagic;$('renderMagic').onclick=renderMagic;
+async function loadSources(){try{const r=await api('/api/research');const el=$('sourceRepos');el.replaceChildren();r.zero_star_leads.forEach(x=>{const div=node('p');const a=node('a',x.name);a.href=x.url;a.target='_blank';a.rel='noopener';div.append(a,node('span',' · '+x.note,'muted'));el.append(div);});}catch(err){note(err.message,true);}}
+(async()=>{
+ try{const health=await api('/api/health');text($('status'),'● X1 LOCAL ENGINE · '+health.version);await loadProfiles();
+ if($('profileSelect').options.length>1){$('profileSelect').selectedIndex=1;state.id=$('profileSelect').value;state.profile=await api('/api/profiles/'+state.id);setForm(state.profile);}
+ const cap=await api('/api/agents/capabilities');text($('agentResult'),'Available: '+Object.keys(cap).filter(k=>cap[k].installed).join(', '));
+ }catch(err){text($('status'),'● ENGINE UNAVAILABLE');note(err.message,true);}
+})();
+</script>
+</body></html>
