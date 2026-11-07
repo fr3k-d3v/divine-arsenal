@@ -103,7 +103,7 @@ a{color:var(--cyan);overflow-wrap:anywhere}footer{padding:25px 0;border-top:1px 
 </fieldset>
 <div class="notice">Astrology and Hermetic traditions are interpretive. All generated agent workflows begin disabled and read-only. Actions outside this project require separate permission.</div>
 <label class="check"><input id="consent" type="checkbox" required> I consent to saving this profile locally on this machine.</label>
-<div class="row"><button type="submit" class="primary">Generate my Arsenal</button><button type="button" id="clearForm">Clear form</button></div>
+<div class="row"><button type="submit" class="primary">Generate my Arsenal</button><button type="button" id="clearForm">Clear form</button><button type="button" id="exportProfile">Export selected profile</button><button type="button" id="deleteProfile">Delete selected profile</button></div>
 </form></div>
 <div><div class="card">
 <h2>Five layers of personalisation</h2>
@@ -193,6 +193,19 @@ $('onboardForm').addEventListener('submit',async e=>{
  }catch(err){note(err.message,true);}
 });
 $('clearForm').onclick=()=>{$('onboardForm').reset();state.id=null;state.profile=null;state.astro=null;note('Form cleared; stored profiles are not deleted.');};
+$('exportProfile').onclick=()=>{
+ if(!state.profile){note('Select a profile to export.',true);return;}
+ const data=JSON.stringify(state.profile,null,2);
+ const url=URL.createObjectURL(new Blob([data],{type:'application/json'}));
+ const anchor=document.createElement('a');anchor.href=url;anchor.download='divine-profile-private-'+state.id+'.json';anchor.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ note('Local private profile exported. Handle this file as sensitive personal data.');
+};
+$('deleteProfile').onclick=async()=>{
+ if(!state.id){note('Select a profile first.',true);return;}
+ if(!confirm('Delete this profile and its generated private agent workspace from this X1 account? Local backups are separate.'))return;
+ try{await api('/api/profiles/'+state.id,'DELETE');state.id=null;state.profile=null;state.astro=null;await loadProfiles();$('onboardForm').reset();note('Profile and its staged workspace deleted locally.');}
+ catch(err){note(err.message,true);}
+};
 $('geocode').onclick=async()=>{
  const q=$('birthplace').value.trim();
  if(q.length<3){note('Type a city or town name first.',true);return;}

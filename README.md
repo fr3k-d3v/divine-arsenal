@@ -12,7 +12,7 @@ profiles and a deterministic personalised AI-agent configuration generator.
 - Real sunrise-to-next-sunrise unequal planetary hours with IANA timezone handling.
 - Date-only births show explicit uncertainty; exact recorded clock times enable exact
   positions (Ascendant/houses are not yet implemented).
-- Private local multiple profiles, current location separated from birthplace.
+- Private local multiple profiles, current location separated from birthplace, manual private JSON export and profile/workspace deletion.
 - Goal-selected agent roles, project-scoped Hermes/Codex/OpenCode files, read-only MCP tools.
 - Math-verified 3×3 to 9×9 magic squares for traditional planetary associations.
 - Local dashboard, lunar/planetary timing, generated agent preview, birthplace lookup

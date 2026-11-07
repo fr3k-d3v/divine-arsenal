@@ -7,7 +7,7 @@
 - Real geocentric tropical planetary positions by MIT Astronomy Engine, numerically exercised.
 - Date-only uncertainty, DST ambiguity/nonexistent clock handling, UTC / IANA zone calculations.
 - 24 consecutive sunrise-to-sunrise traditional planetary hours; 7 planetary kamea validated.
-- Private local profiles isolated by IDs within a single trusted OS account.
+- Private local profiles isolated by IDs within a single trusted OS account; export and best-effort removal of generated staged workspaces.
 - Browser onboarding: explicit date/time/place/timezone, separate current observation location, goals, adapters and consent.
 - Goal-to-agent plan generation and staging under private per-profile workspaces; read-only MCP tools.
 - Local service bound to 127.0.0.1, user systemd restart policy, live health + synthetic-profile API checks.

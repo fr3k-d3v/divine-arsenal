@@ -132,7 +132,7 @@ def delete_profile(profile_id: str):
     if not store.delete_profile(profile_id):
         raise HTTPException(404, "Profile not found")
     return {"deleted": True, "profile_id": profile_id,
-            "note": "Staged agent files require independent owner review/deletion."}
+            "note": "Profile database row and its staged local agent workspace removed; backups remain separate."}
 
 
 @app.get("/api/astro/{profile_id}")

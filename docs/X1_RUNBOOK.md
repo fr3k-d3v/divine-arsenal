@@ -16,7 +16,9 @@ journalctl --user -u divine-arsenal-universal.service -n 50 --no-pager
 
 For a private user profile, use the browser onboarding. Do not commit private data.
 The profile form asks date of birth, optional time, city/coordinates, IANA timezone,
-declared goals, desired agents and consent. Review stored fields before use.
+declared goals, desired agents and consent. The profile can be exported to a private JSON
+file or deleted along with the corresponding staged agent workspace. Backups/exports
+must be managed separately. Review stored fields before use.
 The `DEMO SYNTHETIC` test profile is not a real person's profile.
 
 After building a personal plan, the Agent Architect stages project-scoped files under

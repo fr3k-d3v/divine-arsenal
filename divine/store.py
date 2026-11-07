@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import sqlite3
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
@@ -22,6 +23,7 @@ def _connect():
         path.chmod(0o600)
     con.row_factory = sqlite3.Row
     con.execute("PRAGMA journal_mode=WAL")
+    con.execute("PRAGMA secure_delete=ON")
     con.execute("""CREATE TABLE IF NOT EXISTS profiles (
         id TEXT PRIMARY KEY,
         payload TEXT NOT NULL,
@@ -69,4 +71,9 @@ def update_profile(profile_id: str, payload: dict) -> dict | None:
 def delete_profile(profile_id: str) -> bool:
     with _connect() as db:
         cur = db.execute("DELETE FROM profiles WHERE id=?", (profile_id,))
+    if cur.rowcount:
+        # Per-profile staged agent artifacts are private data too.
+        workspace = private_root() / "workspaces" / profile_id
+        if workspace.is_dir() and not workspace.is_symlink():
+            shutil.rmtree(workspace)
     return cur.rowcount > 0

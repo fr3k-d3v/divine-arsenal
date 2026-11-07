@@ -60,8 +60,11 @@ def test_local_api_profiles_and_chart(isolated):
     staged=client.post("/api/agents/"+uid+"/compile",json={})
     assert staged.status_code==200,staged.text
     assert staged.json()["status"]=="staged_not_activated"
+    staged_path = Path(staged.json()["path"])
+    assert staged_path.is_dir()
     assert client.get("/api/kamea/Sun").json()["constant"]==111
     assert client.delete("/api/profiles/"+uid).json()["deleted"] is True
+    assert not staged_path.exists()
     assert client.get("/api/profiles/"+uid).status_code==404
 
 def test_local_api_rejects_cross_origin_write(isolated):
