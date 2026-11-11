@@ -53,3 +53,15 @@ profile's agent plan; **no global Hermes/Codex/OpenCode settings are modified**.
 [astral](https://github.com/sffjunkie/astral) (Apache-2.0),
 [Model Context Protocol](https://github.com/modelcontextprotocol/python-sdk) (MIT).
 Consult each upstream distribution for exact bundled license terms.
+
+
+## Research corpus and developer execution
+
+The photographed-source research, archival references, evidence model, rights constraints and engineering translation are documented in:
+
+- [Photographed source corpus and Divine Arsenal design](docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md)
+- [Primary-source research addendum](docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md)
+- [AI developer master execution plan](docs/AI_DEV_EXECUTION_PLAN.md)
+- [Omarchy AI developer handoff prompt](docs/AI_DEV_HANDOFF_PROMPT.md)
+
+The execution plan is authoritative for phased implementation. It keeps original sources, historical scholarship, tradition-specific interpretations, reconstructions and hypotheses distinct. It also establishes rights, privacy, provenance, testing and approval gates.
