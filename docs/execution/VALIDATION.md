@@ -35,3 +35,8 @@ Local server: `DIVINE_DATA_DIR=$PWD/private/session UV_CACHE_DIR=/tmp/divine-uv-
 Local API/HTML checks return expected content; no private real profiles were used.
 Only the loopback app is started; no global agent, provider, scheduler or systemd
 service is installed or activated. No deployment, merge, DNS changes or paid API.
+
+Final running-process HTTP smoke (exit 0): urllib requests to `/api/health`,
+`/api/sources`, `/api/psalter`, `/api/docs` all 200 with expected content; no
+private profile data printed. PID at check: 303516. This is local runtime
+verification only. Final code milestone: `de0bc27`.

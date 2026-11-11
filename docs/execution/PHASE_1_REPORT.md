@@ -13,3 +13,7 @@ agent mutation, paid API, remote writes or physical actions. Original test text
 and synthetic fixtures are labelled. NOT DEPLOYED; branch remains unmerged.
 Next work follows the open gates in the acceptance matrix; passing a slice does
 not mean the complete phase or Research Edition 1.0 is ready.
+
+Files/scope: divine/catalogue.py; divine/data/catalogue.json; divine/data/catalogue.schema.json; divine/research_api.py; docs/research/*REGISTER.md
+
+Implementation milestone: `de0bc27`; baseline milestone: `881bc87`.
