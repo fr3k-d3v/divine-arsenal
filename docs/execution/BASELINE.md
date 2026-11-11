@@ -26,3 +26,18 @@ The current Source Atlas is a static JS array, without citations/rights records.
 Psalter creates 150 external KJV links, five correct ranges, but has no edition
 model, text provider or coordinate mapping. No Hebrew/IIIF/TEI/SVG export exists.
 Runtime/UI evidence will be recorded separately. No deployment performed.
+
+## Reconciled baseline
+
+`timeout 35 uv run pytest -vv tests/test_profiles_agents.py::test_local_api_profiles_and_chart`
+and a 15-second faulthandler run exited 124 in the sandbox. Stack evidence pointed
+to TestClient/AnyIO cross-thread event-loop waiting at the first health request.
+The initial unbounded run was interrupted (130), rather than reported as passed.
+The identical full command `UV_CACHE_DIR=/tmp/divine-uv-cache uv run pytest -q`
+in the permitted local environment exited 0: **32 passed, one existing
+Starlette/httpx deprecation warning, 0.20 s**. No test was weakened or skipped.
+
+Baseline documentation committed as `881bc87`. Git's default sandbox index write
+was read-only (128); authorized feature-branch commits work in the permitted
+execution environment. External DNS restrictions were not escalated or bypassed.
+Phase 0 inventory and baseline gate: PASS. Public PR/CI inspection remains BLOCKED.

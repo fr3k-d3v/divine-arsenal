@@ -1,0 +1,12 @@
+{
+  "browser": "Chrome/155.0.8059.84",
+  "assertions": 19,
+  "consoleExceptions": [],
+  "externalRequests": [],
+  "viewports": [
+    "1440x1100",
+    "390x844"
+  ],
+  "remoteImagesRequested": false,
+  "limitations": "No full WCAG audit, screen reader, real institution or human-use verification"
+}

@@ -2,14 +2,14 @@
 
 | ID | Dependency | State | Work |
 |---|---|---|---|
-| P0-AUDIT | none | IN PROGRESS | baseline, API hang, runtime audit |
-| P1-ATLAS | P0 | NOT STARTED | validated catalogue, rights, provenance, search |
-| P2-PSALTER | P1 model | NOT STARTED | 150 records, editions, split/merge coordinates |
-| P3-LANGUAGE | P1 model | NOT STARTED | named Hebrew scheme, trace and RTL |
-| P4-IIIF | P1 model | NOT STARTED | safe local manifest adapter and viewer |
-| P5-SVG | existing arithmetic | NOT STARTED | deterministic labelled SVG export |
-| P8-UI | model tests | NOT STARTED | integrated controls, keyboard/mobile checks |
-| P9-SECURITY | P0 | NOT STARTED | Host/origin, limits, import abuse |
+| P0-AUDIT | none | PASS | baseline reproduced; sandbox hang isolated |
+| P1-ATLAS | P0 | IN PROGRESS | 27 records/schema/rights/search implemented; fresh source verification pending |
+| P2-PSALTER | P1 model | IN PROGRESS | 150-record index/coordinate model implemented; text and verse review pending |
+| P3-LANGUAGE | P1 model | IN PROGRESS | two named schemes/trace/RTL implemented; inventory/transformations pending |
+| P4-IIIF | P1 model | IN PROGRESS | bounded local subset + synthetic viewer tested; institutional proof blocked |
+| P5-SVG | existing arithmetic | IN PROGRESS | labelled SVG tested; full editor/source trace pending |
+| P8-UI | model tests | IN PROGRESS | integrated UI/browser smoke; full a11y/manual checks pending |
+| P9-SECURITY | P0 | IN PROGRESS | Host/origin/limits/import/path tests added; full audits pending |
 | R-REMOTE | network | BLOCKED | PR/CI, fresh institutional/standards retrieval |
 | R-RIGHTS | source evidence | BLOCKED | rights-cleared Psalm text edition |
 | R-GRID | exact folio | UNKNOWN | 49×49 resemblance remains HYPOTHESIS |

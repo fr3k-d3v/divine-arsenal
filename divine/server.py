@@ -8,14 +8,15 @@ from pathlib import Path
 from typing import Literal
 from zoneinfo import ZoneInfo
 from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pydantic import BaseModel, Field, model_validator
 from . import __version__
 from . import agents, astro, store
+from .research_api import router as research_router
 
-ROOT = Path(__file__).resolve().parent.parent
 app = FastAPI(title="Divine Arsenal Universal", version=__version__,
-              docs_url="/api/docs", redoc_url=None)
+              docs_url=None, redoc_url=None)
+app.include_router(research_router)
 
 
 class Location(BaseModel):
@@ -75,21 +76,50 @@ async def local_security(request: Request, call_next):
     # Local-first service; no authenticated multi-user internet deployment.
     if request.client and request.client.host not in ("127.0.0.1", "::1", "testclient"):
         return JSONResponse(status_code=403, content={"detail": "Local access only"})
-    if request.method not in ("GET", "HEAD", "OPTIONS"):
-        origin = request.headers.get("origin")
-        if origin and origin not in ("http://127.0.0.1:8768", "http://localhost:8768"):
-            return JSONResponse(status_code=403, content={"detail": "Invalid origin"})
-        if request.method in ("POST", "PUT", "PATCH") and "application/json" not in request.headers.get("content-type", ""):
+    host = request.headers.get("host", "")
+    allowed_hosts = {"127.0.0.1", "localhost", "[::1]"}
+    if request.client and request.client.host == "testclient":
+        allowed_hosts.add("testserver")
+    if host.split(":")[0] not in allowed_hosts and not (host.startswith("[::1]") and host[5:] in ("", ":8768")):
+        return JSONResponse(status_code=400, content={"detail": "Invalid local Host"})
+    origin = request.headers.get("origin")
+    if (origin and origin not in ("http://127.0.0.1:8768", "http://localhost:8768")) or request.headers.get("sec-fetch-site") == "cross-site":
+        return JSONResponse(status_code=403, content={"detail": "Invalid origin"})
+    if request.method in ("POST", "PUT", "PATCH"):
+        if request.headers.get("content-type", "").split(";")[0].strip().lower() != "application/json":
             return JSONResponse(status_code=415, content={"detail": "Use application/json"})
+        # Bound chunked input too; never trust Content-Length alone.
+        chunks, size = [], 0
+        async for chunk in request.stream():
+            size += len(chunk)
+            if size > 1_048_576:
+                return JSONResponse(status_code=413, content={"detail": "JSON body exceeds 1 MiB"})
+            chunks.append(chunk)
+        request._body = b"".join(chunks)
     response = await call_next(request)
     if request.url.path.startswith("/api/"):
         response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "no-referrer"
+    response.headers.setdefault("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: https://iiif.wellcomecollection.org https://tile.loc.gov https://iiif.io https://ids.lib.harvard.edu https://media.nga.gov; connect-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'self'")
     return response
 
 
 @app.get("/")
 def index():
-    return FileResponse(ROOT / "web" / "index.html", headers={"Cache-Control": "no-cache"})
+    return FileResponse(Path(__file__).resolve().parent / "web" / "index.html", headers={"Cache-Control": "no-cache"})
+
+
+@app.get("/api/docs", response_class=HTMLResponse, include_in_schema=False)
+def api_docs():
+    # Local documentation must not silently load third-party JavaScript.
+    return """<!doctype html><html lang="en"><meta charset="utf-8">
+    <title>Divine Arsenal local API</title><main><h1>Local API reference</h1>
+    <p>Experimental, single-owner loopback API. No hosted authentication.</p>
+    <p><a href="/openapi.json">OpenAPI schema with all routes and request models</a></p>
+    <p><a href="/api/sources/schema">Source catalogue JSON Schema</a></p>
+    <p>Research imports validate metadata only; no remote downloads or persistence.</p>
+    <p><a href="/">Return to the workbench</a></p></main></html>"""
 
 
 @app.get("/api/health")
@@ -129,6 +159,7 @@ def update_profile(profile_id: str, input: Profile):
 
 @app.delete("/api/profiles/{profile_id}")
 def delete_profile(profile_id: str):
+    _read_profile(profile_id)
     if not store.delete_profile(profile_id):
         raise HTTPException(404, "Profile not found")
     return {"deleted": True, "profile_id": profile_id,
@@ -212,10 +243,6 @@ def main():
     uvicorn.run("divine.server:app", host="127.0.0.1", port=8768, log_level="info")
 
 
-if __name__ == "__main__":
-    main()
-
-
 @app.get("/api/kamea/{planet}")
 def get_kamea(planet: str):
     from .traditions import planetary_kamea
@@ -232,3 +259,7 @@ def correspondence(planet: str):
         raise HTTPException(404, "Unknown planet")
     return {"planet": planet.title(), "details": PLANETARY[planet.title()],
             "status": "HISTORICAL SYMBOLISM, NOT VERIFIED CAUSATION"}
+
+
+if __name__ == "__main__":
+    main()

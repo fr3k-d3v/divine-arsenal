@@ -6,7 +6,8 @@ import sqlite3
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
-from uuid import uuid4
+from uuid import UUID, uuid4
+from contextlib import contextmanager
 
 
 def private_root() -> Path:
@@ -16,6 +17,7 @@ def private_root() -> Path:
     return root
 
 
+@contextmanager
 def _connect():
     path = private_root() / "profiles.sqlite3"
     con = sqlite3.connect(path, timeout=10)
@@ -31,7 +33,11 @@ def _connect():
         updated_at TEXT NOT NULL
     )""")
     con.commit()
-    return con
+    try:
+        with con:
+            yield con
+    finally:
+        con.close()
 
 
 def create_profile(payload: dict) -> dict:
@@ -69,11 +75,19 @@ def update_profile(profile_id: str, payload: dict) -> dict | None:
 
 
 def delete_profile(profile_id: str) -> bool:
+    workspace = private_root() / "workspaces" / safe_profile_id(profile_id)
+    if not workspace.resolve().is_relative_to(private_root().resolve()):
+        raise ValueError("Workspace path escapes private storage")
     with _connect() as db:
         cur = db.execute("DELETE FROM profiles WHERE id=?", (profile_id,))
     if cur.rowcount:
         # Per-profile staged agent artifacts are private data too.
-        workspace = private_root() / "workspaces" / profile_id
         if workspace.is_dir() and not workspace.is_symlink():
             shutil.rmtree(workspace)
     return cur.rowcount > 0
+
+
+def safe_profile_id(value: str) -> str:
+    if str(UUID(value)) != value:
+        raise ValueError("Canonical profile UUID required")
+    return value

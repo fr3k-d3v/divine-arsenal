@@ -1,0 +1,3 @@
+recursive-include tests/fixtures *.json *.xml
+include tests/ui_smoke.mjs
+include tests/check_web.mjs

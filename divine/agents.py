@@ -7,8 +7,9 @@ import json
 import os
 import shutil
 import sys
+import tempfile
 from pathlib import Path
-from .store import private_root
+from .store import private_root, safe_profile_id
 
 ROLE_LIBRARY = {
     "engineering": {"triggers": ("code", "build", "developer", "software", "app", "github", "bug", "deploy"),
@@ -78,18 +79,27 @@ def make_plan(profile: dict) -> dict:
 
 
 def _write(path: Path, text: str) -> None:
+    if not path.parent.resolve().is_relative_to(private_root().resolve()):
+        raise ValueError("Workspace path escapes private storage")
     path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
-    tmp = path.with_name(path.name + ".new")
-    with open(tmp, "w", encoding="utf-8") as f:
+    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                     prefix=".staged-", delete=False) as f:
+        tmp = Path(f.name)
         f.write(text)
-    os.chmod(tmp, 0o600)
-    os.replace(tmp, path)
+    try:
+        os.chmod(tmp, 0o600)
+        os.replace(tmp, path)
+    finally:
+        tmp.unlink(missing_ok=True)
+
 
 
 def compile_workspace(profile: dict) -> dict:
     """Write a private, isolated project workspace. Does not activate global tools."""
     plan = make_plan(profile)
-    root = private_root() / "workspaces" / profile["id"]
+    root = private_root() / "workspaces" / safe_profile_id(profile["id"])
+    if not root.resolve().is_relative_to(private_root().resolve()):
+        raise ValueError("Workspace path escapes private storage")
     root.mkdir(parents=True, exist_ok=True, mode=0o700)
     lines = [
         "# Divine Arsenal Universal — personal agent instructions",

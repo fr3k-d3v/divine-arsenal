@@ -1,0 +1,241 @@
+{
+  "$defs": {
+    "Rights": {
+      "additionalProperties": false,
+      "properties": {
+        "metadata": {
+          "default": "Project-authored bibliographic summary; MIT",
+          "title": "Metadata",
+          "type": "string"
+        },
+        "text": {
+          "default": "UNKNOWN \u2014 no text bundled",
+          "title": "Text",
+          "type": "string"
+        },
+        "images": {
+          "default": "UNKNOWN \u2014 no images bundled",
+          "title": "Images",
+          "type": "string"
+        }
+      },
+      "title": "Rights",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9-]{1,79}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Author"
+        },
+        "edition": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Edition"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date"
+        },
+        "publisher": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Publisher"
+        },
+        "language": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language"
+        },
+        "institution": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Institution"
+        },
+        "shelfmark": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shelfmark"
+        },
+        "tradition": {
+          "maxLength": 100,
+          "title": "Tradition",
+          "type": "string"
+        },
+        "medium": {
+          "enum": [
+            "work",
+            "edition",
+            "manuscript",
+            "unresolved"
+          ],
+          "title": "Medium",
+          "type": "string"
+        },
+        "evidence": {
+          "enum": [
+            "VERIFIED FACT",
+            "OBSERVATION",
+            "HISTORICAL CLAIM",
+            "TRADITIONAL INTERPRETATION",
+            "RECONSTRUCTION",
+            "HYPOTHESIS",
+            "UNKNOWN",
+            "BLOCKED",
+            "CONTRADICTED"
+          ],
+          "title": "Evidence",
+          "type": "string"
+        },
+        "identification": {
+          "enum": [
+            "confirmed",
+            "probable",
+            "unresolved"
+          ],
+          "title": "Identification",
+          "type": "string"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        },
+        "accessed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Accessed"
+        },
+        "provenance": {
+          "title": "Provenance",
+          "type": "string"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        },
+        "rights": {
+          "$ref": "#/$defs/Rights"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "tradition",
+        "medium",
+        "evidence",
+        "identification",
+        "provenance",
+        "notes"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1,
+      "title": "Version",
+      "type": "integer"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/Source"
+      },
+      "maxItems": 500,
+      "title": "Sources",
+      "type": "array"
+    }
+  },
+  "required": [
+    "version",
+    "sources"
+  ],
+  "title": "Catalogue",
+  "type": "object"
+}

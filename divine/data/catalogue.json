@@ -1,0 +1,503 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "psalter",
+      "title": "Psalter — 150-work index",
+      "author": null,
+      "tradition": "Bible",
+      "medium": "work",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://bible.usccb.org/bible/psalms/0",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Five-book Hebrew editorial structure. No photographed Psalm page verified. No translation text bundled.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "holy-bible",
+      "title": "Holy Bible",
+      "author": null,
+      "tradition": "Bible",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "probable",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Photographed Bible reported in corpus. No inscription, names or private image retained; edition unresolved.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "polyglot-bible",
+      "title": "The English Version of the Polyglot Bible",
+      "author": null,
+      "tradition": "Bible",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Title-page identification in supplied corpus; exact date and edition unresolved.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      },
+      "publisher": "Samuel Bagster and Sons"
+    },
+    {
+      "id": "job",
+      "title": "Job 13–14",
+      "author": null,
+      "tradition": "Bible",
+      "medium": "work",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Passage identification reported in supplied corpus; edition unverified.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "isaiah",
+      "title": "Isaiah 2",
+      "author": null,
+      "tradition": "Bible",
+      "medium": "work",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Passage identification reported in supplied corpus; edition unverified.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "ecclesiastes",
+      "title": "Ecclesiastes 12:1",
+      "author": null,
+      "tradition": "Bible",
+      "medium": "work",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Reference reported in supplied corpus; no private inscription transcribed.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "books-enoch",
+      "title": "The Books of Enoch",
+      "author": "Joseph Lumpkin",
+      "tradition": "Enochic",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Modern compilation. Distinguish 1 Enoch, 2 Enoch, 3 Enoch and later Dee material.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "hermetica",
+      "title": "The Hermetica",
+      "author": "Timothy Freke and Peter Gandy",
+      "tradition": "Hermetic",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://wellcomecollection.org/works/mr5tzqph",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Modern popular rendering, not a critical edition of all Hermetic texts.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "agrippa-1898",
+      "title": "Three Books of Occult Philosophy or Magic — Book I",
+      "author": "Heinrich Cornelius Agrippa",
+      "tradition": "Renaissance Hermetic",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://www.loc.gov/item/11008996/",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "1898 edition, not a sixteenth-century original. Corpus reports public-domain status; fresh rights review blocked. No scan/text copied.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      },
+      "date": "1898",
+      "institution": "Library of Congress"
+    },
+    {
+      "id": "magus-1801",
+      "title": "The Magus; or, Celestial Intelligencer",
+      "author": "Francis Barrett",
+      "tradition": "Grimoire",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://www.loc.gov/item/11015009/",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Catalogue lead. Rights caveat applies to digitisation. No text/scan bundled.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      },
+      "date": "1801",
+      "institution": "Library of Congress"
+    },
+    {
+      "id": "kabbalah-unveiled",
+      "title": "The Kabbalah Unveiled",
+      "author": "S. L. MacGregor Mathers",
+      "tradition": "Hermetic Qabalah",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://original.sacred-texts.com/jud/tku/tku00.htm",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Western esoteric translation via Knorr von Rosenroth; distinct from Jewish scholarship. Exact edition unresolved.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "enochian-chart",
+      "title": "Enochian alphabet chart",
+      "author": null,
+      "tradition": "Dee / Kelley",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact chart source, glyph variant and page unknown. No invented alphabet data.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "armadel",
+      "title": "The Grimoire of Armadel",
+      "author": "S. L. MacGregor Mathers (translator)",
+      "tradition": "Grimoire",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://museumofwitchcraftandmagic.co.uk/library/1649-the-grimoire-of-armadel/",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "English publication date reported by corpus. Exact edition and manuscript witness require verification.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      },
+      "date": "1980"
+    },
+    {
+      "id": "amulets-talismans",
+      "title": "The Complete Book of Amulets & Talismans",
+      "author": "Migene González-Wippler",
+      "tradition": "Modern occult",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://wellcomecollection.org/works/rghwycut",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "summoning-spirits",
+      "title": "Summoning Spirits",
+      "author": "Konstantinos",
+      "tradition": "Modern occult",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "mastering-witchcraft",
+      "title": "Mastering Witchcraft",
+      "author": "Paul Huson",
+      "tradition": "Modern occult",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://www.paulhuson.com/index.htm",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "mythic-tarot",
+      "title": "The Mythic Tarot",
+      "author": "Juliet Sharman-Burke and Liz Greene",
+      "tradition": "Tarot",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://books.google.com/books/about/The_Mythic_Tarot.html?id=3XOIPwAACAAJ",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "rosicrucian-questions",
+      "title": "Rosicrucian Philosophy in Questions and Answers",
+      "author": "Max Heindel",
+      "tradition": "Rosicrucian",
+      "medium": "edition",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://openlibrary.org/books/OL7071802M/The_Rosicrucian_philosophy_in_questions_and_answers",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "secrets-grimoires",
+      "title": "Secrets of the Magical Grimoires",
+      "author": null,
+      "tradition": "Unresolved",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "mystical-traditions",
+      "title": "The Mystical Traditions",
+      "author": null,
+      "tradition": "Unresolved",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "anatomy-witchcraft",
+      "title": "Anatomy of Witchcraft",
+      "author": null,
+      "tradition": "Unresolved",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "tarot-court",
+      "title": "The Tarot Court Cards",
+      "author": null,
+      "tradition": "Unresolved",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "i-am-healing",
+      "title": "I Am Healing",
+      "author": null,
+      "tradition": "Unresolved",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "creation-humankind",
+      "title": "The Creation of Humankind — passage",
+      "author": null,
+      "tradition": "Unresolved",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "praise-adam",
+      "title": "In Praise of Adam — heading",
+      "author": null,
+      "tradition": "Unresolved",
+      "medium": "unresolved",
+      "evidence": "UNKNOWN",
+      "identification": "unresolved",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Exact photographed edition and rights require title/copyright-page review.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      }
+    },
+    {
+      "id": "sloane-3188",
+      "title": "John Dee’s conferences with angels",
+      "author": "John Dee",
+      "tradition": "Dee / Kelley",
+      "medium": "manuscript",
+      "evidence": "HISTORICAL CLAIM",
+      "identification": "confirmed",
+      "source_url": "https://searcharchives.bl.uk/catalog/040-002115572",
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Distinct archival object from MS 3189. Historical conference record is not verification of supernatural events.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      },
+      "date": "1581–1583",
+      "institution": "British Library",
+      "shelfmark": "Sloane MS 3188"
+    },
+    {
+      "id": "sloane-3189",
+      "title": "Liber Mysteriorum Sextus et Sanctus / Liber Logaeth",
+      "author": "Edward Kelley (transcription attributed)",
+      "tradition": "Dee / Kelley",
+      "medium": "manuscript",
+      "evidence": "HYPOTHESIS",
+      "identification": "confirmed",
+      "source_url": null,
+      "accessed": null,
+      "provenance": "docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md; docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md. Secondary repository evidence; not independently retrieved this session.",
+      "notes": "Supplied addendum reports grids from f.10r. Photo relationship is HYPOTHESIS; no folio or plate match. Shared collection URL is not an exact item identifier; direct record unresolved.",
+      "rights": {
+        "metadata": "Project-authored bibliographic summary; MIT",
+        "text": "UNKNOWN — no text bundled",
+        "images": "UNKNOWN — no images bundled"
+      },
+      "date": "1583",
+      "institution": "British Library",
+      "shelfmark": "Sloane MS 3189"
+    }
+  ]
+}

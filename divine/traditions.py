@@ -67,7 +67,7 @@ def magic_square(n: int) -> list[list[int]]:
 
 def verify_magic(a: list[list[int]]) -> bool:
     n = len(a)
-    if any(len(row) != n for row in a):
+    if n < 3 or any(len(row) != n for row in a):
         return False
     goal = n * (n*n + 1) // 2
     return (sorted(v for row in a for v in row) == list(range(1, n*n+1))

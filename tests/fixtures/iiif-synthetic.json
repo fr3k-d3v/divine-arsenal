@@ -1,0 +1,73 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://example.org/synthetic/manifest",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "Synthetic adapter fixture \u2014 no real manuscript"
+    ]
+  },
+  "rights": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "items": [
+    {
+      "id": "https://example.org/synthetic/canvas/1",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Synthetic page 1"
+        ]
+      },
+      "width": 600,
+      "height": 800,
+      "items": [
+        {
+          "id": "https://example.org/synthetic/canvas/1/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://example.org/synthetic/canvas/1/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://example.org/synthetic/canvas/1",
+              "body": {
+                "id": "https://iiif.io/synthetic-not-a-live-image/1.jpg",
+                "type": "Image",
+                "format": "image/jpeg"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://example.org/synthetic/canvas/2",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Synthetic page 2"
+        ]
+      },
+      "width": 600,
+      "height": 800,
+      "items": [
+        {
+          "id": "https://example.org/synthetic/canvas/2/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://example.org/synthetic/canvas/2/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://example.org/synthetic/canvas/2",
+              "body": {
+                "id": "https://iiif.io/synthetic-not-a-live-image/2.jpg",
+                "type": "Image",
+                "format": "image/jpeg"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
