@@ -70,3 +70,42 @@ loopback limitations. Notebook test inputs are project-original/synthetic only.
 Six solar reference vectors are independently calculated using installed Astral
 3.2, not copied from Astronomy Engine; acceptance tolerance 0.03 degrees, maximum
 observed difference ~0.00454 degrees. This is a solar algorithm cross-check only.
+
+## Final Research Edition 1.1 verification
+
+Implementation commit: `498ca14`. Evidence:
+[evidence/validation-1.1.json](evidence/validation-1.1.json).
+
+| Command / observation | Exit | Actual result |
+|---|---:|---|
+| `UV_CACHE_DIR=/tmp/divine-uv-cache uv run pytest -q --junitxml=/tmp/divine-1.1-tests.xml` | 0 | 131 passed, one existing dependency warning, 0.93 s; JUnit failures/errors/skipped all 0 |
+| `UV_CACHE_DIR=/tmp/divine-uv-cache uv run python -m compileall -q divine` | 0 | compiled |
+| `node tests/check_web.mjs` | 0 | valid JavaScript, 155 unique HTML IDs |
+| `UV_CACHE_DIR=/tmp/divine-uv-cache uv pip check` | 0 | 40 packages compatible |
+| `UV_CACHE_DIR=/tmp/divine-uv-cache uv build --offline --out-dir /tmp/divine-build-1.1-final` | 0 | source and wheel built; hashes in evidence JSON |
+| `UV_CACHE_DIR=/tmp/divine-uv-cache uv run python tests/check_wheel.py /tmp/divine-build-1.1-final/divine_arsenal_universal-0.1.0-py3-none-any.whl` | 0 | packaged import/data/UI HTTP smoke |
+| `UV_CACHE_DIR=/tmp/divine-uv-cache uv run python tests/check_installed_wheel.py /tmp/divine-build-1.1-final/divine_arsenal_universal-0.1.0-py3-none-any.whl` | 0 | actual temporary installation, imports, notebook create/delete, local HTTP |
+| `node tests/ui_smoke.mjs` against final restarted app | 0 | 41 assertions, desktop/mobile; no JS exceptions/external requests; synthetic data cleaned |
+| local PyYAML parse and expected matrix/13-step assertions | 0 | configuration syntax/shape only; remote CI UNKNOWN |
+| `git diff --check` and `git diff --cached --check` | 0 | no whitespace errors |
+| `command -v pip-audit`, `command -v gitleaks` | 1 each | scanners unavailable; no full audit claimed |
+| targeted `rg` key/token patterns over code/tests/execution docs/README | 1 | no matches; partial pattern check only |
+| source archive paths matching private/, REA directive, sqlite3 or key suffix | 1 | no matching entries; not a complete secret audit |
+| actual urllib HTTP smoke | 0 | nine endpoints return 200: /, health, sources, Psalter, notebook, graph, notebook export, local docs, OpenAPI |
+| `ss -ltnp 'sport = :8768'` | 0 | one listener at 127.0.0.1:8768, app PID 390112 |
+
+Three sampled palette contrast ratios are 8.88 (muted/surface), 16.47
+(text/input) and 11.41 (focus/surface). No form controls lack a label/ARIA name
+source. These are limited automated checks, not full rendered contrast, semantic
+quality, keyboard coverage, screen-reader testing or WCAG conformance. Updated
+mobile screenshot visually inspected; it shows part of the lab at its actual
+scroll position, not a full-page audit.
+
+Both sandbox-hung pytest sessions were interrupted explicitly (exit 130); the
+identical full local suite passes. Earlier app processes from this continuation
+were stopped before final restart. Final PID 390112 remains running in tool
+session 89722; no global service or model provider agent was launched. Health
+confirms local-only and no app automation. Notebook is empty after synthetic test
+cleanup; no real profiles or journals used. The separate untracked REA directive
+was preserved outside commits and archive inputs. Tracked implementation was
+clean after commit 498ca14. A final documentation commit records this evidence.

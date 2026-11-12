@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-12",
+  "implementation_commit": "498ca14",
+  "pytest": {
+    "tests": "131",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "0.936"
+  },
+  "browser": {
+    "browser": "Chrome/155.0.8059.84",
+    "assertions": 41,
+    "consoleExceptions": [],
+    "externalRequests": [],
+    "viewports": [
+      "1440x1100",
+      "390x844"
+    ],
+    "remoteImagesRequested": false,
+    "paletteContrast": {
+      "mutedOnSurface": 8.879792969532701,
+      "textOnInput": 16.4731795748432,
+      "focusOnSurface": 11.41340548331287
+    },
+    "formControlsWithoutName": [],
+    "limitations": "No full WCAG audit, screen reader, real institution or human-use verification"
+  },
+  "http": {
+    "/": 200,
+    "/api/health": 200,
+    "/api/sources": 200,
+    "/api/psalter": 200,
+    "/api/notebook": 200,
+    "/api/notebook/graph": 200,
+    "/api/notebook/export": 200,
+    "/api/docs": 200,
+    "/openapi.json": 200
+  },
+  "listener_observed": "127.0.0.1:8768",
+  "server_pid": 390112,
+  "isolated_ignored_storage": true,
+  "local_only": true,
+  "synthetic_notebook_cleaned": true,
+  "build_sha256": {
+    "divine_arsenal_universal-0.1.0-py3-none-any.whl": "7c57e599cdb4b143bfbb1299f681c7e8261968ee29ecb737774ec1fbc62876ad",
+    "divine_arsenal_universal-0.1.0.tar.gz": "c02bf0e0e25a53616e631796ba6d0e7a7d64cfbad3c248ffed2a1eb5135782a2",
+    ".gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+  },
+  "limits": "Synthetic local verification; no real usage, live institution, rights clearance, full TEI schema, full accessibility/security certification or remote CI proven."
+}

@@ -31,6 +31,31 @@ and next action in KNOWN_GAPS and REQUIREMENT_DISPOSITION. Do not equate the app
 users, verified institutions, agent execution or release readiness.
 
 Workbench uses loopback 127.0.0.1:8768 with ignored private/session-1.1 storage.
-Final process and health evidence will be appended after all validation. This is
+Final process and health evidence appears below. This is
 an app server, not a model provider agent. No paid calls or separate agent runtime,
 global config, service, scheduler, external account, remote Git or physical action.
+
+Final runtime observation: **PID 390112**, tool session **89722**, listening only
+on **127.0.0.1:8768**. Nine actual HTTP endpoints returned 200 with expected data;
+notebook is empty after synthetic cleanup. Final browser rerun: 41 assertions,
+no JS exceptions or external requests. Implementation commit **498ca14**;
+[evidence/validation-1.1.json](evidence/validation-1.1.json) records actual test,
+HTTP and build results. This app process is not a model-agent runtime.
+
+Next work, in order:
+
+1. Source/rights reviewers: when permitted DNS works, inspect one institutional
+   item/IIIF service and one lawful Psalm edition; verify exact verse coordinates,
+   Sloane 3189 item/folio and Enochian chart before promoting claims or text.
+2. Maintainer: finish general diagram/layer editing, local catalogue overlay,
+   richer graph entities, OCR/region overlays and broader selectors as mapped in
+   REQUIREMENT_DISPOSITION. These are still UNKNOWN, not complete.
+3. Edition/astronomy reviewers: pin full TEI schema and obtain independent precise
+   Moon/planet/observer vectors; current solar comparison is approximate only.
+4. Accessibility/security/release reviewers: full manual/automated audit, clean
+   install/remote CI matrix and real-user acceptance before release decisions.
+
+A separate untracked REA directive remains untouched and excluded from commits;
+its recovered-workspace audit/integration was not performed. No private material
+or recovered source was added to the public implementation. No push, merge,
+deployment, global configuration, scheduler or paid/provider calls occurred.
