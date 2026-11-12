@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "projectId": "divine",
+  "updatedAt": "2026-11-12T12:20:06Z",
+  "capabilities": [
+    {
+      "id": "astronomical-positions-and-lunar-cycles",
+      "state": "source-reported",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_astro.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "docs/BASELINE.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        }
+      ]
+    },
+    {
+      "id": "planetary-hours-and-lunar-mansions",
+      "state": "source-reported",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_astro.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "docs/BASELINE.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        }
+      ]
+    },
+    {
+      "id": "private-profiles-and-uncertainty",
+      "state": "implemented",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_profiles_agents.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "README.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        }
+      ]
+    },
+    {
+      "id": "agent-configuration-and-read-only-mcp",
+      "state": "implemented",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_profiles_agents.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "README.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        }
+      ]
+    },
+    {
+      "id": "planetary-magic-squares",
+      "state": "source-reported",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_magic.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "docs/BASELINE.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        }
+      ]
+    },
+    {
+      "id": "ascendant-houses-and-prediction",
+      "state": "not-implemented",
+      "evidence": [
+        {
+          "type": "roadmap",
+          "ref": "docs/ROADMAP.md",
+          "note": "Roadmap or scope record for this capability."
+        }
+      ]
+    }
+  ]
+}
