@@ -32,7 +32,16 @@
               "body": {
                 "id": "https://iiif.io/synthetic-not-a-live-image/1.jpg",
                 "type": "Image",
-                "format": "image/jpeg"
+                "format": "image/jpeg",
+                "width": 1200,
+                "height": 1600,
+                "service": [
+                  {
+                    "id": "https://iiif.io/synthetic-not-a-live-service",
+                    "type": "ImageService3",
+                    "profile": "level1"
+                  }
+                ]
               }
             }
           ]
@@ -62,7 +71,9 @@
               "body": {
                 "id": "https://iiif.io/synthetic-not-a-live-image/2.jpg",
                 "type": "Image",
-                "format": "image/jpeg"
+                "format": "image/jpeg",
+                "width": 1200,
+                "height": 1600
               }
             }
           ]

@@ -84,3 +84,74 @@ def provenance_example():
     import json
     from importlib.resources import files
     return json.loads(files('divine').joinpath('data/provenance-example.json').read_text())
+
+
+class ImageRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    manifest: dict
+    page: int = Field(ge=0, le=499)
+    region: tuple[int, int, int, int]
+    width: int = Field(ge=1, le=4096)
+
+
+@router.post('/manuscripts/image-request')
+def image_request(data: ImageRequest):
+    try:
+        return {'url': manuscripts.region_request(data.manifest, data.page, data.region, data.width),
+                'retrieved': False}
+    except (ValueError, KeyError, TypeError, AttributeError, IndexError) as exc:
+        raise HTTPException(422, 'Unsupported image service or region') from exc
+
+
+class TEIInput(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    xml: str = Field(max_length=1_048_576)
+
+
+@router.post('/transcriptions/tei/validate')
+def validate_tei(data: TEIInput):
+    from . import tei
+    try:
+        return {'document': tei.decode(data.xml), 'persisted': False,
+                'validation': 'Project exchange profile v1 only; not full TEI P5 schema validation'}
+    except ValueError as exc:
+        raise HTTPException(422, 'Invalid or unsupported TEI exchange profile') from exc
+
+
+class Transformation(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    text: str = Field(min_length=1, max_length=2000)
+    algorithm: str = Field(max_length=80)
+    offset: int = Field(default=0, ge=-2000, le=2000)
+
+
+@router.post('/language/transform')
+def text_transformation(data: Transformation):
+    try:
+        return language.transform(data.text, data.algorithm, data.offset)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
+class GridTransformation(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    cells: list[list[str]] = Field(min_length=1, max_length=49)
+    operation: str = Field(max_length=80)
+
+
+@router.post('/language/grid')
+def grid_transformation(data: GridTransformation):
+    try:
+        return language.transform_grid(data.cells, data.operation)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
+@router.get('/psalter/{number}/reference')
+def psalm_verse_reference(number: int, text_edition: str = Query(min_length=1, max_length=200),
+                         index_edition: str = Query('mt-index', max_length=40),
+                         verse_start: int = Query(ge=0, le=999), verse_end: int | None = Query(None, ge=0, le=999)):
+    try:
+        return psalter.verse_reference(number, index_edition, text_edition, verse_start, verse_end)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc

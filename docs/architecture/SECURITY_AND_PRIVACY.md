@@ -28,3 +28,14 @@ Validation: tests/test_research.py threat cases and browser smoke. No fresh CVE
 audit or dedicated secret scanner available; uv dependency compatibility is not a
 vulnerability audit. Manual diff review and targeted secret-pattern scan are only
 partial checks. Do not call this production ready.
+
+
+Research Edition 1.1 adds strict private notebook imports with atomic rollback,
+version/kind/coordinate/Unicode validation and optimistic concurrency. Backup
+capacity stays under the API's 1 MiB boundary; imports assign fresh IDs and never
+execute content. Profile data is excluded from notebook backups. TEI rejects DTDs,
+entities, processing instructions and unknown/inconsistent profile structures.
+Default local-only mode blocks external geocoding and image origins in CSP as
+well as disabling image actions. No model, scheduler, telemetry or remote write.
+Deletion removes notebook rows/revisions, not independent exports or filesystem
+backups; no encryption, authentication or forensic erasure is claimed.

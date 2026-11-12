@@ -40,3 +40,33 @@ Final running-process HTTP smoke (exit 0): urllib requests to `/api/health`,
 `/api/sources`, `/api/psalter`, `/api/docs` all 200 with expected content; no
 private profile data printed. PID at check: 303516. This is local runtime
 verification only. Final code milestone: `de0bc27`.
+
+## Research Edition 1.1 continuation — phase 11
+
+- Fresh baseline: `UV_CACHE_DIR=/tmp/divine-uv-cache uv run pytest -q`: 76 passed.
+  Sandboxed TestClient again hung; identical permitted local command passes.
+- Updated full suite: same command: 101 passed, one existing warning (0.63 s).
+- `uv run python -m compileall -q divine`: exit 0.
+- `node tests/check_web.mjs`: exit 0, 142 unique IDs and valid inline JS.
+- `uv pip check`: exit 0, 40 installed packages compatible, not CVE audit.
+- `uv build --offline --out-dir /tmp/divine-build-1.1`: exit 0, sdist + wheel.
+- `uv run python tests/check_wheel.py /tmp/divine-build-1.1/*.whl`: exit 0.
+- `uv run python tests/check_installed_wheel.py /tmp/divine-build-1.1/*.whl`:
+  exit 0; real wheel installation in temporary venv without downloads; imports,
+  packaged UI/data, HTTP and private notebook create/delete verified. Dependency
+  modules reused from project site-packages; this is not a clean OS install.
+- `node tests/ui_smoke.mjs`: exit 0, Chromium 155, 34 assertions at 1440×1100 and
+  390×844, zero JS exceptions/external requests; evidence JSON and screenshots
+  regenerated. Keyboard simulation first failed; complete native Enter event
+  corrected the test and all assertions reran. No assertions skipped.
+- `git diff --check`: exit 0.
+- Python socket DNS probes: www.loc.gov, iiif.io, www.bl.uk each failed with
+  `gaierror [Errno -3] Temporary failure in name resolution`. No fresh access date
+  or verified institutional/rights claim added.
+
+All uv commands above use UV_CACHE_DIR=/tmp/divine-uv-cache. Test/browser/wheel
+HTTP execution uses the permitted local environment due to sandbox thread and
+loopback limitations. Notebook test inputs are project-original/synthetic only.
+Six solar reference vectors are independently calculated using installed Astral
+3.2, not copied from Astronomy Engine; acceptance tolerance 0.03 degrees, maximum
+observed difference ~0.00454 degrees. This is a solar algorithm cross-check only.

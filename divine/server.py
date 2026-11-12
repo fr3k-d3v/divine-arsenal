@@ -1,6 +1,7 @@
 """Loopback-only local application. No cloud account, no remote profile sharing."""
 from __future__ import annotations
 import json
+import os
 import urllib.parse
 import urllib.request
 from datetime import date, datetime
@@ -17,6 +18,8 @@ from .research_api import router as research_router
 app = FastAPI(title="Divine Arsenal Universal", version=__version__,
               docs_url=None, redoc_url=None)
 app.include_router(research_router)
+from .notebook_api import router as notebook_router
+app.include_router(notebook_router)
 
 
 class Location(BaseModel):
@@ -102,6 +105,8 @@ async def local_security(request: Request, call_next):
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["Referrer-Policy"] = "no-referrer"
     response.headers.setdefault("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: https://iiif.wellcomecollection.org https://tile.loc.gov https://iiif.io https://ids.lib.harvard.edu https://media.nga.gov; connect-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'self'")
+    if os.environ.get("DIVINE_ALLOW_NETWORK") != "1":
+        response.headers["Content-Security-Policy"] = response.headers["Content-Security-Policy"].replace("img-src 'self' blob: https://iiif.wellcomecollection.org https://tile.loc.gov https://iiif.io https://ids.lib.harvard.edu https://media.nga.gov", "img-src 'self' blob:")
     return response
 
 
@@ -118,7 +123,7 @@ def api_docs():
     <p>Experimental, single-owner loopback API. No hosted authentication.</p>
     <p><a href="/openapi.json">OpenAPI schema with all routes and request models</a></p>
     <p><a href="/api/sources/schema">Source catalogue JSON Schema</a></p>
-    <p>Research imports validate metadata only; no remote downloads or persistence.</p>
+    <p>Source catalogue imports validate metadata only. Private notebook imports persist locally; no remote downloads.</p>
     <p><a href="/">Return to the workbench</a></p></main></html>"""
 
 
@@ -131,6 +136,7 @@ def health():
         "global_agent_configs_changed": False,
         "active_automation": False,
         "authority": "OBSERVE",
+        "local_only": os.environ.get("DIVINE_ALLOW_NETWORK") != "1",
     }
 
 
@@ -211,6 +217,8 @@ def traditions():
 @app.get("/api/geo/search")
 def search_location(q: str = Query(min_length=3, max_length=120)):
     """Explicit opt-in request sends searched city/place name to OpenStreetMap Nominatim."""
+    if os.environ.get("DIVINE_ALLOW_NETWORK") != "1":
+        raise HTTPException(403, "Local-only mode: external geocoding disabled; enter coordinates manually")
     url = "https://nominatim.openstreetmap.org/search?" + urllib.parse.urlencode(
         {"q": q, "format": "jsonv2", "limit": "5", "addressdetails": "1"})
     req = urllib.request.Request(url, headers={

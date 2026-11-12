@@ -19,3 +19,28 @@
 | Build/CI | local sdist+wheel and extracted-wheel HTTP smoke; CI extended | PASS for local build; remote CI UNKNOWN (not fetched/run here) |
 | Agent | this implementation session active; config staging retained/disabled | Optional bridge NOT STARTED; no external provider task or global activation |
 | Release 1.0 | partial slices only | NOT READY; no deployment, merge, actual external user verification |
+
+## Research Edition 1.1 phase 11 reconciliation (supersedes earlier rows)
+
+| Capability | Actual evidence | State / remaining acceptance |
+|---|---|---|
+| Transcription editor | private form, Unicode/direction, source/edition/page/line/canvas/region, editorial metadata; browser + API | IMPLEMENTED local workflow; real lawful manuscript/manual acceptance UNKNOWN |
+| Revision history | optimistic conflict test, concurrent save winner test, immutable prior payloads, copy-old-revision UI | PASS for bounded notebook; no publication/certification |
+| Private journal | local CRUD, revisions, UTF-8 backup/import, all-revision deletion, profile exclusion | PASS local synthetic lifecycle; backups remain user responsibility |
+| Tradition Graph | 27 source nodes, attributed dated source-cited edges, filters, inspector/history | IMPLEMENTED graph workflow; verified historical edge corpus BLOCKED |
+| IIIF | multilingual/context arrays, bounded annotations, ImageService3 region requests, saved canvas URLs/reload | PASS supported synthetic subset; live institution/full conformance BLOCKED |
+| TEI exchange | strict generated project profile, metadata/body consistency, DTD/entity/PI rejection | PASS project profile only; TEI P5 schema validation BLOCKED |
+| Import/export | atomic imports, fresh IDs, strict version/fields, capacity rollback, no paths/authority | PASS bounded private bundle; not public corpus publication |
+| Astronomy | six independent approximate Astral solar vectors at 0.03 degree bound | PASS solar cross-check; Moon/planet precision UNKNOWN |
+| Local-only | external geocoding blocked by default, image actions disabled, no provider | IMPLEMENTED default offline path; explicit link navigation remains user-controlled |
+| Keyboard/RTL | actual Chromium native arrow/Enter events, editor direction, reload + mobile layouts | PASS task checks only; full WCAG/manual audit UNKNOWN |
+| Build | sdist/wheel and temporary installed-wheel HTTP smoke | PASS local; remote CI UNKNOWN |
+| Research Edition 1.1 release | 131 tests and 41 browser assertions do not establish scholarly clearance or human acceptance | NOT READY; see KNOWN_GAPS for owners/actions |
+
+
+Phase 12 additions: five versioned positional letter operations and four rectangular
+grid operations with Unicode/input-position traces; edition-specific verse-coordinate
+proposals retain UNKNOWN verse existence/equivalence and null text. 131 tests pass,
+41 browser assertions, 155 unique HTML IDs; all form controls have label/ARIA name
+sources and three sampled palette contrasts exceed 4.5. Full WCAG remains UNKNOWN.
+The complete scope mapping is in REQUIREMENT_DISPOSITION.md.

@@ -66,3 +66,20 @@ def test_no_timezone_naive_fake_precision():
         astro.positions(datetime(2026,11,7))
     with pytest.raises(ValueError):
         astro.natal_chart("2026-01-01","12:00","Invalid/Zone")
+
+
+def test_independent_approximate_solar_vectors():
+    """Cross-engine regression, not an observational accuracy certificate."""
+    import json
+    from pathlib import Path
+    from astral.sun import sun_apparent_long
+    from astral.julian import julianday, julianday_to_juliancentury
+    from divine import astro
+    fixture = json.loads(Path('tests/fixtures/solar-independent.json').read_text())
+    assert fixture['label'] == 'CALCULATION'
+    for vector in fixture['vectors']:
+        at = datetime.fromisoformat(vector['utc'])
+        independently_computed = sun_apparent_long(julianday_to_juliancentury(julianday(at))) % 360
+        assert abs(astro._angle_diff(independently_computed, vector['sun_longitude_degrees'])) < 1e-7
+        calculated = astro.positions(at)['Sun']['longitude']
+        assert abs(astro._angle_diff(calculated, vector['sun_longitude_degrees'])) < fixture['tolerance_degrees']

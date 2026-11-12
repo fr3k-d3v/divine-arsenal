@@ -53,3 +53,27 @@ def index() -> dict:
     return {'editions': list(EDITIONS.values()),
             'books': [{'number': i, 'start': a, 'end': b} for i, (a, b) in enumerate(BOOKS, 1)],
             'psalms': [psalm(n) for n in range(1, 151)]}
+
+
+def verse_reference(number: int, index_edition: str, text_edition: str,
+                    verse_start: int, verse_end: int | None = None) -> dict:
+    """Edition-aware coordinate proposal, not verification of verse existence.
+
+    Zero may represent a superscription only if the named edition uses it. No
+    verse count, chapter/verse equivalence, text rights or text body is inferred.
+    """
+    chapter = psalm(number, index_edition)
+    if not isinstance(text_edition, str) or not text_edition.strip() or len(text_edition) > 200:
+        raise ValueError('A specific text edition/provider identifier is required')
+    if any(ord(c) < 32 for c in text_edition):
+        raise ValueError('Edition identifier must not contain controls')
+    if verse_end is None:
+        verse_end = verse_start
+    if any(type(n) is not int or not 0 <= n <= 999 for n in (verse_start, verse_end)) or verse_end < verse_start:
+        raise ValueError('Verse coordinates require integers 0–999 in ascending order')
+    return {'text_edition': text_edition, 'coordinate': {**chapter['coordinate'],
+            'verse_start': verse_start, 'verse_end': verse_end},
+            'work_candidates': [w['id'] for w in chapter['works']],
+            'evidence': 'UNKNOWN', 'validation': 'Coordinate structure only; verse existence, superscription convention and equivalence are UNVERIFIED for this edition.',
+            'text': None, 'text_status': chapter['text_status'],
+            'rights': 'UNKNOWN — an edition identifier is not a redistribution licence'}

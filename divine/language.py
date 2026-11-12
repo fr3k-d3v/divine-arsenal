@@ -41,3 +41,79 @@ def calculate(text: str, scheme: str) -> dict:
             'source': 'https://www.chabad.org/library/article_cdo/aid/5541252/jewish/What-Is-Gematria.htm',
             'source_status': 'General tradition reference from supplied corpus; exact software table is an explicit project reconstruction, not a transcribed historical edition.',
             'authority': 'NONE'}
+
+
+def transform(text: str, algorithm: str, offset: int = 0) -> dict:
+    """Explicit Hebrew letter-cluster operations, with original code-point spans.
+
+    Input uses the same allowed alphabet/marks/separators as calculate. Combining
+    marks travel with their preceding letter; unanchored marks are rejected.
+    Word extraction treats the supported separators as boundaries. No meaning,
+    historical attestation, hidden message, pronunciation or authority inferred.
+    """
+    calculate(text, 'hebrew-standard-v1')  # Shared bounded Unicode vocabulary.
+    if algorithm not in ('first-letter-v1', 'last-letter-v1', 'middle-left-v1',
+                         'reverse-letters-v1', 'rotate-letters-v1'):
+        raise ValueError('Choose a versioned transformation')
+    if type(offset) is not int or not -2000 <= offset <= 2000:
+        raise ValueError('Offset must be an integer in −2000…2000')
+    if algorithm != 'rotate-letters-v1' and offset != 0:
+        raise ValueError('Offset applies only to rotate-letters-v1')
+    words, current = [], []
+    for position, char in enumerate(text):
+        if FINALS.get(char, char) in LETTERS:
+            current.append({'text': char, 'start': position, 'end': position+1})
+        elif unicodedata.category(char) == 'Mn':
+            if not current:
+                raise ValueError('Combining mark must follow a letter in its word')
+            current[-1]['text'] += char
+            current[-1]['end'] = position+1
+        elif current:
+            words.append(current); current = []
+    if current:
+        words.append(current)
+    if algorithm in ('first-letter-v1', 'last-letter-v1', 'middle-left-v1'):
+        chosen = [w[0 if algorithm == 'first-letter-v1' else -1 if algorithm == 'last-letter-v1' else (len(w)-1)//2] for w in words]
+    else:
+        chosen = [cluster for word in words for cluster in word]
+        if algorithm == 'reverse-letters-v1':
+            chosen = list(reversed(chosen))
+        else:
+            shift = offset % len(chosen)
+            chosen = chosen[shift:] + chosen[:shift]
+    return {'label': 'SYMBOLIC', 'evidence': 'RECONSTRUCTION', 'authority': 'NONE',
+            'algorithm': algorithm, 'offset': offset, 'input': text,
+            'output': ''.join(c['text'] for c in chosen),
+            'trace': [{'output_position': i, 'input_start': c['start'],
+                       'input_end_exclusive': c['end'], 'text': c['text']}
+                      for i, c in enumerate(chosen)],
+            'rules': 'Logical Unicode order; letter plus following marks. Separators form words and are omitted from output. Middle chooses the earlier logical letter for even lengths. Rotation is leftward, modulo letter count. Original input and exact spans retained; no normalization.'}
+
+
+def transform_grid(cells: list[list[str]], operation: str) -> dict:
+    """Neutral rectangular matrix operations; no historical grid attribution."""
+    if (not isinstance(cells, list) or not 1 <= len(cells) <= 49
+            or not all(isinstance(row, list) and 1 <= len(row) <= 49 for row in cells)
+            or len({len(row) for row in cells}) != 1):
+        raise ValueError('Rectangular grid requires 1–49 rows and columns')
+    if any(not isinstance(c, str) or not 1 <= len(c) <= 16
+           or any(unicodedata.category(ch) in ('Cc', 'Cf', 'Cs') for ch in c)
+           for row in cells for c in row):
+        raise ValueError('Grid cells require 1–16 printable code points without controls')
+    rows, columns = len(cells), len(cells[0])
+    coordinates = [[(r, c) for c in range(columns)] for r in range(rows)]
+    if operation == 'rotate-clockwise-v1':
+        coordinates = [list(row) for row in zip(*coordinates[::-1])]
+    elif operation == 'transpose-v1':
+        coordinates = [list(row) for row in zip(*coordinates)]
+    elif operation == 'reverse-rows-v1':
+        coordinates.reverse()
+    elif operation == 'reverse-columns-v1':
+        coordinates = [list(reversed(row)) for row in coordinates]
+    else:
+        raise ValueError('Unknown versioned grid operation')
+    return {'label': 'SYMBOLIC', 'evidence': 'RECONSTRUCTION', 'authority': 'NONE',
+            'operation': operation, 'input': cells,
+            'cells': [[cells[r][c] for r, c in row] for row in coordinates],
+            'input_coordinates': coordinates,
+            'rules': 'Zero-based row,column indexing in logical array order; no historical association inferred.'}

@@ -207,3 +207,53 @@ def test_api_docs_are_offline_and_provenance_resolves():
         assert '/api/psalter/{number}' in c.get('/openapi.json').json()['paths']
         assert c.get('/api/provenance/example').json()['evidence']=='RECONSTRUCTION'
         assert c.delete('/api/profiles/not-a-uuid').status_code==404
+
+
+def test_iiif_context_multilingual_services_and_region_requests():
+    raw=fixture_manifest()
+    raw['@context']=['https://example.org/extra','http://iiif.io/api/presentation/3/context.json']
+    raw['label']={'he':['כתב יד'],'fr':['Exercice']}
+    body=raw['items'][0]['items'][0]['items'][0]['body']
+    body['service']=[{'id':'https://iiif.io/synthetic/service','type':'ImageService3','profile':'level1'}]
+    parsed=manuscripts.parse_manifest(raw)
+    assert parsed['label']=='כתב יד'
+    assert parsed['pages'][0]['image_service']=='https://iiif.io/synthetic/service'
+    assert manuscripts.region_request(raw,0,(0,0,100,100),100)=='https://iiif.io/synthetic/service/0,0,100,100/100,/0/default.jpg'
+    for page,region,width in [(2,(0,0,1,1),1),(0,(-1,0,10,10),1),(0,(0,0,0,1),1),
+                              (0,(0,0,99999,99999),1),(0,(0,0,10,10),11)]:
+        with pytest.raises(ValueError): manuscripts.region_request(raw,page,region,width)
+    body['service'][0]['id']='https://iiif.io/../escape'
+    with pytest.raises(ValueError): manuscripts.parse_manifest(raw)
+
+
+@pytest.mark.parametrize('change',[
+    lambda r:r.update(label={'en':['x'],'he':[42]}),
+    lambda r:r['items'][0].update(items=None),
+    lambda r:r['items'][0]['items'][0].update(items=[None]),
+    lambda r:r['items'][0]['items'][0]['items'][0]['body'].update(service=[None]),
+])
+def test_iiif_malformed_structure_api_returns_422(change):
+    raw=fixture_manifest();change(raw)
+    with TestClient(app) as c:
+        assert c.post('/api/manuscripts/validate',json=raw).status_code==422
+
+
+def test_image_region_uses_image_pixels_not_canvas_units():
+    raw=fixture_manifest()
+    assert raw['items'][0]['width']==600
+    assert manuscripts.region_request(raw,0,(600,800,600,800),600).endswith('/600,800,600,800/600,/0/default.jpg')
+    del raw['items'][0]['items'][0]['items'][0]['body']['width']
+    with pytest.raises(ValueError,match='pixel dimensions'): manuscripts.parse_manifest(raw)
+
+
+def test_image_request_api_local_only_no_fetch(monkeypatch):
+    import urllib.request
+    monkeypatch.setattr(urllib.request,'urlopen',lambda *a,**kw: pytest.fail('No network allowed'))
+    monkeypatch.delenv('DIVINE_ALLOW_NETWORK',raising=False)
+    with TestClient(app) as c:
+        payload={'manifest':fixture_manifest(),'page':0,'region':[600,800,100,100],'width':100}
+        result=c.post('/api/manuscripts/image-request',json=payload)
+        assert result.status_code==200 and result.json()['retrieved'] is False
+        payload['page']=1
+        assert c.post('/api/manuscripts/image-request',json=payload).status_code==422
+        assert "img-src 'self' blob:;" in c.get('/').headers['content-security-policy']

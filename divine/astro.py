@@ -15,7 +15,9 @@ from astral.sun import sun
 
 ENGINE = {"name": "astronomy-engine", "version": version("astronomy-engine"),
           "frame": "apparent geocentric tropical ecliptic of date",
-          "time_input": "UTC ISO-8601; engine derives terrestrial time internally"}
+          "time_input": "UTC ISO-8601; engine derives terrestrial time internally",
+          "precision_note": "Six longitude decimals are output rounding, not certified accuracy. Clock/location uncertainty remains input-dependent.",
+          "validation": "Independent approximate solar vectors (Astral 3.2), 2000–2030 sample dates, 0.03 degree acceptance bound; Moon and planets await independent precision validation"}
 UTC = timezone.utc
 BODIES = ("Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn")
 SIGN_NAMES = ("Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",

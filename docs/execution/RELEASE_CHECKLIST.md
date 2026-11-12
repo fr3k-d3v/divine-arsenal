@@ -8,8 +8,10 @@
 - [ ] Fresh primary-source records, edition-specific numbering/rights review.
 - [ ] One legally usable inspected text edition and attested Enochian inventory.
 - [ ] Public institutional IIIF proof and TEI schema validation/round trip.
-- [ ] Historical-source provenance workflow, transcription revisions and editor.
-- [ ] Independent astronomical reference vectors.
+- [x] Local private transcription provenance/revision/editor workflow (synthetic evidence).
+- [ ] Real lawful historical-source transcription and human acceptance.
+- [x] Independent approximate solar reference vectors.
+- [ ] Independent Moon/planet precise frame-aware reference vectors.
 - [ ] Full accessibility/security/CVE audit and manual user acceptance.
 - [ ] Remote CI verified for supported Python versions.
 - [ ] Human review before any merge/deployment (not requested in this session).

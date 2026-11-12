@@ -34,3 +34,14 @@ no historical transcription or source-image alignment is implied.
 SVG uses two groups (geometry and numbers), deterministic coordinates, visible
 RECONSTRUCTION/CALCULATION labels and algorithm metadata. It has no arbitrary
 SVG input, historical tracing, interactive geometry editor, or source image.
+
+
+Research Edition 1.1: notebook_revisions is an additive version-1 SQLite table
+in the private store, independent of profile rows. Typed transcription, journal,
+relationship and manifest documents have UUIDs and optimistic integer revisions.
+Prior payloads remain available until explicit all-revision deletion. Unknown
+fields/kinds/versions fail closed. See PHASE_11_REPORT and PHASE_12_REPORT for
+coordinates, limits and evidence. Graph edges are private researcher assertions,
+not inferred historical facts. TEI is a narrow lossless project exchange profile;
+full TEI schema certification remains blocked. Backup imports assign new UUIDs
+and local timestamps; original event times/authorship are not certified.

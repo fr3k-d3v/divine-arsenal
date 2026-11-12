@@ -111,3 +111,24 @@ blocked TestClient thread wakeups; the same tests passed in the permitted local
 execution environment. See [execution status](docs/execution/STATUS.md),
 [acceptance matrix](docs/execution/ACCEPTANCE_MATRIX.md) and
 [threat model](docs/architecture/SECURITY_AND_PRIVACY.md) for actual scope and gaps.
+
+
+Research Edition 1.1 adds a private transcription/revision editor, journal, cited
+Tradition Graph, locally saved IIIF manifests/canvas URLs, bounded private backup
+and project TEI exchange, traced Hebrew positional operations and neutral grids.
+Psalm verse-coordinate proposals name an edition but do not verify verse existence
+or load text. Default local-only mode disables geocoding/external images; enter
+observer coordinates manually. No model provider agent is launched by the server.
+
+For an isolated repository session:
+
+```sh
+DIVINE_DATA_DIR="$PWD/private/session-1.1" UV_CACHE_DIR=/tmp/divine-uv-cache uv run divine-universal serve
+```
+
+Notebook capacity: 100 documents, 100 revisions each and 900000 UTF-8 backup bytes.
+Backups include private content/history; do not publish them. Imports create new
+IDs and record local import times. TEI support is a strict project exchange profile,
+not general TEI P5 validation. Rights/source/manual acceptance gates remain open;
+see [implementation status](docs/execution/STATUS.md) and
+[requirement disposition](docs/execution/REQUIREMENT_DISPOSITION.md).

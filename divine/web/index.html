@@ -110,6 +110,8 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
  <button data-view="sources">⌘ Sources & evidence</button>
  <button data-view="psalms">▤ Psalter</button>
  <button data-view="lab">א Text & manuscript lab</button>
+ <button data-view="notebook">▥ Private notebook</button>
+ <button data-view="graph">⌁ Tradition graph</button>
 </nav>
 <div id="message" role="status" aria-live="polite"></div>
 
@@ -154,7 +156,7 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
 </form></div>
 <div><div class="card">
 <h2>Five layers of personalisation</h2>
-<div class="role"><h3>01 · Astronomical context</h3>Verified positions and sunrise timing, precision stated.</div>
+<div class="role"><h3>01 · Astronomical context</h3>Calculated positions and sunrise timing, limitations stated.</div>
 <div class="role"><h3>02 · Historical traditions</h3>Choose the symbolic systems you want to explore.</div>
 <div class="role"><h3>03 · Real-world goals</h3>Your declared outcomes drive agent specialisations.</div>
 <div class="role"><h3>04 · Installed capabilities</h3>Hermes, Codex and OpenCode, checked on this machine.</div>
@@ -216,21 +218,72 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
  <label for="psalmEdition">Coordinate edition</label><select id="psalmEdition"><option value="mt-index">Hebrew/Masoretic index</option><option value="lxx-index">Common LXX/Vulgate index</option></select>
  <div class="psalter-books" id="psalterBooks"></div>
  <div class="psalter-selected"><div><strong id="selectedPsalm">Psalm 1</strong><div class="micro" id="selectedPsalmBook">Book I · Psalms 1–41</div></div><a id="openPsalm" href="https://www.biblegateway.com/passage/?search=Psalm+1&version=KJV" target="_blank" rel="noopener">Open KJV text ↗</a></div>
- <div id="psalmDetail" class="reading" aria-live="polite"></div><div class="atlas-note">RECONSTRUCTION · Common chapter correspondences, not verse equivalence. Superscriptions and split chapters require edition-specific alignment. No translation text is bundled. External KJV links open a third-party site with its own terms.</div>
+ <label for="verseEdition">Specific text edition/provider ID for a verse coordinate (does not load text)</label><input id="verseEdition" maxlength="200" placeholder="Supply a specific edition identifier"><div class="grid2"><div><label for="verseStart">Local starting verse (0 only if edition uses it)</label><input id="verseStart" type="number" min="0" max="999" value="1"></div><div><label for="verseEnd">Local ending verse</label><input id="verseEnd" type="number" min="0" max="999" value="1"></div></div><button id="makeVerseReference">Inspect edition-aware verse coordinate</button><pre id="verseReference" role="status"></pre>
+<div id="psalmDetail" class="reading" aria-live="polite"></div><div class="atlas-note">RECONSTRUCTION · Common chapter correspondences, not verse equivalence. Superscriptions and split chapters require edition-specific alignment. No translation text is bundled. External KJV links open a third-party site with its own terms.</div>
 </div>
 </section>
 <section id="lab" class="view hidden">
 <div class="layout"><div class="card"><h2>Hebrew symbolic calculation</h2><p>SYMBOLIC · deterministic rules, no causal prediction or agent authority. Input stays local.</p>
 <label for="hebrewInput">Hebrew input (preserved code points)</label><textarea id="hebrewInput" lang="he" dir="rtl" maxlength="2000" rows="3">שלום</textarea>
 <label for="gematriaScheme">Explicit versioned scheme</label><select id="gematriaScheme"><option value="hebrew-standard-v1">Hebrew standard v1 · finals use base values</option><option value="hebrew-ordinal-v1">Hebrew ordinal v1 · 1–22</option></select><button id="calculateHebrew">Calculate with trace</button>
+<label for="letterOperation">Versioned positional operation (modern algorithm; SYMBOLIC)</label><select id="letterOperation"><option value="first-letter-v1">First letter of each word</option><option value="last-letter-v1">Last letter of each word</option><option value="middle-left-v1">Earlier middle logical letter</option><option value="reverse-letters-v1">Reverse logical letters</option><option value="rotate-letters-v1">Rotate logical letters left</option></select>
+<label for="letterOffset">Rotation offset (−2000…2000, otherwise 0)</label><input id="letterOffset" type="number" min="-2000" max="2000" value="0"><button id="transformLetters">Transform with original-position trace</button><pre id="letterResult" dir="auto" role="status"></pre>
+<details><summary>Neutral grid operations (no historical grid association)</summary><label for="gridInput">Rectangular JSON array of cells (up to 49×49)</label><textarea id="gridInput" rows="3" maxlength="100000">[["1","2","3"],["4","5","6"]]</textarea><label for="gridOperation">Versioned matrix operation</label><select id="gridOperation"><option value="rotate-clockwise-v1">Rotate clockwise</option><option value="transpose-v1">Transpose</option><option value="reverse-rows-v1">Reverse rows</option><option value="reverse-columns-v1">Reverse columns</option></select><button id="transformGrid">Transform grid</button><pre id="gridResult" role="status"></pre></details>
 <p id="languageResult" role="status"></p><p id="languageRules" class="micro"></p>
 <div id="languageTrace"><table><caption>Code point transformation trace (zero-based positions)</caption><thead><tr><th>Position</th><th>Input</th><th>Code point</th><th>Base</th><th>Value</th><th>Rule</th></tr></thead><tbody id="traceRows"></tbody></table></div></div>
-<div class="card"><h2>Manuscript viewer spike</h2><p>Paste or choose an IIIF Presentation 3 manifest. Metadata is validated locally. Images load from allowlisted institutional hosts only after clicking Load image; this sends your browser request to that institution.</p>
+<div class="card"><h2>Manuscript viewer & transcription</h2><p>Paste or choose an IIIF Presentation 3 manifest. Metadata is validated locally. Local-only sessions disable external images. In a network-enabled session, explicit image loading sends a browser request to the allowlisted institution.</p>
 <label for="manifestFile">Local JSON manifest (maximum 1 MiB)</label><input id="manifestFile" type="file" accept="application/json,.json">
 <label for="manifestInput">Manifest JSON</label><textarea id="manifestInput" rows="7" maxlength="1048576" spellcheck="false"></textarea><button id="validateManifest">Validate metadata</button>
 <p id="manifestStatus" role="status">No manuscript loaded. Institutional example verification is BLOCKED by network restrictions in this implementation session. Synthetic tests do not verify a live institution.</p>
-<label for="manifestPage">Canvas/page</label><select id="manifestPage"></select><button id="showPage" disabled>Load external page image</button><p id="pageCitation" class="micro"></p><img id="manifestImage" alt="No page selected" referrerpolicy="no-referrer">
+<button id="saveManifest">Save manifest privately for stable navigation</button><label for="savedManifest">Saved local manifests</label><select id="savedManifest"><option value="">Choose a saved manifest</option></select><button id="reloadManifests">Refresh saved manifests</button>
+<label for="manifestPage">Canvas/page</label><select id="manifestPage"></select><button id="showPage" disabled>Load external page image</button><button id="previousPage" disabled>Previous page</button><button id="nextPage" disabled>Next page</button><button id="transcribePage" disabled>Transcribe selected canvas</button>
+<label for="imageRegion">Image API region x,y,width,height (pixels)</label><input id="imageRegion" placeholder="0,0,100,100"><label for="imageWidth">Requested width (1–4096; no upscaling)</label><input id="imageWidth" type="number" min="1" max="4096" value="100"><button id="loadRegion" disabled>Load external region image</button>
+<p id="pageCitation" class="micro"></p><img id="manifestImage" alt="No page selected" referrerpolicy="no-referrer">
 </div></div></section>
+
+<section id="notebook" class="view hidden">
+<div class="card"><h2>Private research notebook</h2><p>Local only. Notebook capacity is 100 documents, 100 revisions each and 900000 UTF-8 backup bytes. Transcriptions, journal entries and research relationships stay in ignored private storage. Saving a reviewed state records your assertion; it does not verify a historical text. No automatic publishing or model calls. Exports contain private content and revision history; keep them private.</p>
+<div class="row"><button id="newDocument">New document</button><button id="exportNotebook">Download private backup</button><button id="exportTEI" disabled>Export selected transcription as TEI profile</button></div>
+<label for="teiImport">Import project TEI exchange profile (stages a new transcription; not general TEI)</label><input id="teiImport" type="file" accept=".xml,application/tei+xml">
+<label for="notebookImport">Import private backup (JSON, maximum 1 MiB; creates fresh copies)</label><input id="notebookImport" type="file" accept="application/json,.json">
+<label for="documentList">Saved documents</label><select id="documentList"><option value="">Choose a document</option></select>
+<p id="notebookStatus" role="status" aria-live="polite">No document selected</p>
+<form id="notebookForm">
+<label for="documentKind">Document type</label><select id="documentKind"><option value="transcription">Transcription</option><option value="journal">Private journal</option><option value="relationship">Attributed relationship</option></select>
+<label for="documentTitle">Title</label><input id="documentTitle" required maxlength="200">
+<div id="transcriptionFields">
+<label for="coordinateSource">Registered source</label><select id="coordinateSource"></select>
+<label for="coordinateEdition">Edition / witness description (use UNKNOWN when unresolved)</label><input id="coordinateEdition" maxlength="200">
+<label for="coordinatePage">Page / folio (use explicit synthetic label for exercises)</label><input id="coordinatePage" maxlength="200">
+<label for="coordinateCanvas">Canvas HTTPS identifier (optional)</label><input id="coordinateCanvas" type="url" maxlength="2000">
+<label for="coordinateLine">Line coordinate (optional)</label><input id="coordinateLine" maxlength="80">
+<label for="coordinateRegion">Image region x,y,width,height in pixels (optional)</label><input id="coordinateRegion" placeholder="0,0,100,100">
+<label for="transcriptionLanguage">Language tag</label><input id="transcriptionLanguage" value="und" maxlength="35">
+<label for="textDirection">Text direction</label><select id="textDirection"><option value="auto">Automatic</option><option value="rtl">Right to left</option><option value="ltr">Left to right</option></select>
+<label for="transcriptionState">Editorial state</label><select id="transcriptionState"><option>human corrected</option><option>machine draft</option><option>reviewed</option></select>
+<label for="transcriptionEngine">OCR/HTR engine and version (required for machine draft)</label><input id="transcriptionEngine" maxlength="200">
+<label for="transcriptionConfidence">Machine confidence, 0–1 (optional; not historical certainty)</label><input id="transcriptionConfidence" type="number" step="0.01" min="0" max="1">
+<label for="transcriptionRights">Rights / reuse statement (not independently certified)</label><input id="transcriptionRights" maxlength="1000">
+<label for="editorialNote">Editorial note / unclear readings</label><textarea id="editorialNote" maxlength="5000"></textarea>
+</div>
+<div id="relationshipFields" class="hidden">
+<label for="relationshipSubject">Subject source</label><select id="relationshipSubject"></select>
+<label for="relationshipObject">Object source</label><select id="relationshipObject"></select>
+<label for="relationshipPredicate">Relationship</label><select id="relationshipPredicate"><option>cites</option><option>translated-from</option><option>copied-from</option><option>influenced-by</option><option>resembles</option><option>disputes</option><option>interpreted-as</option></select>
+<label for="relationshipEvidence">Evidence class</label><select id="relationshipEvidence"><option>HYPOTHESIS</option><option>HISTORICAL CLAIM</option><option>RECONSTRUCTION</option><option>TRADITIONAL INTERPRETATION</option><option>CONTRADICTED</option><option>UNKNOWN</option><option>OBSERVATION</option></select>
+<label for="relationshipDate">Dated interval (UNKNOWN accepted)</label><input id="relationshipDate" maxlength="100" value="UNKNOWN">
+<p>Use the source, edition, page and line fields above as the relationship's inspectable citation. Shared names or resemblance do not establish influence.</p></div>
+<div id="attributionField"><label for="documentAttribution">Researcher / attribution</label><input id="documentAttribution" maxlength="200"></div>
+<label for="documentText" id="documentTextLabel">Transcription text (preserve unclear readings explicitly)</label><textarea id="documentText" rows="8" maxlength="100000" dir="auto" spellcheck="false"></textarea>
+<button type="submit" id="saveDocument">Save new revision locally</button><button type="button" id="deleteDocument" disabled>Delete document and all revisions</button>
+</form>
+<label for="revisionHistory">Revision history (viewing an old revision does not overwrite it)</label><select id="revisionHistory"></select><button id="restoreRevision" disabled>Copy selected revision into editor</button><pre id="revisionPreview" dir="auto"></pre>
+</div></section>
+<section id="graph" class="view hidden"><div class="card"><h2>Tradition graph · attributed relationships</h2><p id="graphNotice"></p><p>Registered sources are nodes. Relationships are private researcher claims with inspectable citations. No edges are inferred from catalogue groupings.</p>
+<label for="graphQuery">Filter relationship text / source ID</label><input id="graphQuery" maxlength="200">
+<label for="graphEvidence">Evidence class filter</label><select id="graphEvidence"><option value="">All classes</option><option>HYPOTHESIS</option><option>HISTORICAL CLAIM</option><option>RECONSTRUCTION</option><option>CONTRADICTED</option><option>UNKNOWN</option><option>OBSERVATION</option><option>TRADITIONAL INTERPRETATION</option></select>
+<button id="refreshGraph">Refresh graph</button><button id="addRelationship">Create attributed relationship</button><div id="graphEdges"></div><details><summary>Inspect registered graph nodes</summary><div id="graphNodes"></div></details>
+</div></section>
 
 <footer><span class="gold">FR3KD3V // VERIFY REALITY</span> · OBSERVE → VERIFY → RECONCILE → IMPROVE → TEST → RECORD · Experimental local preview · No unverified prediction or authority transfer</footer>
 </main>
@@ -250,8 +303,9 @@ async function api(path,method='GET',payload){
  if(!r.ok){let detail=data.detail||'Request failed';if(Array.isArray(detail))detail=detail.map(x=>x.msg).join('; ');throw new Error(detail);}
  return data;
 }
-function view(which){document.querySelectorAll('section.view').forEach(e=>e.classList.toggle('hidden',e.id!==which));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===which));if(which==='studio')renderMagic();if(which==='sources')loadSources();if(which==='psalms')renderPsalter().catch(err=>note(err.message,true));if(which==='agents')loadPlan();if(which==='sky')loadSky();}
+function view(which){document.querySelectorAll('section.view').forEach(e=>e.classList.toggle('hidden',e.id!==which));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===which));if(which==='studio')renderMagic();if(which==='sources')loadSources();if(which==='psalms')renderPsalter().catch(err=>note(err.message,true));if(which==='agents')loadPlan();if(which==='sky')loadSky();if(which==='notebook')loadNotebook().catch(err=>note(err.message,true));if(which==='graph')loadGraph().catch(err=>note(err.message,true));}
 document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>view(b.dataset.view)));
+document.querySelector('nav').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)||e.target.tagName!=='BUTTON')return;const buttons=[...document.querySelectorAll('nav button')];let i=buttons.indexOf(e.target);i=e.key==='Home'?0:e.key==='End'?buttons.length-1:(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;e.preventDefault();buttons[i].focus();});
 function selectedNumber(id){const v=$(id).value.trim();return v===''?null:Number(v);}
 function profilePayload(){
  const bLat=selectedNumber('birthlat'),bLon=selectedNumber('birthlon'),cLat=selectedNumber('currentlat'),cLon=selectedNumber('currentlon');
@@ -413,11 +467,13 @@ async function renderPsalter(){
  const match=location.hash.match(/^#psalm\/(mt-index|lxx-index)\/(\d+)$/);
  await selectPsalm(match&&match[1]===$('psalmEdition').value?Number(match[2]):1);
 }
+let selectedPsalmNumber=1;
 async function selectPsalm(n){
  const request=++psalmRequest;
  const edition=$('psalmEdition').value;
  const result=await api('/api/psalter/'+n+'?edition='+edition);
  if(request!==psalmRequest||edition!==$('psalmEdition').value)return;
+ selectedPsalmNumber=n;text($('verseReference'),'');
  text($('selectedPsalm'),result.coordinate.system+' Psalm '+n);
  text($('selectedPsalmBook'),result.works.map(w=>w.id+' · MT book '+w.book+' · LXX '+w.lxx_chapters.join('/')).join('; '));
  text($('psalmDetail'),result.text_status+'. '+result.limitations);
@@ -431,8 +487,12 @@ $('evidenceFilter').onchange=$('sourceQuery').oninput;
 $('psalmEdition').onchange=()=>{history.replaceState(null,'','#psalm/'+$('psalmEdition').value+'/1');renderPsalter().catch(err=>note(err.message,true));};
 async function loadSources(){try{await renderSourceAtlas();await renderPsalter();const r=await api('/api/research');const el=$('sourceRepos');el.replaceChildren();r.zero_star_leads.forEach(x=>{const div=node('p');const a=node('a',x.name);a.href=x.url;a.target='_blank';a.rel='noopener';div.append(a,node('span',' · '+x.note,'muted'));el.append(div);});}catch(err){note(err.message,true);}}
 
+$('makeVerseReference').onclick=async()=>{try{const query=new URLSearchParams({index_edition:$('psalmEdition').value,text_edition:$('verseEdition').value,verse_start:$('verseStart').value,verse_end:$('verseEnd').value});text($('verseReference'),JSON.stringify(await api('/api/psalter/'+selectedPsalmNumber+'/reference?'+query),null,2));}catch(err){text($('verseReference'),err.message);}};
+$('transformLetters').onclick=async()=>{try{text($('letterResult'),JSON.stringify(await api('/api/language/transform','POST',{text:$('hebrewInput').value,algorithm:$('letterOperation').value,offset:Number($('letterOffset').value)}),null,2));}catch(err){text($('letterResult'),err.message);}};
+$('transformGrid').onclick=async()=>{try{text($('gridResult'),JSON.stringify(await api('/api/language/grid','POST',{cells:JSON.parse($('gridInput').value),operation:$('gridOperation').value}),null,2));}catch(err){text($('gridResult'),err.message);}};
 $('loadProvenance').onclick=async()=>{try{text($('provenanceExample'),JSON.stringify(await api('/api/provenance/example'),null,2));}catch(err){note(err.message,true);}};
-let manuscript=null,pageIndex=0;
+let manuscript=null,pageIndex=0,manifestRaw=null,manifestRecord=null;
+let localOnly=true;
 $('calculateHebrew').onclick=async()=>{text($('languageRules'),'');$('traceRows').replaceChildren();try{
  const r=await api('/api/language/calculate','POST',{text:$('hebrewInput').value,scheme:$('gematriaScheme').value});
  text($('languageResult'),r.label+' · '+r.evidence+' · '+r.scheme+' · total '+r.total+' · authority '+r.authority);
@@ -441,24 +501,107 @@ $('calculateHebrew').onclick=async()=>{text($('languageRules'),'');$('traceRows'
  }catch(err){text($('languageResult'),err.message);}};
 $('manifestFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;if(f.size>1048576){text($('manifestStatus'),'File exceeds 1 MiB');return;}$('manifestInput').value=await f.text();};
 $('validateManifest').onclick=async()=>{try{
- manuscript=null;$('manifestPage').replaceChildren();$('manifestImage').removeAttribute('src');$('showPage').disabled=true;
+ manuscript=null;manifestRaw=null;manifestRecord=null;$('manifestPage').replaceChildren();$('manifestImage').removeAttribute('src');$('showPage').disabled=true;
  const raw=$('manifestInput').value;if(new Blob([raw]).size>1048576)throw Error('Manifest exceeds 1 MiB');
- manuscript=await api('/api/manuscripts/validate','POST',JSON.parse(raw));
+ manifestRaw=JSON.parse(raw);manuscript=await api('/api/manuscripts/validate','POST',manifestRaw);
  const pages=$('manifestPage');pages.replaceChildren();manuscript.pages.forEach((p,i)=>{const option=node('option',p.label);option.value=i;pages.append(option);});
  text($('manifestStatus'),manuscript.label+' · Rights: '+manuscript.rights+' · '+(manuscript.required_statement||'')+' · '+manuscript.limitations);
- $('showPage').disabled=false;pageIndex=0;updatePage();
+ $('showPage').disabled=localOnly;pageIndex=0;updatePage();
  }catch(err){text($('manifestStatus'),err.message);}};
-function updatePage(){if(!manuscript)return;pageIndex=Number($('manifestPage').value);const p=manuscript.pages[pageIndex];$('manifestImage').removeAttribute('src');$('manifestImage').alt=p.label;text($('pageCitation'),p.id+' · '+p.width+' × '+p.height+' · image not loaded');}
+function updatePage(){if(!manuscript)return;pageIndex=Number($('manifestPage').value);const p=manuscript.pages[pageIndex];$('manifestImage').removeAttribute('src');$('manifestImage').alt=p.label;
+ $('previousPage').disabled=pageIndex===0;$('nextPage').disabled=pageIndex===manuscript.pages.length-1;$('transcribePage').disabled=false;$('loadRegion').disabled=localOnly||!p.image_service;
+ text($('pageCitation'),p.id+' · '+p.width+' × '+p.height+' · '+(localOnly?'local-only mode; external images disabled':'image not loaded')+' · '+(p.image_service?'Image API 3 region service available':'No Image API 3 service advertised'));
+ if(manifestRecord)history.replaceState(null,'','#manuscript/'+manifestRecord.id+'/'+pageIndex);
+}
 $('manifestPage').onchange=updatePage;
-$('showPage').onclick=()=>{if(!manuscript)return;const p=manuscript.pages[pageIndex];$('manifestImage').src=p.image;text($('pageCitation'),p.id+' · external image request explicitly enabled');};
+$('previousPage').onclick=()=>{if(pageIndex>0){$('manifestPage').value=pageIndex-1;updatePage();}};
+$('nextPage').onclick=()=>{if(manuscript&&pageIndex<manuscript.pages.length-1){$('manifestPage').value=pageIndex+1;updatePage();}};
+$('showPage').onclick=()=>{if(localOnly){note('Local-only mode: external images disabled',true);return;}if(!manuscript)return;const p=manuscript.pages[pageIndex];$('manifestImage').src=p.image;text($('pageCitation'),p.id+' · external image request explicitly enabled');};
+$('loadRegion').onclick=async()=>{if(localOnly||!manifestRaw)return;try{const r=await api('/api/manuscripts/image-request','POST',{manifest:manifestRaw,page:pageIndex,region:$('imageRegion').value.split(',').map(Number),width:Number($('imageWidth').value)});$('manifestImage').src=r.url;text($('pageCitation'),manuscript.pages[pageIndex].id+' · explicit region request '+r.url);}catch(err){note(err.message,true);}};
+$('transcribePage').onclick=async()=>{if(!manuscript)return;const p=manuscript.pages[pageIndex];view('notebook');await loadNotebook();newDocument();$('documentTitle').value='Transcription · '+p.label;$('coordinateEdition').value='UNKNOWN — identify edition/witness';$('coordinatePage').value=p.label;$('coordinateCanvas').value=p.id;text($('notebookStatus'),'Choose the registered source and document rights before saving. No text inferred from the image.');};
+async function refreshManifests(){const rows=await api('/api/notebook?kind=manifest');$('savedManifest').replaceChildren(node('option','Choose a saved manifest'));$('savedManifest').firstChild.value='';for(const row of rows){const o=node('option',row.title);o.value=row.id;$('savedManifest').append(o);}}
+async function openSavedManifest(item,index=0){
+ const raw=item.document.manifest;const parsed=await api('/api/manuscripts/validate','POST',raw);
+ if(!Number.isInteger(index)||index<0||index>=parsed.pages.length)throw Error('Saved manifest page is outside bounds');
+ manuscript=parsed;manifestRaw=raw;manifestRecord=item;view('lab');$('manifestInput').value=JSON.stringify(raw,null,2);$('manifestPage').replaceChildren();parsed.pages.forEach((p,i)=>{const o=node('option',p.label);o.value=i;$('manifestPage').append(o);});$('manifestPage').value=index;
+ $('showPage').disabled=localOnly;text($('manifestStatus'),parsed.label+' · Rights: '+parsed.rights+' · '+(parsed.required_statement||'')+' · '+parsed.limitations);updatePage();
+}
+$('saveManifest').onclick=async()=>{try{if(!manifestRaw||!manuscript)throw Error('Validate a manifest first');if(manifestRecord)throw Error('This manifest already has a saved local copy');const r=await api('/api/notebook','POST',{expected_revision:0,document:{kind:'manifest',title:manuscript.label.slice(0,200),manifest:manifestRaw}});manifestRecord=r;updatePage();await refreshManifests();text($('manifestStatus'),'Saved privately. The current URL restores this manifest and canvas; no image loads automatically.');}catch(err){note(err.message,true);}};
+$('reloadManifests').onclick=()=>refreshManifests().catch(err=>note(err.message,true));
+$('savedManifest').onchange=async()=>{try{if($('savedManifest').value)await openSavedManifest(await api('/api/notebook/'+$('savedManifest').value));}catch(err){note(err.message,true);}};
 $('manifestImage').onerror=()=>text($('pageCitation'),'Image unavailable. Metadata remains inspectable; no transcription inferred.');
 $('svgExport').onclick=()=>{const a=document.createElement('a');a.href='/api/diagrams/'+encodeURIComponent($('planetSelect').value)+'.svg?numbers='+$('svgNumbers').checked;a.download='reconstruction.svg';a.click();};
-function routeHash(){const match=location.hash.match(/^#psalm\/(mt-index|lxx-index)\/(\d+)$/);if(match){$('psalmEdition').value=match[1];view('psalms');}}
+
+let notebookItem=null,notebookSources=null;
+async function loadNotebook(){
+ if(!notebookSources){notebookSources=await api('/api/sources');for(const id of ['coordinateSource','relationshipSubject','relationshipObject']){
+  $(id).replaceChildren();for(const source of notebookSources){const o=node('option',source.title+' · '+source.id);o.value=source.id;$(id).append(o);}
+ }}
+ const rows=await api('/api/notebook');$('documentList').replaceChildren(node('option','Choose a document'));
+ $('documentList').firstChild.value='';for(const row of rows){const o=node('option',row.kind+' · '+row.title+' · revision '+row.revision);o.value=row.id;$('documentList').append(o);}
+ if(notebookItem)$('documentList').value=notebookItem.id;
+}
+function notebookKind(){const kind=$('documentKind').value;
+ $('transcriptionFields').classList.toggle('hidden',kind==='journal');$('relationshipFields').classList.toggle('hidden',kind!=='relationship');$('attributionField').classList.toggle('hidden',kind==='journal');
+ for(const id of ['transcriptionLanguage','textDirection','transcriptionState','transcriptionEngine','transcriptionConfidence','transcriptionRights','editorialNote']){$(id).disabled=kind!=='transcription';$(id).previousElementSibling.classList.toggle('hidden',kind!=='transcription');$(id).classList.toggle('hidden',kind!=='transcription');}
+ text($('documentTextLabel'),kind==='journal'?'Private reflection':kind==='relationship'?'Claim and evidence note':'Transcription text (mark unclear readings explicitly)');
+ $('documentText').dir=kind==='transcription'?$('textDirection').value:'auto';
+}
+function fillDocument(d){
+ $('documentKind').value=d.kind;$('documentTitle').value=d.title;$('documentText').value=d.text??d.note??'';
+ $('documentAttribution').value=d.attribution||'';
+ const c=d.coordinates||d.citation||{};for(const [id,key] of [['coordinateSource','source_id'],['coordinateEdition','edition'],['coordinatePage','page'],['coordinateCanvas','canvas'],['coordinateLine','line']])$(id).value=c[key]||'';
+ $('coordinateRegion').value=c.region?c.region.join(','):'';
+ $('textDirection').value=d.direction||'auto';$('transcriptionLanguage').value=d.language||'und';$('transcriptionState').value=d.state||'human corrected';$('transcriptionRights').value=d.rights||'';$('transcriptionEngine').value=d.engine||'';$('transcriptionConfidence').value=d.confidence??'';$('editorialNote').value=d.editorial_note||'';
+ for(const [id,key] of [['relationshipSubject','subject'],['relationshipObject','object'],['relationshipPredicate','predicate'],['relationshipEvidence','evidence'],['relationshipDate','date_range']])if(d[key])$(id).value=d[key];
+ notebookKind();
+}
+function newDocument(kind='transcription'){
+ notebookItem=null;$('notebookForm').reset();$('documentKind').disabled=false;$('documentKind').value=kind;$('deleteDocument').disabled=true;$('exportTEI').disabled=true;$('revisionHistory').replaceChildren();text($('revisionPreview'),'');$('restoreRevision').disabled=true;$('documentList').value='';text($('notebookStatus'),'New private '+kind);notebookKind();
+}
+async function openDocument(id){
+ if(!id)return;const item=await api('/api/notebook/'+encodeURIComponent(id));
+ if(item.document.kind==='manifest'){await openSavedManifest(item);return;}
+ notebookItem=item;fillDocument(item.document);$('documentKind').disabled=true;$('deleteDocument').disabled=false;$('exportTEI').disabled=item.document.kind!=='transcription';
+ $('revisionHistory').replaceChildren();for(const rev of item.history){const o=node('option','Revision '+rev.revision+' · '+rev.saved_at);o.value=rev.revision;$('revisionHistory').append(o);}
+ $('revisionHistory').value=item.revision;$('revisionHistory').dispatchEvent(new Event('change'));$('restoreRevision').disabled=false;$('documentList').value=item.id;text($('notebookStatus'),'Saved locally · revision '+item.revision+' · '+item.id);
+}
+function coordinatePayload(){const region=$('coordinateRegion').value.trim();let parsed=null;if(region){parsed=region.split(',').map(x=>Number(x.trim()));if(parsed.length!==4||!parsed.every(Number.isInteger))throw Error('Region requires four integer pixel coordinates');}
+ return {source_id:$('coordinateSource').value,edition:$('coordinateEdition').value,page:$('coordinatePage').value,canvas:$('coordinateCanvas').value||null,line:$('coordinateLine').value||null,region:parsed};}
+function documentPayload(){const kind=$('documentKind').value;const d={kind,title:$('documentTitle').value};
+ if(kind==='journal')return {...d,text:$('documentText').value};
+ const attribution=$('documentAttribution').value;
+ if(kind==='relationship')return {...d,subject:$('relationshipSubject').value,object:$('relationshipObject').value,predicate:$('relationshipPredicate').value,evidence:$('relationshipEvidence').value,citation:coordinatePayload(),attribution,date_range:$('relationshipDate').value,note:$('documentText').value};
+ return {...d,text:$('documentText').value,coordinates:coordinatePayload(),direction:$('textDirection').value,language:$('transcriptionLanguage').value,state:$('transcriptionState').value,attribution,rights:$('transcriptionRights').value,editorial_note:$('editorialNote').value,engine:$('transcriptionEngine').value||null,confidence:$('transcriptionConfidence').value===''?null:Number($('transcriptionConfidence').value)};
+}
+$('documentKind').onchange=notebookKind;$('textDirection').onchange=notebookKind;
+$('newDocument').onclick=()=>newDocument();
+$('documentList').onchange=()=>openDocument($('documentList').value).catch(err=>note(err.message,true));
+$('notebookForm').onsubmit=async e=>{e.preventDefault();$('saveDocument').disabled=true;try{
+ const saved=await api('/api/notebook'+(notebookItem?'/'+notebookItem.id:''),notebookItem?'PUT':'POST',{expected_revision:notebookItem?.revision||0,document:documentPayload()});
+ await loadNotebook();await openDocument(saved.id);
+ }catch(err){text($('notebookStatus'),err.message);}finally{$('saveDocument').disabled=false;}};
+$('revisionHistory').onchange=()=>{if(!notebookItem)return;const rev=notebookItem.history.find(r=>r.revision===Number($('revisionHistory').value));text($('revisionPreview'),JSON.stringify(rev,null,2));};
+$('restoreRevision').onclick=()=>{const rev=notebookItem?.history.find(r=>r.revision===Number($('revisionHistory').value));if(rev){fillDocument(rev.document);text($('notebookStatus'),'Prior revision copied to editor; save to append a new revision.');}};
+$('deleteDocument').onclick=async()=>{if(!notebookItem)return;try{await api('/api/notebook/'+notebookItem.id+'?expected_revision='+notebookItem.revision,'DELETE');newDocument();await loadNotebook();text($('notebookStatus'),'Deleted document and revision history. Separate backups remain.');}catch(err){text($('notebookStatus'),err.message);}};
+$('exportTEI').onclick=()=>{if(!notebookItem||notebookItem.document.kind!=='transcription')return;const a=node('a');a.href='/api/notebook/'+notebookItem.id+'/tei';a.download='private-transcription.tei.xml';a.click();};
+$('teiImport').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>1048576)throw Error('TEI exceeds 1 MiB');const r=await api('/api/transcriptions/tei/validate','POST',{xml:await file.text()});newDocument();fillDocument(r.document);text($('notebookStatus'),'TEI profile validated and staged; save to create a new private document. '+r.validation);}catch(err){text($('notebookStatus'),err.message);}finally{e.target.value='';}};
+$('exportNotebook').onclick=()=>{const a=node('a');a.href='/api/notebook/export';a.download='private-notebook.json';a.click();};
+$('notebookImport').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>1048576)throw Error('Backup exceeds 1 MiB');const result=await api('/api/notebook/import','POST',JSON.parse(await file.text()));await loadNotebook();text($('notebookStatus'),'Imported '+result.imported_ids.length+' private copies; no original overwritten.');}catch(err){text($('notebookStatus'),err.message);}finally{e.target.value='';}};
+async function loadGraph(){const g=await api('/api/notebook/graph?q='+encodeURIComponent($('graphQuery').value)+'&evidence='+encodeURIComponent($('graphEvidence').value));
+ text($('graphNotice'),g.notice+' · '+g.nodes.length+' registered nodes · '+g.edges.length+' matching relationships');$('graphNodes').replaceChildren();for(const n of g.nodes)$('graphNodes').append(node('p',n.title+' · '+n.id+' · '+n.tradition+' · '+n.evidence));
+ $('graphEdges').replaceChildren();if(!g.edges.length)$('graphEdges').append(node('p','No attributed relationships match. Add a cited claim to build this graph.'));
+ const titles=new Map(g.nodes.map(n=>[n.id,n.title]));for(const edge of g.edges){const card=node('article',undefined,'source-card');card.append(node('h3',titles.get(edge.subject)+' → '+edge.predicate+' → '+titles.get(edge.object)),node('p',edge.evidence+' · '+edge.attribution+' · '+edge.date_range),node('p',edge.note));const citation=node('details');citation.append(node('summary','Inspect citation and provenance'),node('pre',JSON.stringify(edge.citation,null,2)));card.append(citation);const edit=node('button','Open relationship revision history');edit.onclick=async()=>{view('notebook');await loadNotebook();await openDocument(edge.id);};card.append(edit);$('graphEdges').append(card);}
+}
+$('refreshGraph').onclick=()=>loadGraph().catch(err=>note(err.message,true));$('graphEvidence').onchange=$('refreshGraph').onclick;
+$('addRelationship').onclick=async()=>{view('notebook');await loadNotebook();newDocument('relationship');};
+
+function routeHash(){const manuscriptMatch=location.hash.match(/^#manuscript\/([a-f0-9-]{36})\/(\d+)$/);if(manuscriptMatch){api('/api/notebook/'+manuscriptMatch[1]).then(item=>{if(item.document.kind!=='manifest')throw Error('Saved document is not a manifest');return openSavedManifest(item,Number(manuscriptMatch[2]));}).catch(err=>note(err.message,true));return;}const match=location.hash.match(/^#psalm\/(mt-index|lxx-index)\/(\d+)$/);if(match){$('psalmEdition').value=match[1];view('psalms');}}
 window.addEventListener('hashchange',routeHash);
 (async()=>{
- try{const health=await api('/api/health');text($('status'),'● X1 LOCAL ENGINE · '+health.version);await loadProfiles();
+ try{const health=await api('/api/health');localOnly=health.local_only; text($('status'),'● X1 LOCAL ENGINE · '+health.version);await loadProfiles();
  if($('profileSelect').options.length>1){$('profileSelect').selectedIndex=1;state.id=$('profileSelect').value;state.profile=await api('/api/profiles/'+state.id);setForm(state.profile);}
- routeHash();
+ routeHash();await refreshManifests();
  const cap=await api('/api/agents/capabilities');text($('agentResult'),'Available: '+Object.keys(cap).filter(k=>cap[k].installed).join(', '));
  }catch(err){text($('status'),'● ENGINE UNAVAILABLE');note(err.message,true);}
 })();
