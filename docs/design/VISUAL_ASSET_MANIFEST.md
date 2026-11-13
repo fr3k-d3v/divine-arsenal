@@ -1,6 +1,6 @@
 # Divine Arsenal Universal — Visual Asset Manifest
 
-**Revision:** 0.7
+**Revision:** 0.8
 **Prepared:** 2026-11-13
 **Target checkout:** `feat/source-atlas-psalms-visuals` on Omarchy
 **Scope:** original generated artwork, historical-source imagery, and data-driven vector assets
@@ -153,8 +153,9 @@ These are structured SVG/canvas renderings or rights-cleared source images. Gene
 - **DA-031:** 192×240 WebP preview integrated at `divine/web/assets/psalm-001.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
 - **DA-034:** 192×240 WebP preview integrated at `divine/web/assets/psalm-027.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
 - **DA-037:** 192×240 WebP preview integrated at `divine/web/assets/psalm-091.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
-- **Psalter UI:** Source Atlas and Psalter hero artwork are used in their respective views; Psalm 1, Psalm 23, Psalm 27 and Psalm 91 illustrations appear as separately labelled featured cards.
-- **Remaining artwork:** DA-004 through DA-030, DA-032, DA-035 through DA-036 and DA-038 through DA-050 are not yet integrated as standalone production assets.
+- **DA-035:** 192×240 WebP preview integrated at `divine/web/assets/psalm-042.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
+- **Psalter UI:** Source Atlas and Psalter hero artwork are used in their respective views; Psalm 1, Psalm 23, Psalm 27, Psalm 42 and Psalm 91 illustrations appear as separately labelled featured cards.
+- **Remaining artwork:** DA-004 through DA-030, DA-032, DA-036 and DA-038 through DA-050 are not yet integrated as standalone production assets.
 - **Not started:** remaining 49 assets.
 - **Historical images:** use institutional scans only after item-level rights, attribution and access checks.
 - **Unresolved sources:** do not convert UNKNOWN catalogue records into definitive historical visual claims.
