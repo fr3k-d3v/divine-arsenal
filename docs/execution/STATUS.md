@@ -55,7 +55,36 @@ Next work, in order:
 4. Accessibility/security/release reviewers: full manual/automated audit, clean
    install/remote CI matrix and real-user acceptance before release decisions.
 
-A separate untracked REA directive remains untouched and excluded from commits;
-its recovered-workspace audit/integration was not performed. No private material
-or recovered source was added to the public implementation. No push, merge,
+A separate untracked REA directive containing a local mount path remains untouched and excluded from commits. The public 29-repository register is a static inventory derived from the preserved audit; no recovered checkout was executed, imported or vendored. No private material or recovered source was added to the public implementation. No push, merge,
 deployment, global configuration, scheduler or paid/provider calls occurred.
+
+## REA integration update — 2026-11-13
+
+- Implemented the Divine Arsenal ↔ URE HTTP-only adapter and dedicated REA analysis workspace.
+- Added authenticated loopback status/adapter discovery, bounded file intake, SHA-256 reconciliation, verified profile suggestions, OBSERVE-only job submission, polling, cancellation and evidence-linked reports.
+- Added a 29-repository recovered-workspace register and integration architecture. Recovered source checkouts remain unexecuted and unvendored.
+- Live same-host checks passed for identify, Ghidra ELF decompilation (32 functions), JADX DEX decompilation (1 source preview) and Kaitai DEX parsing (1 class, 2 methods).
+- Divine Arsenal: 142 tests passed; JavaScript syntax valid; 169 unique HTML IDs.
+- URE: 172 tests passed, including the report-limitation regression.
+- The running URE API is loopback-only on Omarchy. A private mode-0600 token file is outside the repository. No cloud deployment, public release or hardware authority is claimed.
+
+### Final REA verification delta
+
+The final hardening pass adds version-aware adapter resolution, adapter-version-aware idempotency and strict reconstruction evidence-reference validation. Divine Arsenal's current suite is **143 tests passing** (131 baseline + 12 REA tests). The real browser smoke is **49 assertions passing**, with zero console exceptions and zero external requests. The REA UI screenshot is preserved at docs/execution/evidence/rea-analysis.png.
+### REA provenance integration
+
+- Added a structured `analysis-reference` notebook document with SHA-256 and evidence-reference validation.
+- Successful reports can be explicitly saved to the private notebook; save is idempotent by URE job ID.
+- Added optional user-selected registered-source links and local-analysis nodes/OBSERVATION edges in the Tradition Graph.
+- Added human review state (`UNREVIEWED` by default), review notes and `UNKNOWN` rights status.
+- Execution provenance now includes sandbox profile, network/filesystem policy, OBSERVE permissions, adapter resource limits, timestamps, attempt count and terminal flags. Internal worker IDs, tokens and lease/fencing data remain excluded.
+- Current Divine suite: **154 passed**; JavaScript syntax valid; **188 unique HTML IDs**. After the live service restart, Chromium acceptance passed **53 assertions**, including REA save-to-notebook and Tradition Graph navigation, with zero console exceptions or external requests.
+
+## Live end-to-end verification — 2026-11-13
+
+- Restarted URE and Divine Arsenal under enabled user systemd units: `fr3k-ure.service` and `divine-arsenal.service`. Both units are active and enabled; both bind only to IPv4 loopback. The user manager has linger enabled.
+- REA authenticated status: **READY**. The live registry reports **17 adapter identities**: 7 verified/enabled OBSERVE adapters, 2 enabled but unverified identities, 5 installed but unavailable/unverified identities, and 3 separately gated/unavailable identities (Frida/APPROVAL, PlatformIO/PHYSICAL, sigrok/PHYSICAL). Divine only suggests verified, enabled OBSERVE profiles.
+- Live API acceptance: synthetic fixture uploaded; SHA-256 reconciled; identify job reached `succeeded`; report contained 3 evidence records, 2 unique content hashes and 1 finding; notebook save succeeded; duplicate save was idempotent; `analysis:<document-id>` Tradition Graph node was verified; temporary notebook reference was deleted. The raw synthetic test evidence remains in the private URE evidence store.
+- Divine Arsenal tests: **154 passed**. URE tests: **172 passed, 46 subtests passed**. Chromium: **53 assertions**, desktop/mobile viewports, 0 JavaScript exceptions, 0 external requests, 188 unique HTML IDs. `git diff --check`, Python compilation and web syntax checks passed.
+- The REA secret is held only in `~/.config/fr3k/divine-arsenal.env` (mode 0600; parent directory mode 0700); no credential is stored in the repository. Reproducible systemd unit templates and installer are in `deploy/systemd/` and `scripts/install-local-services.sh`.
+- This verifies the **local integrated research workbench**, not a public/production release. Institutional source/rights review, full WCAG/manual accessibility, external security review, remote CI and scholarly OCR/HTR remain open. No remote deployment or hardware/physical authority is enabled.

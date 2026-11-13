@@ -5,6 +5,8 @@ are validated entirely before a single transaction and never fetch or execute da
 """
 from __future__ import annotations
 import json
+import math
+import re
 from datetime import datetime, timezone
 from typing import Annotated, Literal
 from uuid import uuid4
@@ -106,6 +108,102 @@ class Relationship(Strict):
         return self
 
 
+class AnalysisResourceLimits(Strict):
+    memory_mb: int | None = Field(default=None, ge=1, le=8192)
+    cpu_seconds: int | None = Field(default=None, ge=1, le=120)
+    wall_seconds: int | None = Field(default=None, ge=1, le=180)
+    output_bytes: int | None = Field(default=None, ge=1, le=4 * 1024 * 1024)
+    file_bytes: int | None = Field(default=None, ge=1, le=64 * 1024 * 1024)
+
+
+class AnalysisFinding(Strict):
+    kind: str = Field(min_length=1, max_length=80)
+    text: str = Field(min_length=1, max_length=4000)
+    confidence: float = Field(ge=0, le=1)
+    evidence_hashes: list[str] = Field(min_length=1, max_length=64)
+    source: str | None = Field(default=None, max_length=80)
+    limitations: list[str] = Field(default_factory=list, max_length=64)
+
+    @model_validator(mode='after')
+    def valid_hashes(self):
+        if any(re.fullmatch(r'[0-9a-f]{64}', value) is None for value in self.evidence_hashes):
+            raise ValueError('Finding evidence references must be SHA-256 hashes')
+        return self
+
+
+class AnalysisReconstruction(Strict):
+    kind: str = Field(min_length=1, max_length=80)
+    text: str = Field(min_length=1, max_length=4000)
+    sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+    evidence_hashes: list[str] = Field(min_length=1, max_length=64)
+
+    @model_validator(mode='after')
+    def valid_hashes(self):
+        if any(re.fullmatch(r'[0-9a-f]{64}', value) is None for value in self.evidence_hashes):
+            raise ValueError('Reconstruction evidence references must be SHA-256 hashes')
+        return self
+
+
+class AnalysisReference(Strict):
+    kind: Literal['analysis-reference']
+    title: str = Field(min_length=1, max_length=200)
+    provider: Literal['URE'] = 'URE'
+    api_version: Literal[1] = 1
+    job_id: str = Field(pattern=r'^[0-9a-f]{32}$')
+    input_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+    adapter: str = Field(min_length=1, max_length=160)
+    profile: Literal['identify', 'elf', 'ghidra', 'jadx', 'binwalk', 'radare2', 'unblob', 'kaitai']
+    authority: Literal['OBSERVE'] = 'OBSERVE'
+    state: Literal['succeeded', 'failed', 'timed_out', 'cancelled', 'blocked']
+    created_at: float | None = None
+    started_at: float | None = None
+    finished_at: float | None = None
+    attempt_count: int = Field(default=1, ge=1, le=100)
+    sandbox_profile: str = Field(default='UNKNOWN', max_length=160)
+    network_policy: Literal['DENIED', 'UNKNOWN'] = 'UNKNOWN'
+    filesystem_policy: Literal['ISOLATED_READ_ONLY_INPUTS', 'UNKNOWN'] = 'UNKNOWN'
+    permissions: list[Literal['OBSERVE']] = Field(default_factory=lambda: ['OBSERVE'], min_length=1, max_length=1)
+    resource_limits: AnalysisResourceLimits = Field(default_factory=AnalysisResourceLimits)
+    exit_code: int | None = Field(default=None, ge=-255, le=255)
+    timed_out: bool = False
+    truncated: bool = False
+    cancelled: bool = False
+    reaped: bool = False
+    error: str | None = Field(default=None, max_length=1000)
+    evidence_hashes: list[str] = Field(min_length=1, max_length=256)
+    findings: list[AnalysisFinding] = Field(default_factory=list, max_length=64)
+    reconstructions: list[AnalysisReconstruction] = Field(default_factory=list, max_length=64)
+    limitations: list[str] = Field(default_factory=list, max_length=64)
+    provider_limitations: list[str] = Field(default_factory=list, max_length=64)
+    compatibility_notes: list[str] = Field(default_factory=list, max_length=64)
+    source_id: str | None = Field(default=None, min_length=2, max_length=80)
+    rights_status: Literal['UNKNOWN', 'CLEARED', 'RESTRICTED'] = 'UNKNOWN'
+    review_state: Literal['UNREVIEWED', 'HUMAN_REVIEWED', 'DISPUTED'] = 'UNREVIEWED'
+    note: str = Field(default='', max_length=5000)
+
+    @model_validator(mode='after')
+    def valid_provenance(self):
+        if self.source_id and self.source_id not in {source.id for source in catalogue.catalogue().sources}:
+            raise ValueError('Choose a registered source ID or leave the source link empty')
+        if self.permissions != ['OBSERVE'] or self.authority != 'OBSERVE':
+            raise ValueError('Divine Arsenal notebook references are OBSERVE-only')
+        for value in (self.created_at, self.started_at, self.finished_at):
+            if value is not None and (isinstance(value, bool) or not math.isfinite(value)):
+                raise ValueError('Analysis timestamps must be finite Unix timestamps')
+        if self.started_at is not None and self.finished_at is not None and self.finished_at < self.started_at:
+            raise ValueError('Analysis finish time cannot precede start time')
+        if len(set(self.evidence_hashes)) != len(self.evidence_hashes) or any(
+            re.fullmatch(r'[0-9a-f]{64}', value) is None for value in self.evidence_hashes
+        ):
+            raise ValueError('Evidence references must be unique SHA-256 hashes')
+        allowed = set(self.evidence_hashes)
+        if any(not set(f.evidence_hashes).issubset(allowed) for f in self.findings):
+            raise ValueError('Finding references must belong to the analysis evidence set')
+        if any(not set(r.evidence_hashes).issubset(allowed) for r in self.reconstructions):
+            raise ValueError('Reconstruction references must belong to the analysis evidence set')
+        return self
+
+
 class Manifest(Strict):
     kind: Literal['manifest']
     title: str = Field(min_length=1, max_length=200)
@@ -120,7 +218,7 @@ class Manifest(Strict):
         return self
 
 
-Document = Annotated[Transcription | Journal | Relationship | Manifest, Field(discriminator='kind')]
+Document = Annotated[Transcription | Journal | Relationship | AnalysisReference | Manifest, Field(discriminator='kind')]
 
 
 class Save(Strict):
@@ -269,7 +367,32 @@ def graph(q: str = '', evidence: str = '') -> dict:
         if not record:
             continue
         d = record['document']
-        edges.append({'id': row['id'], 'revision': record['revision'], **d})
+        edges.append({'id': row['id'], 'kind': 'relationship', 'revision': record['revision'], **d})
+    for row in listing('analysis-reference'):
+        record = get(row['id'])
+        if not record:
+            continue
+        d = record['document']
+        analysis_node = 'analysis:' + row['id']
+        nodes.append({
+            'id': analysis_node, 'title': d['title'], 'type': 'analysis',
+            'tradition': 'Local analysis', 'evidence': 'OBSERVATION',
+            'adapter': d['adapter'], 'state': d['state'],
+            'job_id': d['job_id'], 'input_sha256': d['input_sha256'],
+        })
+        if d.get('source_id'):
+            finished = d.get('finished_at')
+            date = datetime.fromtimestamp(finished, timezone.utc).date().isoformat() if finished else 'UNKNOWN'
+            edges.append({
+                'id': row['id'], 'kind': 'analysis-reference', 'subject': d['source_id'],
+                'object': analysis_node, 'predicate': 'analyzed-by', 'evidence': 'OBSERVATION',
+                'attribution': 'Local URE adapter', 'date_range': date,
+                'note': 'Static tool observation; not a historical influence claim. ' + (d.get('note') or ''),
+                'citation': {'source_id': d['source_id'], 'edition': 'URE analysis reference',
+                             'page': d['job_id'], 'canvas': None, 'line': None, 'region': None,
+                             'input_sha256': d['input_sha256'], 'evidence_hashes': d['evidence_hashes']},
+            })
     edges = [e for e in edges if (not evidence or e['evidence'] == evidence)
              and (not q or q.casefold() in json.dumps(e, ensure_ascii=False).casefold())]
-    return {'nodes': nodes, 'edges': edges, 'notice': 'Private, attributed research claims. No influence inferred from shared names, motifs or catalogue tags.'}
+    return {'nodes': nodes, 'edges': edges,
+            'notice': 'Historical relationships are user-attributed. REA analysis nodes and edges are local tool observations, not evidence of historical influence.'}

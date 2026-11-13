@@ -15,10 +15,12 @@ from pydantic import BaseModel, Field, model_validator
 from . import __version__
 from . import agents, astro, store
 from .research_api import router as research_router
+from .rea_api import router as rea_router
 
 app = FastAPI(title="Divine Arsenal Universal", version=__version__,
               docs_url=None, redoc_url=None)
 app.include_router(research_router)
+app.include_router(rea_router)
 from .notebook_api import router as notebook_router
 app.include_router(notebook_router)
 

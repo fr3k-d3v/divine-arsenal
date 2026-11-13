@@ -30,3 +30,20 @@ scheduler, deployment, push or merge has been performed.
 See REQUIREMENT_DISPOSITION.md for the full plan mapping, including general diagram
 editing, richer graph types, command palette, OCR/overlays and the separate
 untracked REA directive. These are not silently classified as implemented.
+
+## REA integration limits — 2026-11-13
+
+- The browser bridge is capped at 700,000 bytes; use the local URE CLI for larger files.
+- URE classification is signature-based. PDF is identified but not semantically extracted; TIFF/JPEG/PNG remain UNKNOWN. OCR, HTR, image interpretation and scholarly transcription are not part of this adapter.
+- URE reports are static/synthetic analysis records, not runtime-behaviour, vulnerability, authorship or safety verdicts.
+- Frida, PlatformIO, sigrok, serial capture, flashing, physical hardware and Fleet execution remain disabled or separately gated.
+- Large-file streaming, OCR/HTR and broader specialist adapter integrations remain outside the current browser bridge; the analysis-reference notebook and local OBSERVATION graph path are now implemented and live-browser verified.
+- URE and Divine Arsenal now run as enabled user systemd services with restart-on-failure and a private mode-0600 environment file. A documented token-rotation procedure and independent secret-management review remain open.
+- Recovered repository upstream freshness, advisories, transitive licensing and redistribution rights remain UNKNOWN; no recovered source code is vendored.
+## Closed gap — REA notebook / provenance graph
+
+The previous gap stating that REA reports were not attached to the Divine private notebook or Tradition Graph is closed in source and live acceptance: successful jobs can be saved as structured analysis-reference documents, optionally linked to a registered source, and represented as local OBSERVATION graph nodes/edges. The 53-assertion Chromium run verified the live save-to-notebook and graph path after the controlled service restart.
+
+## Live service acceptance — 2026-11-13
+
+The URE and Divine Arsenal services are now managed by enabled user systemd units with restart-on-failure. Their local REA connection is authenticated and READY. The full local browser flow and both automated test suites pass. Remaining release gates above are unchanged: source/rights, scholarly acceptance, full WCAG/manual accessibility, external security, remote CI, OCR/HTR and physical/remote authority.

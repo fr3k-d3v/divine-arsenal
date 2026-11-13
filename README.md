@@ -132,3 +132,23 @@ IDs and record local import times. TEI support is a strict project exchange prof
 not general TEI P5 validation. Rights/source/manual acceptance gates remain open;
 see [implementation status](docs/execution/STATUS.md) and
 [requirement disposition](docs/execution/REQUIREMENT_DISPOSITION.md).
+
+## REA / Universal Reverse Engineering integration
+
+Divine Arsenal includes a local REA analysis workspace that consumes the independent FR3K URE engine over an authenticated IPv4 loopback API. It does not import URE internals or create a second scheduler.
+
+- Local-only endpoint: `http://127.0.0.1:18879`.
+- Store `URE_URL=http://127.0.0.1:18879`, `URE_API_TOKEN` (at least 32 bytes) and `URE_TIMEOUT=10` in `~/.config/fr3k/divine-arsenal.env`; keep the parent directory mode 0700 and the file mode 0600. Never commit the token or expose it to browser code.
+- On Linux with a systemd user manager, run `scripts/install-local-services.sh`. It installs and enables `fr3k-ure.service` and `divine-arsenal.service`, with restart-on-failure and a dependency from Divine Arsenal to URE. The installer expects the URE checkout at `~/FR3K/fr3k-reverse-engineering` and the Divine Arsenal checkout at its own repository root.
+- Check both services with `systemctl --user status fr3k-ure.service divine-arsenal.service`; the app remains loopback-only.
+- The browser talks only to Divine Arsenal's same-origin `/api/rea/*` routes. The server pins URE to numeric loopback, disables proxies and redirects, and filters internal worker/fencing fields.
+- Divine Arsenal forces `OBSERVE`; synthetic `AUTO`, Frida, PlatformIO, sigrok, physical device access and remote execution are not exposed.
+- Current bridge upload limit: 700,000 bytes. Larger files require the local URE CLI until a reviewed streaming API exists.
+- PDF/image signatures are not OCR/HTR. Unknown image formats remain UNKNOWN; signature classification is not scholarly interpretation or a vulnerability verdict.
+
+See [REA integration architecture](docs/research/REA_INTEGRATION_ARCHITECTURE.md), [29-repository inventory](docs/research/REA_WORKSPACE_INVENTORY.md) and [machine-readable register](docs/research/rea-repository-register.json).
+### Evidence provenance in the private notebook
+
+A completed URE report can be saved explicitly as a structured **REA evidence reference**. The record retains the input SHA-256, stable job ID, adapter/version, OBSERVE authority, sandbox profile, declared resource limits, execution timestamps and terminal flags, evidence hashes, findings, reconstruction hypotheses and limitations. Raw input bytes, worker IDs, leases, fencing tokens and raw process output are not copied into the notebook.
+
+A user may optionally link the reference to a registered scholarly source. The Tradition Graph then displays an OBSERVATION edge from that source to the local analysis record; it does not imply historical influence. New records default to **UNREVIEWED** and rights status **UNKNOWN**. Human review state and notes are separate annotations, never a rewrite of the original analysis.

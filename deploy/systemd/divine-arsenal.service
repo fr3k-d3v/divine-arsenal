@@ -1,0 +1,21 @@
+[Unit]
+Description=Divine Arsenal Universal (local research workbench)
+Requires=fr3k-ure.service
+After=fr3k-ure.service
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=@DIVINE_ROOT@
+EnvironmentFile=@ENV_FILE@
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+ExecStart=@DIVINE_ROOT@/.venv/bin/divine-universal serve
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=30
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=default.target

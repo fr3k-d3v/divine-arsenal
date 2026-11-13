@@ -91,6 +91,13 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
 .card,.source-card{min-width:0}#manifestImage{display:block;max-width:100%;max-height:650px;margin:auto}
 #hebrewInput{font-size:24px;unicode-bidi:plaintext}#languageTrace{overflow:auto}
 .reading{background:#eee4d0;color:#21172b;border-radius:9px;padding:18px;line-height:1.8}
+.rea-adapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;margin:12px 0}
+.rea-adapter{border:1px solid #35445b;border-radius:10px;background:#0d1526;padding:11px;min-width:0}
+.rea-adapter strong{display:block;color:var(--gold);font-size:13px;overflow-wrap:anywhere}
+.rea-adapter small{display:block;margin-top:4px;line-height:1.4}
+.rea-adapter .pill{display:inline-block;margin-top:7px}
+.rea-output{border:1px solid #35445b;background:#0b1220;border-radius:9px;padding:12px;margin:10px 0}
+
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}button:hover,.source-card:hover{transform:none}}
 </style>
 </head>
@@ -113,6 +120,7 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
  <button data-view="lab">א Text & manuscript lab</button>
  <button data-view="notebook">▥ Private notebook</button>
  <button data-view="graph">⌁ Tradition graph</button>
+ <button data-view="rea">⛓ REA analysis</button>
 </nav>
 <div id="message" role="status" aria-live="polite"></div>
 
@@ -251,7 +259,7 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
 <label for="documentList">Saved documents</label><select id="documentList"><option value="">Choose a document</option></select>
 <p id="notebookStatus" role="status" aria-live="polite">No document selected</p>
 <form id="notebookForm">
-<label for="documentKind">Document type</label><select id="documentKind"><option value="transcription">Transcription</option><option value="journal">Private journal</option><option value="relationship">Attributed relationship</option></select>
+<label for="documentKind">Document type</label><select id="documentKind"><option value="transcription">Transcription</option><option value="journal">Private journal</option><option value="relationship">Attributed relationship</option><option value="analysis-reference" disabled>REA evidence reference (created from analysis)</option></select>
 <label for="documentTitle">Title</label><input id="documentTitle" required maxlength="200">
 <div id="transcriptionFields">
 <label for="coordinateSource">Registered source</label><select id="coordinateSource"></select>
@@ -275,17 +283,66 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
 <label for="relationshipEvidence">Evidence class</label><select id="relationshipEvidence"><option>HYPOTHESIS</option><option>HISTORICAL CLAIM</option><option>RECONSTRUCTION</option><option>TRADITIONAL INTERPRETATION</option><option>CONTRADICTED</option><option>UNKNOWN</option><option>OBSERVATION</option></select>
 <label for="relationshipDate">Dated interval (UNKNOWN accepted)</label><input id="relationshipDate" maxlength="100" value="UNKNOWN">
 <p>Use the source, edition, page and line fields above as the relationship's inspectable citation. Shared names or resemblance do not establish influence.</p></div>
+<div id="analysisFields" class="hidden">
+<p class="notice">Immutable REA execution record. Review state and note are human annotations; they do not change the original analysis or turn a tool observation into a historical fact.</p>
+<label for="analysisJobId">URE job ID</label><input id="analysisJobId" readonly>
+<label for="analysisInputSha">Input SHA-256</label><input id="analysisInputSha" readonly>
+<label for="analysisAdapter">Adapter / version</label><input id="analysisAdapter" readonly>
+<label for="analysisProfile">Profile · authority · terminal state</label><input id="analysisProfile" readonly>
+<label for="analysisSandbox">Sandbox profile · network policy</label><input id="analysisSandbox" readonly>
+<label for="analysisPermissions">Declared permissions</label><pre id="analysisPermissions" class="rea-output"></pre>
+<label for="analysisLimits">Resource limits</label><pre id="analysisLimits" class="rea-output"></pre>
+<label for="analysisTiming">Execution timestamps and exit state</label><pre id="analysisTiming" class="rea-output"></pre>
+<label for="analysisEvidence">Raw evidence references (SHA-256)</label><pre id="analysisEvidence" class="rea-output"></pre>
+<label for="analysisFindings">Derived findings</label><pre id="analysisFindings" class="rea-output"></pre>
+<label for="analysisReconstructions">Reconstruction hypotheses</label><pre id="analysisReconstructions" class="rea-output"></pre>
+<label for="analysisLimitations">Limitations / provider compatibility notes</label><pre id="analysisLimitations" class="rea-output"></pre>
+<label for="analysisSource">Linked registered source (optional)</label><select id="analysisSource"></select>
+<label for="analysisReviewState">Human review state</label><select id="analysisReviewState"><option>UNREVIEWED</option><option>HUMAN_REVIEWED</option><option>DISPUTED</option></select>
+</div>
 <div id="attributionField"><label for="documentAttribution">Researcher / attribution</label><input id="documentAttribution" maxlength="200"></div>
 <label for="documentText" id="documentTextLabel">Transcription text (preserve unclear readings explicitly)</label><textarea id="documentText" rows="8" maxlength="100000" dir="auto" spellcheck="false"></textarea>
 <button type="submit" id="saveDocument">Save new revision locally</button><button type="button" id="deleteDocument" disabled>Delete document and all revisions</button>
 </form>
 <label for="revisionHistory">Revision history (viewing an old revision does not overwrite it)</label><select id="revisionHistory"></select><button id="restoreRevision" disabled>Copy selected revision into editor</button><pre id="revisionPreview" dir="auto"></pre>
 </div></section>
-<section id="graph" class="view hidden"><div class="card"><h2>Tradition graph · attributed relationships</h2><p id="graphNotice"></p><p>Registered sources are nodes. Relationships are private researcher claims with inspectable citations. No edges are inferred from catalogue groupings.</p>
+<section id="graph" class="view hidden"><div class="card"><h2>Tradition graph · attributed relationships</h2><p id="graphNotice"></p><p>Registered sources and saved REA analysis records are nodes. Historical relationships remain private researcher claims; REA edges document local tool observations only. No edges are inferred from catalogue groupings.</p>
 <label for="graphQuery">Filter relationship text / source ID</label><input id="graphQuery" maxlength="200">
 <label for="graphEvidence">Evidence class filter</label><select id="graphEvidence"><option value="">All classes</option><option>HYPOTHESIS</option><option>HISTORICAL CLAIM</option><option>RECONSTRUCTION</option><option>CONTRADICTED</option><option>UNKNOWN</option><option>OBSERVATION</option><option>TRADITIONAL INTERPRETATION</option></select>
 <button id="refreshGraph">Refresh graph</button><button id="addRelationship">Create attributed relationship</button><div id="graphEdges"></div><details><summary>Inspect registered graph nodes</summary><div id="graphNodes"></div></details>
 </div></section>
+
+<section id="rea" class="view hidden">
+ <div class="card">
+  <div class="row between"><h2>Reverse Engineer Anything · Local analysis bridge</h2><span class="pill" id="reaStatus">NOT CHECKED</span></div>
+  <p>The Divine Arsenal client connects to the independent URE engine over authenticated loopback HTTP. It does not import URE internals, execute uploaded files in the app process, or grant device authority.</p>
+  <div id="reaWorker" class="notice">Checking local URE configuration when this section opens.</div>
+  <div id="reaAdapters" class="rea-adapters"></div>
+  <button id="reaRefresh">Refresh engine status</button>
+ </div>
+ <div class="card">
+  <h2>Artifact intake · immutable evidence</h2>
+  <p>Choose an artifact explicitly. Divine Arsenal hashes the bytes and transfers them to the local URE evidence store. No file is uploaded to a cloud service.</p>
+  <label for="reaFile">Local artifact (maximum 700,000 bytes through this HTTP bridge)</label>
+  <input id="reaFile" type="file" accept=".apk,.dex,.class,.elf,.so,.bin,.img,.zip,.pdf,.tif,.tiff,.jpg,.jpeg,.png,.pcap,.json,.xml,.tei,.txt">
+  <p class="micro">Supported signatures include ELF, PE, APK/ZIP, DEX, Java class, PDF, PCAP, Android boot headers, JSON and UTF-8 text. TIFF/JPEG and other unrecognised formats remain UNKNOWN; this bridge does not perform OCR or HTR.</p>
+  <button id="reaUpload" class="primary" disabled>Hash & ingest into local URE</button>
+  <pre id="reaInputSummary" class="rea-output" role="status">No artifact ingested.</pre>
+  <label for="reaProfile">Available analysis profile (OBSERVE only)</label>
+  <select id="reaProfile" disabled><option value="">Ingest an artifact first</option></select>
+  <div class="row">
+   <button id="reaRun" disabled>Run selected static analysis</button>
+   <button id="reaCancel" disabled>Cancel active job</button>
+  </div>
+  <p id="reaJobStatus" role="status" aria-live="polite">No analysis job submitted.</p>
+  <div id="reaFindings"></div>
+  <details><summary>Inspect execution envelope, evidence hashes and report limitations</summary><pre id="reaReportJson"></pre></details>
+  <label for="reaSource">Attach this analysis to a registered source (optional)</label><select id="reaSource"><option value="">No source link</option></select>
+  <div class="row"><button id="reaSave" disabled>Save evidence reference to private notebook</button><button id="reaOpenNotebook" disabled>Open notebook reference</button></div>
+  <p id="reaSaveStatus" role="status" aria-live="polite">Analysis reports are not saved to the notebook unless you choose to save them.</p>
+ </div>
+ <div class="notice warning">Authority is fixed to OBSERVE. Unknown binaries are never executed. Synthetic AUTO profiles are not exposed. Ghidra, JADX, Binwalk, radare2, Unblob and Kaitai availability is taken from the live URE registry, not assumed. The current bridge limit is 700 KB; larger artifacts must use the local URE CLI. A successful static result is not a vulnerability verdict or proof of runtime behaviour.</div>
+</section>
 
 <footer><span class="gold">FR3KD3V // VERIFY REALITY</span> · OBSERVE → VERIFY → RECONCILE → IMPROVE → TEST → RECORD · Experimental local preview · No unverified prediction or authority transfer</footer>
 </main>
@@ -294,6 +351,7 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
 'use strict';
 const $ = id => document.getElementById(id);
 const state = {id:null, profile:null, astro:null, plan:null, places:[]};
+const reaState = {ready:false, input:null, job:null, report:null, savedId:null};
 const glyphs = {Sun:'☉',Moon:'☽',Mercury:'☿',Venus:'♀',Mars:'♂',Jupiter:'♃',Saturn:'♄'};
 const signs = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
 function text(el,value){el.textContent=String(value===null||value===undefined?'—':value);}
@@ -305,7 +363,7 @@ async function api(path,method='GET',payload){
  if(!r.ok){let detail=data.detail||'Request failed';if(Array.isArray(detail))detail=detail.map(x=>x.msg).join('; ');throw new Error(detail);}
  return data;
 }
-function view(which){document.querySelectorAll('section.view').forEach(e=>e.classList.toggle('hidden',e.id!==which));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===which));if(which==='studio')renderMagic();if(which==='sources')loadSources();if(which==='psalms')renderPsalter().catch(err=>note(err.message,true));if(which==='agents')loadPlan();if(which==='sky')loadSky();if(which==='notebook')loadNotebook().catch(err=>note(err.message,true));if(which==='graph')loadGraph().catch(err=>note(err.message,true));}
+function view(which){document.querySelectorAll('section.view').forEach(e=>e.classList.toggle('hidden',e.id!==which));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===which));if(which==='studio')renderMagic();if(which==='sources')loadSources();if(which==='psalms')renderPsalter().catch(err=>note(err.message,true));if(which==='agents')loadPlan();if(which==='sky')loadSky();if(which==='notebook')loadNotebook().catch(err=>note(err.message,true));if(which==='graph')loadGraph().catch(err=>note(err.message,true));if(which==='rea')loadREA().catch(err=>note(err.message,true));}
 document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>view(b.dataset.view)));
 document.querySelector('nav').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)||e.target.tagName!=='BUTTON')return;const buttons=[...document.querySelectorAll('nav button')];let i=buttons.indexOf(e.target);i=e.key==='Home'?0:e.key==='End'?buttons.length-1:(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;e.preventDefault();buttons[i].focus();});
 function selectedNumber(id){const v=$(id).value.trim();return v===''?null:Number(v);}
@@ -536,22 +594,35 @@ $('svgExport').onclick=()=>{const a=document.createElement('a');a.href='/api/dia
 
 let notebookItem=null,notebookSources=null;
 async function loadNotebook(){
- if(!notebookSources){notebookSources=await api('/api/sources');for(const id of ['coordinateSource','relationshipSubject','relationshipObject']){
-  $(id).replaceChildren();for(const source of notebookSources){const o=node('option',source.title+' · '+source.id);o.value=source.id;$(id).append(o);}
+ if(!notebookSources){notebookSources=await api('/api/sources');for(const id of ['coordinateSource','relationshipSubject','relationshipObject','analysisSource']){
+  $(id).replaceChildren();if(id==='analysisSource'){const empty=node('option','No source link');empty.value='';$(id).append(empty);}
+  for(const source of notebookSources){const o=node('option',source.title+' · '+source.id);o.value=source.id;$(id).append(o);}
  }}
  const rows=await api('/api/notebook');$('documentList').replaceChildren(node('option','Choose a document'));
  $('documentList').firstChild.value='';for(const row of rows){const o=node('option',row.kind+' · '+row.title+' · revision '+row.revision);o.value=row.id;$('documentList').append(o);}
  if(notebookItem)$('documentList').value=notebookItem.id;
 }
-function notebookKind(){const kind=$('documentKind').value;
- $('transcriptionFields').classList.toggle('hidden',kind==='journal');$('relationshipFields').classList.toggle('hidden',kind!=='relationship');$('attributionField').classList.toggle('hidden',kind==='journal');
- for(const id of ['transcriptionLanguage','textDirection','transcriptionState','transcriptionEngine','transcriptionConfidence','transcriptionRights','editorialNote']){$(id).disabled=kind!=='transcription';$(id).previousElementSibling.classList.toggle('hidden',kind!=='transcription');$(id).classList.toggle('hidden',kind!=='transcription');}
- text($('documentTextLabel'),kind==='journal'?'Private reflection':kind==='relationship'?'Claim and evidence note':'Transcription text (mark unclear readings explicitly)');
- $('documentText').dir=kind==='transcription'?$('textDirection').value:'auto';
+function notebookKind(){const kind=$('documentKind').value;const transcription=kind==='transcription';const relationship=kind==='relationship';const analysis=kind==='analysis-reference';
+ $('transcriptionFields').classList.toggle('hidden',!transcription);$('relationshipFields').classList.toggle('hidden',!relationship);$('analysisFields').classList.toggle('hidden',!analysis);$('attributionField').classList.toggle('hidden',kind==='journal'||analysis);
+ for(const id of ['transcriptionLanguage','textDirection','transcriptionState','transcriptionEngine','transcriptionConfidence','transcriptionRights','editorialNote']){$(id).disabled=!transcription;$(id).previousElementSibling.classList.toggle('hidden',!transcription);$(id).classList.toggle('hidden',!transcription);}
+ text($('documentTextLabel'),kind==='journal'?'Private reflection':relationship?'Claim and evidence note':analysis?'Human review note (does not alter the analysis)':'Transcription text (mark unclear readings explicitly)');
+ $('documentText').dir=transcription?$('textDirection').value:'auto';
 }
 function fillDocument(d){
  $('documentKind').value=d.kind;$('documentTitle').value=d.title;$('documentText').value=d.text??d.note??'';
  $('documentAttribution').value=d.attribution||'';
+ if(d.kind==='analysis-reference'){
+  $('analysisJobId').value=d.job_id;$('analysisInputSha').value=d.input_sha256;$('analysisAdapter').value=d.adapter;
+  $('analysisProfile').value=d.profile+' · '+d.authority+' · '+d.state;
+  $('analysisSandbox').value=d.sandbox_profile+' · network '+d.network_policy+' · filesystem '+d.filesystem_policy;
+  text($('analysisPermissions'),JSON.stringify(d.permissions||[],null,2));text($('analysisLimits'),JSON.stringify(d.resource_limits||{},null,2));
+  const iso=value=>Number.isFinite(value)?new Date(value*1000).toISOString():'UNKNOWN';
+  text($('analysisTiming'),JSON.stringify({created_at:iso(d.created_at),started_at:iso(d.started_at),finished_at:iso(d.finished_at),attempt_count:d.attempt_count,exit_code:d.exit_code,timed_out:d.timed_out,truncated:d.truncated,cancelled:d.cancelled,reaped:d.reaped,error:d.error},null,2));
+  text($('analysisEvidence'),JSON.stringify(d.evidence_hashes||[],null,2));text($('analysisFindings'),JSON.stringify(d.findings||[],null,2));
+  text($('analysisReconstructions'),JSON.stringify(d.reconstructions||[],null,2));
+  text($('analysisLimitations'),JSON.stringify({limitations:d.limitations||[],provider_limitations:d.provider_limitations||[],compatibility_notes:d.compatibility_notes||[],rights_status:d.rights_status,review_state:d.review_state},null,2));
+  $('analysisSource').value=d.source_id||'';$('analysisReviewState').value=d.review_state||'UNREVIEWED';
+ }
  const c=d.coordinates||d.citation||{};for(const [id,key] of [['coordinateSource','source_id'],['coordinateEdition','edition'],['coordinatePage','page'],['coordinateCanvas','canvas'],['coordinateLine','line']])$(id).value=c[key]||'';
  $('coordinateRegion').value=c.region?c.region.join(','):'';
  $('textDirection').value=d.direction||'auto';$('transcriptionLanguage').value=d.language||'und';$('transcriptionState').value=d.state||'human corrected';$('transcriptionRights').value=d.rights||'';$('transcriptionEngine').value=d.engine||'';$('transcriptionConfidence').value=d.confidence??'';$('editorialNote').value=d.editorial_note||'';
@@ -572,6 +643,10 @@ function coordinatePayload(){const region=$('coordinateRegion').value.trim();let
  return {source_id:$('coordinateSource').value,edition:$('coordinateEdition').value,page:$('coordinatePage').value,canvas:$('coordinateCanvas').value||null,line:$('coordinateLine').value||null,region:parsed};}
 function documentPayload(){const kind=$('documentKind').value;const d={kind,title:$('documentTitle').value};
  if(kind==='journal')return {...d,text:$('documentText').value};
+ if(kind==='analysis-reference'){
+  if(!notebookItem||notebookItem.document.kind!=='analysis-reference')throw Error('REA references can only be revised from an existing saved analysis');
+  return {...notebookItem.document,title:$('documentTitle').value,source_id:$('analysisSource').value||null,review_state:$('analysisReviewState').value,note:$('documentText').value};
+ }
  const attribution=$('documentAttribution').value;
  if(kind==='relationship')return {...d,subject:$('relationshipSubject').value,object:$('relationshipObject').value,predicate:$('relationshipPredicate').value,evidence:$('relationshipEvidence').value,citation:coordinatePayload(),attribution,date_range:$('relationshipDate').value,note:$('documentText').value};
  return {...d,text:$('documentText').value,coordinates:coordinatePayload(),direction:$('textDirection').value,language:$('transcriptionLanguage').value,state:$('transcriptionState').value,attribution,rights:$('transcriptionRights').value,editorial_note:$('editorialNote').value,engine:$('transcriptionEngine').value||null,confidence:$('transcriptionConfidence').value===''?null:Number($('transcriptionConfidence').value)};
@@ -591,9 +666,9 @@ $('teiImport').onchange=async e=>{const file=e.target.files[0];if(!file)return;t
 $('exportNotebook').onclick=()=>{const a=node('a');a.href='/api/notebook/export';a.download='private-notebook.json';a.click();};
 $('notebookImport').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>1048576)throw Error('Backup exceeds 1 MiB');const result=await api('/api/notebook/import','POST',JSON.parse(await file.text()));await loadNotebook();text($('notebookStatus'),'Imported '+result.imported_ids.length+' private copies; no original overwritten.');}catch(err){text($('notebookStatus'),err.message);}finally{e.target.value='';}};
 async function loadGraph(){const g=await api('/api/notebook/graph?q='+encodeURIComponent($('graphQuery').value)+'&evidence='+encodeURIComponent($('graphEvidence').value));
- text($('graphNotice'),g.notice+' · '+g.nodes.length+' registered nodes · '+g.edges.length+' matching relationships');$('graphNodes').replaceChildren();for(const n of g.nodes)$('graphNodes').append(node('p',n.title+' · '+n.id+' · '+n.tradition+' · '+n.evidence));
- $('graphEdges').replaceChildren();if(!g.edges.length)$('graphEdges').append(node('p','No attributed relationships match. Add a cited claim to build this graph.'));
- const titles=new Map(g.nodes.map(n=>[n.id,n.title]));for(const edge of g.edges){const card=node('article',undefined,'source-card');card.append(node('h3',titles.get(edge.subject)+' → '+edge.predicate+' → '+titles.get(edge.object)),node('p',edge.evidence+' · '+edge.attribution+' · '+edge.date_range),node('p',edge.note));const citation=node('details');citation.append(node('summary','Inspect citation and provenance'),node('pre',JSON.stringify(edge.citation,null,2)));card.append(citation);const edit=node('button','Open relationship revision history');edit.onclick=async()=>{view('notebook');await loadNotebook();await openDocument(edge.id);};card.append(edit);$('graphEdges').append(card);}
+ text($('graphNotice'),g.notice+' · '+g.nodes.length+' source/analysis nodes · '+g.edges.length+' matching edges');$('graphNodes').replaceChildren();for(const n of g.nodes)$('graphNodes').append(node('p',n.title+' · '+n.id+' · '+n.tradition+' · '+n.evidence));
+ $('graphEdges').replaceChildren();if(!g.edges.length)$('graphEdges').append(node('p','No attributed relationships or linked analysis records match.'));
+ const titles=new Map(g.nodes.map(n=>[n.id,n.title]));for(const edge of g.edges){const card=node('article',undefined,'source-card');card.append(node('h3',titles.get(edge.subject)+' → '+edge.predicate+' → '+titles.get(edge.object)),node('p',edge.evidence+' · '+edge.attribution+' · '+edge.date_range),node('p',edge.note));const citation=node('details');citation.append(node('summary','Inspect citation and provenance'),node('pre',JSON.stringify(edge.citation,null,2)));card.append(citation);const edit=node('button',edge.kind==='analysis-reference'?'Open analysis evidence reference':'Open relationship revision history');edit.onclick=async()=>{view('notebook');await loadNotebook();await openDocument(edge.id);};card.append(edit);$('graphEdges').append(card);}
 }
 $('refreshGraph').onclick=()=>loadGraph().catch(err=>note(err.message,true));$('graphEvidence').onchange=$('refreshGraph').onclick;
 $('addRelationship').onclick=async()=>{view('notebook');await loadNotebook();newDocument('relationship');};
@@ -607,5 +682,147 @@ window.addEventListener('hashchange',routeHash);
  const cap=await api('/api/agents/capabilities');text($('agentResult'),'Available: '+Object.keys(cap).filter(k=>cap[k].installed).join(', '));
  }catch(err){text($('status'),'● ENGINE UNAVAILABLE');note(err.message,true);}
 })();
+
+function renderREAStatus(data){
+ reaState.ready=data.status==='READY';
+ text($('reaStatus'),data.status||'UNKNOWN');
+ text($('reaWorker'),data.message||'No status returned.');
+ $('reaUpload').disabled=!reaState.ready;
+ const root=$('reaAdapters');root.replaceChildren();
+ for(const adapter of (data.adapters||[])){
+  const card=node('div',undefined,'rea-adapter');
+  card.append(node('strong',adapter.identity||adapter.name||'Unknown adapter'));
+  card.append(node('small',(adapter.status||'UNKNOWN')+' · '+(adapter.required_authority||'UNKNOWN')));
+  card.append(node('small','Formats: '+((adapter.formats||[]).join(', ')||'UNKNOWN')));
+  card.append(node('small','Verified: '+(adapter.verified?'YES':'NO')+' · Enabled: '+(adapter.enabled?'YES':'NO')));
+  const limits=adapter.resource_limits||{};card.append(node('small','Limits: '+(limits.cpu_seconds??'?')+'s CPU · '+(limits.memory_mb??'?')+' MB RAM · '+(limits.wall_seconds??'?')+'s wall · '+(limits.output_bytes??'?')+' output bytes'));
+  if(adapter.limitations?.length)card.append(node('small',adapter.limitations.slice(0,2).join(' · ')));
+  root.append(card);
+ }
+}
+async function loadREA(){
+ const data=await api('/api/rea/status');
+ renderREAStatus(data);
+ const sources=await api('/api/sources');const select=$('reaSource');select.replaceChildren();const empty=node('option','No source link');empty.value='';select.append(empty);
+ for(const source of sources){const option=node('option',source.title+' · '+source.id);option.value=source.id;select.append(option);}
+ if(data.status!=='READY')note(data.message||'Local URE service is not ready.',true);
+ else note('Local URE API authenticated. OBSERVE-only bridge ready.');
+}
+$('reaRefresh').onclick=()=>loadREA().catch(err=>note(err.message,true));
+$('reaFile').onchange=()=>{
+ reaState.input=null;reaState.job=null;reaState.report=null;reaState.savedId=null;
+ $('reaSave').disabled=true;$('reaOpenNotebook').disabled=true;text($('reaSaveStatus'),'Analysis reports are not saved to the notebook unless you choose to save them.');
+ $('reaProfile').replaceChildren(node('option','Ingest an artifact first'));
+ $('reaProfile').disabled=true;$('reaRun').disabled=true;$('reaCancel').disabled=true;
+ text($('reaInputSummary'),'Artifact selected. Click Hash & ingest to transfer it to the local URE evidence store.');
+ $('reaFindings').replaceChildren();text($('reaReportJson'),'');
+ text($('reaJobStatus'),'No analysis job submitted.');
+};
+async function uploadREA(){
+ if(!reaState.ready)throw Error('Local URE service is not ready');
+ const file=$('reaFile').files[0];if(!file)throw Error('Choose an artifact first');
+ if(file.size<1)throw Error('Empty artifacts are not accepted');
+ if(file.size>700000)throw Error('Artifact exceeds the 700,000-byte HTTP bridge limit. Use the local URE CLI for larger files.');
+ const bytes=new Uint8Array(await file.arrayBuffer());let binary='';
+ for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+32768,bytes.length)));
+ const result=await api('/api/rea/inputs','POST',{filename:file.name,content_base64:btoa(binary)});
+ reaState.input=result.input;reaState.job=null;reaState.report=null;reaState.savedId=null;$('reaSave').disabled=true;$('reaOpenNotebook').disabled=true;
+ text($('reaInputSummary'),JSON.stringify(result.input,null,2));
+ const select=$('reaProfile');select.replaceChildren();
+ for(const item of result.suggested_profiles||[]){
+  const option=node('option',item.label+' · '+item.adapter);option.value=item.profile;select.append(option);
+ }
+ if(!select.options.length){select.append(node('option','No enabled profile for this format'));select.disabled=true;$('reaRun').disabled=true;}
+ else{select.disabled=false;$('reaRun').disabled=false;}
+ $('reaCancel').disabled=true;$('reaFindings').replaceChildren();text($('reaReportJson'),'');
+ text($('reaJobStatus'),'Input ingested. SHA-256 verified: '+result.input.sha256+'. Choose a profile; no analysis has run yet.');
+}
+$('reaUpload').onclick=async()=>{
+ $('reaUpload').disabled=true;
+ try{await uploadREA();note('Artifact ingested and SHA-256 reconciled with URE.');}
+ catch(err){note(err.message,true);text($('reaJobStatus'),err.message);}
+ finally{$('reaUpload').disabled=!reaState.ready;}
+};
+async function runREA(){
+ if(!reaState.input)throw Error('Ingest an artifact first');
+ const profile=$('reaProfile').value;if(!profile)throw Error('Choose an available profile');
+ const job=await api('/api/rea/jobs','POST',{input_sha256:reaState.input.sha256,profile});
+ reaState.job=job;reaState.report=null;reaState.savedId=null;$('reaSave').disabled=true;$('reaOpenNotebook').disabled=true;$('reaRun').disabled=true;$('reaCancel').disabled=false;
+ text($('reaJobStatus'),'Job '+job.id+' · '+job.state+' · '+job.adapter+' · authority '+job.authority);
+ await pollREA(job.id);
+}
+async function pollREA(jobId){
+ for(let attempt=0;attempt<120;attempt++){
+  await new Promise(resolve=>setTimeout(resolve,1000));
+  if(!reaState.job||reaState.job.id!==jobId)return;
+  const job=await api('/api/rea/jobs/'+encodeURIComponent(jobId));
+  reaState.job=job;
+  text($('reaJobStatus'),'Job '+job.id+' · '+job.state+' · '+job.adapter+' · authority '+job.authority);
+  if(['succeeded','failed','timed_out','cancelled','blocked'].includes(job.state)){
+   $('reaCancel').disabled=true;$('reaRun').disabled=false;
+   if(job.state==='succeeded'){
+    const report=await api('/api/rea/jobs/'+encodeURIComponent(jobId)+'/report');
+    renderREAReport(report);$('reaSave').disabled=false;note('Static analysis completed. Review findings and limitations; no automatic verification claim is made.');
+   }else note('REA job ended: '+job.state+(job.error?' · '+job.error:''),true);
+   return;
+  }
+ }
+ text($('reaJobStatus'),'Job '+jobId+' is still active. Polling window ended; refresh or cancel explicitly.');
+ $('reaCancel').disabled=false;$('reaRun').disabled=false;
+}
+function renderREAReport(report){
+ reaState.report=report;
+ const analysis=report.analysis||{};const root=$('reaFindings');root.replaceChildren();
+ const execution=analysis.execution_summary||{};const limits=analysis.resource_limits||{};
+ const summary=node('article',undefined,'source-card');summary.append(node('span','OBSERVATION · execution envelope','source-type'));
+ summary.append(node('h3',(execution.sandbox_profile||'UNKNOWN')+' · '+(execution.network_policy||'UNKNOWN')+' network'));
+ summary.append(node('p','Authority: '+(execution.authority||'UNKNOWN')+' · permissions: '+((execution.permissions||[]).join(', ')||'UNKNOWN')+' · attempts: '+(execution.attempt_count??'UNKNOWN')));
+ summary.append(node('p','Resource limits: '+JSON.stringify(limits)+' · exit code: '+(execution.exit_code??'UNKNOWN')+' · truncated: '+Boolean(execution.truncated)+' · timed out: '+Boolean(execution.timed_out)));
+ root.append(summary);
+ for(const finding of analysis.findings||[]){
+  const card=node('article',undefined,'source-card');
+  card.append(node('span',finding.kind||'UNKNOWN','source-type'));
+  card.append(node('h3',finding.text||'No finding text'));
+  card.append(node('p','Confidence: '+finding.confidence+' · Source: '+(finding.source||'UNKNOWN')));
+  if(finding.limitations?.length)card.append(node('p','Limitations: '+finding.limitations.join(' · ')));
+  if(finding.evidence_hashes?.length)card.append(node('p','Evidence SHA-256: '+finding.evidence_hashes.join(', ')));
+  root.append(card);
+ }
+ for(const reconstruction of analysis.reconstructions||[]){
+  const card=node('article',undefined,'source-card');card.append(node('span','HYPOTHESIS · reconstruction','source-type'));
+  card.append(node('h3',reconstruction.kind||'Unclassified reconstruction'),node('p',reconstruction.text||''),node('p','Output SHA-256: '+reconstruction.sha256),node('p','Evidence SHA-256: '+(reconstruction.evidence_hashes||[]).join(', ')));root.append(card);
+ }
+ text($('reaReportJson'),JSON.stringify({
+  inputs:analysis.inputs||[],adapters:analysis.adapters||[],execution_summary:execution,resource_limits:limits,evidence:analysis.evidence||[],
+  limitations:analysis.limitations||[],provider_limitations:analysis.provider_limitations||[],
+  compatibility_notes:analysis.compatibility_notes||[],reconstructions:analysis.reconstructions||[]
+ },null,2));
+}
+async function saveREAReference(){
+ if(!reaState.job||!reaState.report||reaState.job.state!=='succeeded')throw Error('A completed analysis report is required');
+ $('reaSave').disabled=true;
+ try{
+  const saved=await api('/api/rea/jobs/'+encodeURIComponent(reaState.job.id)+'/notebook','POST',{
+   source_id:$('reaSource').value||null,
+   title:'REA · '+reaState.job.adapter+' · '+reaState.input.sha256.slice(0,12),
+   note:''
+  });
+  reaState.savedId=saved.id;$('reaOpenNotebook').disabled=false;
+  text($('reaSaveStatus'),(saved.existing?'Existing reference':'Saved reference')+' · '+saved.id+' · revision '+saved.revision+'. It remains UNREVIEWED until you review it in the notebook.');
+ }catch(err){$('reaSave').disabled=false;throw err;}
+}
+$('reaSave').onclick=()=>saveREAReference().catch(err=>{note(err.message,true);text($('reaSaveStatus'),err.message);});
+$('reaOpenNotebook').onclick=async()=>{if(!reaState.savedId)return;view('notebook');await loadNotebook();await openDocument(reaState.savedId);};
+$('reaRun').onclick=()=>runREA().catch(err=>{note(err.message,true);text($('reaJobStatus'),err.message);$('reaRun').disabled=false;});
+$('reaCancel').onclick=async()=>{
+ if(!reaState.job)return;
+ $('reaCancel').disabled=true;
+ try{
+  const job=await api('/api/rea/jobs/'+encodeURIComponent(reaState.job.id)+'/cancel','POST',{});
+  reaState.job=job;text($('reaJobStatus'),'Job '+job.id+' · '+job.state);$('reaRun').disabled=false;
+  note('Cancellation requested; URE owns terminal-state reconciliation.');
+ }catch(err){note(err.message,true);$('reaCancel').disabled=false;}
+};
+
 </script>
 </body></html>

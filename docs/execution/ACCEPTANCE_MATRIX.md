@@ -44,3 +44,49 @@ proposals retain UNKNOWN verse existence/equivalence and null text. 131 tests pa
 41 browser assertions, 155 unique HTML IDs; all form controls have label/ARIA name
 sources and three sampled palette contrasts exceed 4.5. Full WCAG remains UNKNOWN.
 The complete scope mapping is in REQUIREMENT_DISPOSITION.md.
+
+## REA acceptance — 2026-11-13
+
+| Acceptance item | Result | Evidence |
+|---|---|---|
+| Divine-to-URE authenticated loopback bridge | PASS | Live URE status, adapter registry, input upload and report retrieval |
+| OBSERVE-only job submission | PASS | API hardcodes OBSERVE; synthetic AUTO is rejected |
+| Verified adapter filtering | PASS | Live registry filters unverified ELF metadata; unavailable Frida/PlatformIO/sigrok are not offered |
+| ELF specialist adapter | PASS | Ghidra decompiled 32 functions from owned /usr/bin/true fixture |
+| Android specialist adapters | PASS | JADX exported 1 DEX source preview; Kaitai parsed 1 class and 2 methods |
+| Evidence integrity | PASS | SHA-256 input match, 3 evidence records per specialist run, report evidence references validated |
+| Internal worker/fencing data exposure | PASS | Divine response strips worker IDs, leases, tokens and execution attempt records |
+| UI and automated tests | PASS | 142 Divine tests; 172 URE tests; 169 unique UI IDs and valid JavaScript syntax |
+| Large-file and scholarly OCR/HTR support | NOT ACCEPTED | Explicitly outside current 700 KB HTTP bridge and signature-classifier scope |
+
+### Final hardening delta
+
+The profile resolver now selects the highest live verified adapter version and includes that identity in the idempotency key. A provider adapter upgrade therefore creates a distinct job identity instead of replaying an old adapter result. Report reconstructions are rejected unless their SHA-256 and evidence references validate. Final count: 143 Divine tests, 172 URE tests and 49 real-browser assertions.
+### REA provenance acceptance
+
+| Acceptance item | Result | Evidence |
+|---|---|---|
+| Safe execution envelope | PASS | Sandbox profile, network/filesystem policy, OBSERVE permissions, adapter resource limits, timestamps and terminal flags are sanitized |
+| Private notebook evidence reference | PASS | API route saves successful job reports as revisioned analysis-reference documents; idempotent by job ID |
+| Evidence integrity in notebook | PASS | Input SHA-256, raw evidence hashes, findings and reconstruction references validated |
+| Optional source association | PASS | Source ID must exist in the registered catalogue; absent source remains unlinked |
+| Tradition Graph provenance | PASS | Analysis nodes and optional source-to-analysis OBSERVATION edges; no historical influence inferred |
+| Human verification | PASS | UNREVIEWED default; HUMAN_REVIEWED/DISPUTED annotation is distinct from tool output |
+| Browser save flow | PASS | 53-assertion Chromium run on the restarted live app: upload → identify → evidence report → private notebook save → Tradition Graph; zero JS exceptions/external requests |
+
+### Live integrated acceptance — 2026-11-13
+
+| Gate | Result | Evidence |
+|---|---|---|
+| Service lifecycle | PASS | `fr3k-ure.service` and `divine-arsenal.service` enabled/active with restart-on-failure; local-only bind |
+| Authenticated URE connection | PASS | Divine `/api/rea/status` returned READY after systemd-managed restart |
+| Live registry reconciliation | PASS | 17 identities; only 7 verified/enabled OBSERVE adapters are offered for execution |
+| Live upload and analysis | PASS | Synthetic fixture SHA-256 matched; identify job succeeded; OBSERVE authority retained |
+| Report evidence | PASS | 3 raw evidence records, 2 unique hashes, 1 finding; dangling references rejected by tests |
+| Private notebook persistence | PASS | Save succeeded; repeated save returned the same reference; unique SHA-256 references validated |
+| Tradition Graph provenance | PASS | `analysis:<document-id>` node appeared as OBSERVATION; no historical influence inferred |
+| Synthetic record cleanup | PASS | Test notebook reference removed after graph verification; raw URE evidence retained privately |
+| Divine test suite | PASS | 154 tests passed |
+| URE test suite | PASS | 172 tests and 46 subtests passed |
+| Browser acceptance | PASS | 53 assertions; desktop/mobile; zero console exceptions or external requests |
+| Public production release | NOT ACCEPTED | Scholarly, rights, full accessibility, external security, remote CI and OCR/HTR gates remain open |

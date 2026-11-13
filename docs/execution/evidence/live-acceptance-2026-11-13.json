@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-13",
+  "scope": "Local integrated Divine Arsenal + URE acceptance; not a production release",
+  "services": {
+    "fr3k-ure.service": {
+      "enabled": true,
+      "active": true,
+      "bind": "IPv4 loopback only",
+      "restart_policy": "on-failure"
+    },
+    "divine-arsenal.service": {
+      "enabled": true,
+      "active": true,
+      "bind": "IPv4 loopback only",
+      "restart_policy": "on-failure"
+    }
+  },
+  "rea": {
+    "authenticated_status": "READY",
+    "adapter_identities": 17,
+    "verified_enabled_observe_adapters": [
+      "identify",
+      "ghidra.decompile",
+      "kaitai.dex",
+      "unblob.scan",
+      "radare2.analyze",
+      "binwalk.scan",
+      "jadx.decompile"
+    ],
+    "enabled_unverified": [
+      "elf.metadata",
+      "synthetic.bytes"
+    ],
+    "installed_unavailable_unverified": [
+      "pdf.metadata",
+      "tei.validate",
+      "iiif.manifest",
+      "image.metadata",
+      "grid.inspect"
+    ],
+    "separately_gated": [
+      "frida:APPROVAL",
+      "platformio:PHYSICAL",
+      "sigrok:PHYSICAL"
+    ],
+    "live_identify": {
+      "job_state": "succeeded",
+      "authority": "OBSERVE",
+      "input_sha256_reconciled": true,
+      "evidence_records": 3,
+      "unique_evidence_hashes": 2,
+      "findings": 1,
+      "notebook_save": true,
+      "duplicate_save_idempotent": true,
+      "tradition_graph_observation_node": true,
+      "synthetic_notebook_reference_cleaned": true,
+      "raw_test_evidence_retained_in_private_ure_store": true
+    },
+    "browser_upload_limit_bytes": 700000
+  },
+  "tests": {
+    "divine_pytest": {
+      "passed": 154
+    },
+    "ure_pytest": {
+      "passed": 172,
+      "subtests_passed": 46
+    },
+    "chromium": {
+      "assertions": 53,
+      "viewports": [
+        "1440x1100",
+        "390x844"
+      ],
+      "console_exceptions": 0,
+      "external_requests": 0,
+      "remote_images_requested": false
+    },
+    "html_javascript": "valid",
+    "unique_html_ids": 188,
+    "palette_contrast_ratios": {
+      "muted_on_surface": 8.8798,
+      "text_on_input": 16.4732,
+      "focus_on_surface": 11.4134
+    },
+    "form_controls_without_accessible_name": 0
+  },
+  "limitations": [
+    "Not a public or production release",
+    "No full WCAG or screen-reader audit",
+    "No independent external security review",
+    "Remote CI not observed",
+    "Scholarly source/rights and real institutional IIIF checks remain open",
+    "OCR/HTR and large-file streaming remain outside current bridge",
+    "Frida, PlatformIO, sigrok, Fleet and physical authority remain disabled or gated"
+  ],
+  "service_installer": {
+    "bash_syntax_valid": true,
+    "systemd_unit_verify": true,
+    "installer_executed": true,
+    "both_units_restarted_and_ready": true
+  }
+}

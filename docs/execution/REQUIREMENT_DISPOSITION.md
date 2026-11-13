@@ -32,3 +32,11 @@ Owners are roles for the next pass, not assigned agents or permissions.
 | Packaging/CI | IMPLEMENTED local sdist/wheel, extracted and actual installed-wheel HTTP smoke; YAML syntax checked | Maintainer verify remote CI and clean-machine installs (UNKNOWN) |
 | Recovered REA directive | UNKNOWN separate untracked file preserved; no recovered drive audit/import executed | Establish bounded read-only scope separately; exclude private machine data from public records |
 | Human acceptance/release | BLOCKED by scholarly, rights, institution, security and manual gates | Release reviewer close gates; no push/merge/deploy without separate instruction |
+
+## REA integration disposition — 2026-11-13
+
+The parallel URE build is the authoritative analysis capability provider. Divine Arsenal consumes it through a separate, authenticated, loopback-only HTTP adapter; it does not transplant the recovered REA MCP server, introduce another scheduler, or grant host/physical authority.
+
+The 29 recovered repositories are inventoried with observed local HEADs, licence observations, tracked-change state and selection decisions. The preserved audit is static-only; upstream freshness, advisories, untracked-file status and full transitive licence clearance remain UNKNOWN. No recovered checkout was executed or vendored.
+
+The Divine integration supports bounded input intake, hash reconciliation, verified adapter discovery, OBSERVE-only jobs, evidence-linked reports, private notebook references and local Tradition Graph provenance. Live acceptance verified the complete browser → Divine → URE → report → notebook → graph path. Prior live specialist checks cover Ghidra, JADX and Kaitai. PDF/image OCR/HTR, large-file streaming, Fleet transport and physical instrumentation remain open.

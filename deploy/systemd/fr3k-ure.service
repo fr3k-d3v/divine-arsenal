@@ -1,0 +1,20 @@
+[Unit]
+Description=FR3K Universal Reverse Engineering Engine (local)
+After=default.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=@URE_ROOT@
+EnvironmentFile=@ENV_FILE@
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+ExecStart=@URE_ROOT@/.venv/bin/python -B -m ure --state %h/.local/state/fr3k-ure serve --host 127.0.0.1 --port 18879
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=30
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=default.target

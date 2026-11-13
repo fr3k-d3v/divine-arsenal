@@ -1,0 +1,3844 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-12",
+  "mode": "OBSERVE; static read only; no recovered code execution",
+  "source_workspace": "REVERSE ENGINEER ANYTHING / repos",
+  "manifest_identity_check": "VERIFIED: all 29 normalized local origin URLs match recovered owner/repository directory identity and clone manifest naming; 40-character HEAD read locally.",
+  "plan_evidence": [
+    {
+      "path": "CLONE_MANIFEST.tsv",
+      "sha256": "78d4baacf55650064bdc0ab0c74f732ee3c7f0465a6ea021f91a576a2cb06b69"
+    },
+    {
+      "path": "research/REPOS_AND_INTEGRATION_PLAN.md",
+      "sha256": "3afd0d78cd1f76ec5510eaff7ea8c8bc794584a73a3bbf5923dfd16fc625daf1"
+    },
+    {
+      "path": "research/CONTABO_INTEGRATION_PLAN_2026-10-26.md",
+      "sha256": "da7af0d8ae989de7ea30fb7c1c89e74b4371e4a0b9eca9f3b48ddc577c82659c"
+    }
+  ],
+  "repository_count": 29,
+  "repositories": [
+    {
+      "repository": "1013503897/jadx-headless-mcp",
+      "recovered_checkout_name": "1013503897__jadx-headless-mcp",
+      "upstream_url": "https://github.com/1013503897/jadx-headless-mcp.git",
+      "local_checkout": "recovered-workspace/repos/1013503897__jadx-headless-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "c9d8408fc90bb8abd9f2d9d0e2ae861e59342761",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "Apache-2.0",
+      "purpose": "JADX static",
+      "capability_tags": [
+        "JADX static"
+      ],
+      "dependency_risk_review": "JADX 1.5.6; Kotlin/Gradle shadow/MCP/Ktor; wrapper builds fetch plugins. Prior ancestry divergence unresolved.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": [
+          "scripts/Launcher.java"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Candidate reference only; prefer existing P4 worker and installed verified CLI.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "8f071e1c0b991796de42b06cc24924afb733dc0f64af10bc413183fccebc2dd6"
+        },
+        {
+          "path": "README.zh-CN.md",
+          "sha256": "2e17c63a0cc2a340079cf40b9272da69df3a18b4dc68955a40456d75456f37bf"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "build.gradle.kts",
+          "sha256": "05173e45ec8c43ac4085190a5564c396792d5d3eeb03739a61c287583ee3a149",
+          "size_bytes": 5373
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "612097054771e7268f449b9d479bd47e7ef0901961d1515804e03f1d84e1920d"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "scripts/Launcher.java",
+          "sha256": "e399abb311a55c21dea22e8fa0c1b31b1e0f6d2855d2fc24ddf91f019e4075cd"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "Cossack9989/binwalk-mcp-server",
+      "recovered_checkout_name": "Cossack9989__binwalk-mcp-server",
+      "upstream_url": "https://github.com/Cossack9989/binwalk-mcp-server.git",
+      "local_checkout": "recovered-workspace/repos/Cossack9989__binwalk-mcp-server",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "e70298a33756e8952e5436d718b02aaec98f6918",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "Firmware",
+      "capability_tags": [
+        "Firmware"
+      ],
+      "dependency_risk_review": "FastMCP >=2.12.3; subprocess Binwalk; setup shell. No root license found.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [
+          "setup.sh"
+        ],
+        "network": [],
+        "shell": [],
+        "subprocess": [
+          "binwalk_mcp/server.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "BLOCKED license and tool/extraction verification.",
+      "readme_evidence": [
+        {
+          "path": "README.MD",
+          "sha256": "03000e1eac2918696d304bec99147e5a44d54c11dd8d4eef9f46f631b2846825"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {},
+          "declarations": {
+            "dependencies": [
+              "fastmcp>=2.12.3",
+              "hexdump>=3.3",
+              "magika>=0.6.2"
+            ],
+            "name": "binwalk_mcp_server",
+            "requires-python": ">=3.13",
+            "version": "0.1.0"
+          },
+          "path": "pyproject.toml",
+          "sha256": "bbd2d4a11e79ca16817b863d9c7adc2c7271dee0faa8d5b667f3c6f56f706544",
+          "size_bytes": 222
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "setup.sh",
+          "sha256": "9894cc76d8189144605cfa528306a2d3b6523d891fbbec53811db015bee7fec0"
+        },
+        {
+          "path": "binwalk_mcp/server.py",
+          "sha256": "5aea8fba4e2ed12ebe092b6c147437faf2c45b552950fb916152fa0c954c17a5"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "Hao17/LiteGhidraMCP",
+      "recovered_checkout_name": "Hao17__LiteGhidraMCP",
+      "upstream_url": "https://github.com/Hao17/LiteGhidraMCP.git",
+      "local_checkout": "recovered-workspace/repos/Hao17__LiteGhidraMCP",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "ca5ccd768bc878206ed6c06bc3299c8eddad9801",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "Ghidra",
+      "capability_tags": [
+        "Ghidra"
+      ],
+      "dependency_risk_review": "Python MCP/uvicorn/httpx ranges; Java 23 image and downloaded Ghidra; exec runner and network service.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "docker_only_ghidra_mcp_server.py",
+          "api/demo.py",
+          "scripts/exec_runner.py"
+        ],
+        "hardware": [],
+        "install": [
+          "cli/config.py",
+          "scripts/mcp_sse_proxy.py",
+          "scripts/test_mcp.py"
+        ],
+        "network": [
+          "docker_only_ghidra_mcp_server.py",
+          "ghidra_mcp_server.py",
+          "docker/entrypoint.sh",
+          "docker/healthcheck.sh",
+          "scripts/admin_bootstrap.py"
+        ],
+        "shell": [],
+        "subprocess": [
+          "docker_only_ghidra_mcp_server.py",
+          "ghidra_mcp_server.py",
+          "cli/docker.py",
+          "scripts/exec_runner.py",
+          "scripts/mcp_sse_proxy.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Reject broad scripting bridge for initial read-only adapter.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "1ce230a67fedfcb7633cd159c57fee10e2fe7216639e45441ad933e44cf1a0a3"
+        },
+        {
+          "path": "README_ZH.md",
+          "sha256": "48513d54109652baca0de1d71204c827e2edf0dbdd217b6e41145cbb10fdd09c"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {
+            "build-backend": "setuptools.build_meta",
+            "requires": [
+              "setuptools>=68.0"
+            ]
+          },
+          "declarations": {
+            "dependencies": [
+              "click>=8.1"
+            ],
+            "name": "ghidra-mcp-bridge",
+            "optional-dependencies": {
+              "bridge": [
+                "mcp>=1.0.0",
+                "uvicorn>=0.30.0",
+                "httpx>=0.27.0"
+              ]
+            },
+            "requires-python": ">=3.10",
+            "version": "0.1.0"
+          },
+          "path": "pyproject.toml",
+          "sha256": "52589f8d3eb0daa0ef88cf75602447e0a6fb7d3349be4c9ee1591a6855a60d3e",
+          "size_bytes": 456
+        },
+        {
+          "path": "requirements.txt",
+          "sha256": "6b4954e4b9e072d3de8c3735dbd3fd944fac93f1d416fdac3e8561abf0039bb2",
+          "size_bytes": 283
+        },
+        {
+          "path": "docker/Dockerfile",
+          "sha256": "45105009bb1ca395fd45e6d6c7a61f9105e735fd7912b6bd716921d17dc6a901",
+          "size_bytes": 2176
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "docker_only_ghidra_mcp_server.py",
+          "sha256": "a59df7552e1a7ab100574cedddede8ad01e60b4340b214ee425ea73ab7facab4"
+        },
+        {
+          "path": "ghidra_mcp_server.py",
+          "sha256": "5dc14a6306b3a030b75780a2eb6f480780b6410bcfa1de8a84dd1366c38ebef4"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "JINGQINLIN/Palimpsest",
+      "recovered_checkout_name": "JINGQINLIN__Palimpsest",
+      "upstream_url": "https://github.com/JINGQINLIN/Palimpsest.git",
+      "local_checkout": "recovered-workspace/repos/JINGQINLIN__Palimpsest",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "acd9ce9027958febe3f8f67008da31c3d8ea7235",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Reconstruction",
+      "capability_tags": [
+        "Reconstruction"
+      ],
+      "dependency_risk_review": "Anthropic/MCP/Jinja/YAML ranges, Ghidra and CodeQL pipeline; remote-model data disclosure boundary.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [
+          "pipeline/codeql/stubs.py",
+          "pipeline/registry/header.py",
+          "pipeline/stages/ghidra.py",
+          "pipeline/stages/reconstruct/orchestrate.py"
+        ],
+        "shell": [],
+        "subprocess": [
+          "pipeline/agent/syntax_utils.py",
+          "pipeline/codeql/builder.py",
+          "pipeline/stages/report.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer; reconstructions remain HYPOTHESIS.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "c98c45d28a6a96f279c3928a800e463f28af14a53f7be5385ed55c7a659f36f5"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "requirements.txt",
+          "sha256": "f473f75f862182060e89ceabc1eae76d27389b9bd27a26d720f2a21c175e32c5",
+          "size_bytes": 316
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "8a4e5764c0391206028b4dad6e52259e5ee8732e853cc34627485a391f3a12c1"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "config.py",
+          "sha256": "982c791d6970075d5709e9d2fa55650256bb94f46b7ba906c328d71cd6a3d78c"
+        },
+        {
+          "path": "main.py",
+          "sha256": "5afca839e0902074f7a534bb87448dbdf90d53618856017a2ef11b9aec1827e6"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "KenosInc/sigrok-mcp-server",
+      "recovered_checkout_name": "KenosInc__sigrok-mcp-server",
+      "upstream_url": "https://github.com/KenosInc/sigrok-mcp-server.git",
+      "local_checkout": "recovered-workspace/repos/KenosInc__sigrok-mcp-server",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "71a652dcae5ad663d00ee774857cf40dcbfd1df6",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Signals",
+      "capability_tags": [
+        "Signals"
+      ],
+      "dependency_risk_review": "Go MCP; Docker git:// sigrok clones and build/download scripts; hardware access.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [
+          ".devcontainer/post-create.sh"
+        ],
+        "install": [
+          ".devcontainer/post-create.sh"
+        ],
+        "network": [],
+        "shell": [],
+        "subprocess": []
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer physical capture; future offline decode only after tool review.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "2dda1376606e3200260dbfc25c6743c801877b2d5d21b5f1c720e62211685cb0"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "Dockerfile",
+          "sha256": "8173bcb79f6f36003f1cea8f29aa3d29470fee66960bd2332b9a0bbe85c3d11f",
+          "size_bytes": 2693
+        },
+        {
+          "path": "go.mod",
+          "sha256": "ffa6aa18091e185e73168b9e4e00d00ea5b257af19674c081dceda38e651da07",
+          "size_bytes": 521
+        },
+        {
+          "path": ".devcontainer/Dockerfile",
+          "sha256": "6705e5caa3fe6b5dad4eeb743d7764e43107dc93309548b684202c37461b73d7",
+          "size_bytes": 2097
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "cc5d0e0aa4adb79cb8dfc532ff6adb8e4ec40eabf486cf45dbc182bbece53c7a"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": ".devcontainer/post-create.sh",
+          "sha256": "aa62b59f8f895459bf0c6141d7e8ed4dea12c8a87f3e5e0939523b98ee479b6d"
+        },
+        {
+          "path": ".claude/hooks/yamllint-check.sh",
+          "sha256": "19aec629cd00c5e1336ad12d147d2882e4b287312949b0ee56358af84647ce0c"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "Kyworn/slopwise",
+      "recovered_checkout_name": "Kyworn__slopwise",
+      "upstream_url": "https://github.com/Kyworn/slopwise.git",
+      "local_checkout": "recovered-workspace/repos/Kyworn__slopwise",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "3b4ceec5f3f4dec94dab62fe4c8a4e3b8c14725d",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "CLAIM MIT; no license file",
+      "purpose": "Firmware diff",
+      "capability_tags": [
+        "Firmware diff"
+      ],
+      "dependency_risk_review": "Python packaging claims MIT; external decompile/unpack/LLM subprocesses.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": [
+          "src/slopwise/decompile.py",
+          "src/slopwise/llm.py",
+          "src/slopwise/unpack.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "BLOCKED license text; prefer P6 structural diff fixture design.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "3b78900bec2a01d063363aab42cab5a7b33fec3355205f905450fba107e557fd"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {
+            "build-backend": "setuptools.build_meta",
+            "requires": [
+              "setuptools>=68",
+              "wheel"
+            ]
+          },
+          "declarations": {
+            "dependencies": [
+              "litellm>=1.50",
+              "click>=8.1",
+              "rich>=13",
+              "pydantic>=2",
+              "pyyaml>=6"
+            ],
+            "license": {
+              "text": "MIT"
+            },
+            "name": "slopwise",
+            "optional-dependencies": {
+              "dev": [
+                "pytest",
+                "ruff"
+              ]
+            },
+            "requires-python": ">=3.10",
+            "version": "0.0.1"
+          },
+          "path": "pyproject.toml",
+          "sha256": "0721369ecc55b96e4e57d23183cb10ff2054f8f68cbf9f49c1ba7a427c977249",
+          "size_bytes": 605
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "ghidra_scripts/decompile_all.java",
+          "sha256": "45a97f152b09298a21e28e9f0b34d011da84741e085297df529c6232962a08a4"
+        },
+        {
+          "path": "ghidra_scripts/decompile_all.py",
+          "sha256": "fdc2ed80430537f8765acf36ad99ccd24cc7db088eab3f9f5cf5f5c859a9534f"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "Qtty/jadx-mcp-server",
+      "recovered_checkout_name": "Qtty__jadx-mcp-server",
+      "upstream_url": "https://github.com/Qtty/jadx-mcp-server.git",
+      "local_checkout": "recovered-workspace/repos/Qtty__jadx-mcp-server",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "4e6d890d1d3753d2bb47d492a9523ef98874df85",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "JADX static",
+      "capability_tags": [
+        "JADX static"
+      ],
+      "dependency_risk_review": "Spring/JADX 1.5.6, HTTP JVM daemon plus Python MCP/httpx; Android build tools.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [
+          "build.sh",
+          "test.sh"
+        ],
+        "network": [
+          "mcp_server/daemon.py",
+          "mcp_server/jadx_mcp.py",
+          "src/main/java/com/example/jadxmcpserver/JadxMcpServerApplication.java",
+          "mcp_server/tests/test_concurrency.py",
+          "mcp_server/tests/test_tools.py"
+        ],
+        "shell": [],
+        "subprocess": [
+          "mcp_server/daemon.py",
+          "src/test/java/com/example/jadxmcpserver/core/AnalyzerRegistryTest.java",
+          "src/main/java/com/example/jadxmcpserver/JadxRestController.java",
+          "src/main/java/com/example/jadxmcpserver/core/AnalyzerRegistry.java",
+          "src/main/java/com/example/jadxmcpserver/core/JadxAnalyzerCore.java"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer duplicate persistent server; missing license.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "fc19b90e944091e73205924e40f633f30d08cc7036ffc380fbc457d2412a11b3"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "pom.xml",
+          "sha256": "fef1caab7e258b1ffcc41b2a46bfd3a9f4ec7cc48600214031c52277eb5aa08d",
+          "size_bytes": 4377
+        },
+        {
+          "path": "mcp_server/requirements-dev.txt",
+          "sha256": "e7c8dbe7f146a8ed71c8efc84d13219118a15f6b8ba8d636634df78f3eedba3b",
+          "size_bytes": 308
+        },
+        {
+          "path": "mcp_server/requirements.txt",
+          "sha256": "3f651483b407cb87fcf903051380103e046a003b729c8daa87b00c34c7a7dfbc",
+          "size_bytes": 372
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "build.sh",
+          "sha256": "0db29e359c28501e159b92018a1c5c0c616fccbf9907af54fb863da901e49b17"
+        },
+        {
+          "path": "run-api.sh",
+          "sha256": "63d2ea6f4a8555297e0a502752ce508a8c68d832d75ad0cc891ecc2d30a5cdea"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "Samael-Z/jadx-headless-mcp",
+      "recovered_checkout_name": "Samael-Z__jadx-headless-mcp",
+      "upstream_url": "https://github.com/Samael-Z/jadx-headless-mcp.git",
+      "local_checkout": "recovered-workspace/repos/Samael-Z__jadx-headless-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "866505a14827f60d8a1861fcc8568457efb0cddd",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "JADX static",
+      "capability_tags": [
+        "JADX static"
+      ],
+      "dependency_risk_review": "JADX 1.5.5/MCP/Jetty/SQLite/Jackson JVM dependency surface.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": [
+          "src/main/java/com/zin/jadxheadless/index/CodeSearchIndex.java"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer duplicate server; missing license.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "448989b63f1a8a3b9723c2f24527db7e23d94f5168a69680ae3bb60c7b62e420"
+        },
+        {
+          "path": "README.zh-CN.md",
+          "sha256": "fd7f262a2d71016b1c2a1de62bde49dfb4ff21751140b1684da53a604ff32b61"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "pom.xml",
+          "sha256": "f1e414256d4b945852ee7ea3735f2521a386f12a0edf31ec7924123034c0c31d",
+          "size_bytes": 7959
+        }
+      ],
+      "license_files": [],
+      "source_samples": [],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "The-Arabi/Reverse-engineering-agent",
+      "recovered_checkout_name": "The-Arabi__Reverse-engineering-agent",
+      "upstream_url": "https://github.com/The-Arabi/Reverse-engineering-agent.git",
+      "local_checkout": "recovered-workspace/repos/The-Arabi__Reverse-engineering-agent",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "c16af7d5c25f30007e2ae2d9e6dfd524d3aff0d9",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "Agent orchestration",
+      "capability_tags": [
+        "Agent orchestration"
+      ],
+      "dependency_risk_review": "Flask/SocketIO/databases/LLM dependencies; Docker downloads radare2 and Ghidra; broad process execution.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [
+          "orchestrator.py",
+          "providers.py",
+          "agents/hardware_behavior_agent.py",
+          "config/settings.py"
+        ],
+        "install": [
+          "embeddings.py",
+          "llm_client.py",
+          "setup_wizard.py",
+          "setup_workflow.py"
+        ],
+        "network": [
+          "setup_wizard.py",
+          "setup_workflow.py",
+          "web_dashboard.py",
+          "agents/emulator_development_agent.py",
+          "config/settings.py"
+        ],
+        "shell": [],
+        "subprocess": [
+          "orchestrator.py",
+          "providers.py",
+          "setup_wizard.py",
+          "setup_workflow.py",
+          "agents/binary_analysis_agent.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Reject duplicate orchestrator; missing license and broad authority.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d0b74b4e1bcd9b9ab3b4850b593500785341e9aa232e5754d623e648f1e17add"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "Dockerfile",
+          "sha256": "8fc1294f0005d282f318eeeb416eae937393e26cfe241fc6e1e79c628121b7e4",
+          "size_bytes": 2905
+        },
+        {
+          "path": "requirements.txt",
+          "sha256": "22a6702c7091980b4925917fb9681dae3a6380b53c0d5d688e2afc5d9243371f",
+          "size_bytes": 288
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "debate.py",
+          "sha256": "a981c8113d227d424bef9e7e921338e540e18f72f242c8111ea5f32452f3af14"
+        },
+        {
+          "path": "embeddings.py",
+          "sha256": "52c74f4711ce9c3690890288c6f90291749344ee23ca787fa70a8c89a9db3450"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "abd3lraouf-studios/binexport-ghidra-12",
+      "recovered_checkout_name": "abd3lraouf-studios__binexport-ghidra-12",
+      "upstream_url": "https://github.com/abd3lraouf-studios/binexport-ghidra-12.git",
+      "local_checkout": "recovered-workspace/repos/abd3lraouf-studios__binexport-ghidra-12",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "1f8511e7dc9f4c194b5d730ba7b3ebfd9d5c9aa5",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "Apache-2.0",
+      "purpose": "Function export",
+      "capability_tags": [
+        "Function export"
+      ],
+      "dependency_risk_review": "Ghidra extension/Java21/protobuf/toolchain compatibility; fork provenance.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": []
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer pending installed Ghidra validation and P6 need.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "521a33ddbea81e35318c514e6fd04f7537934bd72ac3340664724e84280092a0"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "java/build.gradle",
+          "sha256": "af0a8fa000c74cb8c2730787865d6c4c7ca7dde14a65153b2b777badf2e6153e",
+          "size_bytes": 5773
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "c1724a9c059a2450d2f4945de389eba5789b1f74212491a7973a0b69fbdb399e"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "boost_parts/update-boost.sh",
+          "sha256": "46c28d3e6ff4e9a8c6f4a7849659b7654176cd47d5a0d4a219c05e195068f3fc"
+        },
+        {
+          "path": "kokoro/java/build.sh",
+          "sha256": "266f46aa6cbf69a351b166d1ee9cf1f0d8f2629ddb8394367f3648e809686824"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "drazisil/ghidra-mcp",
+      "recovered_checkout_name": "drazisil__ghidra-mcp",
+      "upstream_url": "https://github.com/drazisil/ghidra-mcp.git",
+      "local_checkout": "recovered-workspace/repos/drazisil__ghidra-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "d77c40f2a2a6b6599a9b208d3b28dca1724d0912",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "Ghidra",
+      "capability_tags": [
+        "Ghidra"
+      ],
+      "dependency_risk_review": "Python MCP range and external Ghidra/PyGhidra; persistent service subprocess.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": [
+          "ghidra_mcp/server.py",
+          "tests/test_decompiler_thread_cap.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer missing license; existing P1/P5 direct headless path preferred.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "50c600216e0d8ebe0c61ceaee337f980069a393b00651012c7203ad01a76ba3b"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {
+            "build-backend": "setuptools.build_meta",
+            "requires": [
+              "setuptools>=68"
+            ]
+          },
+          "declarations": {
+            "dependencies": [
+              "mcp>=1.28.1,<2"
+            ],
+            "name": "ghidra-mcp",
+            "requires-python": ">=3.11",
+            "version": "0.3.0"
+          },
+          "path": "pyproject.toml",
+          "sha256": "8ab8cd0e8374c4332ba01845dcb1bcf0a0b22682395af16c6de4b8e7afdef272",
+          "size_bytes": 501
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "ghidra_mcp/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "ghidra_mcp/server.py",
+          "sha256": "3d753427debb2a430ba661c06e024fd648c79ba2c0f8fe81e4743c5b191015e6"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "drvcvt/radare2-mcp",
+      "recovered_checkout_name": "drvcvt__radare2-mcp",
+      "upstream_url": "https://github.com/drvcvt/radare2-mcp.git",
+      "local_checkout": "recovered-workspace/repos/drvcvt__radare2-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "4d3075946928638cdfd9254eb55f599d16187a63",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "CC-BY-NC-SA-4.0",
+      "purpose": "radare/Rizin",
+      "capability_tags": [
+        "radare/Rizin"
+      ],
+      "dependency_risk_review": "Node MCP/r2pipe/Zod ranges; command/script features and exploit helpers.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "src/tools/exploit-hunter.ts",
+          "src/tools/extract-iocs.ts",
+          "src/tools/file-format-analyzer.ts",
+          "src/tools/get-entropy.ts",
+          "src/tools/search-rop-gadgets.ts"
+        ],
+        "hardware": [],
+        "install": [],
+        "network": [
+          "src/tools/extract-iocs.ts",
+          "src/tools/triage-binary.ts"
+        ],
+        "shell": [],
+        "subprocess": [
+          "src/rizin/rizin-session.ts",
+          "src/tools/exploit-hunter.ts",
+          "src/tools/find-vulnerabilities.ts"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "BLOCKED licensing review; prefer radareorg candidate if needed.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "a8f0730bb808d333191bdf32f1495bb2f50aecb5d690c051efca2c8b3a177b6e"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "dependencies": {
+              "@modelcontextprotocol/sdk": "^1.12.1",
+              "r2pipe": "^2.8.6",
+              "zod": "^3.24.0"
+            },
+            "devDependencies": {
+              "@eslint/js": "^9.0.0",
+              "@types/node": "^22.0.0",
+              "eslint": "^9.0.0",
+              "prettier": "^3.4.0",
+              "tsx": "^4.19.0",
+              "typescript": "^5.7.0",
+              "typescript-eslint": "^8.0.0",
+              "vitest": "^2.1.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "name": "radare2-mcp",
+            "version": "1.0.0"
+          },
+          "lifecycle_script_names": [
+            "build",
+            "dev",
+            "format",
+            "format:check",
+            "lint",
+            "lint:fix",
+            "start",
+            "test",
+            "test:integration",
+            "test:unit",
+            "test:watch",
+            "typecheck"
+          ],
+          "path": "package.json",
+          "sha256": "a74fa966ab4278022fc9d4b2d3316f011fdf00700b88a92eaf915e1cb1298c6e",
+          "size_bytes": 1056
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "d6ab67ed66a8fdd00e5c68cc0946262e9d3abae70ba5a8100086db7f7a68aeb5"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "scripts/launch-ghidra.sh",
+          "sha256": "1fbab30738c4cb49608f046290b80ed8f180741896a74d3b02fe74e7f07f3943"
+        },
+        {
+          "path": "src/index.ts",
+          "sha256": "bff2a0a39507f64a31aaaa8b60fc4a29b8a7388c04e632f2f9388a8966d32aa5"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "gmihai2109/reverse-engeeneer-anything",
+      "recovered_checkout_name": "gmihai2109__reverse-engeeneer-anything",
+      "upstream_url": "https://github.com/gmihai2109/reverse-engeeneer-anything.git",
+      "local_checkout": "recovered-workspace/repos/gmihai2109__reverse-engeeneer-anything",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "d2aed172ab79d98ff4e62c14d8f34cc49c1d17b4",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "REA fork",
+      "capability_tags": [
+        "REA fork"
+      ],
+      "dependency_risk_review": "Large Node tool/browser/PTY/archive surface; build and install lifecycle scripts.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "tests/conformance/releaseConfiguration.test.ts",
+          "tests/fixtures/bridgeSearchProbe.py",
+          "tests/fixtures/hopperBridgeFacadeProbe.py",
+          "tests/fixtures/providerProcess.ts",
+          "tests/conformance/providers/ghidra/ghidraWindowsFixture.test.ts"
+        ],
+        "hardware": [
+          "install.sh",
+          "tests/conformance/providers/ghidra/realGhidraWindowsWorkflow.test.ts"
+        ],
+        "install": [
+          "install.sh",
+          "tests/conformance/readmeConsistency.test.ts",
+          "src/application/Update.test.ts",
+          "src/application/Update.ts"
+        ],
+        "network": [
+          "bridge/hopper_bridge.py",
+          "scripts/hopper-demo-x11.py",
+          "src/cliObservationOptions.ts",
+          "src/doctorRuntime.ts",
+          "tests/fixtures/bridgeSearchProbe.py"
+        ],
+        "shell": [],
+        "subprocess": [
+          "scripts/hopper-demo-x11.py",
+          "tests/conformance/scanTodos.test.ts",
+          "tests/fixtures/providerProcess.ts",
+          "tests/fixtures/x11ProbeHang.py",
+          "tests/process-global/runnerCancellation.test.ts"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer duplicate fork; no evidence it is preferable to original.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "19bea2ba34a45eb47680fe597c39899c730c4259e9e296e74a9e0547f070320f"
+        },
+        {
+          "path": "README_ar.md",
+          "sha256": "6194cca2799e36ad0a86901f82f0c03c4e4996f3d5c77162422f4a4d1f8223a1"
+        },
+        {
+          "path": "README_ja.md",
+          "sha256": "ac2c0a994555890dcc813e88e9eeddfb2857e500f9b52c167c87567a44cda01c"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "dependencies": {
+              "@babel/parser": "8.0.4",
+              "@babel/types": "8.0.4",
+              "@clack/prompts": "1.7.0",
+              "@electron/asar": "4.2.0",
+              "@jridgewell/trace-mapping": "0.3.31",
+              "@lydell/node-pty": "1.1.0",
+              "@modelcontextprotocol/client": "2.3.1",
+              "@modelcontextprotocol/server": "2.3.1",
+              "@xterm/addon-serialize": "0.14.0",
+              "@xterm/headless": "6.0.0",
+              "@zip.js/zip.js": "2.8.26",
+              "canonicalize": "3.0.0",
+              "cross-spawn": "7.0.6",
+              "diff": "9.0.0",
+              "ignore": "7.0.6",
+              "incur": "0.6.1",
+              "isomorphic-git": "1.38.7",
+              "jsonc-parser": "3.3.1",
+              "pino": "10.4.0",
+              "playwright-core": "1.58.2",
+              "plist": "5.0.0",
+              "semver": "7.8.5",
+              "smol-toml": "1.7.0",
+              "write-file-atomic": "7.0.0",
+              "ws": "8.21.0",
+              "zod": "4.4.3"
+            },
+            "devDependencies": {
+              "@fast-check/vitest": "0.5.0",
+              "@types/cross-spawn": "6.0.6",
+              "@types/node": "26.6.4",
+              "@types/semver": "7.7.1",
+              "@types/write-file-atomic": "4.0.3",
+              "@types/ws": "8.18.1",
+              "@vitest/coverage-v8": "5.0.3",
+              "ajv": "8.20.0",
+              "husky": "9.1.7",
+              "jscpd": "5.0.12",
+              "knip": "6.39.0",
+              "lint-staged": "16.4.0",
+              "oxfmt": "0.72.0",
+              "oxlint": "1.87.0",
+              "turbo": "2.11.7",
+              "typescript": "7.0.2",
+              "vitest": "5.0.3",
+              "yaml": "2.9.0"
+            },
+            "engines": {
+              "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
+            },
+            "license": "MIT",
+            "name": "rea-agents",
+            "version": "4.1.0"
+          },
+          "lifecycle_script_names": [
+            "build",
+            "build:cached",
+            "build:fixtures",
+            "build:fixtures:nativeaot",
+            "build:ghidra-windows-fixture",
+            "build:ghidra:nativeaot",
+            "build:unlocked",
+            "build:windows-native",
+            "check",
+            "check:changed",
+            "check:ci",
+            "check:fast",
+            "check:pr",
+            "check:test",
+            "config:print",
+            "deps:check",
+            "docs:check",
+            "docs:check:built",
+            "docs:error-schema",
+            "docs:generate",
+            "docs:generate:unlocked",
+            "evidence:check",
+            "evidence:generate",
+            "fixtures:android",
+            "fixtures:firmware",
+            "format",
+            "format:check",
+            "jscpd",
+            "knip",
+            "lint",
+            "lint:fix",
+            "mcp-catalog:check",
+            "mcp-catalog:generate",
+            "mcp-registry:check",
+            "metadata:check",
+            "metadata:generate",
+            "prebuild",
+            "precheck",
+            "precheck:changed",
+            "precheck:ci",
+            "precheck:fast",
+            "precheck:pr",
+            "precheck:test",
+            "prepack",
+            "prepare",
+            "prepublishOnly",
+            "pretest:acceptance",
+            "pretest:boundary",
+            "pretest:ci:shard",
+            "pretest:coverage",
+            "pretest:integration",
+            "pretest:mcp",
+            "pretest:verbose",
+            "pretest:watch:all",
+            "probe:windows-capabilities",
+            "scan:todos",
+            "start",
+            "test",
+            "test:acceptance",
+            "test:boundary",
+            "test:changed",
+            "test:ci",
+            "test:ci:merge",
+            "test:ci:shard",
+            "test:ci:shard:run",
+            "test:coverage",
+            "test:fast",
+            "test:focused",
+            "test:integration",
+            "test:local",
+            "test:mcp",
+            "test:run",
+            "test:verbose",
+            "test:watch",
+            "test:watch:all",
+            "test:with-build",
+            "typecheck",
+            "verify:agent",
+            "verify:android",
+            "verify:apple-dispatch",
+            "verify:application-workflows",
+            "verify:asset-catalog",
+            "verify:browser",
+            "verify:electron",
+            "verify:firmware",
+            "verify:fixtures",
+            "verify:ghidra",
+            "verify:ghidra:aarch64-jump-table",
+            "verify:ghidra:com",
+            "verify:ghidra:cross-format",
+            "verify:ghidra:dos",
+            "verify:ghidra:nativeaot",
+            "verify:ghidra:switch",
+            "verify:ghidra:windows",
+            "verify:ghidra:windows:package",
+            "verify:hopper",
+            "verify:hopper:linux",
+            "verify:ida",
+            "verify:inspector",
+            "verify:interface-builder",
+            "verify:javascript-runtime",
+            "verify:javascript:digests",
+            "verify:keyed-archive",
+            "verify:managed",
+            "verify:native-ui",
+            "verify:native-ui:permissions",
+            "verify:package",
+            "verify:package:windows",
+            "verify:published",
+            "verify:readiness",
+            "verify:setup:linux",
+            "verify:test-temp-hygiene",
+            "verify:windows-native",
+            "verify:windows-native:artifact"
+          ],
+          "path": "package.json",
+          "sha256": "d94a019e0e779cd27f1fde1a09e5f6777d08a137e8660639664dc6d96edb646b",
+          "size_bytes": 12572
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "install.sh",
+          "sha256": "8b954467ea0852972ab8ef9fdae6f8eae5e8bc250faaa8580c81fa09b7f5f0c6"
+        },
+        {
+          "path": "vitest.config.ts",
+          "sha256": "f2750a8618ac58aee823c2ec576f52c8a771376ccd9eab687bf46d8fbfba8b4a"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "jguy/sigrok-skill",
+      "recovered_checkout_name": "jguy__sigrok-skill",
+      "upstream_url": "https://github.com/jguy/sigrok-skill.git",
+      "local_checkout": "recovered-workspace/repos/jguy__sigrok-skill",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "51f9223935cf29ee3b61799a37a79263d82ba334",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Signals workflow",
+      "capability_tags": [
+        "Signals workflow"
+      ],
+      "dependency_risk_review": "Skill/scripts rely on installed sigrok and hardware; upstream instructions may install/build.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": []
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Read-only workflow reference; do not invoke recovered skill.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d56f4ab3d2f030b55fdc1a8b8435dea6ad2bf367f8f9915ba94ac5adffd5ee86"
+        }
+      ],
+      "dependency_manifests": [],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "994f2059acc5a9f14b9a52c28b0e3f5485d65be6abf72305a2eb2f9ff5bbf05f"
+        }
+      ],
+      "source_samples": [],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "jl-codes/platformio-mcp",
+      "recovered_checkout_name": "jl-codes__platformio-mcp",
+      "upstream_url": "https://github.com/jl-codes/platformio-mcp.git",
+      "local_checkout": "recovered-workspace/repos/jl-codes__platformio-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "f3928e8bc40f929c88f8ff462f3566f146191636",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Embedded build",
+      "capability_tags": [
+        "Embedded build"
+      ],
+      "dependency_risk_review": "Node monorepo/UI/serial/flash agents and installer scripts; build hooks/downloads/hardware.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "scripts/verify-core-debug-initialization.py",
+          "tests/debug-init-execution.test.ts",
+          "tests/debug-initialization.test.ts",
+          "tests/debug-process.test.ts",
+          "tests/debug-startup.test.ts"
+        ],
+        "hardware": [
+          "scripts/validate-container-release.py",
+          "scripts/verify-analysis-fixture.ts",
+          "scripts/verify-analysis-mcp.ts",
+          "scripts/verify-core-debug-initialization.py",
+          "scripts/verify-project-inspection-mcp.ts"
+        ],
+        "install": [
+          "src/utils/errors.ts",
+          "scripts/installers/_shared.js",
+          "plugins/platformio-mcp/skills/pio-manager/scripts/install_pio_mcp_server.py",
+          ".agents/skills/pio-manager/scripts/install_pio_mcp_server.py"
+        ],
+        "network": [
+          "site/ideas-3d.js",
+          "tests/api.test.ts",
+          "tests/debug-operator-binding.test.ts",
+          "tests/debug-remote-endpoint.test.ts",
+          "tests/ota-reachability.test.ts"
+        ],
+        "shell": [],
+        "subprocess": [
+          "scripts/accept-container-runtime.py",
+          "scripts/accept-python-host.py",
+          "scripts/build-python-aliases.py",
+          "scripts/build-python-wheel.py",
+          "scripts/publish-container-release.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Disabled; physical/build authorization and isolated toolchain needed.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "7f361c1d7937d1746a58fb822105e77c2aee539cba480ada462c1dfad812ee45"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "dependencies": {
+              "@modelcontextprotocol/ext-apps": "^1.7.5",
+              "@modelcontextprotocol/sdk": "^1.29.0",
+              "cors": "^2.8.5",
+              "express": "^5.2.1",
+              "express-rate-limit": "^8.3.2",
+              "open": "^10.2.0",
+              "proper-lockfile": "^4.1.2",
+              "socket.io": "^4.8.0",
+              "toml-eslint-parser": "0.10.0",
+              "tree-kill": "^1.2.2",
+              "yaml": "2.9.1",
+              "zod": "^3.22.0"
+            },
+            "devDependencies": {
+              "@types/cors": "^2.8.17",
+              "@types/express": "^5.0.0",
+              "@types/express-rate-limit": "^5.1.3",
+              "@types/node": "^20.0.0",
+              "@types/proper-lockfile": "^4.1.4",
+              "@types/supertest": "^7.2.0",
+              "@vitest/ui": "^4.0.0",
+              "ajv": "8.18.0",
+              "esbuild": "^0.28.2",
+              "eslint": "^9.0.0",
+              "prettier": "^3.1.0",
+              "socket.io-client": "^4.8.3",
+              "supertest": "^7.2.2",
+              "tsx": "^4.7.0",
+              "typescript": "^5.3.0",
+              "typescript-eslint": "^8.0.0",
+              "vitest": "^4.0.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "platformio-mcp",
+            "optionalDependencies": {
+              "serialport": "13.0.0"
+            },
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [
+            "accept:npm",
+            "aliases:check",
+            "aliases:sync",
+            "build",
+            "build:ui",
+            "dev",
+            "format",
+            "format:check",
+            "lint",
+            "namespace:audit",
+            "namespace:coverage",
+            "package:aliases",
+            "package:container",
+            "package:release",
+            "package:validate",
+            "plugin:build",
+            "plugin:sync",
+            "plugin:sync:check",
+            "plugin:test",
+            "plugin:validate",
+            "prepublishOnly",
+            "registry:validate",
+            "smoke-test",
+            "test",
+            "test:ci:unit",
+            "test:coverage",
+            "test:e2e:ci",
+            "test:namespaces",
+            "test:parity:acceptance",
+            "test:python-runtime",
+            "test:watch",
+            "watch"
+          ],
+          "path": "package.json",
+          "sha256": "b808c79733345465bfb7d6355789670a7306270a796d9eff33d4454e991345d6",
+          "size_bytes": 5569
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "@ant-design/icons": "^6.2.2",
+              "antd": "^6.3.7",
+              "lucide-react": "^0.364.0",
+              "react": "^18.3.1",
+              "react-dom": "^18.3.1",
+              "socket.io-client": "^4.7.4"
+            },
+            "devDependencies": {
+              "@playwright/test": "^1.59.1",
+              "@testing-library/jest-dom": "^6.4.2",
+              "@testing-library/react": "^14.2.1",
+              "@testing-library/user-event": "^14.5.2",
+              "@types/react": "^18.3.3",
+              "@types/react-dom": "^18.3.0",
+              "@vitejs/plugin-react": "^4.7.0",
+              "autoprefixer": "^10.5.0",
+              "jsdom": "^24.0.0",
+              "postcss": "^8.5.28",
+              "tailwindcss": "^4.2.4",
+              "typescript": "^5.2.2",
+              "vite": "^6.4.3",
+              "vitest": "^4.1.11"
+            },
+            "name": "platformio-mcp-web",
+            "version": "1.0.0"
+          },
+          "lifecycle_script_names": [
+            "build",
+            "dev",
+            "lint",
+            "preview",
+            "test",
+            "test:e2e",
+            "test:e2e:codex",
+            "test:e2e:ui",
+            "test:ui"
+          ],
+          "path": "web/package.json",
+          "sha256": "670b0d3f75cb7a6f26a99997a0ac6b8bc8dbe0a9e7aacb892547442fee6fea4e",
+          "size_bytes": 1136
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "flashagent",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/flashagent/package.json",
+          "sha256": "af8e18fcd46bb0e11a991e18bc9bcce7ff49a6623e0e620799b6959dd3e2486e",
+          "size_bytes": 649
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "pio-agent",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/pio-agent/package.json",
+          "sha256": "18df6ae2440d2f033abaa44d15c3d152b1b060d8cbcffb8b94340c7c6c770b51",
+          "size_bytes": 845
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "pio-mcp",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/pio-mcp/package.json",
+          "sha256": "07d9eaa1c8f1ba5df7741852a6ca8de6e3cb8c7eeb15d341e85a30f073f005a8",
+          "size_bytes": 815
+        },
+        {
+          "build_system": {
+            "build-backend": "setuptools.build_meta",
+            "requires": [
+              "setuptools==84.0.0",
+              "wheel==0.48.0"
+            ]
+          },
+          "declarations": {
+            "license": "MIT",
+            "name": "pio-agent-platformio",
+            "optional-dependencies": {
+              "coredump": [
+                "esp-coredump==1.10.0",
+                "setuptools==84.0.0"
+              ],
+              "platformio": [
+                "platformio==6.1.16"
+              ]
+            },
+            "requires-python": ">=3.11"
+          },
+          "path": "packages/python-launcher/pyproject.toml",
+          "sha256": "77a827677d7d07e64e078270741295c391d915d53c3968fb442fc57077cc42ae",
+          "size_bytes": 810
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "@forkbomb/flashagent",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/scoped-flashagent/package.json",
+          "sha256": "1735ed9809f4d6ee9aa92ed546272a14967b9e51c997fa9364c3976955548935",
+          "size_bytes": 666
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "@forkbomb/pio-agent",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/scoped-pio-agent/package.json",
+          "sha256": "df4a1f39a76ecdcd9dfa75da38e8be27f7e6e355e4ddc097c50c6c9abc6c5ddc",
+          "size_bytes": 663
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "@forkbomb/pio-mcp",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/scoped-pio-mcp/package.json",
+          "sha256": "7cf12e4dda7afe5e7c3f9b86a4fad19384bec4df9db0916d0e44c3ad1ece35c8",
+          "size_bytes": 657
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "@forkbomb/pioagent",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/scoped-pioagent/package.json",
+          "sha256": "0ec1299df31a50032fe1b7ceda721a0e3919e8602ab1c1deebae65d9ae9d679d",
+          "size_bytes": 660
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "@forkbomb/platformio-mcp",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/scoped-platformio-mcp/package.json",
+          "sha256": "5855595b1c8d9c7292da518877245aa85a58161064d882f9504a61d61f568e7e",
+          "size_bytes": 678
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "@forkbomb/platformio.mcp",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/scoped-platformio.mcp/package.json",
+          "sha256": "0093961f24b50ce6d140e5143072cf2c709433b510dd6270390d278f9ac124a6",
+          "size_bytes": 678
+        },
+        {
+          "declarations": {
+            "dependencies": {
+              "platformio-mcp": "3.2.0"
+            },
+            "engines": {
+              "node": ">=20.0.0"
+            },
+            "license": "MIT",
+            "name": "@forkbomb/platformiomcp",
+            "version": "3.2.0"
+          },
+          "lifecycle_script_names": [],
+          "path": "packages/scoped-platformiomcp/package.json",
+          "sha256": "112142397f5a0656e81e8cdae9bd44f4cdae1cb6b2ad2a116dcc1501ec3e5143",
+          "size_bytes": 675
+        },
+        {
+          "path": "distribution/container/Dockerfile",
+          "sha256": "14c118da606beadbb3044be3e6ce7931ca52fe9a9b2ed6c7c18348cc0bc8151a",
+          "size_bytes": 1612
+        },
+        {
+          "path": "distribution/container/requirements.txt",
+          "sha256": "bfcbc25fb107949454deac72d07775482ac883366346a57ee0b1c7e515cc7d70",
+          "size_bytes": 19029
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "d246cb432bf4e23a0202f6bf5a1d5f435c2c94e9c3818e87a8cf4beb9c9b2276"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "eslint.config.js",
+          "sha256": "acec7654a72738f1310296f7bc9920b5097e2918c9e4d1d9f8ebce8368808f8c"
+        },
+        {
+          "path": "test-lock.js",
+          "sha256": "06bc4e0dd8df11142b4a46b55fe6b013ed4df41a7a296b35455bda5354f5a299"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "kaitai-io/kaitai_struct",
+      "recovered_checkout_name": "kaitai-io__kaitai_struct",
+      "upstream_url": "https://github.com/kaitai-io/kaitai_struct.git",
+      "local_checkout": "recovered-workspace/repos/kaitai-io__kaitai_struct",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "4fb24924d21317dfba9209c47c892770d2834d7a",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN at umbrella",
+      "purpose": "Binary format umbrella",
+      "capability_tags": [
+        "Binary format umbrella"
+      ],
+      "dependency_risk_review": "README explicitly says umbrella/submodules; runtime/compiler/schema licenses and pins separate.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": []
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "BLOCKED component/license provenance; not an installed compiler.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "e01327380ffa5ae91313fd89d335622517d92a3df444280ad5f7b518a6437b62"
+        }
+      ],
+      "dependency_manifests": [],
+      "license_files": [],
+      "source_samples": [],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "lassebm/web-logic-analyzer",
+      "recovered_checkout_name": "lassebm__web-logic-analyzer",
+      "upstream_url": "https://github.com/lassebm/web-logic-analyzer.git",
+      "local_checkout": "recovered-workspace/repos/lassebm__web-logic-analyzer",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "8d354c9fb49453ba77c3db7b5704837174d16bcb",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Signals viewer",
+      "capability_tags": [
+        "Signals viewer"
+      ],
+      "dependency_risk_review": "Svelte/Vite/browser WebUSB and Web Serial, broad npm ranges and firmware/device workflows.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "src/import/parse.ts"
+        ],
+        "hardware": [
+          "src/decode/types.ts",
+          "src/device/fx2.ts",
+          "src/device/types.ts",
+          "src/firmware/index.ts",
+          "src/model/trigger.ts"
+        ],
+        "install": [],
+        "network": [
+          "src/firmware/index.ts"
+        ],
+        "shell": [],
+        "subprocess": []
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer UI/physical paths; possible offline capture viewer later.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "e283fd6213bff98b3ff11bc6736d00f76d14f0510fe1124b92170933e7bd9f05"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "devDependencies": {
+              "@eslint/js": "^10.0.1",
+              "@sveltejs/vite-plugin-svelte": "^7.2.0",
+              "@testing-library/jest-dom": "^7.0.0",
+              "@testing-library/svelte": "^5.4.2",
+              "@tsconfig/svelte": "^5.0.8",
+              "@types/node": "^26.1.1",
+              "@types/w3c-web-serial": "^1.0.8",
+              "@types/w3c-web-usb": "^1.0.10",
+              "@vitest/coverage-v8": "^4.1.10",
+              "eslint": "^10.7.0",
+              "eslint-config-prettier": "^10.1.8",
+              "eslint-plugin-svelte": "^3.22.0",
+              "fake-indexeddb": "^6.2.5",
+              "globals": "^17.7.0",
+              "jsdom": "^29.1.1",
+              "prettier": "^3.9.6",
+              "prettier-plugin-svelte": "^4.1.1",
+              "svelte": "^5.56.7",
+              "svelte-check": "^4.7.3",
+              "tslib": "^2.8.1",
+              "typescript": "~6.0.3",
+              "typescript-eslint": "^8.65.0",
+              "vite": "^8.1.5",
+              "vitest": "^4.1.10"
+            },
+            "license": "MIT",
+            "name": "web-logic-analyzer",
+            "version": "0.1.0"
+          },
+          "lifecycle_script_names": [
+            "build",
+            "check",
+            "dev",
+            "format",
+            "format:check",
+            "lint",
+            "lint:fix",
+            "preview",
+            "test",
+            "test:coverage",
+            "test:watch"
+          ],
+          "path": "package.json",
+          "sha256": "c47fe77778a9d700dcc50a3ff430dd9bfd0e727d05d7ccf2552180b9ce6d1f84",
+          "size_bytes": 2018
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "34f6fb9f4f75ed7756dde0cf5d5aafe4a237f836dffa1da999869e8f2f147a0d"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "eslint.config.js",
+          "sha256": "fcc7b29863107a886dfa27e83dff77b9d9ac947fe944fc73f32de152dad3ac65"
+        },
+        {
+          "path": "svelte.config.js",
+          "sha256": "3faf7d3bab74818359e6c00ff417153b2ac485d458b7e6d274d0f818a6185a37"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "monte1440/ghidra-mcp",
+      "recovered_checkout_name": "monte1440__ghidra-mcp",
+      "upstream_url": "https://github.com/monte1440/ghidra-mcp.git",
+      "local_checkout": "recovered-workspace/repos/monte1440__ghidra-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "092afdb1f44632318bcc06a745c2e665422999ea",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "Ghidra",
+      "capability_tags": [
+        "Ghidra"
+      ],
+      "dependency_risk_review": "Ghidra Java extension plus Python MCP and separate FCC-ID network research component.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [
+          "fcc-id-mcp/chip_db.py",
+          "fcc-id-mcp/fcc_id_mcp.py",
+          "mcp_server/bridge_mcp_firmware.py",
+          "ghidra-mcp-extension/src/main/java/mcpbridge/GhidraMCPPlugin.java"
+        ],
+        "install": [],
+        "network": [
+          "fcc-id-mcp/fcc_id_mcp.py",
+          "fcc-id-mcp/pdf_ocr.py",
+          "mcp_server/bridge_mcp_firmware.py",
+          "mcp_server/main.py",
+          "ghidra-mcp-extension/src/main/java/mcpbridge/GhidraMCPPlugin.java"
+        ],
+        "shell": [],
+        "subprocess": [
+          "ghidra-mcp-extension/src/main/java/mcpbridge/GhidraMCPPlugin.java"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer overlapping bridge; missing license and unnecessary network surface.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "20d1ec43a63dfee0201ad5d9bf6ecc0708d5aba164f5271d20d80e5e41ca7ced"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "fcc-id-mcp/requirements.txt",
+          "sha256": "046afb2bc74dfd4d0be5050534284f39857ff4f4b03fce38fef5d125cad9ec51",
+          "size_bytes": 130
+        },
+        {
+          "path": "ghidra-mcp-extension/build.gradle",
+          "sha256": "0f78a48705b48b1a48aa11e21c92e611e33fc6aaf2bc5e5727f713f308c9a274",
+          "size_bytes": 880
+        },
+        {
+          "path": "mcp_server/requirements.txt",
+          "sha256": "357dc31c8bd5976c9aa8fe8ae69419d4f82f56e60a96c62608b6f9b971c78fc8",
+          "size_bytes": 30
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "fcc-id-mcp/chip_db.py",
+          "sha256": "6a7a8957e35d6dc3cfb0718cc65753b1cca09cdf5b34be377643ea1790f42b18"
+        },
+        {
+          "path": "fcc-id-mcp/fcc_id_mcp.py",
+          "sha256": "cffb8ceff8965a3440b7d83af0f0239b2862535a779324540fc35668ed2aa5a0"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "morluto/flameox",
+      "recovered_checkout_name": "morluto__flameox",
+      "upstream_url": "https://github.com/morluto/flameox.git",
+      "local_checkout": "recovered-workspace/repos/morluto__flameox",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "c7ea167bf51bf10da9bc17a9ffc1124f4166f32f",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Runtime profiling",
+      "capability_tags": [
+        "Runtime profiling"
+      ],
+      "dependency_risk_review": "MCP/PyArrow/DuckDB plus optional torch/memray/py-spy; runtime profiling and installers.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "tests/providers/test_memray.py"
+        ],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": [
+          "tests/test_runtime.py",
+          "tests/test_sdk.py",
+          "tests/test_setup.py",
+          "tests/test_workload_budgets.py",
+          "tests/e2e/test_cli_investigation.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Disabled for this static milestone; active instrumentation separately gated.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "dd68972f9a392861b00e582864dc9a0a6b3f33f2155bb4444e30d0c3091f8b80"
+        },
+        {
+          "path": "README.zh-CN.md",
+          "sha256": "021880ddaa7cead42aec731642a1fff9b4c8da7b362f006c7a742ab587285b0b"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {
+            "build-backend": "hatchling.build",
+            "requires": [
+              "hatchling>=1.27"
+            ]
+          },
+          "declarations": {
+            "dependencies": [
+              "anyio>=4.9,<5",
+              "coverage>=7.14,<8",
+              "duckdb>=1.5.4,<1.6",
+              "defusedxml>=0.7.1,<0.8",
+              "ijson>=3.4,<4",
+              "json5>=0.12,<1",
+              "jsonschema>=4.20,<5",
+              "mcp==2.3.0",
+              "mcp-types==2.3.0",
+              "packaging>=24,<27",
+              "pyperf>=2.10,<2.11",
+              "pyarrow>=20,<26",
+              "pydantic>=2.13.4,<2.14",
+              "pytz>=2024.2",
+              "questionary>=2.1,<3",
+              "rfc8785==0.1.4",
+              "tomlkit>=0.13,<1",
+              "typer>=0.16,<1",
+              "psutil>=7.0,<8"
+            ],
+            "license": "MIT",
+            "name": "flameox",
+            "optional-dependencies": {
+              "all": [
+                "aiperf>=0.13,<0.14",
+                "memray>=1.17",
+                "opentelemetry-proto>=1.44,<1.45",
+                "perfetto>=0.57,<0.58",
+                "protobuf>=5,<7",
+                "py-spy>=0.4.2,<0.5",
+                "torch>=2.7"
+              ],
+              "cpu": [
+                "py-spy>=0.4.2,<0.5"
+              ],
+              "dev": [
+                "deptry>=0.23",
+                "import-linter>=2.2",
+                "mypy>=1.15",
+                "pip-audit>=2.9",
+                "pytest>=8.3",
+                "pytest-xdist>=3.8,<4",
+                "pytest-cov>=6.1",
+                "pyarrow-stubs>=20.0.0.20260625",
+                "ruff>=0.11",
+                "types-jsonschema>=4.20,<5",
+                "vulture>=2.14"
+              ],
+              "inference": [
+                "aiperf>=0.13,<0.14"
+              ],
+              "memory": [
+                "memray>=1.17"
+              ],
+              "test": [
+                "pytest>=8.3"
+              ],
+              "torch": [
+                "torch>=2.7"
+              ],
+              "trace": [
+                "opentelemetry-proto>=1.44,<1.45",
+                "perfetto>=0.57,<0.58",
+                "protobuf>=5,<7"
+              ]
+            },
+            "requires-python": ">=3.12",
+            "version": "0.2.9"
+          },
+          "path": "pyproject.toml",
+          "sha256": "d502c30e05c10f2fda4cf4d818fb5b732dadd853c4b19205a7bb27cd6df60380",
+          "size_bytes": 4524
+        },
+        {
+          "declarations": {
+            "dependencies": {},
+            "devDependencies": {
+              "oxfmt": "^0.60.0",
+              "oxlint": "^1.75.0"
+            },
+            "engines": {
+              "node": ">=18"
+            },
+            "license": "MIT",
+            "name": "flameox",
+            "version": "0.2.9"
+          },
+          "lifecycle_script_names": [
+            "format",
+            "format:check",
+            "lint",
+            "test"
+          ],
+          "path": "npm/package.json",
+          "sha256": "5982931685b21f2436d9b618f83c566426389e14f1d86b1abb6def14111b51a3",
+          "size_bytes": 745
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "tests/__init__.py",
+          "sha256": "b6c787480669316ca2405f69c3161833d19aaefa1747a8fc14cde70f976c925e"
+        },
+        {
+          "path": "tests/conftest.py",
+          "sha256": "00f0c2c4e075eaed164da95e9fbb00fed0d38ae56be3459ef116d7f17df22133"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "morluto/leantoken",
+      "recovered_checkout_name": "morluto__leantoken",
+      "upstream_url": "https://github.com/morluto/leantoken.git",
+      "local_checkout": "recovered-workspace/repos/morluto__leantoken",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "5cfab83047d4dc77b1b5826016bc75edcd9b4bc4",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT OR Apache-2.0",
+      "purpose": "Source indexing",
+      "capability_tags": [
+        "Source indexing"
+      ],
+      "dependency_risk_review": "Rust/SQLite/tree-sitter/MCP/process groups; build toolchain and update paths.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [
+          "src/upgrade.rs",
+          "src/setup/output.rs"
+        ],
+        "network": [
+          "examples/codex_host_receipt.rs",
+          "examples/real_repository_profile.rs",
+          "examples/retrieval_reuse_report.rs",
+          "scripts/test_agent_walltime_ab.py",
+          "src/episode.rs"
+        ],
+        "shell": [],
+        "subprocess": [
+          "benchmarks/run_multi_agent_context_pilot.sh",
+          "benchmarks/run_multi_agent_context_suite.sh",
+          "examples/codex_multi_agent_receipt.rs",
+          "examples/concurrency_profile.rs",
+          "examples/mcp_multiprocess_profile.rs"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer; context indexing not required for static artifact analysis.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "c571efff4f449e73470a87f3bd57699f92a285bb0faa3aeffcb20bc960410b70"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {},
+          "declarations": {
+            "license": "MIT OR Apache-2.0",
+            "name": "leantoken",
+            "version": "0.1.28"
+          },
+          "dependencies": {
+            "base64": "0.22.1",
+            "blake3": "1.8.2",
+            "cap-primitives": "4.0.2",
+            "cap-std": "4.0.2",
+            "clap": {
+              "features": [
+                "derive"
+              ],
+              "version": "4.5.51"
+            },
+            "command-group": "5.0.1",
+            "dialoguer": {
+              "default-features": false,
+              "version": "0.12.0"
+            },
+            "directories": "6.0.0",
+            "fs2": "0.4.3",
+            "globset": "0.4.18",
+            "ignore": "0.4.28",
+            "inquire": {
+              "default-features": false,
+              "features": [
+                "crossterm"
+              ],
+              "version": "0.9.4"
+            },
+            "jmespath": "0.5.0",
+            "jsonc-parser": {
+              "features": [
+                "cst",
+                "serde"
+              ],
+              "version": "0.32.4"
+            },
+            "libc": "0.2.183",
+            "notify": "8.2.0",
+            "nucleo-matcher": "0.3.1",
+            "pulldown-cmark": {
+              "default-features": false,
+              "version": "0.13.4"
+            },
+            "r2d2": "0.8.10",
+            "r2d2_sqlite": {
+              "default-features": false,
+              "version": "0.35.0"
+            },
+            "rayon": "1.11.0",
+            "regex": "1.12.2",
+            "regex-syntax": "0.8.11",
+            "rmcp": {
+              "default-features": false,
+              "features": [
+                "server",
+                "macros",
+                "schemars",
+                "transport-io"
+              ],
+              "version": "=3.1.2"
+            },
+            "rusqlite": {
+              "default-features": false,
+              "features": [
+                "bundled",
+                "cache",
+                "hooks",
+                "limits"
+              ],
+              "version": "0.40.1"
+            },
+            "rusqlite_migration": "2.6.0",
+            "same-file": "1.0.6",
+            "schemars": "1.2.1",
+            "semver": "1.0.27",
+            "serde": {
+              "features": [
+                "derive"
+              ],
+              "version": "1.0.228"
+            },
+            "serde_json": "1.0.145",
+            "similar": "2.7.0",
+            "tempfile": "3.23.0",
+            "thiserror": "2.0.17",
+            "tiktoken-rs": "0.12.0",
+            "tokio": {
+              "features": [
+                "fs",
+                "macros",
+                "rt-multi-thread",
+                "signal",
+                "sync",
+                "time"
+              ],
+              "version": "1.49.0"
+            },
+            "tokio-util": {
+              "features": [
+                "codec",
+                "rt"
+              ],
+              "version": "0.7.17"
+            },
+            "toml_edit": "0.25.12",
+            "tracing": "0.1.41",
+            "tracing-subscriber": {
+              "features": [
+                "env-filter",
+                "fmt",
+                "registry"
+              ],
+              "version": "0.3.20"
+            },
+            "tree-sitter": "0.26.11",
+            "tree-sitter-c": "0.24.2",
+            "tree-sitter-c-sharp": "0.23.5",
+            "tree-sitter-cpp": "0.23.4",
+            "tree-sitter-css": "0.25.0",
+            "tree-sitter-go": "0.25.0",
+            "tree-sitter-html": "0.23.2",
+            "tree-sitter-java": "0.23.5",
+            "tree-sitter-javascript": "0.25.0",
+            "tree-sitter-php": "0.24.2",
+            "tree-sitter-python": "0.25.0",
+            "tree-sitter-ruby": "0.23.1",
+            "tree-sitter-rust": "0.24.2",
+            "tree-sitter-typescript": "0.23.2",
+            "wait-timeout": "0.2.1"
+          },
+          "path": "Cargo.toml",
+          "sha256": "41c1d02777326ab264707cc466c3ba9683d5af96d131b9985218a7bfc3398a0b",
+          "size_bytes": 4369
+        },
+        {
+          "build_system": {},
+          "declarations": {
+            "name": "leantoken-xtask",
+            "version": "0.1.0"
+          },
+          "dependencies": {
+            "blake3": "1.8.2",
+            "serde": {
+              "features": [
+                "derive"
+              ],
+              "version": "1.0.228"
+            },
+            "serde_json": "1.0.145",
+            "syn": {
+              "default-features": false,
+              "features": [
+                "full",
+                "parsing",
+                "visit"
+              ],
+              "version": "2.0.110"
+            },
+            "tempfile": "3.23.0",
+            "toml_edit": "0.25.12"
+          },
+          "path": "xtask/Cargo.toml",
+          "sha256": "d4ef3df0395314743056856b58c912e7b999290b8a72dd91b0e257d0599f3c0b",
+          "size_bytes": 452
+        },
+        {
+          "build_system": {},
+          "declarations": {
+            "name": "leantoken-benchmarks",
+            "version": "0.1.0"
+          },
+          "dependencies": {
+            "blake3": "1.8.2",
+            "clap": {
+              "features": [
+                "derive"
+              ],
+              "version": "4.5.51"
+            },
+            "ignore": "0.4.25",
+            "leantoken": {
+              "path": "../.."
+            },
+            "regex": "1.12.2",
+            "rmcp": {
+              "default-features": false,
+              "features": [
+                "server",
+                "macros",
+                "schemars",
+                "transport-io"
+              ],
+              "version": "=3.1.2"
+            },
+            "rusqlite": {
+              "default-features": false,
+              "features": [
+                "bundled",
+                "cache"
+              ],
+              "version": "0.40.1"
+            },
+            "serde": {
+              "features": [
+                "derive"
+              ],
+              "version": "1.0.228"
+            },
+            "serde_json": "1.0.145",
+            "shell-words": "1.1.1",
+            "statrs": "0.18.0",
+            "tempfile": "3.23.0",
+            "tokio": {
+              "features": [
+                "fs",
+                "macros",
+                "rt-multi-thread",
+                "signal",
+                "sync",
+                "time"
+              ],
+              "version": "1.49.0"
+            },
+            "tokio-util": {
+              "features": [
+                "rt"
+              ],
+              "version": "0.7.17"
+            },
+            "tree-sitter": "0.26.11",
+            "tree-sitter-python": "0.25.0",
+            "tree-sitter-typescript": "0.23.2",
+            "unidiff": {
+              "default-features": false,
+              "version": "0.4.0"
+            },
+            "wait-timeout": "0.2.1"
+          },
+          "path": "crates/benchmarks/Cargo.toml",
+          "sha256": "4e7d8dda5e76bc1660a41fc3648ba02b4e1c30f0cea9944176c0c575f099ad45",
+          "size_bytes": 5194
+        },
+        {
+          "build_system": {},
+          "declarations": {
+            "name": "leantoken-test-suite",
+            "version": "0.1.0"
+          },
+          "dependencies": {
+            "directories": "6.0.0",
+            "leantoken": {
+              "path": "../.."
+            },
+            "leantoken-test-support": {
+              "path": "../test-support"
+            },
+            "rusqlite": {
+              "default-features": false,
+              "features": [
+                "bundled",
+                "cache"
+              ],
+              "version": "0.40.1"
+            },
+            "serde": {
+              "features": [
+                "derive"
+              ],
+              "version": "1.0.228"
+            },
+            "serde_json": "1.0.145",
+            "tokio": {
+              "features": [
+                "macros",
+                "rt",
+                "time"
+              ],
+              "version": "1.49.0"
+            },
+            "tokio-util": {
+              "features": [
+                "rt"
+              ],
+              "version": "0.7.17"
+            }
+          },
+          "path": "crates/test-suite/Cargo.toml",
+          "sha256": "239de2478a6feb963449dbf86f564b5622a6d82b201af8de599dc250544db4ab",
+          "size_bytes": 905
+        },
+        {
+          "build_system": {},
+          "declarations": {
+            "name": "leantoken-test-support",
+            "version": "0.1.0"
+          },
+          "dependencies": {
+            "command-group": "5.0.1",
+            "tempfile": "3.23.0"
+          },
+          "path": "crates/test-support/Cargo.toml",
+          "sha256": "aaa923933f45e3ead45a092ea015534a1810756bfb6c669e64e55693bf504a12",
+          "size_bytes": 279
+        },
+        {
+          "build_system": {},
+          "declarations": {
+            "name": "kotlin-grammar-040-diagnostic",
+            "version": "0.0.0"
+          },
+          "dependencies": {
+            "blake3": "1.8.2",
+            "clap": {
+              "features": [
+                "derive"
+              ],
+              "version": "4.5.51"
+            },
+            "kotlin-diagnostic-grammar": {
+              "git": "https://github.com/fwcd/tree-sitter-kotlin.git",
+              "package": "tree-sitter-kotlin",
+              "rev": "c10ad83a66c76855e006496db3bdb002afc49203"
+            },
+            "serde": {
+              "features": [
+                "derive"
+              ],
+              "version": "1.0.228"
+            },
+            "serde_json": "1.0.145",
+            "tempfile": "3.23.0",
+            "tree-sitter": "0.26.11"
+          },
+          "path": "benchmarks/kotlin-grammar-040/Cargo.toml",
+          "sha256": "b89e330fb5653ba6971aff02601fd4fb32185da94cfa1bd2ad51be9bacc1b1e7",
+          "size_bytes": 490
+        },
+        {
+          "build_system": {},
+          "declarations": {
+            "name": "swift-parse-diagnostic-073",
+            "version": "0.0.0"
+          },
+          "dependencies": {
+            "blake3": "1.8.2",
+            "clap": {
+              "features": [
+                "derive"
+              ],
+              "version": "4.5.51"
+            },
+            "serde": {
+              "features": [
+                "derive"
+              ],
+              "version": "1.0.228"
+            },
+            "serde_json": "1.0.145",
+            "swift-diagnostic-grammar": {
+              "package": "tree-sitter-swift",
+              "version": "=0.7.3"
+            },
+            "tempfile": "3.23.0",
+            "tree-sitter": "0.26.11"
+          },
+          "path": "benchmarks/swift-grammar-073/Cargo.toml",
+          "sha256": "4522b90c2de2daf021d82f45eeac93e5ffa0b8d19d81daa9d46fa533f866ba46",
+          "size_bytes": 494
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "10d048dd8318fdd3a252a1fc088051f7c47f1bd9025445efaa8095ebe37a8592"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "benchmarks/run_agent_walltime_ab.sh",
+          "sha256": "04d0598fc022cccb6957655047b4dbe705f15bc8c93c6069b8c5fbc6b97e492e"
+        },
+        {
+          "path": "benchmarks/run_multi_agent_context_pilot.sh",
+          "sha256": "7c0572c78ff4acd6c2512bbf09104cd1f84442e99b9613fccb4f1b21a85a644e"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "morluto/rea",
+      "recovered_checkout_name": "morluto__rea",
+      "upstream_url": "https://github.com/morluto/rea.git",
+      "local_checkout": "recovered-workspace/repos/morluto__rea",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "edf46248f2a44b4e5776518489fee09d0fc4516b",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "REA core",
+      "capability_tags": [
+        "REA core"
+      ],
+      "dependency_risk_review": "Large Node MCP/browser/native bridge/PTY/tool installer/update surface.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "website/public/showcase/ctf/solve.py",
+          "tests/conformance/releaseConfiguration.test.ts",
+          "tests/fixtures/hopperBridgeFacadeProbe.py",
+          "tests/fixtures/hopperInstructionProbe.py",
+          "tests/fixtures/hopperStringSearchProbe.py"
+        ],
+        "hardware": [
+          "install.sh",
+          "tests/conformance/providers/ghidra/realGhidraWindowsWorkflow.test.ts",
+          "src/contracts/adb/adbToolContracts.ts"
+        ],
+        "install": [
+          "install.sh",
+          "tests/boundary/filesystem/installScript.test.ts",
+          "src/application/Update.test.ts",
+          "src/application/Update.ts",
+          "scripts/verify/termux/in-app.sh"
+        ],
+        "network": [
+          "bridge/hopper_bridge.py",
+          "scripts/hopper-demo-x11.py",
+          "src/cliObservationOptions.ts",
+          "src/doctorRuntime.ts",
+          "website/public/assets/aegis-demo.js"
+        ],
+        "shell": [],
+        "subprocess": [
+          "scripts/audit-website-links.py",
+          "scripts/hopper-demo-x11.py",
+          "scripts/website.py",
+          "tests/acceptance/webRuntimeCli.test.ts",
+          "tests/evaluation/moduleBoundaries.test.ts"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Reference contracts only; no second scheduler or broad MCP transplant. Prior sync ancestry unresolved.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "b2547165f09de3e44236cb2e0130c7b3164277ba957bacda99c1648abcc51c7e"
+        },
+        {
+          "path": "README_ar.md",
+          "sha256": "fa4c3a8912e411acbdf7c3128bbd1202b7e2289a7d0cdb69813848ee7c7f981a"
+        },
+        {
+          "path": "README_de.md",
+          "sha256": "8e372b90853c9ddb66e1882090af07bb2f88c9e595f0bca53d1f600c4a5ca276"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "dependencies": {
+              "@babel/parser": "8.0.4",
+              "@babel/types": "8.0.4",
+              "@clack/prompts": "1.7.0",
+              "@electron/asar": "4.2.0",
+              "@jridgewell/trace-mapping": "0.3.31",
+              "@lydell/node-pty": "1.1.0",
+              "@modelcontextprotocol/client": "2.3.1",
+              "@modelcontextprotocol/server": "2.3.1",
+              "@xmldom/xmldom": "0.9.12",
+              "@xterm/addon-serialize": "0.14.0",
+              "@xterm/headless": "6.0.0",
+              "@zip.js/zip.js": "2.15.0",
+              "ajv": "8.20.0",
+              "ajv-formats": "3.0.1",
+              "canonicalize": "3.0.0",
+              "cross-spawn": "7.0.6",
+              "diff": "9.0.0",
+              "evmole": "0.9.3",
+              "har-schema": "2.0.0",
+              "ignore": "7.0.6",
+              "incur": "0.6.1",
+              "isomorphic-git": "1.38.7",
+              "jsonc-parser": "3.3.1",
+              "lossless-json": "4.3.1",
+              "parse5": "8.0.1",
+              "pino": "10.4.0",
+              "playwright-core": "1.58.2",
+              "plist": "5.0.0",
+              "semver": "7.8.5",
+              "smol-toml": "1.9.0",
+              "stream-chain": "4.2.6",
+              "stream-json": "3.7.0",
+              "write-file-atomic": "7.0.0",
+              "ws": "8.21.0",
+              "yaml": "2.9.0",
+              "zod": "4.4.3"
+            },
+            "devDependencies": {
+              "@fast-check/vitest": "0.5.0",
+              "@types/cross-spawn": "6.0.6",
+              "@types/node": "26.6.4",
+              "@types/semver": "7.7.1",
+              "@types/write-file-atomic": "4.0.3",
+              "@types/ws": "8.18.1",
+              "@vitest/coverage-v8": "5.0.3",
+              "husky": "9.1.7",
+              "jscpd": "5.0.12",
+              "knip": "6.39.0",
+              "lint-staged": "16.4.0",
+              "oxfmt": "0.72.0",
+              "oxlint": "1.87.0",
+              "rolldown": "1.2.12",
+              "turbo": "2.11.7",
+              "typescript": "7.0.2",
+              "typescript-termux": "npm:typescript@5.9.3",
+              "vitepress": "1.6.4",
+              "vitest": "5.0.3"
+            },
+            "engines": {
+              "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
+            },
+            "license": "MIT",
+            "name": "rea-agents",
+            "version": "6.4.0"
+          },
+          "lifecycle_script_names": [
+            "artifacts:error-schema",
+            "artifacts:managed-evidence",
+            "artifacts:mcp-catalog",
+            "artifacts:product-catalog",
+            "artifacts:skills",
+            "build",
+            "build:cached",
+            "build:fixtures",
+            "build:fixtures:nativeaot",
+            "build:ghidra-windows-fixture",
+            "build:ghidra:nativeaot",
+            "build:termux",
+            "build:termux:run",
+            "build:windows-native",
+            "check",
+            "check:changed",
+            "check:ci",
+            "check:fast",
+            "check:pr",
+            "check:test",
+            "compile",
+            "compile:termux",
+            "config:print",
+            "deps:check",
+            "docs:build",
+            "docs:check",
+            "docs:check:built",
+            "docs:dev",
+            "docs:error-schema",
+            "docs:generate",
+            "docs:prepare",
+            "docs:preview",
+            "evidence:check",
+            "evidence:check:built",
+            "evidence:generate",
+            "fixtures:android",
+            "fixtures:firmware",
+            "fixtures:harmony",
+            "format",
+            "format:check",
+            "jscpd",
+            "knip",
+            "lint",
+            "lint:fix",
+            "mcp-catalog:check",
+            "mcp-catalog:check:built",
+            "mcp-catalog:generate",
+            "mcp-registry:check",
+            "metadata:check",
+            "metadata:generate",
+            "prebuild",
+            "precheck",
+            "precheck:changed",
+            "precheck:ci",
+            "precheck:fast",
+            "precheck:pr",
+            "precheck:test",
+            "predocs:build",
+            "predocs:dev",
+            "prepack",
+            "prepare",
+            "prepublishOnly",
+            "pretest:acceptance",
+            "pretest:boundary",
+            "pretest:ci:shard",
+            "pretest:coverage",
+            "pretest:integration",
+            "pretest:mcp",
+            "pretest:verbose",
+            "pretest:watch:all",
+            "probe:windows-capabilities",
+            "release:notes",
+            "scan:todos",
+            "start",
+            "test",
+            "test:acceptance",
+            "test:boundary",
+            "test:changed",
+            "test:ci",
+            "test:ci:merge",
+            "test:ci:shard",
+            "test:ci:shard:run",
+            "test:coverage",
+            "test:fast",
+            "test:focused",
+            "test:integration",
+            "test:local",
+            "test:mcp",
+            "test:prepare",
+            "test:run",
+            "test:verbose",
+            "test:watch",
+            "test:watch:all",
+            "test:with-build",
+            "typecheck",
+            "verify:adb",
+            "verify:agent",
+            "verify:android",
+            "verify:apktool",
+            "verify:apple-dispatch",
+            "verify:application-workflows",
+            "verify:architecture-guards",
+            "verify:asset-catalog",
+            "verify:binary:layout",
+            "verify:browser",
+            "verify:browser:dom",
+            "verify:browser:modules",
+            "verify:browser:network",
+            "verify:browser:runtime",
+            "verify:browser:scripts",
+            "verify:browser:source-maps",
+            "verify:claude-client",
+            "verify:commandcode-client",
+            "verify:copilot-client",
+            "verify:deepseek-client",
+            "verify:electron",
+            "verify:evm:interface",
+            "verify:firmware",
+            "verify:fixtures",
+            "verify:gemini-client",
+            "verify:ghidra",
+            "verify:ghidra:aarch64-jump-table",
+            "verify:ghidra:com",
+            "verify:ghidra:cross-format",
+            "verify:ghidra:dos",
+            "verify:ghidra:mips",
+            "verify:ghidra:mips-relocatable",
+            "verify:ghidra:mips-shared",
+            "verify:ghidra:nativeaot",
+            "verify:ghidra:raw",
+            "verify:ghidra:seeds",
+            "verify:ghidra:swift",
+            "verify:ghidra:switch",
+            "verify:ghidra:windows",
+            "verify:ghidra:windows:package",
+            "verify:grok-client",
+            "verify:harmony",
+            "verify:hermes-client",
+            "verify:hopper",
+            "verify:hopper:deadlines",
+            "verify:hopper:fat",
+            "verify:hopper:fat64",
+            "verify:hopper:linux",
+            "verify:ida",
+            "verify:inspector",
+            "verify:interface-builder",
+            "verify:javascript-runtime",
+            "verify:javascript:digests",
+            "verify:javascript:output",
+            "verify:javascript:recovery",
+            "verify:jeb",
+            "verify:keyed-archive",
+            "verify:legacy-simulator",
+            "verify:macos-bundle",
+            "verify:managed",
+            "verify:module-boundaries",
+            "verify:native-calls",
+            "verify:native-ui",
+            "verify:native-ui:permissions",
+            "verify:omp-client",
+            "verify:opencode-client",
+            "verify:package",
+            "verify:package:windows",
+            "verify:pi-client",
+            "verify:published",
+            "verify:qwen-client",
+            "verify:readiness",
+            "verify:recorded:crash",
+            "verify:setup:linux",
+            "verify:test-discovery",
+            "verify:test-temp-hygiene",
+            "verify:wasm:artifact",
+            "verify:wasm:package",
+            "verify:web:network-captures",
+            "verify:windows-native",
+            "verify:windows-native:artifact"
+          ],
+          "path": "package.json",
+          "sha256": "4e2609a7ce464656b4664be7b60477cf93d9de9c2fedd8743d444607463512d2",
+          "size_bytes": 20609
+        },
+        {
+          "path": "website/requirements.txt",
+          "sha256": "2d361490ddc822c4a362760da117a90b95bfc45cafe843c98b6a3905d10c827e",
+          "size_bytes": 165
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "install.sh",
+          "sha256": "d5cfbb95a62128323109fa2b263a49546802c41ae49e8fe10837f486171e4edd"
+        },
+        {
+          "path": "vitest.config.ts",
+          "sha256": "cdada844fe1ad6dd2bfc32b13e63db9091d533b0b0dc828837728f2e628f7765"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "morluto/smokinggun",
+      "recovered_checkout_name": "morluto__smokinggun",
+      "upstream_url": "https://github.com/morluto/smokinggun.git",
+      "local_checkout": "recovered-workspace/repos/morluto__smokinggun",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "cf3a3872a2638a68d2d123126f98dfa84c85643d",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Source complexity",
+      "capability_tags": [
+        "Source complexity"
+      ],
+      "dependency_risk_review": "Node Oclif/SCIP/tree-sitter/protobuf/execa plus npm prepare hooks.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "src/adapters/sarif.ts",
+          "src/scan/profile.ts"
+        ],
+        "hardware": [],
+        "install": [],
+        "network": [
+          "src/scan/repository.test.ts"
+        ],
+        "shell": [],
+        "subprocess": []
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer; source complexity separate from binary analysis.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "4933ca352c0ddd8b733ee8bb62ece661d3ed021f8588be9d170da553ab4ffcec"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "dependencies": {
+              "@bufbuild/protobuf": "2.14.0",
+              "@oclif/core": "4.14.0",
+              "@scip-code/scip": "0.9.0",
+              "csv-parse": "7.0.2",
+              "execa": "10.0.1",
+              "pprof-format": "2.3.1",
+              "typescript": "5.9.3",
+              "web-tree-sitter": "0.26.12",
+              "zod": "4.4.3"
+            },
+            "devDependencies": {
+              "@changesets/cli": "3.0.1",
+              "@types/node": "26.2.0",
+              "@vitest/coverage-v8": "4.1.11",
+              "fast-check": "4.9.0",
+              "knip": "6.32.2",
+              "oxfmt": "0.65.0",
+              "oxlint": "1.80.0",
+              "simple-git-hooks": "2.13.1",
+              "verdaccio": "6.10.0",
+              "vite-plus": "0.3.0",
+              "vitest": "4.1.11"
+            },
+            "engines": {
+              "node": ">=22.18"
+            },
+            "license": "MIT",
+            "name": "smokinggun",
+            "version": "5.0.0"
+          },
+          "lifecycle_script_names": [
+            "build",
+            "changeset",
+            "check:boundaries",
+            "clean",
+            "evaluate:corpus",
+            "format",
+            "format:check",
+            "knip",
+            "lint",
+            "pack:check",
+            "prepack",
+            "prepare",
+            "publish:packages",
+            "test",
+            "test:cli",
+            "test:coverage",
+            "test:package",
+            "test:vp",
+            "test:watch",
+            "typecheck",
+            "verify:release",
+            "version:packages"
+          ],
+          "path": "package.json",
+          "sha256": "71e58989200069303def48ccc0c750f8425ded7ef9615be955188bf178ab94e3",
+          "size_bytes": 3196
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "vitest.config.ts",
+          "sha256": "0e591052cd5ac5a3a2079616a72c3dda4acbd4287bb621ae1d83de98e6451400"
+        },
+        {
+          "path": "src/config.test.ts",
+          "sha256": "54aee5ed05f845405df5ed86ace056d44188e67da8c7f5e8bfb20e91676018d6"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "neeetman/frida-mcp",
+      "recovered_checkout_name": "neeetman__frida-mcp",
+      "upstream_url": "https://github.com/neeetman/frida-mcp.git",
+      "local_checkout": "recovered-workspace/repos/neeetman__frida-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "18d2ac715e9b9b69a203294b6a489b7f51ebe994",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "Instrumentation",
+      "capability_tags": [
+        "Instrumentation"
+      ],
+      "dependency_risk_review": "Python Frida/MCP ranges; persistent arbitrary script attach/session execution.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [
+          "tests/test_server.py",
+          "tests/test_session_resume.py",
+          "tests/test_smoke.py",
+          "tests/test_store.py",
+          "tests/test_values.py"
+        ],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": [
+          "tests/test_session_resume.py",
+          "tests/test_store.py",
+          "tests/integration/test_frida_live.py",
+          "src/frida_mcp/server.py",
+          "src/frida_mcp/session.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "BLOCKED license; disabled active instrumentation.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "065b2a205e4018c3efd18108ba8e38fe99684ddd3c38f4c06f39ff0f09b64aae"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {
+            "build-backend": "setuptools.build_meta",
+            "requires": [
+              "setuptools>=68"
+            ]
+          },
+          "declarations": {
+            "dependencies": [
+              "frida>=16.0.0",
+              "mcp>=1.2.0"
+            ],
+            "name": "frida-mcp",
+            "optional-dependencies": {
+              "dev": [
+                "pytest>=8.0"
+              ]
+            },
+            "requires-python": ">=3.11",
+            "version": "0.1.0"
+          },
+          "path": "pyproject.toml",
+          "sha256": "8161c09be486bb5770b92dc8685150554eb657b95fd0a36c0821e159e82996b0",
+          "size_bytes": 650
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "tests/test_server.py",
+          "sha256": "ac2093e184e4f8522342db3914a6a2e978adf6e7a2dbb974db39fde5d28828ee"
+        },
+        {
+          "path": "tests/test_session_resume.py",
+          "sha256": "cf7164ae4446b378638566f43c5549a225fecaba81369e58dd673743a751c0e7"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "onekey-sec/unblob",
+      "recovered_checkout_name": "onekey-sec__unblob",
+      "upstream_url": "https://github.com/onekey-sec/unblob.git",
+      "local_checkout": "recovered-workspace/repos/onekey-sec__unblob",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "a902ee6dfa14568c038be824e05d951dc2aa127f",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_MODIFIED_54",
+      "tracked_change_count": 54,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "Firmware extraction",
+      "capability_tags": [
+        "Firmware extraction"
+      ],
+      "dependency_risk_review": "Python+Rust/maturin/native extractors; nested decompression; tracked ROMFS fixture modifications observed.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [
+          "tests/handlers/archive/test_hdr.py",
+          "python/unblob/processing.py",
+          "python/unblob/handlers/filesystem/jffs2.py",
+          "python/unblob/handlers/filesystem/ubi.py",
+          "python/unblob/handlers/filesystem/yaffs.py"
+        ],
+        "install": [],
+        "network": [
+          "python/unblob/processing.py",
+          "python/unblob/testing.py",
+          "python/unblob/handlers/filesystem/romfs.py"
+        ],
+        "shell": [],
+        "subprocess": [
+          "tests/e2e/test_process_termination.py",
+          "python/unblob/pool.py",
+          "python/unblob/testing.py",
+          "python/unblob/extractors/command.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Candidate only after provenance reconciliation and sandbox quotas; no recovered runtime execution.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "6544d60f22f7b521f8705b3bba5d47a50e428ccbd3359542708dbd009ccf3716"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "build_system": {},
+          "declarations": {},
+          "path": "Cargo.toml",
+          "sha256": "46e232259ab405d55bb88f4f05f3d8ba9b4a71b0533e43e7a0ae7694325c887e",
+          "size_bytes": 205
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "d8280fd0612e1580ebdace805357de03679571edc8e150c05724fb60995f2bf7",
+          "size_bytes": 992
+        },
+        {
+          "build_system": {
+            "build-backend": "maturin",
+            "requires": [
+              "maturin>=1.0,<2.0"
+            ]
+          },
+          "declarations": {
+            "dependencies": [
+              "arpy>=2.3.0",
+              "attrs>=23.1.0",
+              "click>=8.1.7",
+              "cryptography>=41.0",
+              "dissect-cstruct>=4.0,<5.0",
+              "jefferson>=0.4.7",
+              "lark>=1.1.8",
+              "lief>=0.16.1",
+              "lz4>=4.3.2,!=4.4.3",
+              "lzallright>=0.2.6",
+              "lzfse>=0.4.2",
+              "plotext>=4.2.0,<6.0",
+              "pluggy>=1.3.0",
+              "pydantic>=2.0",
+              "pyfatfs>=1.0.5",
+              "pymdown-extensions>=10.15",
+              "pyperscan>=0.3.0",
+              "python-magic>=0.4.27",
+              "rarfile>=4.1",
+              "rich>=13.3.5",
+              "structlog>=24.1.0",
+              "treelib>=1.7.0",
+              "ubi-reader>=0.8.15",
+              "zstandard>=0.25.0"
+            ],
+            "license": {
+              "text": "MIT"
+            },
+            "name": "unblob",
+            "requires-python": ">=3.10",
+            "version": "26.6.4"
+          },
+          "path": "pyproject.toml",
+          "sha256": "053c3ac8279a2bc8e4f1cef85774b5318229fae191cbe922fdd06d91bf4cb9c1",
+          "size_bytes": 6553
+        },
+        {
+          "build_system": {},
+          "declarations": {
+            "license": {
+              "workspace": true
+            },
+            "name": "unblob-rust",
+            "version": {
+              "workspace": true
+            }
+          },
+          "dependencies": {
+            "log": "0.4.22",
+            "pyo3": "0.29.0",
+            "pyo3-log": "0.13.0",
+            "statrs": {
+              "default-features": false,
+              "version": "0.18.0"
+            },
+            "thiserror": "2.0.0"
+          },
+          "path": "rust/Cargo.toml",
+          "sha256": "57a9fb1e0a670de0ed59bd03ed150ce02ebab2af32a38ab395452a7a6cb531eb",
+          "size_bytes": 971
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "67303bbde385e13f69e8019f6f8bc77d4ebfce58c2a409952645e3fe4f4d922e"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "install-deps.sh",
+          "sha256": "1d09b4fe515c2a3677cbd94111c8c61e5336ef468a3b153fbca6a2b923878a17"
+        },
+        {
+          "path": "vulture_whitelist.py",
+          "sha256": "1576aac37e89b7189e7ed1b48898c7e0ab2581e265f185d6966910ac85d9a3bb"
+        }
+      ],
+      "status": "M tests/integration/filesystem/romfs/__input__/fruits.both.romfs\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/0-4.unknown\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_1/file_1.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_1/file_2.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_1/file_3.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_1/file_4.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_1/file_5.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_2/file_1.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_2/file_2.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_2/file_3.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_2/file_4.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_2/file_5.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_3/file_1.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_3/file_2.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_3/file_3.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_3/file_4.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_3/file_5.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_4/file_1.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_4/file_2.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_4/file_3.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_4/file_4.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_4/file_5.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_5/file_1.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_5/file_2.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_5/file_3.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_5/file_4.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/dir_5/file_5.txt\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_1_1\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_1_2\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_1_3\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_1_4\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_1_5\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_2_1\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_2_2\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_2_3\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_2_4\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_2_5\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_3_1\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_3_2\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_3_3\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_3_4\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_3_5\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_4_1\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_4_2\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_4_3\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_4_4\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_4_5\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_5_1\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_5_2\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_5_3\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_5_4\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/4-5124.romfs_extract/hlink_5_5\n M tests/integration/filesystem/romfs/__output__/fruits.both.romfs_extract/5124-5128.unknown"
+    },
+    {
+      "repository": "radareorg/radare2-mcp",
+      "recovered_checkout_name": "radareorg__radare2-mcp",
+      "upstream_url": "https://github.com/radareorg/radare2-mcp.git",
+      "local_checkout": "recovered-workspace/repos/radareorg__radare2-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "562c0cf23c42b65b3052f0b294d8778c20facbde",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT wrapper",
+      "purpose": "Native static",
+      "capability_tags": [
+        "Native static"
+      ],
+      "dependency_risk_review": "Native C/radare2; optional raw commands/r2js and HTTP; Docker clones moving upstream and latest base.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [
+          "test.sh",
+          "test-http.py"
+        ],
+        "install": [
+          "dist/debian/build.sh"
+        ],
+        "network": [
+          "test-http.py",
+          "test-json-logs.py",
+          "test-json-numbers.py",
+          "test2.sh"
+        ],
+        "shell": [],
+        "subprocess": [
+          "test-http.py",
+          "test-json-logs.py",
+          "test-json-numbers.py",
+          "dist/scripts/indent.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Preferred radare wrapper reference over NC fork; direct read-only CLI adapter first; still disabled.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "410401c2b805279cbf41bf497e69f103c0efcb9e5363d5d49faa16580e6c4b11"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "dist/docker/Dockerfile",
+          "sha256": "1c99ea69b4178b824cc12896538f1475724f3a1c3231f44680441d91148bf5a9",
+          "size_bytes": 900
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "8b8d93c65f907b0631e980ce58e13d28843db7fa12af7b915035765c52a901fe"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "autogen.sh",
+          "sha256": "8e40e47ac187095293071bba38723bc903d1424caefd077cea1a461337fcd1f8"
+        },
+        {
+          "path": "test.sh",
+          "sha256": "886d9504220d7c5fdbc5befaf76a81b5f6ab3b9c281094bae9b5f537fa669f6a"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "rea-tools/rea",
+      "recovered_checkout_name": "rea-tools__rea",
+      "upstream_url": "https://github.com/rea-tools/rea.git",
+      "local_checkout": "recovered-workspace/repos/rea-tools__rea",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "7fa2864e68a356acd94c377b9e0382c1deb2121f",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT text; relationship UNKNOWN",
+      "purpose": "REA alternate source",
+      "capability_tags": [
+        "REA alternate source"
+      ],
+      "dependency_risk_review": "Native bridge/launcher and UI sources; no root package manifest observed; prior upstream fetch failed.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "firmware/FirmwareVersion.ts",
+          "ghidra/GhidraInstallation.ts",
+          "ghidra/GhidraInstallationPolicy.ts",
+          "hopper/BridgeLauncher.ts",
+          "website/public/showcase/ctf/solve.py"
+        ],
+        "hardware": [],
+        "install": [],
+        "network": [
+          "ghidra/GhidraClient.ts",
+          "ghidra/GhidraClientStartup.ts",
+          "ghidra/GhidraClientTypes.ts",
+          "ghidra/GhidraClientWire.ts",
+          "ghidra/GhidraDiagnostics.ts"
+        ],
+        "shell": [],
+        "subprocess": [
+          "ghidra/GhidraLauncher.ts",
+          "ghidra/GhidraProvider.behavior.test.ts",
+          "hopper/BridgeLauncher.ts",
+          "hopper/HopperTargetLease.test.ts",
+          "hopper/LinuxPrivateDisplayProbe.ts"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "BLOCKED independent provenance; do not treat as official release.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "92e713f4872de25897f2eb380e542067b6e5c820c905181fc993c42569bdf20b"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "website/requirements.txt",
+          "sha256": "b1dd921f56de889356ed523d391cd86aba92c4cf090dc9a97f47263a4713ee0b",
+          "size_bytes": 74
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "9a5bd88d5eccff120df0a281ac70f53b99ac7e27d505997a797f0e49c9f1a3a4"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "filesystem/RegularFile.ts",
+          "sha256": "770147493db2415f47dd7cc24d52da56262f8d860e4f4dedb718da6cedf3f4f6"
+        },
+        {
+          "path": "firmware/FirmwareCommand.test.ts",
+          "sha256": "51c21892653ef22c879453df79ef5c275b8a00c699186a7e8ccebf3db33f890c"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "samudoria/revoid",
+      "recovered_checkout_name": "samudoria__revoid",
+      "upstream_url": "https://github.com/samudoria/revoid.git",
+      "local_checkout": "recovered-workspace/repos/samudoria__revoid",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "712af7ed816e830325767d08361e170c9d8a37b4",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "JADX static",
+      "capability_tags": [
+        "JADX static"
+      ],
+      "dependency_risk_review": "Kotlin/Gradle/JADX 1.5.1/MCP/serialization; STDIO and SSE server builds.",
+      "risk_surface_files": {
+        "exec_eval": [],
+        "hardware": [],
+        "install": [],
+        "network": [],
+        "shell": [],
+        "subprocess": []
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer duplicate wrapper; missing license.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "c2b9171a1b4d602c65af92a0e7b2347b574aa1e74e9fa821fd45c258b6493fb9"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "path": "build.gradle.kts",
+          "sha256": "ac64d419fe9646ba2318ea3604fb799e4d7639ff21ec72901de02ad9ce55f0ba",
+          "size_bytes": 2593
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "test-app/build.sh",
+          "sha256": "4684bd4b9008afa885c201e80fb5813b9b743fbbf7d427ff052f97392cd8e825"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "yfe404/frida-mcp",
+      "recovered_checkout_name": "yfe404__frida-mcp",
+      "upstream_url": "https://github.com/yfe404/frida-mcp.git",
+      "local_checkout": "recovered-workspace/repos/yfe404__frida-mcp",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "fb7d6c7c74bd249dbc86b8a3c14df79d9486b114",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "UNKNOWN",
+      "purpose": "Instrumentation",
+      "capability_tags": [
+        "Instrumentation"
+      ],
+      "dependency_risk_review": "Node Frida/Java bridge/MCP and adb bootstrap/script execution; range dependencies.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "scripts/fetch-docs.ts",
+          "test/unit/injected-recipes.test.ts",
+          "src/tools/anti-detection.ts",
+          "src/tools/static.ts",
+          "src/injected/recipes/index.ts"
+        ],
+        "hardware": [
+          "scripts/fetch-docs.ts",
+          "src/adb.ts",
+          "src/index.ts",
+          "src/resources.ts",
+          "src/state.ts"
+        ],
+        "install": [
+          "src/utils.ts"
+        ],
+        "network": [
+          "scripts/fetch-docs.ts",
+          "src/injected/java-helpers.ts",
+          "src/tools/bootstrap.ts"
+        ],
+        "shell": [],
+        "subprocess": [
+          "src/adb.ts",
+          "test/integration/stdio-smoke.test.ts",
+          "src/tools/bootstrap.ts",
+          "src/tools/process.ts",
+          "src/tools/session.ts"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "BLOCKED license and active instrumentation authority.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "48ed60a23cb17087d5b613f4111feba7bab024587e89137a15ee912f00391efc"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "dependencies": {
+              "@modelcontextprotocol/sdk": "^1.26.0",
+              "frida": "^17.9.11",
+              "frida-java-bridge": "^7.0.13",
+              "zod": "^3.25.0"
+            },
+            "devDependencies": {
+              "@types/node": "^22.0.0",
+              "tsx": "^4.19.0",
+              "typescript": "^5.8.0"
+            },
+            "engines": {
+              "node": ">=20"
+            },
+            "name": "frida-mcp",
+            "version": "1.1.0"
+          },
+          "lifecycle_script_names": [
+            "build",
+            "dev",
+            "fetch-docs",
+            "prepublishOnly",
+            "start",
+            "test",
+            "test:device",
+            "test:integration",
+            "test:unit"
+          ],
+          "path": "package.json",
+          "sha256": "511dc8a06b886eab6ab13c38c1a2191d284712f19f28d527be4001537f2b27bf",
+          "size_bytes": 1131
+        }
+      ],
+      "license_files": [],
+      "source_samples": [
+        {
+          "path": "scripts/fetch-docs.ts",
+          "sha256": "aef657d43b29188ba953acde6ffad9cb30d013c81aa20dc21d070127af467caf"
+        },
+        {
+          "path": "src/adb.ts",
+          "sha256": "83cbb5f296f02ea20f58412ac4109cf382d5fa009d268da9e1ed8662deeb3425"
+        }
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "repository": "zhuyumi123/REA",
+      "recovered_checkout_name": "zhuyumi123__REA",
+      "upstream_url": "https://github.com/zhuyumi123/REA.git",
+      "local_checkout": "recovered-workspace/repos/zhuyumi123__REA",
+      "saved_manifest_sha256": "UNKNOWN — no per-checkout manifest digest in preserved audit",
+      "observed_local_head": "7aa4d768eb15317a63a476431ed75bafec086033",
+      "observed_at": "2026-11-12",
+      "tracked_status": "TRACKED_CLEAN",
+      "tracked_change_count": 0,
+      "untracked_status": "NOT_CHECKED — preserved audit excluded untracked files",
+      "license_status": "MIT",
+      "purpose": "REA fork",
+      "capability_tags": [
+        "REA fork"
+      ],
+      "dependency_risk_review": "Node/native/browser integrations and install/update lifecycle; overlaps original REA.",
+      "risk_surface_files": {
+        "exec_eval": [
+          "website/public/showcase/ctf/solve.py",
+          "tests/conformance/releaseConfiguration.test.ts",
+          "tests/fixtures/hopperBridgeFacadeProbe.py",
+          "tests/fixtures/hopperInstructionProbe.py",
+          "tests/fixtures/hopperStringSearchProbe.py"
+        ],
+        "hardware": [
+          "install.sh",
+          "tests/conformance/providers/ghidra/realGhidraWindowsWorkflow.test.ts"
+        ],
+        "install": [
+          "install.sh",
+          "src/application/Update.test.ts",
+          "src/application/Update.ts"
+        ],
+        "network": [
+          "bridge/hopper_bridge.py",
+          "scripts/hopper-demo-x11.py",
+          "src/cliObservationOptions.ts",
+          "src/doctorRuntime.ts",
+          "website/public/assets/aegis-demo.js"
+        ],
+        "shell": [],
+        "subprocess": [
+          "scripts/hopper-demo-x11.py",
+          "tests/acceptance/webRuntimeCli.test.ts",
+          "tests/conformance/scanTodos.test.ts",
+          "tests/evaluation/moduleBoundaries.test.ts",
+          "tests/fixtures/hopperCleanupTimeout.py"
+        ]
+      },
+      "maintenance_state": "UNKNOWN — upstream freshness and release history were not checked",
+      "security_advisory_state": "UNKNOWN — no advisory lookup was performed",
+      "integration_decision": "Defer fork duplication; no proven unique safe adapter need.",
+      "readme_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "6d7c227d06c3276b546e3663d052db4e034dd9812d71fb3d91c8c7d895405f18"
+        },
+        {
+          "path": "README_ar.md",
+          "sha256": "b07e5adc432b6fdf72311f7ef2d5ff0db082dddec6b4582f96c5d25fac48c9e5"
+        },
+        {
+          "path": "README_de.md",
+          "sha256": "a03c9f97582da9ec4bc0c3c73e29a2ee380d4e1e50b119f8c34d6fe85d832b01"
+        }
+      ],
+      "dependency_manifests": [
+        {
+          "declarations": {
+            "dependencies": {
+              "@babel/parser": "8.0.4",
+              "@babel/types": "8.0.4",
+              "@clack/prompts": "1.7.0",
+              "@electron/asar": "4.2.0",
+              "@jridgewell/trace-mapping": "0.3.31",
+              "@lydell/node-pty": "1.1.0",
+              "@modelcontextprotocol/client": "2.3.1",
+              "@modelcontextprotocol/server": "2.3.1",
+              "@xterm/addon-serialize": "0.14.0",
+              "@xterm/headless": "6.0.0",
+              "@zip.js/zip.js": "2.15.0",
+              "ajv": "8.20.0",
+              "ajv-formats": "3.0.1",
+              "canonicalize": "3.0.0",
+              "cross-spawn": "7.0.6",
+              "diff": "9.0.0",
+              "evmole": "0.9.3",
+              "har-schema": "2.0.0",
+              "ignore": "7.0.6",
+              "incur": "0.6.1",
+              "isomorphic-git": "1.38.7",
+              "jsonc-parser": "3.3.1",
+              "lossless-json": "4.3.1",
+              "parse5": "8.0.1",
+              "pino": "10.4.0",
+              "playwright-core": "1.58.2",
+              "plist": "5.0.0",
+              "semver": "7.8.5",
+              "smol-toml": "1.9.0",
+              "stream-json": "3.7.0",
+              "write-file-atomic": "7.0.0",
+              "ws": "8.21.0",
+              "zod": "4.4.3"
+            },
+            "devDependencies": {
+              "@fast-check/vitest": "0.5.0",
+              "@types/cross-spawn": "6.0.6",
+              "@types/node": "26.6.4",
+              "@types/semver": "7.7.1",
+              "@types/write-file-atomic": "4.0.3",
+              "@types/ws": "8.18.1",
+              "@vitest/coverage-v8": "5.0.3",
+              "husky": "9.1.7",
+              "jscpd": "5.0.12",
+              "knip": "6.39.0",
+              "lint-staged": "16.4.0",
+              "oxfmt": "0.72.0",
+              "oxlint": "1.87.0",
+              "turbo": "2.11.7",
+              "typescript": "7.0.2",
+              "vitepress": "1.6.4",
+              "vitest": "5.0.3",
+              "yaml": "2.9.0"
+            },
+            "engines": {
+              "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
+            },
+            "license": "MIT",
+            "name": "rea-agents",
+            "version": "6.3.0"
+          },
+          "lifecycle_script_names": [
+            "artifacts:error-schema",
+            "artifacts:managed-evidence",
+            "artifacts:mcp-catalog",
+            "artifacts:product-catalog",
+            "artifacts:skills",
+            "build",
+            "build:cached",
+            "build:fixtures",
+            "build:fixtures:nativeaot",
+            "build:ghidra-windows-fixture",
+            "build:ghidra:nativeaot",
+            "build:windows-native",
+            "check",
+            "check:changed",
+            "check:ci",
+            "check:fast",
+            "check:pr",
+            "check:test",
+            "compile",
+            "config:print",
+            "deps:check",
+            "docs:build",
+            "docs:check",
+            "docs:check:built",
+            "docs:dev",
+            "docs:error-schema",
+            "docs:generate",
+            "docs:prepare",
+            "docs:preview",
+            "evidence:check",
+            "evidence:check:built",
+            "evidence:generate",
+            "fixtures:android",
+            "fixtures:firmware",
+            "format",
+            "format:check",
+            "jscpd",
+            "knip",
+            "lint",
+            "lint:fix",
+            "mcp-catalog:check",
+            "mcp-catalog:check:built",
+            "mcp-catalog:generate",
+            "mcp-registry:check",
+            "metadata:check",
+            "metadata:generate",
+            "prebuild",
+            "precheck",
+            "precheck:changed",
+            "precheck:ci",
+            "precheck:fast",
+            "precheck:pr",
+            "precheck:test",
+            "predocs:build",
+            "predocs:dev",
+            "prepack",
+            "prepare",
+            "prepublishOnly",
+            "pretest:acceptance",
+            "pretest:boundary",
+            "pretest:ci:shard",
+            "pretest:coverage",
+            "pretest:integration",
+            "pretest:mcp",
+            "pretest:verbose",
+            "pretest:watch:all",
+            "probe:windows-capabilities",
+            "scan:todos",
+            "start",
+            "test",
+            "test:acceptance",
+            "test:boundary",
+            "test:changed",
+            "test:ci",
+            "test:ci:merge",
+            "test:ci:shard",
+            "test:ci:shard:run",
+            "test:coverage",
+            "test:fast",
+            "test:focused",
+            "test:integration",
+            "test:local",
+            "test:mcp",
+            "test:prepare",
+            "test:run",
+            "test:verbose",
+            "test:watch",
+            "test:watch:all",
+            "test:with-build",
+            "typecheck",
+            "verify:agent",
+            "verify:android",
+            "verify:apple-dispatch",
+            "verify:application-workflows",
+            "verify:architecture-guards",
+            "verify:asset-catalog",
+            "verify:binary:layout",
+            "verify:browser",
+            "verify:browser:dom",
+            "verify:browser:modules",
+            "verify:browser:network",
+            "verify:browser:runtime",
+            "verify:browser:scripts",
+            "verify:browser:source-maps",
+            "verify:electron",
+            "verify:evm:interface",
+            "verify:firmware",
+            "verify:fixtures",
+            "verify:ghidra",
+            "verify:ghidra:aarch64-jump-table",
+            "verify:ghidra:com",
+            "verify:ghidra:cross-format",
+            "verify:ghidra:dos",
+            "verify:ghidra:nativeaot",
+            "verify:ghidra:swift",
+            "verify:ghidra:switch",
+            "verify:ghidra:windows",
+            "verify:ghidra:windows:package",
+            "verify:hopper",
+            "verify:hopper:deadlines",
+            "verify:hopper:fat",
+            "verify:hopper:fat64",
+            "verify:hopper:linux",
+            "verify:ida",
+            "verify:inspector",
+            "verify:interface-builder",
+            "verify:javascript-runtime",
+            "verify:javascript:digests",
+            "verify:javascript:output",
+            "verify:javascript:recovery",
+            "verify:keyed-archive",
+            "verify:legacy-simulator",
+            "verify:macos-bundle",
+            "verify:managed",
+            "verify:module-boundaries",
+            "verify:native-calls",
+            "verify:native-ui",
+            "verify:native-ui:permissions",
+            "verify:package",
+            "verify:package:windows",
+            "verify:published",
+            "verify:readiness",
+            "verify:recorded:crash",
+            "verify:setup:linux",
+            "verify:test-discovery",
+            "verify:test-temp-hygiene",
+            "verify:web:network-captures",
+            "verify:windows-native",
+            "verify:windows-native:artifact"
+          ],
+          "path": "package.json",
+          "sha256": "94639a2f04a378c5e3a2c4340916e47501cda8abe91682de75ec4b2719bc6a83",
+          "size_bytes": 17371
+        },
+        {
+          "path": "website/requirements.txt",
+          "sha256": "b1dd921f56de889356ed523d391cd86aba92c4cf090dc9a97f47263a4713ee0b",
+          "size_bytes": 74
+        }
+      ],
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b"
+        }
+      ],
+      "source_samples": [
+        {
+          "path": "install.sh",
+          "sha256": "a711b6f00e68b7353941eb9ceca324ce47abeb8c13e65fb69bc3e464f022042f"
+        },
+        {
+          "path": "vitest.config.ts",
+          "sha256": "ac72c1ad0ab9b672b67158b31aa0b3d6f51dc7b34092556655577d2e5c045c50"
+        }
+      ],
+      "status": "UNKNOWN"
+    }
+  ],
+  "limitations": [
+    "Local recovered snapshot only; no network/upstream freshness or advisory lookup performed.",
+    "License labels identify local text or explicit metadata claims; no transitive license clearance.",
+    "Risk pattern files are triage signals including tests, not proven vulnerabilities.",
+    "Tracked status excludes untracked files. Git optional locks, fsmonitor and hooks disabled.",
+    "No recovered code, package scripts, binaries, APKs, firmware, or recovered skills executed.",
+    "No installation, source sync, checkout mutation, Git reset/merge/cherry-pick, production or physical action."
+  ],
+  "reuse_policy": "License observations are not legal reuse approval. Do not vendor or execute recovered checkouts; prefer independently implemented, pinned, sandboxed URE adapters.",
+  "current_reinspection": "NOT_PERFORMED — generated from preserved static audit; recovered snapshot was not re-read during this integration pass."
+}

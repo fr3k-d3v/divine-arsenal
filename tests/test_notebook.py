@@ -129,6 +129,68 @@ def test_api_private_lifecycle_and_security():
         assert c.get('/api/notebook/graph').status_code==200
 
 
+def analysis_reference(**changes):
+    evidence = 'a' * 64
+    return {
+        'kind':'analysis-reference', 'title':'Synthetic REA evidence reference',
+        'provider':'URE', 'api_version':1, 'job_id':'b' * 32,
+        'input_sha256':'c' * 64, 'adapter':'ghidra.decompile@1.0.0',
+        'profile':'ghidra', 'authority':'OBSERVE', 'state':'succeeded',
+        'created_at':1.0, 'started_at':1.1, 'finished_at':2.0, 'attempt_count':1,
+        'sandbox_profile':'bubblewrap-ghidra-12.2-v1', 'network_policy':'DENIED',
+        'filesystem_policy':'ISOLATED_READ_ONLY_INPUTS', 'permissions':['OBSERVE'],
+        'resource_limits':{'memory_mb':8192,'cpu_seconds':120,'wall_seconds':150,'output_bytes':2097152},
+        'exit_code':0, 'timed_out':False, 'truncated':False, 'cancelled':False, 'reaped':True,
+        'error':None, 'evidence_hashes':[evidence],
+        'findings':[{'kind':'OBSERVATION','text':'Synthetic test finding','confidence':0.95,'evidence_hashes':[evidence]}],
+        'reconstructions':[], 'limitations':['Static analysis only'],
+        'provider_limitations':[], 'compatibility_notes':[], 'source_id':None,
+        'rights_status':'UNKNOWN', 'review_state':'UNREVIEWED',
+        'note':'Synthetic fixture only; no source material was analyzed.', **changes,
+    }
+
+
+def test_analysis_reference_is_private_revisioned_and_graphable():
+    item=notebook.save(save(analysis_reference(source_id='sloane-3188')))
+    document=notebook.get(item['id'])['document']
+    assert document['review_state']=='UNREVIEWED' and document['rights_status']=='UNKNOWN'
+    graph=notebook.graph(evidence='OBSERVATION')
+    analysis_id='analysis:'+item['id']
+    assert any(n['id']==analysis_id and n['type']=='analysis' for n in graph['nodes'])
+    edge=next(e for e in graph['edges'] if e['id']==item['id'])
+    assert edge['subject']=='sloane-3188' and edge['object']==analysis_id
+    assert edge['predicate']=='analyzed-by' and edge['evidence']=='OBSERVATION'
+    revised=notebook.save(save(analysis_reference(source_id='sloane-3188',review_state='HUMAN_REVIEWED',note='Reviewed synthetic test fixture.'),1),item['id'])
+    assert revised['revision']==2
+    assert notebook.get(item['id'])['document']['review_state']=='HUMAN_REVIEWED'
+
+
+def test_analysis_reference_without_source_is_an_unlinked_node():
+    item=notebook.save(save(analysis_reference()))
+    graph=notebook.graph()
+    assert any(n['id']=='analysis:'+item['id'] for n in graph['nodes'])
+    assert all(e['id']!=item['id'] for e in graph['edges'])
+
+
+@pytest.mark.parametrize('changes',[
+    {'authority':'AUTO'}, {'permissions':['AUTO']}, {'evidence_hashes':['not-a-hash']},
+    {'finished_at':0.5}, {'source_id':'not-registered'},
+    {'findings':[{'kind':'OBSERVATION','text':'orphan','confidence':1.0,'evidence_hashes':['d'*64]}]},
+])
+def test_analysis_reference_rejects_invalid_authority_or_provenance(changes):
+    with pytest.raises(ValidationError): save(analysis_reference(**changes))
+
+
+def test_analysis_reference_export_import_preserves_hashes_and_review_state():
+    item=notebook.save(save(analysis_reference(review_state='HUMAN_REVIEWED')))
+    bundle=notebook.export_bundle()
+    imported=notebook.import_bundle(bundle)
+    restored=notebook.get(imported[0])['document']
+    assert restored['job_id']=='b'*32 and restored['input_sha256']=='c'*64
+    assert restored['review_state']=='HUMAN_REVIEWED'
+    assert restored['evidence_hashes']==['a'*64]
+
+
 def test_manifest_archive_roundtrip_and_invalid_import():
     from pathlib import Path
     raw=json.loads(Path('tests/fixtures/iiif-synthetic.json').read_text())
