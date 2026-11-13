@@ -21,7 +21,8 @@ import urllib.request
 MAX_UPLOAD_BYTES = 700_000
 MAX_RESPONSE_BYTES = 4 * 1024 * 1024
 PROFILES = frozenset({
-    "identify", "elf", "ghidra", "jadx", "binwalk", "radare2", "unblob", "kaitai"
+    "identify", "elf", "ghidra", "jadx", "binwalk", "radare2", "unblob", "kaitai",
+    "pdf", "tei", "iiif", "image", "grid",
 })
 JOB_STATES = frozenset({
     "queued", "running", "succeeded", "failed", "timed_out", "cancelled", "blocked"

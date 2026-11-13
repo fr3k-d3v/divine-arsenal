@@ -144,7 +144,7 @@ Divine Arsenal includes a local REA analysis workspace that consumes the indepen
 - The browser talks only to Divine Arsenal's same-origin `/api/rea/*` routes. The server pins URE to numeric loopback, disables proxies and redirects, and filters internal worker/fencing fields.
 - Divine Arsenal forces `OBSERVE`; synthetic `AUTO`, Frida, PlatformIO, sigrok, physical device access and remote execution are not exposed.
 - Current bridge upload limit: 700,000 bytes. Larger files require the local URE CLI until a reviewed streaming API exists.
-- PDF/image signatures are not OCR/HTR. Unknown image formats remain UNKNOWN; signature classification is not scholarly interpretation or a vulnerability verdict.
+- The verified local registry exposes bounded PDF lexical metadata, TEI XML structural counts, IIIF Presentation v2/v3 manifest structure, PNG/JPEG/TIFF header metadata, and CSV/TSV structural inspection. These profiles do not render PDFs, decode image pixels, expose cell values, evaluate formulas, fetch IIIF resources or perform OCR/HTR; they are not scholarly correctness or vulnerability verdicts.
 
 See [REA integration architecture](docs/research/REA_INTEGRATION_ARCHITECTURE.md), [29-repository inventory](docs/research/REA_WORKSPACE_INVENTORY.md) and [machine-readable register](docs/research/rea-repository-register.json).
 ### Evidence provenance in the private notebook

@@ -115,9 +115,9 @@ Evidence labels remain distinct: CLAIM, OBSERVATION, EVIDENCE, VERIFIED FACT, HY
 
 ## 8. Supported formats and known limits
 
-URE's conservative classifier currently recognises ELF, PE, APK/ZIP, DEX, Java class, PDF, PCAP, Android boot headers, JSON and UTF-8 text. Unsupported inputs remain UNKNOWN. Classification is signature-based.
+URE's conservative classifier currently recognises ELF, PE, APK/ZIP, DEX, Java class, PDF, PCAP, Android boot headers, JSON, TEI XML, IIIF Presentation manifests, PNG/JPEG/TIFF and CSV/TSV. Unsupported inputs remain UNKNOWN. Classification is signature/extension-based and does not establish semantic correctness.
 
-PDF recognition does not mean PDF structure extraction. TIFF/JPEG/PNG currently remain UNKNOWN to the URE classifier. There is no OCR/HTR, manuscript transcription, visual image interpretation, universal IIIF parser or scholarly content extraction in this bridge. Those remain Divine Arsenal research-workbench tasks or future adapters. The current URE API limit also makes the bridge unsuitable for large scans and firmware images.
+The sandboxed scholarly worker now performs bounded PDF lexical metadata inspection; TEI XML well-formedness/structure counts; IIIF Presentation v2/v3 manifest counts without resolving contexts or fetching referenced resources; PNG/JPEG/TIFF header/IFD metadata without pixel decoding; and CSV/TSV structure counts without returning cell values or evaluating formulas. These are metadata/structure observations only, not PDF rendering, OCR/HTR, manuscript transcription, image interpretation, TEI P5 schema validation or scholarly correctness. The browser bridge remains capped at 700 KB; larger artifacts require the local URE CLI.
 
 Ghidra, JADX, Binwalk, radare2, Unblob and Kaitai are implemented as explicit URE adapters with pinned/local verification evidence. Frida, PlatformIO and sigrok remain blocked/disabled. Adapter availability is runtime-dependent and is never inferred from a binary merely appearing on PATH.
 
@@ -140,7 +140,7 @@ The private URE workspace records 171 passing tests and local owned-fixture chec
 - Run a real same-host Divine → URE end-to-end test against the current URE checkout and live adapter registry.
 - Verify service restart, token rotation and clean shutdown behaviour.
 - Increase large-file intake only through a separately reviewed bounded streaming API.
-- Add scholarly PDF/image parsing only with pinned parsers, rights-aware inputs and synthetic plus lawful real fixtures.
+- Broaden the new stdlib scholarly adapters with independent format oracles and lawful real-world fixtures; add OCR/HTR only as a separate, reviewed capability with explicit rights and human validation.
 - Keep all public scholarly/source/rights and human-review gates from Research Edition 1.1 open until independently accepted.
 
 **Current state:** application bridge and UI are implemented; fake-service integration tests pass. Production deployment and public release are not claimed.
@@ -162,7 +162,7 @@ For every run, the application reconciled the input SHA-256, validated the repor
 
 The URE report builder now has a regression-tested generic limitation that accurately says no runtime behaviour, device control or Fleet transport was performed. The already-running API process retains its previously imported report module until a later controlled restart; Divine Arsenal therefore includes a transparent v1 compatibility normalizer for the legacy generic wording and preserves the original provider wording in provider_limitations.
 
-Profile selection requires live adapter status SUPPORTED, available, enabled and verified. Current verified live identities: identify@1.0.0, ghidra.decompile@1.0.0, kaitai.dex@1.0.0, unblob.scan@1.0.0, radare2.analyze@1.0.0, binwalk.scan@1.0.0 and jadx.decompile@1.0.0. elf.metadata@1.0.0 is present but unverified and is not offered. frida@unreviewed, platformio@unreviewed and sigrok@unreviewed are unavailable and remain hidden from profile selection.
+Profile selection requires live adapter status SUPPORTED, available, enabled and verified. The live registry now reports 17 identities, of which 12 are verified and enabled: identify@1.0.0, ghidra.decompile@1.0.0, kaitai.dex@1.0.0, unblob.scan@1.0.0, radare2.analyze@1.0.0, binwalk.scan@1.0.0, jadx.decompile@1.0.0, pdf.metadata@1.0.0, tei.validate@1.0.0, iiif.manifest@1.0.0, image.metadata@1.0.0 and grid.inspect@1.0.0. elf.metadata@1.0.0 and synthetic.bytes@1.0.0 remain unverified and are not offered. frida@unreviewed, platformio@unreviewed and sigrok@unreviewed remain separately gated/unavailable.
 
 ## 11. Adapter-version and report-contract hardening
 
@@ -182,3 +182,21 @@ Successful jobs can be saved explicitly through `POST /api/rea/jobs/{job_id}/not
 - optional registered-source link, rights status UNKNOWN, review state UNREVIEWED by default and a separate human note.
 
 The notebook stores references and derived summaries, not raw input bytes, raw stdout/stderr, worker IDs, attempt tokens, leases or fencing tokens. All finding/reconstruction evidence references must resolve to evidence hashes in the same report. A linked analysis appears in the Tradition Graph as an OBSERVATION edge from the selected source to a local analysis node. This edge documents a tool operation only; it is not a historical relationship or influence claim. A user can later mark the record HUMAN_REVIEWED or DISPUTED without changing the immutable analysis fields.
+
+## 13. Scholarly adapter expansion — 2026-11-14
+
+The verified Bubblewrap isolation probe is now passed into the URE adapter registry. This corrected a registry wiring defect that had left five implemented scholarly adapters blocked even though the worker namespace was verified. A second defect in the sandbox environment allowlist rejected the two explicit worker profile variables before the parser started. Both defects are fixed and regression-tested.
+
+Five versioned OBSERVE adapters are now enabled after the host probe:
+
+| Adapter | Formats | Bounded observation |
+|---|---|---|
+| `pdf.metadata@1.0.0` | PDF | Lexical version/object/page markers and metadata-key presence; no rendering |
+| `tei.validate@1.0.0` | TEI XML | Well-formedness, TEI root/namespace and structural counts; no TEI P5 schema or editorial verdict |
+| `iiif.manifest@1.0.0` | IIIF Presentation v2/v3 | Manifest/canvas/annotation-page/service counts; no remote context/resource fetch |
+| `image.metadata@1.0.0` | PNG/JPEG/TIFF | Header/dimensions/chunk/IFD metadata; no pixel decoding or OCR/HTR |
+| `grid.inspect@1.0.0` | CSV/TSV | Row/column irregularity and empty-cell counts; no cell-value output or formula execution |
+
+The full URE `unittest discover` suite passes **180 test cases**. Divine Arsenal passes **155 tests**. A live same-host Divine → URE test completed all nine synthetic format paths (PDF, TEI XML, IIIF Presentation v2/v3, PNG, JPEG, TIFF, CSV and TSV). Every job succeeded with three evidence records, matching input SHA-256, OBSERVE authority, Bubblewrap network denial, read-only input isolation and confirmed worker reaping. The live registry reports **17 identities / 12 verified and enabled**. Chromium acceptance remains **53 assertions**, desktop/mobile, zero console exceptions and zero external requests.
+
+The machine-readable acceptance record is [scholarly-adapter-acceptance-2026-11-14.json](../execution/evidence/scholarly-adapter-acceptance-2026-11-14.json). All fixtures were synthetic. This does not establish institutional interoperability, OCR/HTR, scholarly correctness, rights clearance, full TEI P5 conformance, universal IIIF conformance or production release readiness.

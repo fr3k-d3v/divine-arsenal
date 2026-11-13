@@ -80,7 +80,8 @@ The profile resolver now selects the highest live verified adapter version and i
 |---|---|---|
 | Service lifecycle | PASS | `fr3k-ure.service` and `divine-arsenal.service` enabled/active with restart-on-failure; local-only bind |
 | Authenticated URE connection | PASS | Divine `/api/rea/status` returned READY after systemd-managed restart |
-| Live registry reconciliation | PASS | 17 identities; only 7 verified/enabled OBSERVE adapters are offered for execution |
+| Live registry reconciliation | PASS | 17 identities; 12 verified/enabled OBSERVE adapters are offered for execution; unverified and gated identities remain excluded |
+| Scholarly format adapters | PASS | Nine real Bubblewrap service round trips: PDF, TEI XML, IIIF v2/v3, PNG, JPEG, TIFF, CSV and TSV; evidence and OBSERVE authority validated |
 | Live upload and analysis | PASS | Synthetic fixture SHA-256 matched; identify job succeeded; OBSERVE authority retained |
 | Report evidence | PASS | 3 raw evidence records, 2 unique hashes, 1 finding; dangling references rejected by tests |
 | Private notebook persistence | PASS | Save succeeded; repeated save returned the same reference; unique SHA-256 references validated |
@@ -89,4 +90,20 @@ The profile resolver now selects the highest live verified adapter version and i
 | Divine test suite | PASS | 154 tests passed |
 | URE test suite | PASS | 172 tests and 46 subtests passed |
 | Browser acceptance | PASS | 53 assertions; desktop/mobile; zero console exceptions or external requests |
-| Public production release | NOT ACCEPTED | Scholarly, rights, full accessibility, external security, remote CI and OCR/HTR gates remain open |
+| Public production release | NOT ACCEPTED | Scholarly rights/correctness, full accessibility, external security, remote CI and OCR/HTR gates remain open |
+
+### Scholarly adapter delta — 2026-11-14
+
+| Gate | Result | Evidence |
+|---|---|---|
+| Verified sandbox registry wiring | PASS | URE registry enables scholarly adapters only when the actual Bubblewrap isolation probe passes |
+| Scholarly worker environment | PASS | Only `URE_SCHOLARLY_PROFILE` and `URE_SCHOLARLY_FORMAT` were added to the strict worker environment allowlist |
+| PDF lexical metadata | PASS | Live Divine → URE PDF job succeeded; 3 evidence records; lexical-only limitation preserved |
+| TEI XML structure | PASS | Live job succeeded; DTD/entity rejection covered by tests |
+| IIIF Presentation v2/v3 | PASS | Both live manifest jobs succeeded; no external context or resource fetch |
+| PNG/JPEG/TIFF metadata | PASS | Three live image-header jobs succeeded; no pixel decoding |
+| CSV/TSV structure | PASS | Both live jobs succeeded; cell values withheld; formulas not executed |
+| URE regression suite | PASS | 180 unittest cases passed, including scholarly parser and real Bubblewrap service round trips |
+| Divine regression suite | PASS | 155 tests passed |
+| Browser regression | PASS | 53 Chromium assertions; zero console exceptions/external requests |
+| Public production release | NOT ACCEPTED | Real institutional corpus, rights, scholarly correctness, full accessibility, external security and remote CI remain open |

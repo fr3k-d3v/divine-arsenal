@@ -324,8 +324,8 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
   <h2>Artifact intake · immutable evidence</h2>
   <p>Choose an artifact explicitly. Divine Arsenal hashes the bytes and transfers them to the local URE evidence store. No file is uploaded to a cloud service.</p>
   <label for="reaFile">Local artifact (maximum 700,000 bytes through this HTTP bridge)</label>
-  <input id="reaFile" type="file" accept=".apk,.dex,.class,.elf,.so,.bin,.img,.zip,.pdf,.tif,.tiff,.jpg,.jpeg,.png,.pcap,.json,.xml,.tei,.txt">
-  <p class="micro">Supported signatures include ELF, PE, APK/ZIP, DEX, Java class, PDF, PCAP, Android boot headers, JSON and UTF-8 text. TIFF/JPEG and other unrecognised formats remain UNKNOWN; this bridge does not perform OCR or HTR.</p>
+  <input id="reaFile" type="file" accept=".apk,.dex,.class,.elf,.so,.bin,.img,.zip,.pdf,.tif,.tiff,.jpg,.jpeg,.png,.pcap,.json,.xml,.tei,.csv,.tsv,.txt">
+  <p class="micro">Supported signatures include ELF, PE, APK/ZIP, DEX, Java class, PDF lexical structure, TEI XML, IIIF Presentation JSON, PNG/JPEG/TIFF header metadata, CSV/TSV structure, PCAP, Android boot headers and UTF-8 text. No OCR/HTR, pixel decoding, cell values or external IIIF resources are fetched.</p>
   <button id="reaUpload" class="primary" disabled>Hash & ingest into local URE</button>
   <pre id="reaInputSummary" class="rea-output" role="status">No artifact ingested.</pre>
   <label for="reaProfile">Available analysis profile (OBSERVE only)</label>
@@ -341,7 +341,7 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
   <div class="row"><button id="reaSave" disabled>Save evidence reference to private notebook</button><button id="reaOpenNotebook" disabled>Open notebook reference</button></div>
   <p id="reaSaveStatus" role="status" aria-live="polite">Analysis reports are not saved to the notebook unless you choose to save them.</p>
  </div>
- <div class="notice warning">Authority is fixed to OBSERVE. Unknown binaries are never executed. Synthetic AUTO profiles are not exposed. Ghidra, JADX, Binwalk, radare2, Unblob and Kaitai availability is taken from the live URE registry, not assumed. The current bridge limit is 700 KB; larger artifacts must use the local URE CLI. A successful static result is not a vulnerability verdict or proof of runtime behaviour.</div>
+ <div class="notice warning">Authority is fixed to OBSERVE. Unknown binaries are never executed. Synthetic AUTO profiles are not exposed. Every adapter is shown only when the live URE registry reports it available, verified and enabled. Scholarly profiles perform bounded metadata/structure checks only: no PDF rendering, OCR/HTR, image decoding, spreadsheet formula execution or IIIF network fetch. The current bridge limit is 700 KB; larger artifacts must use the local URE CLI. A successful static result is not a vulnerability verdict or proof of runtime behaviour.</div>
 </section>
 
 <footer><span class="gold">FR3KD3V // VERIFY REALITY</span> · OBSERVE → VERIFY → RECONCILE → IMPROVE → TEST → RECORD · Experimental local preview · No unverified prediction or authority transfer</footer>

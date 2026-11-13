@@ -63,6 +63,11 @@ class FakeURE:
                         ("binwalk.scan@1.0.0", "binwalk"),
                         ("unblob.scan@1.0.0", "unblob"),
                         ("kaitai.dex@1.0.0", "kaitai"),
+                        ("pdf.metadata@1.0.0", "pdf.metadata"),
+                        ("tei.validate@1.0.0", "tei.validate"),
+                        ("iiif.manifest@1.0.0", "iiif.manifest"),
+                        ("image.metadata@1.0.0", "image.metadata"),
+                        ("grid.inspect@1.0.0", "grid.inspect"),
                     ):
                         if name == "ghidra":
                             identity = "ghidra.decompile@" + owner.state["ghidra_version"]
@@ -116,12 +121,32 @@ class FakeURE:
                     sha = hashlib.sha256(raw).hexdigest()
                     owner.state["input"] = raw
                     owner.state["job"]["input_sha256"] = sha
+                    filename = data["filename"].lower()
+                    suffix = filename.rsplit(".", 1)[-1] if "." in filename else ""
+                    if raw.startswith(b"%PDF-"):
+                        fmt, mime = "pdf", "application/pdf"
+                    elif b"tei-c.org/ns/1.0" in raw and suffix in ("xml", "tei"):
+                        fmt, mime = "tei_xml", "application/tei+xml"
+                    elif b"presentation/3" in raw and b"Manifest" in raw and suffix == "json":
+                        fmt, mime = "iiif_manifest", "application/ld+json"
+                    elif raw.startswith(b"\x89PNG\r\n\x1a\n"):
+                        fmt, mime = "image.png", "image/png"
+                    elif raw.startswith(b"\xff\xd8\xff"):
+                        fmt, mime = "image.jpeg", "image/jpeg"
+                    elif raw.startswith((b"II*\x00", b"MM\x00*", b"II+\x00", b"MM\x00+")):
+                        fmt, mime = "image.tiff", "image/tiff"
+                    elif suffix == "csv":
+                        fmt, mime = "grid.csv", "text/csv"
+                    elif suffix == "tsv":
+                        fmt, mime = "grid.tsv", "text/tab-separated-values"
+                    else:
+                        fmt, mime = "elf", "application/x-elf"
                     return self.send_json(201, {
                         "sha256": sha, "size": len(raw), "original_name": data["filename"],
                         "classification": {
-                            "format": "elf", "mime": "application/x-elf",
-                            "architecture": "x86_64", "confidence": 0.95,
-                            "reasons": ["ELF magic"], "limitations": ["signature only"],
+                            "format": fmt, "mime": mime,
+                            "architecture": "unknown", "confidence": 0.95,
+                            "reasons": ["Fake test classifier: fixture signature/extension"], "limitations": ["test only"],
                         },
                     })
                 if self.path == "/v1/jobs":
@@ -131,7 +156,9 @@ class FakeURE:
                         "ghidra": "ghidra.decompile@" + owner.state["ghidra_version"],
                         "jadx": "jadx.decompile@1.0.0", "binwalk": "binwalk.scan@1.0.0",
                         "radare2": "radare2.analyze@1.0.0", "unblob": "unblob.scan@1.0.0",
-                        "kaitai": "kaitai.dex@1.0.0",
+                        "kaitai": "kaitai.dex@1.0.0", "pdf": "pdf.metadata@1.0.0",
+                        "tei": "tei.validate@1.0.0", "iiif": "iiif.manifest@1.0.0",
+                        "image": "image.metadata@1.0.0", "grid": "grid.inspect@1.0.0",
                     }
                     owner.state["job"].update(
                         input_sha256=data["input_sha256"], profile=data["profile"],
@@ -354,3 +381,35 @@ def test_notebook_reference_deduplicates_repeated_evidence_hashes(monkeypatch):
 
     assert result.status_code == 201, result.text
     assert captured["document"].evidence_hashes == [evidence_sha]
+
+
+def test_scholarly_profiles_are_suggested_and_submittable(fake_ure):
+    cases = [
+        ("sample.pdf", b"%PDF-1.7", "pdf", "pdf", "pdf.metadata@1.0.0"),
+        ("sample.tei.xml", b'<TEI xmlns="http://www.tei-c.org/ns/1.0"/>', "tei_xml", "tei", "tei.validate@1.0.0"),
+        ("sample.iiif.json", b'{"@context":"http://iiif.io/api/presentation/3/context.json","type":"Manifest"}', "iiif_manifest", "iiif", "iiif.manifest@1.0.0"),
+        ("sample.png", b"\x89PNG\r\n\x1a\n", "image.png", "image", "image.metadata@1.0.0"),
+        ("sample.jpg", b"\xff\xd8\xff", "image.jpeg", "image", "image.metadata@1.0.0"),
+        ("sample.tiff", b"II*\x00", "image.tiff", "image", "image.metadata@1.0.0"),
+        ("sample.csv", b"Name,Value\n", "grid.csv", "grid", "grid.inspect@1.0.0"),
+        ("sample.tsv", b"Name\tValue\n", "grid.tsv", "grid", "grid.inspect@1.0.0"),
+    ]
+    with TestClient(app) as client:
+        for filename, raw, expected_format, profile, expected_adapter in cases:
+            upload = client.post("/api/rea/inputs", json={
+                "filename": filename,
+                "content_base64": base64.b64encode(raw).decode(),
+            })
+            assert upload.status_code == 201, (filename, upload.text)
+            data = upload.json()
+            assert data["input"]["classification"]["format"] == expected_format
+            suggestions = [item["profile"] for item in data["suggested_profiles"]]
+            assert profile in suggestions, (filename, suggestions)
+            job = client.post("/api/rea/jobs", json={
+                "input_sha256": hashlib.sha256(raw).hexdigest(),
+                "profile": profile,
+            })
+            assert job.status_code == 202, (filename, job.text)
+            assert job.json()["adapter"] == expected_adapter
+            assert job.json()["authority"] == "OBSERVE"
+    assert fake_ure.state["job_request"]["profile"] == "grid"

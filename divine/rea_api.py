@@ -19,6 +19,11 @@ PROFILE_ADAPTER_PREFIXES = {
     "radare2": "radare2.analyze@",
     "unblob": "unblob.scan@",
     "kaitai": "kaitai.dex@",
+    "pdf": "pdf.metadata@",
+    "tei": "tei.validate@",
+    "iiif": "iiif.manifest@",
+    "image": "image.metadata@",
+    "grid": "grid.inspect@",
 }
 PROFILE_LABELS = {
     "identify": "Identify format and hash",
@@ -29,6 +34,11 @@ PROFILE_LABELS = {
     "radare2": "radare2 static analysis",
     "unblob": "Unblob chunk identification",
     "kaitai": "Kaitai DEX structural parse",
+    "pdf": "PDF lexical metadata",
+    "tei": "TEI XML structure validation",
+    "iiif": "IIIF Presentation manifest validation",
+    "image": "PNG/JPEG/TIFF header metadata",
+    "grid": "CSV/TSV structure inspection",
 }
 FORMAT_PROFILES = {
     "elf": ("identify", "elf", "ghidra", "radare2", "binwalk", "unblob"),
@@ -40,9 +50,16 @@ FORMAT_PROFILES = {
     "unknown": ("identify", "binwalk", "unblob"),
     "pe": ("identify", "binwalk", "unblob"),
     "pcap": ("identify",),
-    "pdf": ("identify",),
     "text": ("identify",),
     "json": ("identify",),
+    "pdf": ("identify", "pdf"),
+    "tei_xml": ("identify", "tei"),
+    "iiif_manifest": ("identify", "iiif"),
+    "image.png": ("identify", "image"),
+    "image.jpeg": ("identify", "image"),
+    "image.tiff": ("identify", "image"),
+    "grid.csv": ("identify", "grid"),
+    "grid.tsv": ("identify", "grid"),
 }
 
 
@@ -64,7 +81,7 @@ class UploadRequest(BaseModel):
 class JobRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     input_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
-    profile: Literal["identify", "elf", "ghidra", "jadx", "binwalk", "radare2", "unblob", "kaitai"]
+    profile: Literal["identify", "elf", "ghidra", "jadx", "binwalk", "radare2", "unblob", "kaitai", "pdf", "tei", "iiif", "image", "grid"]
 
 
 class NotebookReferenceRequest(BaseModel):

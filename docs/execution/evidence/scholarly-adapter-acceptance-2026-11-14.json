@@ -1,0 +1,200 @@
+{
+  "date": "2026-11-14",
+  "scope": "Live same-host Divine Arsenal → authenticated loopback URE → Bubblewrap worker acceptance; synthetic owned fixtures only",
+  "services": {
+    "divine_arsenal": {
+      "unit": "divine-arsenal.service",
+      "active": true,
+      "enabled": true,
+      "bind": "IPv4 loopback only"
+    },
+    "ure": {
+      "unit": "fr3k-ure.service",
+      "active": true,
+      "enabled": true,
+      "bind": "IPv4 loopback only"
+    }
+  },
+  "registry": {
+    "total_identities": 17,
+    "verified_enabled": 12,
+    "verified_enabled_observe": [
+      "identify@1.0.0",
+      "ghidra.decompile@1.0.0",
+      "kaitai.dex@1.0.0",
+      "unblob.scan@1.0.0",
+      "radare2.analyze@1.0.0",
+      "binwalk.scan@1.0.0",
+      "jadx.decompile@1.0.0",
+      "pdf.metadata@1.0.0",
+      "tei.validate@1.0.0",
+      "iiif.manifest@1.0.0",
+      "image.metadata@1.0.0",
+      "grid.inspect@1.0.0"
+    ],
+    "enabled_unverified": [
+      "elf.metadata@1.0.0",
+      "synthetic.bytes@1.0.0"
+    ],
+    "gated_unavailable": [
+      "frida@unreviewed:APPROVAL",
+      "platformio@unreviewed:PHYSICAL",
+      "sigrok@unreviewed:PHYSICAL"
+    ]
+  },
+  "scholarly_adapter_gate": {
+    "environment_allowlist_bug_fixed": true,
+    "registry_sandbox_probe_binding_fixed": true,
+    "sandbox_profile": "bubblewrap-static-analysis-v1",
+    "sandbox_probe": {
+      "nonroot": true,
+      "input_read_only": true,
+      "network_blocked": true,
+      "home_hidden": true,
+      "output_writable": true
+    }
+  },
+  "live_formats": [
+    {
+      "filename": "live.pdf",
+      "format": "pdf",
+      "profile": "pdf",
+      "adapter": "pdf.metadata@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "cf7e658d3ec3f7c8c7d073b9e7e841b43de3d7924a19689165fa01a269a2f73d",
+      "evidence_records": 3,
+      "finding": "PDF lexical metadata: 1 page objects, 2 object markers"
+    },
+    {
+      "filename": "live.tei.xml",
+      "format": "tei_xml",
+      "profile": "tei",
+      "adapter": "tei.validate@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "df36eea600fe869b8ca9586f8067c423ac4a89881fae1ea2afb54b954e0c0e9e",
+      "evidence_records": 3,
+      "finding": "TEI structural validation: 5 elements, 1 paragraphs"
+    },
+    {
+      "filename": "live.iiif.json",
+      "format": "iiif_manifest",
+      "profile": "iiif",
+      "adapter": "iiif.manifest@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "216a21a5b98d9bde5d967d878c04e2883c9f2829250ac7d5028db916a9ea4af7",
+      "evidence_records": 3,
+      "finding": "IIIF Presentation v3: 1 canvases"
+    },
+    {
+      "filename": "live.iiif-v2.json",
+      "format": "iiif_manifest",
+      "profile": "iiif",
+      "adapter": "iiif.manifest@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "224dcebad3424e482bada59fb1ad1ff80641ce0ab2e1b5c17d3ebcf969d38ba3",
+      "evidence_records": 3,
+      "finding": "IIIF Presentation v2: 1 canvases"
+    },
+    {
+      "filename": "live.png",
+      "format": "image.png",
+      "profile": "image",
+      "adapter": "image.metadata@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "c47dd9465c00e9a0c8b85e9ea58d3034a0d23b9cf926113602f3460752a4eb96",
+      "evidence_records": 3,
+      "finding": "Image header metadata (image.png): 1 × 1"
+    },
+    {
+      "filename": "live.jpg",
+      "format": "image.jpeg",
+      "profile": "image",
+      "adapter": "image.metadata@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "7fa8244dbf18c68c83cddececbd7cdc2b90b5434b659c702ceae32839ab2af55",
+      "evidence_records": 3,
+      "finding": "Image header metadata (image.jpeg): 1 × 1"
+    },
+    {
+      "filename": "live.tiff",
+      "format": "image.tiff",
+      "profile": "image",
+      "adapter": "image.metadata@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "83d0bb38efb7a5bcd55bf395a9eb510b31bf2e02cb97adc6054df1a5473a2f78",
+      "evidence_records": 3,
+      "finding": "Image header metadata (image.tiff): 1 × 1"
+    },
+    {
+      "filename": "live.csv",
+      "format": "grid.csv",
+      "profile": "grid",
+      "adapter": "grid.inspect@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "8a269d0c52c6ff88a5440ccb2839269c60b0866ad510e950428ff37734bded10",
+      "evidence_records": 3,
+      "finding": "Delimited grid inspection: 3 rows × 2 columns; cell values withheld"
+    },
+    {
+      "filename": "live.tsv",
+      "format": "grid.tsv",
+      "profile": "grid",
+      "adapter": "grid.inspect@1.0.0",
+      "job_state": "succeeded",
+      "input_sha256": "664a3e5f6d302a7a7d7d9c55918ffdf1ecf3aeb7ad8169fbe420186f599410b5",
+      "evidence_records": 3,
+      "finding": "Delimited grid inspection: 3 rows × 2 columns; cell values withheld"
+    }
+  ],
+  "invariants": {
+    "all_jobs_succeeded": true,
+    "all_authority": "OBSERVE",
+    "network_policy": "DENIED",
+    "filesystem_policy": "ISOLATED_READ_ONLY_INPUTS",
+    "worker_reaped": true,
+    "input_sha256_reconciled": true,
+    "evidence_references_validated": true,
+    "cell_values_returned": false,
+    "spreadsheet_formulas_executed": false,
+    "iiif_external_resources_fetched": false,
+    "all_nine_format_jobs_succeeded": true
+  },
+  "tests": {
+    "divine_pytest": {
+      "passed": 155,
+      "warning": "Starlette TestClient/httpx deprecation; tests pass"
+    },
+    "chromium": {
+      "assertions": 53,
+      "viewports": [
+        "1440x1100",
+        "390x844"
+      ],
+      "console_exceptions": 0,
+      "external_requests": 0,
+      "remote_images_requested": false
+    },
+    "javascript_syntax": "valid",
+    "unique_html_ids": 188,
+    "ure_unittest": {
+      "passed": 180,
+      "command": "python -m unittest discover -s tests -v"
+    },
+    "ure_scholarly_targeted": {
+      "passed": 6,
+      "formats_exercised": 9,
+      "real_bubblewrap_service_round_trips": 9
+    }
+  },
+  "limitations": [
+    "Synthetic fixtures only; no lawful real institutional/manuscript corpus was used",
+    "No PDF rendering, OCR/HTR, image pixel decoding or visual interpretation",
+    "No cell values are emitted and spreadsheet formulas are not evaluated",
+    "No IIIF external contexts or referenced images/annotations are fetched",
+    "No full TEI P5 schema validation or scholarly correctness verdict",
+    "No full WCAG/screen-reader audit or independent external security review",
+    "No remote CI observation, public deployment or production release",
+    "No Frida, PlatformIO, sigrok, Fleet or physical authority"
+  ],
+  "live_formats_count": 9
+}
