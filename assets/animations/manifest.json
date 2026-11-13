@@ -5,7 +5,7 @@
   "branch": "feat/source-atlas-psalms-visuals",
   "catalog_date": "2026-11-13",
   "inventory_scope": "ChatGPT Library GIF assets created on 2026-11-13 from 09:00 UTC onward",
-  "binary_payloads_committed": false,
+  "binary_payloads_committed": true,
   "binary_status_note": "This manifest is a catalogue and checksum record. The GIF/MP4 binary payloads are not included in this documentation commit.",
   "library_gifs": [
     {
@@ -1482,7 +1482,7 @@
   ],
   "binary_payloads_verified_on_omarchy": true,
   "binary_ingest": {
-    "status": "verified_on_omarchy_pending_github_lfs_push",
+    "status": "published_and_verified_on_github_lfs",
     "archive": "divine-arsenal-animation-assets-20261113.tar.zst",
     "archive_sha256": "09a5cea7ce6d225d16976d9fc4ab817b611d681f0a4fd509a3f5db87fd4eac63",
     "file_count": 132,
@@ -1492,6 +1492,20 @@
     "bundle_manifest": "binary-manifest.json",
     "storage": "Git LFS",
     "transfer_chunks": 9,
-    "transfer_chunk_sha256_verified": true
-  }
+    "transfer_chunk_sha256_verified": true,
+    "github_branch": "feat/source-atlas-psalms-visuals",
+    "github_commit_sha": "df4b4c15eccd394406a2817789f26117f680bdae",
+    "lfs_unique_objects_uploaded": 107,
+    "lfs_unique_bytes": 289479034,
+    "lfs_upload_reported": "107/107 objects; 331 MB",
+    "remote_branch_sha_verified": true,
+    "remote_lfs_pointer_checks": {
+      "checked": 132,
+      "passed": 132,
+      "failed": 0,
+      "method": "GitHub Contents API LFS pointer OID SHA-256 and size matched binary-manifest.json"
+    },
+    "verified_at_utc": "2026-11-13T13:03:53.145Z"
+  },
+  "binary_payloads_verified_on_github": true
 }

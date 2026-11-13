@@ -9,7 +9,7 @@ assets/animations/
   manifest.json          # Library catalogue, provenance and processing-set metadata
   binary-manifest.json   # SHA-256, byte count and exact path for all 132 binaries
   BUNDLE_README.md       # Original transfer-bundle notes
-  TRANSFER_RECEIPT.md    # Integrity and transfer evidence
+  TRANSFER_RECEIPT.md    # Integrity, Git LFS and remote verification evidence
   source/
     gif/                 # Original/non-derivative GIF sources
     mp4/                 # Original and combined MP4 sources
@@ -23,11 +23,12 @@ assets/animations/
 - 99 GIF files
 - 33 MP4 files
 - 132 binary files total
-- 348,889,575 bytes before Git LFS pointer storage
+- 348,889,575 bytes of media
+- Git LFS stores 107 unique objects (duplicate content is deduplicated)
 
-## Current ingestion state
+## Publication status
 
-All 132 media binaries are present on Omarchy and pass SHA-256 verification. GitHub LFS publication is pending the commit and remote object verification; see TRANSFER_RECEIPT.md.
+All 132 media files are committed on the feat/source-atlas-psalms-visuals branch and published through Git LFS. The remote branch SHA matches the local commit. All 132 GitHub LFS pointer files were fetched through the GitHub Contents API and their OID SHA-256 and byte size matched binary-manifest.json.
 
 ## Git policy
 
@@ -35,4 +36,4 @@ All media payloads are tracked with Git LFS. Keep source assets immutable; deriv
 
 ## Verification
 
-Every binary has a SHA-256 in binary-manifest.json. The original transfer archive SHA-256 is recorded in manifest.json under binary_ingest. A file is considered GitHub-published only after the LFS push succeeds and a fresh fetch of the branch confirms the expected pointer objects.
+See TRANSFER_RECEIPT.md for the archive hash, individual file hashes, LFS upload result and remote pointer verification.
