@@ -1,0 +1,1151 @@
+{
+  "schema_version": 1,
+  "project": "Divine Arsenal",
+  "repository": "fr3k-d3v/divine-arsenal",
+  "branch": "feat/source-atlas-psalms-visuals",
+  "catalog_date": "2026-11-13",
+  "inventory_scope": "ChatGPT Library GIF assets created on 2026-11-13 from 09:00 UTC onward",
+  "binary_payloads_committed": false,
+  "binary_status_note": "This manifest is a catalogue and checksum record. The GIF/MP4 binary payloads are not included in this documentation commit.",
+  "library_gifs": [
+    {
+      "filename": "psalm-051-repentance.gif",
+      "bytes": 1817218,
+      "created_at_utc": "2026-11-13T09:26:07.291991+00:00",
+      "path": "/psalm-051-repentance.gif"
+    },
+    {
+      "filename": "psalm-121-protection.gif",
+      "bytes": 1597438,
+      "created_at_utc": "2026-11-13T09:26:12.254598+00:00",
+      "path": "/psalm-121-protection.gif"
+    },
+    {
+      "filename": "psalm-139-known.gif",
+      "bytes": 1737201,
+      "created_at_utc": "2026-11-13T09:26:17.385567+00:00",
+      "path": "/psalm-139-known.gif"
+    },
+    {
+      "filename": "psalm-150-praise.gif",
+      "bytes": 2100785,
+      "created_at_utc": "2026-11-13T09:26:22.519116+00:00",
+      "path": "/psalm-150-praise.gif"
+    },
+    {
+      "filename": "psalter-book-1-pilgrimage.gif",
+      "bytes": 1850438,
+      "created_at_utc": "2026-11-13T09:26:27.294501+00:00",
+      "path": "/psalter-book-1-pilgrimage.gif"
+    },
+    {
+      "filename": "psalter-book-2-living-word.gif",
+      "bytes": 2072728,
+      "created_at_utc": "2026-11-13T09:26:32.203521+00:00",
+      "path": "/psalter-book-2-living-word.gif"
+    },
+    {
+      "filename": "psalter-book-3-sanctuary.gif",
+      "bytes": 2071851,
+      "created_at_utc": "2026-11-13T09:26:37.090192+00:00",
+      "path": "/psalter-book-3-sanctuary.gif"
+    },
+    {
+      "filename": "psalter-book-4-eternity.gif",
+      "bytes": 1921651,
+      "created_at_utc": "2026-11-13T09:26:42.298355+00:00",
+      "path": "/psalter-book-4-eternity.gif"
+    },
+    {
+      "filename": "psalter-book-5-praise.gif",
+      "bytes": 2252371,
+      "created_at_utc": "2026-11-13T09:26:47.502060+00:00",
+      "path": "/psalter-book-5-praise.gif"
+    },
+    {
+      "filename": "cyberpunk_figure_beneath_neon_cross.gif",
+      "bytes": 950002,
+      "created_at_utc": "2026-11-13T09:35:11.382035+00:00",
+      "path": "/cyberpunk_figure_beneath_neon_cross.gif"
+    },
+    {
+      "filename": "Neon Cross Over the Cyber Valley.gif",
+      "bytes": 817807,
+      "created_at_utc": "2026-11-13T09:35:19.881436+00:00",
+      "path": "/Neon Cross Over the Cyber Valley.gif"
+    },
+    {
+      "filename": "Cyberpunk Figure Beneath Neon Cross.gif",
+      "bytes": 950002,
+      "created_at_utc": "2026-11-13T09:35:23.127863+00:00",
+      "path": "/Cyberpunk Figure Beneath Neon Cross.gif"
+    },
+    {
+      "filename": "1584.gif",
+      "bytes": 950002,
+      "created_at_utc": "2026-11-13T09:52:44+00:00",
+      "path": "/1584.gif"
+    },
+    {
+      "filename": "FR3K Neon Vortex Logo Animation.gif",
+      "bytes": 791687,
+      "created_at_utc": "2026-11-13T09:55:08.240387+00:00",
+      "path": "/FR3K Neon Vortex Logo Animation.gif"
+    },
+    {
+      "filename": "Neon FR3K Vortex Animation.gif",
+      "bytes": 785410,
+      "created_at_utc": "2026-11-13T09:55:11.034854+00:00",
+      "path": "/Neon FR3K Vortex Animation.gif"
+    },
+    {
+      "filename": "Animated neon FR3K cosmic vortex grid.gif",
+      "bytes": 814382,
+      "created_at_utc": "2026-11-13T09:55:13.525002+00:00",
+      "path": "/Animated neon FR3K cosmic vortex grid.gif"
+    },
+    {
+      "filename": "FR3K Neon Vortex Animation Grid.gif",
+      "bytes": 783885,
+      "created_at_utc": "2026-11-13T09:55:15.872164+00:00",
+      "path": "/FR3K Neon Vortex Animation Grid.gif"
+    },
+    {
+      "filename": "Animated FR3K Cosmic Vortex Logo.gif",
+      "bytes": 804738,
+      "created_at_utc": "2026-11-13T09:55:18.279376+00:00",
+      "path": "/Animated FR3K Cosmic Vortex Logo.gif"
+    },
+    {
+      "filename": "FR3K Neon Vortex Logo Animation(1).gif",
+      "bytes": 794232,
+      "created_at_utc": "2026-11-13T09:55:20.571658+00:00",
+      "path": "/FR3K Neon Vortex Logo Animation(1).gif"
+    },
+    {
+      "filename": "FR3K Neon Galaxy Logo Animation.gif",
+      "bytes": 780621,
+      "created_at_utc": "2026-11-13T09:55:23.680699+00:00",
+      "path": "/FR3K Neon Galaxy Logo Animation.gif"
+    },
+    {
+      "filename": "divine_arsenal_42_image_cinematic.gif",
+      "bytes": 8028209,
+      "created_at_utc": "2026-11-13T09:56:59.619247+00:00",
+      "path": "/divine_arsenal_42_image_cinematic.gif"
+    },
+    {
+      "filename": "joined_motion_gif_42_images_2_88s_each.gif",
+      "bytes": 43220296,
+      "created_at_utc": "2026-11-13T10:05:13.290615+00:00",
+      "path": "/joined_motion_gif_42_images_2_88s_each.gif"
+    },
+    {
+      "filename": "Hooded Scribe’s Rising Quill.gif",
+      "bytes": 811368,
+      "created_at_utc": "2026-11-13T10:23:01.300091+00:00",
+      "path": "/Hooded Scribe’s Rising Quill.gif"
+    },
+    {
+      "filename": "Neon Wizard’s Rising Spell.gif",
+      "bytes": 820600,
+      "created_at_utc": "2026-11-13T10:23:04.049094+00:00",
+      "path": "/Neon Wizard’s Rising Spell.gif"
+    },
+    {
+      "filename": "Wizard’s Arcane Writing Animation.gif",
+      "bytes": 813169,
+      "created_at_utc": "2026-11-13T10:23:06.297101+00:00",
+      "path": "/Wizard’s Arcane Writing Animation.gif"
+    },
+    {
+      "filename": "Animated Cosmic Dual-Profile Nebula.gif",
+      "bytes": 873162,
+      "created_at_utc": "2026-11-13T10:32:19.935505+00:00",
+      "path": "/Animated Cosmic Dual-Profile Nebula.gif"
+    },
+    {
+      "filename": "image_01.gif",
+      "bytes": 896959,
+      "created_at_utc": "2026-11-13T10:37:02.669244+00:00",
+      "path": "/image_01.gif"
+    },
+    {
+      "filename": "image_01(1).gif",
+      "bytes": 896959,
+      "created_at_utc": "2026-11-13T10:37:15.981465+00:00",
+      "path": "/image_01(1).gif"
+    },
+    {
+      "filename": "Pulsing Cosmic Profile Animation.gif",
+      "bytes": 809025,
+      "created_at_utc": "2026-11-13T10:37:28.637580+00:00",
+      "path": "/Pulsing Cosmic Profile Animation.gif"
+    },
+    {
+      "filename": "Pulsing Cosmic Mind Animation.gif",
+      "bytes": 767447,
+      "created_at_utc": "2026-11-13T10:37:31.336488+00:00",
+      "path": "/Pulsing Cosmic Mind Animation.gif"
+    },
+    {
+      "filename": "Animated Neon Sigil Energy Cycle.gif",
+      "bytes": 838806,
+      "created_at_utc": "2026-11-13T10:39:10.181823+00:00",
+      "path": "/Animated Neon Sigil Energy Cycle.gif"
+    },
+    {
+      "filename": "Occult Sigil and Flickering Candles.gif",
+      "bytes": 826620,
+      "created_at_utc": "2026-11-13T10:40:36.359801+00:00",
+      "path": "/Occult Sigil and Flickering Candles.gif"
+    },
+    {
+      "filename": "Pulsing Purple Magic Circle.gif",
+      "bytes": 763209,
+      "created_at_utc": "2026-11-13T10:44:28.548499+00:00",
+      "path": "/Pulsing Purple Magic Circle.gif"
+    },
+    {
+      "filename": "Pulsing Neon Arcane Circle.gif",
+      "bytes": 757946,
+      "created_at_utc": "2026-11-13T10:44:30.787995+00:00",
+      "path": "/Pulsing Neon Arcane Circle.gif"
+    },
+    {
+      "filename": "Pulsating Neon Rune Circle Animation.gif",
+      "bytes": 739057,
+      "created_at_utc": "2026-11-13T10:44:33.763975+00:00",
+      "path": "/Pulsating Neon Rune Circle Animation.gif"
+    },
+    {
+      "filename": "Neon Purple Sigil Energy Loop.gif",
+      "bytes": 802996,
+      "created_at_utc": "2026-11-13T10:45:37.964396+00:00",
+      "path": "/Neon Purple Sigil Energy Loop.gif"
+    },
+    {
+      "filename": "Neon Tree of Life Activation.gif",
+      "bytes": 676911,
+      "created_at_utc": "2026-11-13T10:46:54.013841+00:00",
+      "path": "/Neon Tree of Life Activation.gif"
+    },
+    {
+      "filename": "Animated Purple Vortex Warrior Tableau.gif",
+      "bytes": 813034,
+      "created_at_utc": "2026-11-13T10:47:47.648785+00:00",
+      "path": "/Animated Purple Vortex Warrior Tableau.gif"
+    },
+    {
+      "filename": "Pulsing Arcane Sigil Animation.gif",
+      "bytes": 752247,
+      "created_at_utc": "2026-11-13T10:49:17.507507+00:00",
+      "path": "/Pulsing Arcane Sigil Animation.gif"
+    },
+    {
+      "filename": "Celestial City Neon Light Loop.gif",
+      "bytes": 922879,
+      "created_at_utc": "2026-11-13T10:50:08.310397+00:00",
+      "path": "/Celestial City Neon Light Loop.gif"
+    },
+    {
+      "filename": "Cosmic Rune Planet Energy Loop.gif",
+      "bytes": 758882,
+      "created_at_utc": "2026-11-13T10:50:52.251213+00:00",
+      "path": "/Cosmic Rune Planet Energy Loop.gif"
+    },
+    {
+      "filename": "Animated Neon Portal Awakening.gif",
+      "bytes": 771890,
+      "created_at_utc": "2026-11-13T10:51:40.524366+00:00",
+      "path": "/Animated Neon Portal Awakening.gif"
+    },
+    {
+      "filename": "Pulse of the Enchanted Harps.gif",
+      "bytes": 903705,
+      "created_at_utc": "2026-11-13T10:53:07.551694+00:00",
+      "path": "/Pulse of the Enchanted Harps.gif"
+    },
+    {
+      "filename": "Animated Cosmic Harps and Purple Energy.gif",
+      "bytes": 839361,
+      "created_at_utc": "2026-11-13T10:53:10.244528+00:00",
+      "path": "/Animated Cosmic Harps and Purple Energy.gif"
+    },
+    {
+      "filename": "Purple Temple Beam Animation.gif",
+      "bytes": 881142,
+      "created_at_utc": "2026-11-13T10:54:01.571198+00:00",
+      "path": "/Purple Temple Beam Animation.gif"
+    },
+    {
+      "filename": "Animated Cosmic Mountain Glow.gif",
+      "bytes": 586458,
+      "created_at_utc": "2026-11-13T10:54:45.603423+00:00",
+      "path": "/Animated Cosmic Mountain Glow.gif"
+    },
+    {
+      "filename": "Arcane Book Sigil Awakens.gif",
+      "bytes": 777561,
+      "created_at_utc": "2026-11-13T10:55:36.898621+00:00",
+      "path": "/Arcane Book Sigil Awakens.gif"
+    },
+    {
+      "filename": "Pulsing Enchanted Tree by Moonlit River.gif",
+      "bytes": 864478,
+      "created_at_utc": "2026-11-13T10:56:27.347195+00:00",
+      "path": "/Pulsing Enchanted Tree by Moonlit River.gif"
+    },
+    {
+      "filename": "Neon Rose Emblem Glow Loop.gif",
+      "bytes": 624415,
+      "created_at_utc": "2026-11-13T10:58:12.045970+00:00",
+      "path": "/Neon Rose Emblem Glow Loop.gif"
+    },
+    {
+      "filename": "Neon Rose Cross Emblem Animation.gif",
+      "bytes": 613430,
+      "created_at_utc": "2026-11-13T10:58:14.534879+00:00",
+      "path": "/Neon Rose Cross Emblem Animation.gif"
+    },
+    {
+      "filename": "Enchanted Scroll Awakens.gif",
+      "bytes": 803732,
+      "created_at_utc": "2026-11-13T10:58:57.018383+00:00",
+      "path": "/Enchanted Scroll Awakens.gif"
+    },
+    {
+      "filename": "Stormbound Fortress Magic.gif",
+      "bytes": 694075,
+      "created_at_utc": "2026-11-13T10:59:48.906699+00:00",
+      "path": "/Stormbound Fortress Magic.gif"
+    },
+    {
+      "filename": "Animated Cosmic Astrolabe Awakening.gif",
+      "bytes": 877754,
+      "created_at_utc": "2026-11-13T11:01:35.828444+00:00",
+      "path": "/Animated Cosmic Astrolabe Awakening.gif"
+    },
+    {
+      "filename": "Pulsing Purple Glyph Circle.gif",
+      "bytes": 806935,
+      "created_at_utc": "2026-11-13T11:02:23.213929+00:00",
+      "path": "/Pulsing Purple Glyph Circle.gif"
+    },
+    {
+      "filename": "Enchanted Spellbook Activation Loop.gif",
+      "bytes": 763882,
+      "created_at_utc": "2026-11-13T11:03:20.554311+00:00",
+      "path": "/Enchanted Spellbook Activation Loop.gif"
+    },
+    {
+      "filename": "Enchanted Sigil Awakening.gif",
+      "bytes": 814969,
+      "created_at_utc": "2026-11-13T11:04:09.734176+00:00",
+      "path": "/Enchanted Sigil Awakening.gif"
+    },
+    {
+      "filename": "Animated Fantasy Mountain Sunrise.gif",
+      "bytes": 762179,
+      "created_at_utc": "2026-11-13T11:04:54.498438+00:00",
+      "path": "/Animated Fantasy Mountain Sunrise.gif"
+    },
+    {
+      "filename": "Stormbound Giants: Lightning Awakens.gif",
+      "bytes": 980673,
+      "created_at_utc": "2026-11-13T11:07:18.117940+00:00",
+      "path": "/Stormbound Giants: Lightning Awakens.gif"
+    },
+    {
+      "filename": "Wizard’s Ascending Portal Ritual.gif",
+      "bytes": 1263425,
+      "created_at_utc": "2026-11-13T11:10:35.622654+00:00",
+      "path": "/Wizard’s Ascending Portal Ritual.gif"
+    },
+    {
+      "filename": "Wizard’s Luminous Portal Journey.gif",
+      "bytes": 1218342,
+      "created_at_utc": "2026-11-13T11:12:23.138181+00:00",
+      "path": "/Wizard’s Luminous Portal Journey.gif"
+    },
+    {
+      "filename": "1659.gif",
+      "bytes": 813034,
+      "created_at_utc": "2026-11-13T11:12:41+00:00",
+      "path": "/1659.gif"
+    },
+    {
+      "filename": "1659_double_fps_double_length.gif",
+      "bytes": 3606455,
+      "created_at_utc": "2026-11-13T11:15:03.460804+00:00",
+      "path": "/1659_double_fps_double_length.gif"
+    },
+    {
+      "filename": "1659_double_fps_double_length(1).gif",
+      "bytes": 3606455,
+      "created_at_utc": "2026-11-13T11:15:06.065185+00:00",
+      "path": "/1659_double_fps_double_length(1).gif"
+    },
+    {
+      "filename": "1659_double_fps_double_length(2).gif",
+      "bytes": 3606455,
+      "created_at_utc": "2026-11-13T11:15:43.054614+00:00",
+      "path": "/1659_double_fps_double_length(2).gif"
+    },
+    {
+      "filename": "1664.gif",
+      "bytes": 752247,
+      "created_at_utc": "2026-11-13T11:20:10+00:00",
+      "path": "/1664.gif"
+    },
+    {
+      "filename": "1664_interpolated_24fps_5s.gif",
+      "bytes": 11652814,
+      "created_at_utc": "2026-11-13T11:23:19.758510+00:00",
+      "path": "/1664_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1664_interpolated_24fps_5s(1).gif",
+      "bytes": 11652814,
+      "created_at_utc": "2026-11-13T11:23:25.254134+00:00",
+      "path": "/1664_interpolated_24fps_5s(1).gif"
+    },
+    {
+      "filename": "1665.gif",
+      "bytes": 922879,
+      "created_at_utc": "2026-11-13T11:23:44+00:00",
+      "path": "/1665.gif"
+    },
+    {
+      "filename": "1665_interpolated_24fps_5s.gif",
+      "bytes": 6879725,
+      "created_at_utc": "2026-11-13T11:26:07.996550+00:00",
+      "path": "/1665_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1666.gif",
+      "bytes": 758882,
+      "created_at_utc": "2026-11-13T11:27:45+00:00",
+      "path": "/1666.gif"
+    },
+    {
+      "filename": "1666_interpolated_24fps_5s.gif",
+      "bytes": 6010595,
+      "created_at_utc": "2026-11-13T11:28:39.590374+00:00",
+      "path": "/1666_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1667.gif",
+      "bytes": 771890,
+      "created_at_utc": "2026-11-13T11:30:02+00:00",
+      "path": "/1667.gif"
+    },
+    {
+      "filename": "1667_interpolated_24fps_5s.gif",
+      "bytes": 5619619,
+      "created_at_utc": "2026-11-13T11:30:47.648539+00:00",
+      "path": "/1667_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1668.gif",
+      "bytes": 839361,
+      "created_at_utc": "2026-11-13T11:31:31+00:00",
+      "path": "/1668.gif"
+    },
+    {
+      "filename": "1668_interpolated_24fps_5s.gif",
+      "bytes": 5748921,
+      "created_at_utc": "2026-11-13T11:32:11.716630+00:00",
+      "path": "/1668_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1669.gif",
+      "bytes": 881142,
+      "created_at_utc": "2026-11-13T11:33:06+00:00",
+      "path": "/1669.gif"
+    },
+    {
+      "filename": "1669_interpolated_24fps_5s.gif",
+      "bytes": 6480169,
+      "created_at_utc": "2026-11-13T11:34:14.762813+00:00",
+      "path": "/1669_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1670.gif",
+      "bytes": 586458,
+      "created_at_utc": "2026-11-13T11:34:42+00:00",
+      "path": "/1670.gif"
+    },
+    {
+      "filename": "1670_interpolated_24fps_5s.gif",
+      "bytes": 3912305,
+      "created_at_utc": "2026-11-13T11:35:22.082274+00:00",
+      "path": "/1670_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1671.gif",
+      "bytes": 777561,
+      "created_at_utc": "2026-11-13T11:35:41+00:00",
+      "path": "/1671.gif"
+    },
+    {
+      "filename": "1671_interpolated_24fps_5s.gif",
+      "bytes": 6156879,
+      "created_at_utc": "2026-11-13T11:36:24.273522+00:00",
+      "path": "/1671_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1672.gif",
+      "bytes": 864478,
+      "created_at_utc": "2026-11-13T11:37:19+00:00",
+      "path": "/1672.gif"
+    },
+    {
+      "filename": "1672_interpolated_24fps_5s.gif",
+      "bytes": 7377715,
+      "created_at_utc": "2026-11-13T11:38:04.543543+00:00",
+      "path": "/1672_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1674.gif",
+      "bytes": 803732,
+      "created_at_utc": "2026-11-13T11:39:32+00:00",
+      "path": "/1674.gif"
+    },
+    {
+      "filename": "1674_interpolated_24fps_5s.gif",
+      "bytes": 5901212,
+      "created_at_utc": "2026-11-13T11:40:17.939437+00:00",
+      "path": "/1674_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1675.gif",
+      "bytes": 694075,
+      "created_at_utc": "2026-11-13T11:40:44+00:00",
+      "path": "/1675.gif"
+    },
+    {
+      "filename": "1675_interpolated_24fps_5s.gif",
+      "bytes": 4866742,
+      "created_at_utc": "2026-11-13T11:41:59.881810+00:00",
+      "path": "/1675_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1676.gif",
+      "bytes": 877754,
+      "created_at_utc": "2026-11-13T11:42:23+00:00",
+      "path": "/1676.gif"
+    },
+    {
+      "filename": "1676_interpolated_24fps_5s.gif",
+      "bytes": 8109075,
+      "created_at_utc": "2026-11-13T11:43:19.384003+00:00",
+      "path": "/1676_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1677.gif",
+      "bytes": 806935,
+      "created_at_utc": "2026-11-13T11:43:41+00:00",
+      "path": "/1677.gif"
+    },
+    {
+      "filename": "1677_interpolated_24fps_5s.gif",
+      "bytes": 4133124,
+      "created_at_utc": "2026-11-13T11:44:17.183912+00:00",
+      "path": "/1677_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1678.gif",
+      "bytes": 763882,
+      "created_at_utc": "2026-11-13T11:44:42+00:00",
+      "path": "/1678.gif"
+    },
+    {
+      "filename": "1678_interpolated_24fps_5s.gif",
+      "bytes": 6275715,
+      "created_at_utc": "2026-11-13T11:45:20.692779+00:00",
+      "path": "/1678_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1679.gif",
+      "bytes": 814969,
+      "created_at_utc": "2026-11-13T11:46:34+00:00",
+      "path": "/1679.gif"
+    },
+    {
+      "filename": "1679_interpolated_24fps_5s.gif",
+      "bytes": 6315886,
+      "created_at_utc": "2026-11-13T11:47:13.336658+00:00",
+      "path": "/1679_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1680.gif",
+      "bytes": 762179,
+      "created_at_utc": "2026-11-13T11:47:42+00:00",
+      "path": "/1680.gif"
+    },
+    {
+      "filename": "1680_interpolated_24fps_5s.gif",
+      "bytes": 5149904,
+      "created_at_utc": "2026-11-13T11:48:22.539218+00:00",
+      "path": "/1680_interpolated_24fps_5s.gif"
+    },
+    {
+      "filename": "1682.gif",
+      "bytes": 1263425,
+      "created_at_utc": "2026-11-13T11:49:22+00:00",
+      "path": "/1682.gif"
+    },
+    {
+      "filename": "1682_interpolated_24fps_5s.gif",
+      "bytes": 2038501,
+      "created_at_utc": "2026-11-13T11:50:10.718632+00:00",
+      "path": "/1682_interpolated_24fps_5s.gif"
+    }
+  ],
+  "current_session_24fps_5s_exports": [
+    {
+      "id": "1664",
+      "source": {
+        "file": "1664.gif",
+        "w": 355,
+        "h": 355,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 752247,
+        "sha256": "6a19eb708ab91095c649bbb0d68978617eb7ce40ca30d5df13d045f2703b688a"
+      },
+      "gif": {
+        "file": "1664_interpolated_24fps_5s.gif",
+        "w": 355,
+        "h": 355,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 11652814,
+        "sha256": "4cf7f760778ca3ae94aa09224885906aacafa7add57f9210836db915f07abcd8"
+      },
+      "mp4": {
+        "file": "1664_interpolated_24fps_5s.mp4",
+        "w": 355,
+        "h": 355,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 861427,
+        "sha256": "e253e2bcd2f73bd9e71ac9fb8cd0c90fda92298625c29c90654d5b050d1af233"
+      }
+    },
+    {
+      "id": "1665",
+      "source": {
+        "file": "1665.gif",
+        "w": 356,
+        "h": 355,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 922879,
+        "sha256": "148c23a7309dfcaa1681affedef5cd97a60f257f4804362cf35c45db14233635"
+      },
+      "gif": {
+        "file": "1665_interpolated_24fps_5s.gif",
+        "w": 356,
+        "h": 356,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6879725,
+        "sha256": "f67b0f87eeac3069d18fca0587ea4441bbf974dda7b4f246579a26ca39370555"
+      },
+      "mp4": {
+        "file": "1665_interpolated_24fps_5s.mp4",
+        "w": 356,
+        "h": 356,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 707630,
+        "sha256": "69d191a468532764986150bcb71577c212175d1547550aa2fd170049d2b8cd22"
+      }
+    },
+    {
+      "id": "1666",
+      "source": {
+        "file": "1666.gif",
+        "w": 358,
+        "h": 356,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 758882,
+        "sha256": "ae9a06caa94ee87b824661a9449bed3fd3d8584ada0bc4b38fbd3fbde74dc941"
+      },
+      "gif": {
+        "file": "1666_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 356,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6010595,
+        "sha256": "c098d7952702df0a29fc52acaf6a2434e9e38040212bf478977a577768df0f02"
+      },
+      "mp4": {
+        "file": "1666_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 356,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 757829,
+        "sha256": "005890991e66cb215f64f7c21e326999aeb922143deaa250f26bfef3fbbfa7bd"
+      }
+    },
+    {
+      "id": "1667",
+      "source": {
+        "file": "1667.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 771890,
+        "sha256": "dd989d46c4f27c9d0d478b96d618f61373306d6834758d876c7e815e00f91b59"
+      },
+      "gif": {
+        "file": "1667_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5619619,
+        "sha256": "776223237f9eaf7c529929655cddb821964c1ea3d4bbb8cf60ed152ca1bc55d7"
+      },
+      "mp4": {
+        "file": "1667_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 516363,
+        "sha256": "17521d83c16614552e208e3981d7a13d3297a6dad1ae17e4d6a1326eec5260cd"
+      }
+    },
+    {
+      "id": "1668",
+      "source": {
+        "file": "1668.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 839361,
+        "sha256": "001ed35d821cdaf39d76eae877318558aeb685278cd25d4313e9e2615eca084c"
+      },
+      "gif": {
+        "file": "1668_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5748921,
+        "sha256": "92961a70d7f0f241556c63d700a6a2ba67555f7d10ca40efba9690d84a4198f5"
+      },
+      "mp4": {
+        "file": "1668_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 482408,
+        "sha256": "8f5d07fa76254567943e4905c3161b73dcbc74627e997c9c0b7b79e3253c81fc"
+      }
+    },
+    {
+      "id": "1669",
+      "source": {
+        "file": "1669.gif",
+        "w": 358,
+        "h": 357,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 881142,
+        "sha256": "3b5dc66c1c4e8f2a958c9c4c4d4d070894eefc97c7081fe40afabbb914bd6bca"
+      },
+      "gif": {
+        "file": "1669_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 357,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6480169,
+        "sha256": "d382fe15ea26efd8b348c2bae99188810f7c6cbaf49a449049f3e894e5d95bae"
+      },
+      "mp4": {
+        "file": "1669_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 606823,
+        "sha256": "89dad29271c74693f24b29037472d605a85e57cf9c50a0d6f301c71144bf9245"
+      }
+    },
+    {
+      "id": "1670",
+      "source": {
+        "file": "1670.gif",
+        "w": 358,
+        "h": 344,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 586458,
+        "sha256": "d5b9178f1afca0d94aaac3933a50dd60eafe3294143399cb26707e6cb7a3455e"
+      },
+      "gif": {
+        "file": "1670_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 344,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 3912305,
+        "sha256": "da2a0e703bd9aa5cc7478fb22629a3064ccfd26d2adbac681005ccc1ff58a930"
+      },
+      "mp4": {
+        "file": "1670_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 344,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 422335,
+        "sha256": "c65d456cb74790f964ec69a0c8c14d59ed201776334bbf6ae7cc993b7e0b88d8"
+      }
+    },
+    {
+      "id": "1671",
+      "source": {
+        "file": "1671.gif",
+        "w": 358,
+        "h": 347,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 777561,
+        "sha256": "38e5a5d3cad19664b07066dfb9bb863364cde1c05d5c373fdbab4a13a1fe3a24"
+      },
+      "gif": {
+        "file": "1671_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 347,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6156879,
+        "sha256": "2d26aa56b8b8adb5ee1fb148716f94dc7b16850da2bc49acde7eaa4561e1d1a3"
+      },
+      "mp4": {
+        "file": "1671_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 348,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 780469,
+        "sha256": "0b7141c834ebc19e2be7f413aa0a22ecd52650ea7bfd74b3dcd46bdc056eb091"
+      }
+    },
+    {
+      "id": "1672",
+      "source": {
+        "file": "1672.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 864478,
+        "sha256": "7e61e335c60b11fdecc83d82a86820d1c5b7fc7166d9938b4d86943c33bba94f"
+      },
+      "gif": {
+        "file": "1672_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 7377715,
+        "sha256": "19c25caad0d0988bab1e5cdc7cc129b26ebe665aeb8537ff9cda6e3e020b50b4"
+      },
+      "mp4": {
+        "file": "1672_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 927365,
+        "sha256": "4941accf75dcf152de5c95cf7525b18f67f98ff8f73a45a225562a1e9a928a63"
+      }
+    },
+    {
+      "id": "1674",
+      "source": {
+        "file": "1674.gif",
+        "w": 357,
+        "h": 357,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 803732,
+        "sha256": "c04c7535ce30d4fdd3bf033f47ba6da079343235aab4d01d76a635d2dc589bed"
+      },
+      "gif": {
+        "file": "1674_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 357,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5901212,
+        "sha256": "25590fe87165c280a92be35b5109de077b4a921779c0e658b5b8b02f143ede7f"
+      },
+      "mp4": {
+        "file": "1674_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 664033,
+        "sha256": "2959b112fefa27103a7a6e0367b60cd3af7fb2c0b892fe92d84404d129b8276c"
+      }
+    },
+    {
+      "id": "1675",
+      "source": {
+        "file": "1675.gif",
+        "w": 356,
+        "h": 356,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 694075,
+        "sha256": "76466e6714eff457a584f09d86eb32e1a4d3c9fe7d9b6af5c18e1e7b2eb7ebcb"
+      },
+      "gif": {
+        "file": "1675_interpolated_24fps_5s.gif",
+        "w": 356,
+        "h": 356,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 4866742,
+        "sha256": "5c13dee3a7cff942125fe9236a6b50d7003fa1364d0fa13e2d2d4e0d123a851d"
+      },
+      "mp4": {
+        "file": "1675_interpolated_24fps_5s.mp4",
+        "w": 356,
+        "h": 356,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 516826,
+        "sha256": "8d838cc766f062b71e4e9cf3d713996ab3169cb112a4dd6201acc10f8027450c"
+      }
+    },
+    {
+      "id": "1676",
+      "source": {
+        "file": "1676.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 877754,
+        "sha256": "ff3aa893c88f72321aebd5deef043c9b4ee3bb2bf2f373b70b50e6e3aa3b3ed8"
+      },
+      "gif": {
+        "file": "1676_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 8109075,
+        "sha256": "2147264bbda80127b4b1c690b19d465a0ea37e7e3a5a62ee6f4feb21f3e16306"
+      },
+      "mp4": {
+        "file": "1676_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 951569,
+        "sha256": "014a5dbeda580a0e102fdfbc8ae4f03dbf324f1fd019fd106c7283c0a024c013"
+      }
+    },
+    {
+      "id": "1677",
+      "source": {
+        "file": "1677.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 806935,
+        "sha256": "7b1900d3401106007e276574e780f6158ddabb631a5d6774f664877d9dfc97c7"
+      },
+      "gif": {
+        "file": "1677_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 4133124,
+        "sha256": "7dc615c67260b5804bf6fb58f7016647843a59403e7e479998561fc63d96bf6e"
+      },
+      "mp4": {
+        "file": "1677_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 608525,
+        "sha256": "11efcfcc716a063f7a57976de496de354366472d1cac3e8db8bb1fe0506a5e26"
+      }
+    },
+    {
+      "id": "1678",
+      "source": {
+        "file": "1678.gif",
+        "w": 353,
+        "h": 343,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 763882,
+        "sha256": "5c892d794c557f9a65f108bf910aadf83828e7c3e5dadb2706d70dfbbf0f2656"
+      },
+      "gif": {
+        "file": "1678_interpolated_24fps_5s.gif",
+        "w": 353,
+        "h": 343,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6275715,
+        "sha256": "b30d06d7f701316e31263aa644919f58f6e06f494f372de8b78fccbdb7829dab"
+      },
+      "mp4": {
+        "file": "1678_interpolated_24fps_5s.mp4",
+        "w": 354,
+        "h": 344,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 817885,
+        "sha256": "f104296a412f32c3981a93f93515b763c4f53ee4254f167e6e7433dff6288b02"
+      }
+    },
+    {
+      "id": "1679",
+      "source": {
+        "file": "1679.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 814969,
+        "sha256": "4974d4f5d80cf53c7e8a119418854c4717921629cbb25b6541dc764b1df8d984"
+      },
+      "gif": {
+        "file": "1679_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6315886,
+        "sha256": "9bb45a339be057df2f83b387106a9ab2b2fad7aa2c10152775ed194d182aa7cf"
+      },
+      "mp4": {
+        "file": "1679_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 857575,
+        "sha256": "0d853d581623d9ba1d3870ea380b209ffc4fe03c453984d934f845d481c98a4e"
+      }
+    },
+    {
+      "id": "1680",
+      "source": {
+        "file": "1680.gif",
+        "w": 356,
+        "h": 352,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 762179,
+        "sha256": "541f191b9d1579736d8415f83a6ba6be1cd531e25e7da15ca1caa608799c9d79"
+      },
+      "gif": {
+        "file": "1680_interpolated_24fps_5s.gif",
+        "w": 356,
+        "h": 352,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5149904,
+        "sha256": "c347b7a1c90931a5d9dd7c6c95abb5b81f714688586aa2a52bd661186b96dd62"
+      },
+      "mp4": {
+        "file": "1680_interpolated_24fps_5s.mp4",
+        "w": 356,
+        "h": 352,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 474439,
+        "sha256": "e07d0af06dba697030b5458cebc2e44efb0c2133158f86f1d5014b6bcdef4278"
+      }
+    },
+    {
+      "id": "1682",
+      "source": {
+        "file": "1682.gif",
+        "w": 205,
+        "h": 152,
+        "frames": 48,
+        "duration_ms": 5760,
+        "bytes": 1263425,
+        "sha256": "16ae60793da85c1408e31b36774efa38832cc6a99eb63089c086f8dae3aac175"
+      },
+      "gif": {
+        "file": "1682_interpolated_24fps_5s.gif",
+        "w": 205,
+        "h": 152,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 2038501,
+        "sha256": "c0f4b0cc96db9c858a6ec4cee30c1a1b08bd5ae27adb8fecf71a632ea09b4c06"
+      },
+      "mp4": {
+        "file": "1682_interpolated_24fps_5s.mp4",
+        "w": 206,
+        "h": 152,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 295272,
+        "sha256": "22fd3c0d8bd00d7c72de3e71710e63a8f522a2a3d931ba1ff0b080abcb2390ae"
+      }
+    }
+  ],
+  "not_located_in_current_export_set": [
+    "1673",
+    "1681"
+  ],
+  "historical_spritesheet_tests": [
+    {
+      "frames": 9,
+      "description": "kneeling figure; moving robes; changing light",
+      "prompt_verbatim_available": false
+    },
+    {
+      "frames": 12,
+      "description": "figure rises and raises an arm toward a neon cross",
+      "prompt_verbatim_available": false
+    }
+  ]
+}
