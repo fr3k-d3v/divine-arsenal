@@ -1,16 +1,16 @@
 # Divine Arsenal Universal — Visual Asset Manifest
 
-**Revision:** 0.8
+**Revision:** 0.9
 **Prepared:** 2026-11-13
 **Target checkout:** `feat/source-atlas-psalms-visuals` on Omarchy
 **Scope:** original generated artwork, historical-source imagery, and data-driven vector assets
 
 ## Visual direction
 
-A coherent visual system combining illuminated manuscript craft, Renaissance engraving, celestial instrumentation, archival photography and restrained cyberpunk instrumentation. The application should feel like a working scholarly arsenal: atmospheric and powerful, but never a generic fantasy dashboard.
+A coherent dark cyberpunk visual system combining illuminated manuscript craft, Renaissance engraving, celestial instrumentation and archival research. The application should feel like a working scholarly arsenal: atmospheric, powerful and precise, never a generic fantasy dashboard.
 
-- **Core palette:** near-black / midnight navy, aubergine and indigo, antique gold, parchment; electric cyan is reserved for active instrumentation and evidence states.
-- **Surface language:** dark vellum, fine grain, engraved borders, illuminated initials, restrained star fields, precise linework and deep shadow.
+- **Core palette:** near-black, midnight navy, deep indigo, ultraviolet and violet; electric cyan is reserved for active instrumentation and evidence states. Antique gold and dark brass are restrained accents, not dominant fields.
+- **Surface language:** obsidian, dark vellum, smoked glass, fine grain, engraved borders, restrained star fields, precision linework and deep shadow.
 - **Composition:** artwork supports the interface; keep quiet negative space for real headings and controls. Do not bake UI text into artwork.
 - **Typography:** real HTML/CSS fonts and verified Unicode; no generated lettering.
 - **Evidence presentation:** generated artwork must be labelled **Original illustration**. Reproductions and institutional scans must retain source, shelfmark, rights and attribution.
@@ -31,7 +31,7 @@ A coherent visual system combining illuminated manuscript craft, Renaissance eng
 |---|---|---|---|---|
 | DA-001 | `divine-arsenal-master-hero.webp` | Celestial armillary sphere, astronomical instruments and illuminated folio; right-weighted composition with clear title space on the left | 16:9 | INTEGRATED LOCALLY — 640×360 WebP derivative; 1672×941 master remains in chat |
 | DA-002 | `source-atlas-hero.webp` | Archival reading room, manuscript folios, cataloguing tools and provenance motif | 16:9 | PREVIEW INTEGRATED LOCALLY — 480×270 WebP; replace with full-resolution master before release |
-| DA-003 | `psalter-hero.webp` | Psalter, harp, flowing water, mountains, prayer and praise; no lettering | 16:9 | NOT STARTED |
+| DA-003 | `psalter-hero.webp` | Psalter, harp, flowing water, mountains, prayer and praise; no lettering | 16:9 | PREVIEW INTEGRATED LOCALLY — 320×180 WebP; replace with full-resolution master before release |
 | DA-004 | `arsenal-studio-hero.webp` | Celestial instrument workshop with geometric drafting tools and blank vellum | 16:9 | NOT STARTED |
 
 ## B. Source Atlas editorial illustrations — 21 assets
@@ -108,6 +108,14 @@ Square 1:1 editorial art, with no glyphs, numbers, seals or predictive claims.
 | DA-049 | `texture-antique-vellum.webp` | Seamless aged vellum / manuscript paper texture, low contrast | NOT STARTED |
 | DA-050 | `ornament-gold-folio.png` | Transparent gold engraved corner and divider ornaments; no text or symbols | NOT STARTED |
 
+## External image-generation assignment
+
+- **Prompt brief:** [`EXTERNAL_IMAGE_GENERATION_BRIEF.md`](./EXTERNAL_IMAGE_GENERATION_BRIEF.md).
+- **External batch:** 33 standalone images — DA-004 through DA-025, DA-032 and DA-041 through DA-050.
+- **Separate in-session batch:** DA-026 through DA-030 and DA-036, DA-038 through DA-040 (five Psalter book dividers plus Psalm 51, 121, 139 and 150).
+- **Already integrated / previewed:** DA-001, DA-002, DA-003, DA-031, DA-033, DA-034, DA-035 and DA-037.
+- **Output contract:** one image file per asset; no collages, contact sheets, sprite sheets or composite boards. Preserve full-resolution masters and record dimensions, checksums and QA status.
+
 ## Assets that must be rendered from verified data, not image generation
 
 - Hebrew alphabet, letter forms, divine names and vocalisation.
@@ -155,8 +163,9 @@ These are structured SVG/canvas renderings or rights-cleared source images. Gene
 - **DA-037:** 192×240 WebP preview integrated at `divine/web/assets/psalm-091.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
 - **DA-035:** 192×240 WebP preview integrated at `divine/web/assets/psalm-042.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
 - **Psalter UI:** Source Atlas and Psalter hero artwork are used in their respective views; Psalm 1, Psalm 23, Psalm 27, Psalm 42 and Psalm 91 illustrations appear as separately labelled featured cards.
-- **Remaining artwork:** DA-004 through DA-030, DA-032, DA-036 and DA-038 through DA-050 are not yet integrated as standalone production assets.
-- **Not started:** remaining 49 assets.
+- **External generation:** 33 individual assets are assigned in `EXTERNAL_IMAGE_GENERATION_BRIEF.md`; none of those external assets is claimed as generated or integrated yet.
+- **Separate in-session batch:** DA-026 through DA-030 and DA-036, DA-038 through DA-040 are reserved for the Psalter work in this conversation; not yet integrated in this checkout.
+- **Production status:** eight assets have local previews; the remaining 42 of the 50 manifest assets are not yet integrated as production assets.
 - **Historical images:** use institutional scans only after item-level rights, attribution and access checks.
 - **Unresolved sources:** do not convert UNKNOWN catalogue records into definitive historical visual claims.
 - **Release:** no deployment or public release is implied by this asset plan.
