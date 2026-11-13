@@ -1,6 +1,6 @@
 # Divine Arsenal Universal — Visual Asset Manifest
 
-**Revision:** 0.2
+**Revision:** 0.3
 **Prepared:** 2026-11-13
 **Target checkout:** `feat/source-atlas-psalms-visuals` on Omarchy
 **Scope:** original generated artwork, historical-source imagery, and data-driven vector assets
@@ -148,7 +148,8 @@ These are structured SVG/canvas renderings or rights-cleared source images. Gene
 - **DA-001:** original 1672×941 master generated in chat; 640×360 WebP derivative integrated into the Omarchy checkout at `divine/web/assets/divine-arsenal-master-hero.webp`.
 - **Static delivery:** local-only `/assets/` mount added; hero backgrounds are same-origin and use the existing CSP.
 - **DA-002:** 480×270 WebP preview integrated at `divine/web/assets/source-atlas-hero.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
-- **Remaining artwork:** DA-003 through DA-050 are not yet integrated as standalone production assets.
+- **DA-003:** 320×180 WebP preview integrated at `divine/web/assets/psalter-hero.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
+- **Remaining artwork:** DA-004 through DA-050 are not yet integrated as standalone production assets.
 - **Not started:** remaining 49 assets.
 - **Historical images:** use institutional scans only after item-level rights, attribution and access checks.
 - **Unresolved sources:** do not convert UNKNOWN catalogue records into definitive historical visual claims.
