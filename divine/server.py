@@ -10,6 +10,7 @@ from typing import Literal
 from zoneinfo import ZoneInfo
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, model_validator
 from . import __version__
 from . import agents, astro, store
@@ -20,6 +21,11 @@ app = FastAPI(title="Divine Arsenal Universal", version=__version__,
 app.include_router(research_router)
 from .notebook_api import router as notebook_router
 app.include_router(notebook_router)
+
+# Serve only the application-owned, versioned visual assets.
+_assets_dir = Path(__file__).resolve().parent / "web" / "assets"
+_assets_dir.mkdir(parents=True, exist_ok=True)
+app.mount("/assets", StaticFiles(directory=_assets_dir), name="assets")
 
 
 class Location(BaseModel):

@@ -29,7 +29,7 @@ A coherent visual system combining illuminated manuscript craft, Renaissance eng
 
 | ID | Filename | Composition / placement | Ratio | Status |
 |---|---|---|---|---|
-| DA-001 | `divine-arsenal-master-hero.webp` | Celestial armillary sphere, astronomical instruments and illuminated folio; right-weighted composition with clear title space on the left | 16:9 | CONCEPT GENERATED IN CHAT; NOT IN REPO |
+| DA-001 | `divine-arsenal-master-hero.webp` | Celestial armillary sphere, astronomical instruments and illuminated folio; right-weighted composition with clear title space on the left | 16:9 | INTEGRATED LOCALLY — 640×360 WebP derivative; 1672×941 master remains in chat |
 | DA-002 | `source-atlas-hero.webp` | Archival reading room, manuscript folios, cataloguing tools and provenance motif | 16:9 | NOT STARTED |
 | DA-003 | `psalter-hero.webp` | Psalter, harp, flowing water, mountains, prayer and praise; no lettering | 16:9 | NOT STARTED |
 | DA-004 | `arsenal-studio-hero.webp` | Celestial instrument workshop with geometric drafting tools and blank vellum | 16:9 | NOT STARTED |
@@ -145,8 +145,9 @@ These are structured SVG/canvas renderings or rights-cleared source images. Gene
 
 ## Current state and blockers
 
-- **Generated in chat:** DA-001 master hero concept.
-- **Not integrated:** generated image is not yet present in the Omarchy repository.
+- **DA-001:** original 1672×941 master generated in chat; 640×360 WebP derivative integrated into the Omarchy checkout at `divine/web/assets/divine-arsenal-master-hero.webp`.
+- **Static delivery:** local-only `/assets/` mount added; hero background is responsive and uses the existing same-origin CSP.
+- **Remaining artwork:** DA-002 through DA-050 are not yet integrated as standalone production assets.
 - **Not started:** remaining 49 assets.
 - **Historical images:** use institutional scans only after item-level rights, attribution and access checks.
 - **Unresolved sources:** do not convert UNKNOWN catalogue records into definitive historical visual claims.
