@@ -1,6 +1,6 @@
 # Divine Arsenal Universal — Visual Asset Manifest
 
-**Revision:** 0.4
+**Revision:** 0.5
 **Prepared:** 2026-11-13
 **Target checkout:** `feat/source-atlas-psalms-visuals` on Omarchy
 **Scope:** original generated artwork, historical-source imagery, and data-driven vector assets
@@ -73,7 +73,7 @@ Five book-divider illustrations and ten featured Psalm scenes. Other Psalm pages
 | DA-028 | `psalter-book-iii.webp` | Book III, Psalms 73–89: sanctuary, crisis and covenant | 16:9 | NOT STARTED |
 | DA-029 | `psalter-book-iv.webp` | Book IV, Psalms 90–106: wilderness, divine kingship and refuge | 16:9 | NOT STARTED |
 | DA-030 | `psalter-book-v.webp` | Book V, Psalms 107–150: restoration, pilgrimage, thanksgiving and praise | 16:9 | NOT STARTED |
-| DA-031 | `psalm-001.webp` | Psalm 1: tree planted beside streams | 4:5 | NOT STARTED |
+| DA-031 | `psalm-001.webp` | Psalm 1: tree planted beside streams | 4:5 | PREVIEW INTEGRATED LOCALLY — 192×240 WebP; replace with full-resolution master before release |
 | DA-032 | `psalm-019.webp` | Psalm 19: heavens declaring glory | 4:5 | NOT STARTED |
 | DA-033 | `psalm-023.webp` | Psalm 23: shepherd, valley and still waters | 4:5 | PREVIEW INTEGRATED LOCALLY — 256×320 WebP; replace with full-resolution master before release |
 | DA-034 | `psalm-027.webp` | Psalm 27: light, fortress and sanctuary | 4:5 | NOT STARTED |
@@ -150,7 +150,9 @@ These are structured SVG/canvas renderings or rights-cleared source images. Gene
 - **DA-002:** 480×270 WebP preview integrated at `divine/web/assets/source-atlas-hero.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
 - **DA-003:** 320×180 WebP preview integrated at `divine/web/assets/psalter-hero.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
 - **DA-033:** 256×320 WebP preview integrated at `divine/web/assets/psalm-023.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
-- **Remaining artwork:** DA-004 through DA-050 are not yet integrated as standalone production assets.
+- **DA-031:** 192×240 WebP preview integrated at `divine/web/assets/psalm-001.webp`; original full-resolution PNG remains in the ChatGPT file workspace and is not yet present in this checkout.
+- **Psalter UI:** Source Atlas and Psalter hero artwork are now used in their respective views; Psalm 1 and Psalm 23 illustrations appear as separately labelled featured cards.
+- **Remaining artwork:** DA-004 through DA-030 and DA-032, DA-034 through DA-050 are not yet integrated as standalone production assets.
 - **Not started:** remaining 49 assets.
 - **Historical images:** use institutional scans only after item-level rights, attribution and access checks.
 - **Unresolved sources:** do not convert UNKNOWN catalogue records into definitive historical visual claims.
