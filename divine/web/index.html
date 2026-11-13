@@ -50,7 +50,7 @@ a{color:var(--cyan);overflow-wrap:anywhere}footer{padding:25px 0;border-top:1px 
 
 /* Source Atlas: archival instrument layer */
 .atlas-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch;margin:18px 0}
-.atlas-banner{position:relative;overflow:hidden;border:1px solid #6d5b49;border-radius:15px;padding:22px;background:radial-gradient(circle at 90% 10%,#4c3155aa,transparent 38%),linear-gradient(135deg,#1b1726,#101827 70%);box-shadow:inset 0 0 0 4px #ffffff05}
+.atlas-banner{position:relative;overflow:hidden;border:1px solid #6d5b49;border-radius:15px;padding:22px;background:linear-gradient(90deg,rgba(18,15,26,.97) 0%,rgba(18,15,26,.88) 48%,rgba(18,15,26,.36) 100%),url('/assets/source-atlas-hero.webp') center/cover no-repeat;box-shadow:inset 0 0 0 4px #ffffff05}
 .atlas-banner:after{content:"✦";position:absolute;right:22px;bottom:-36px;font:140px Georgia;color:#e8bc6e12}
 .atlas-kicker{font-size:10px;letter-spacing:.25em;color:#e8bc6e;text-transform:uppercase}
 .atlas-banner h2{font:normal clamp(26px,4vw,42px) Georgia,serif;margin:8px 0;color:#f6e8ce}
@@ -66,7 +66,7 @@ a{color:var(--cyan);overflow-wrap:anywhere}footer{padding:25px 0;border-top:1px 
 .source-card h3{font:normal 19px Georgia,serif;letter-spacing:0;text-transform:none;color:#f1dfbd;margin:8px 0}
 .source-card p{font-size:12px;color:#b8c1d0;line-height:1.45}
 .source-card .source-status{display:inline-block;margin-top:7px;border:1px solid #4a566c;border-radius:20px;padding:3px 8px;font-size:10px;color:#5de2f0}
-.psalter{border:1px solid #6d5b49;border-radius:15px;padding:18px;background:linear-gradient(145deg,#1d1924,#101725)}
+.psalter{border:1px solid #6d5b49;border-radius:15px;padding:18px;background:linear-gradient(90deg,rgba(17,15,25,.97) 0%,rgba(17,15,25,.9) 55%,rgba(17,15,25,.68) 100%),url('/assets/psalter-hero.webp') center right/cover no-repeat}
 .psalter-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
 .psalter-head h3{font:normal 25px Georgia,serif;letter-spacing:0;text-transform:none;color:#f0dfbd}
 .psalter-books{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:14px 0}
@@ -78,6 +78,7 @@ a{color:var(--cyan);overflow-wrap:anywhere}footer{padding:25px 0;border-top:1px 
 .psalm-link:hover,.psalm-link.selected{background:#604b31;border-color:#e8bc6e;color:#fff2d5}
 .psalter-selected{margin-top:14px;padding:12px;border:1px solid #3b4b61;border-radius:9px;background:#0b1423;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .psalter-selected strong{color:#e8bc6e;font:normal 20px Georgia,serif}
+.psalter-featured{display:grid;grid-template-columns:92px 1fr;gap:13px;align-items:center;margin:14px 0 17px;padding:11px;border:1px solid #675744;border-radius:10px;background:#0a101dcc}.psalter-featured img{display:block;width:92px;aspect-ratio:4/5;object-fit:cover;border:1px solid #806a4a;border-radius:8px}.psalter-featured figcaption{font-size:12px;color:#c9c0ce;line-height:1.5}.psalter-featured strong{display:block;color:#e8bc6e;font:normal 17px Georgia,serif;margin-bottom:3px}
 .atlas-note{border-left:3px solid #e8bc6e;background:#29211788;padding:11px 13px;border-radius:5px;color:#d8c9b5;font-size:12px;margin:12px 0}
 @media(max-width:830px){.atlas-intro{grid-template-columns:1fr}.atlas-grid{grid-template-columns:1fr 1fr}.psalter-books{grid-template-columns:1fr 1fr}.psalm-numbers{grid-template-columns:repeat(6,minmax(0,1fr))}}
 @media(max-width:480px){.atlas-grid{grid-template-columns:1fr}.psalm-numbers{grid-template-columns:repeat(5,minmax(0,1fr))}}
@@ -215,6 +216,7 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
 
 <section id="psalms" class="view hidden"><div class="psalter">
  <div class="psalter-head"><div><div class="atlas-kicker">Canonical collection / 150 psalms</div><h3>The Psalter · five books</h3><p class="micro">All 150 Hebrew/Masoretic work IDs are indexed. Select a chapter to inspect edition coordinates; text bodies are unavailable pending rights verification.</p></div><span class="pill">Psalms 1–150</span></div>
+ <figure class="psalter-featured"><img src="/assets/psalm-023.webp" alt="Original illustration of a shepherd beside still waters in a mountain valley" loading="lazy"><figcaption><strong>Featured illustration · Psalm 23</strong>Contemporary devotional artwork. This is an interpretive illustration, not a historical manuscript image or verified source photograph.</figcaption></figure>
  <label for="psalmEdition">Coordinate edition</label><select id="psalmEdition"><option value="mt-index">Hebrew/Masoretic index</option><option value="lxx-index">Common LXX/Vulgate index</option></select>
  <div class="psalter-books" id="psalterBooks"></div>
  <div class="psalter-selected"><div><strong id="selectedPsalm">Psalm 1</strong><div class="micro" id="selectedPsalmBook">Book I · Psalms 1–41</div></div><a id="openPsalm" href="https://www.biblegateway.com/passage/?search=Psalm+1&version=KJV" target="_blank" rel="noopener">Open KJV text ↗</a></div>
