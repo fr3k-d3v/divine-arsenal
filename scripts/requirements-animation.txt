@@ -1,0 +1,2 @@
+# Optional dependencies for scripts/slice_spritesheet.py and scripts/interpolate_gif_24fps_5s.py
+Pillow>=10,<13

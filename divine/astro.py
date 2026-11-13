@@ -5,6 +5,7 @@ Traditional interpretations are separate and never determine machine authority.
 from __future__ import annotations
 
 import math
+from importlib.metadata import version
 from datetime import date, datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
@@ -12,6 +13,11 @@ import astronomy
 from astral import Observer
 from astral.sun import sun
 
+ENGINE = {"name": "astronomy-engine", "version": version("astronomy-engine"),
+          "frame": "apparent geocentric tropical ecliptic of date",
+          "time_input": "UTC ISO-8601; engine derives terrestrial time internally",
+          "precision_note": "Six longitude decimals are output rounding, not certified accuracy. Clock/location uncertainty remains input-dependent.",
+          "validation": "Independent approximate solar vectors (Astral 3.2), 2000–2030 sample dates, 0.03 degree acceptance bound; Moon and planets await independent precision validation"}
 UTC = timezone.utc
 BODIES = ("Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn")
 SIGN_NAMES = ("Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
@@ -46,8 +52,12 @@ def ensure_utc(value: datetime) -> datetime:
 
 def parse_local_birth(date_str: str, hhmm: str, zone_name: str, fold: int | None = None) -> datetime:
     """Strictly validate ambiguous and nonexistent historical local times."""
+    if fold not in (None, 0, 1):
+        raise ValueError("fold must be 0 or 1")
     d = date.fromisoformat(date_str)
     t = time.fromisoformat(hhmm)
+    if t.tzinfo is not None:
+        raise ValueError("Birth time must be a local clock time without UTC offset")
     z = require_zone(zone_name)
     wall = datetime.combine(d, t)
     candidate = wall.replace(tzinfo=z, fold=0 if fold is None else fold)
@@ -192,7 +202,8 @@ def natal_chart(birth_date: str, birth_time: str | None, birth_zone: str,
     date.fromisoformat(birth_date)
     if birth_time:
         at = parse_local_birth(birth_date, birth_time, birth_zone, fold)
-        return {"precision": "exact_recorded_clock_time", "birth_utc": at.isoformat(),
+        return {"label": "CALCULATION", "engine": ENGINE,
+                "precision": "exact_recorded_clock_time", "birth_utc": at.isoformat(),
                 "positions": positions(at), "houses": None, "ascendant": None,
                 "limitations": ["House and Ascendant calculations not yet implemented."]}
 
@@ -209,7 +220,8 @@ def natal_chart(birth_date: str, birth_time: str | None, birth_zone: str,
         possible_signs = sorted({p0[planet]["sign"], p1[planet]["sign"], p2[planet]["sign"]})
         midpoint[planet] = {**p1[planet], "possible_signs": possible_signs,
                             "approximate": True}
-    return {"precision": "date_only", "sample_label": "illustrative local-noon positions",
+    return {"label": "CALCULATION", "engine": ENGINE,
+            "precision": "date_only", "sample_label": "illustrative local-noon positions",
             "positions": midpoint, "houses": None, "ascendant": None,
             "limitations": ["Birth time missing: positions are noon samples, not a natal instant.",
                             "No ascendant, houses, angular lots or precise natal aspects.",
@@ -232,6 +244,7 @@ def briefing(profile: dict, at: datetime | None = None) -> dict:
             clock = {"error": str(exc)}
     current_pos = positions(now)
     return {
+        "engine": ENGINE, "label": "CALCULATION",
         "at_utc": now.isoformat(), "astro_engine": "cosinekitty/astronomy-engine",
         "reference_frame": "apparent geocentric tropical ecliptic-of-date",
         "natal": natal, "transit": current_pos, "moon": moon_state(now),

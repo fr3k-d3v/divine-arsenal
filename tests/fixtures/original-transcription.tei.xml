@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt><title>Original software fixture — not a historical transcription</title><respStmt><resp>Creation and encoding</resp><name>Divine Arsenal contributors</name></respStmt></titleStmt>
+      <publicationStmt><p>Local test fixture, 2026-11-12.</p><availability status="free"><p>Project-original text and encoding, MIT licence; see repository LICENSE.</p></availability></publicationStmt>
+      <sourceDesc><p xml:id="original-source">Original developer-authored test phrase. No external manuscript, scan or edition is represented.</p></sourceDesc>
+    </fileDesc>
+    <revisionDesc><change when="2026-11-12">Original fixture encoding v1. RECONSTRUCTION; no OCR or historical restoration.</change></revisionDesc>
+  </teiHeader>
+  <facsimile><surface xml:id="synthetic-page" n="1"><desc>Synthetic page coordinate only; no facsimile image exists.</desc><zone xml:id="synthetic-line" ulx="0" uly="0" lrx="500" lry="40"/></surface></facsimile>
+  <text><body><div type="original-fixture"><pb n="1" facs="#synthetic-page"/><p><seg xml:id="transcription-1" facs="#synthetic-line">Source before symbol.</seg></p><note type="claim" target="#transcription-1">OBSERVATION: the original fixture phrase has three words.</note></div></body></text>
+</TEI>

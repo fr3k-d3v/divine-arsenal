@@ -1,0 +1,1511 @@
+{
+  "schema_version": 1,
+  "project": "Divine Arsenal",
+  "repository": "fr3k-d3v/divine-arsenal",
+  "branch": "feat/source-atlas-psalms-visuals",
+  "catalog_date": "2026-11-13",
+  "inventory_scope": "ChatGPT Library GIF assets created on 2026-11-13 from 09:00 UTC onward",
+  "binary_payloads_committed": true,
+  "binary_status_note": "This manifest is a catalogue and checksum record. The GIF/MP4 binary payloads are not included in this documentation commit.",
+  "library_gifs": [
+    {
+      "filename": "psalm-051-repentance.gif",
+      "bytes": 1817218,
+      "created_at_utc": "2026-11-13T09:26:07.291991+00:00",
+      "path": "/psalm-051-repentance.gif",
+      "sha256": "c740b082cfe5a68f5d9f716f79317b8620582a07397a3a02387c4a5bbbe78b9b"
+    },
+    {
+      "filename": "psalm-121-protection.gif",
+      "bytes": 1597438,
+      "created_at_utc": "2026-11-13T09:26:12.254598+00:00",
+      "path": "/psalm-121-protection.gif",
+      "sha256": "5071e3bb2b2de020f6d18af0d71c5bfc9ab1a2a897442eb2c1d38fc1a3a7137a"
+    },
+    {
+      "filename": "psalm-139-known.gif",
+      "bytes": 1737201,
+      "created_at_utc": "2026-11-13T09:26:17.385567+00:00",
+      "path": "/psalm-139-known.gif",
+      "sha256": "efccfe641689a16095fc0d7d8c2a71192066fdbe012ca3e91aa0fe73c105a490"
+    },
+    {
+      "filename": "psalm-150-praise.gif",
+      "bytes": 2100785,
+      "created_at_utc": "2026-11-13T09:26:22.519116+00:00",
+      "path": "/psalm-150-praise.gif",
+      "sha256": "a4c91fc52533a1d7dea294a8e06b4ebd19fb79e861369b4c09e33382808b7e21"
+    },
+    {
+      "filename": "psalter-book-1-pilgrimage.gif",
+      "bytes": 1850438,
+      "created_at_utc": "2026-11-13T09:26:27.294501+00:00",
+      "path": "/psalter-book-1-pilgrimage.gif",
+      "sha256": "2fcd0c6952decb9a033092c954a148b4e4ee98dfddf5a248255f62f42b643e1a"
+    },
+    {
+      "filename": "psalter-book-2-living-word.gif",
+      "bytes": 2072728,
+      "created_at_utc": "2026-11-13T09:26:32.203521+00:00",
+      "path": "/psalter-book-2-living-word.gif",
+      "sha256": "317f957add5c068208d26ef12be92cae2beaf067f318ac3fe768f934569dad36"
+    },
+    {
+      "filename": "psalter-book-3-sanctuary.gif",
+      "bytes": 2071851,
+      "created_at_utc": "2026-11-13T09:26:37.090192+00:00",
+      "path": "/psalter-book-3-sanctuary.gif",
+      "sha256": "f449ea6e5e2ee6156da73a4a35295ced76ef774fa9f49734cb3eeeee1357353a"
+    },
+    {
+      "filename": "psalter-book-4-eternity.gif",
+      "bytes": 1921651,
+      "created_at_utc": "2026-11-13T09:26:42.298355+00:00",
+      "path": "/psalter-book-4-eternity.gif",
+      "sha256": "3798c8ff59df1b1e7143a825ee8cb1cce69d75e711faf976c82244150d4db677"
+    },
+    {
+      "filename": "psalter-book-5-praise.gif",
+      "bytes": 2252371,
+      "created_at_utc": "2026-11-13T09:26:47.502060+00:00",
+      "path": "/psalter-book-5-praise.gif",
+      "sha256": "6bfc7923e5e9d377f521c9036e7b23b9d2ed095532f1409b1f4c1dd10d4af77a"
+    },
+    {
+      "filename": "cyberpunk_figure_beneath_neon_cross.gif",
+      "bytes": 950002,
+      "created_at_utc": "2026-11-13T09:35:11.382035+00:00",
+      "path": "/cyberpunk_figure_beneath_neon_cross.gif",
+      "sha256": "b5039a7babb44433d96a2c4b220b72c1ecf1bc444aef404f8fc36764b8828938"
+    },
+    {
+      "filename": "Neon Cross Over the Cyber Valley.gif",
+      "bytes": 817807,
+      "created_at_utc": "2026-11-13T09:35:19.881436+00:00",
+      "path": "/Neon Cross Over the Cyber Valley.gif",
+      "sha256": "8407ac94dd4f1f481334e4f3cf8baf2ed961b35c86d35e003614680dbb81b702"
+    },
+    {
+      "filename": "Cyberpunk Figure Beneath Neon Cross.gif",
+      "bytes": 950002,
+      "created_at_utc": "2026-11-13T09:35:23.127863+00:00",
+      "path": "/Cyberpunk Figure Beneath Neon Cross.gif",
+      "sha256": "b5039a7babb44433d96a2c4b220b72c1ecf1bc444aef404f8fc36764b8828938"
+    },
+    {
+      "filename": "1584.gif",
+      "bytes": 950002,
+      "created_at_utc": "2026-11-13T09:52:44+00:00",
+      "path": "/1584.gif",
+      "sha256": "b5039a7babb44433d96a2c4b220b72c1ecf1bc444aef404f8fc36764b8828938"
+    },
+    {
+      "filename": "FR3K Neon Vortex Logo Animation.gif",
+      "bytes": 791687,
+      "created_at_utc": "2026-11-13T09:55:08.240387+00:00",
+      "path": "/FR3K Neon Vortex Logo Animation.gif",
+      "sha256": "f5334d9eff9687d8c2894fd6d28856e7ac59b6d9f0b71719ae9bab7eeb4f3d3e"
+    },
+    {
+      "filename": "Neon FR3K Vortex Animation.gif",
+      "bytes": 785410,
+      "created_at_utc": "2026-11-13T09:55:11.034854+00:00",
+      "path": "/Neon FR3K Vortex Animation.gif",
+      "sha256": "89012450a5d7a919f4c2149e47fdd2306ebf88765fa0a2e65656b1bcd80da664"
+    },
+    {
+      "filename": "Animated neon FR3K cosmic vortex grid.gif",
+      "bytes": 814382,
+      "created_at_utc": "2026-11-13T09:55:13.525002+00:00",
+      "path": "/Animated neon FR3K cosmic vortex grid.gif",
+      "sha256": "e26d50bb4ffec71324c5a471202b498cee2d643cf696295f373e5f6348ddd79c"
+    },
+    {
+      "filename": "FR3K Neon Vortex Animation Grid.gif",
+      "bytes": 783885,
+      "created_at_utc": "2026-11-13T09:55:15.872164+00:00",
+      "path": "/FR3K Neon Vortex Animation Grid.gif",
+      "sha256": "0d32d0f2467ab742a549b4d57781bc0937bf23e420e447d99b44a5b9aff9ec07"
+    },
+    {
+      "filename": "Animated FR3K Cosmic Vortex Logo.gif",
+      "bytes": 804738,
+      "created_at_utc": "2026-11-13T09:55:18.279376+00:00",
+      "path": "/Animated FR3K Cosmic Vortex Logo.gif",
+      "sha256": "330c219694b4ad8ac29311837b81dd8ee50b1bee6fbfa8964f4a7c26d3b0ada2"
+    },
+    {
+      "filename": "FR3K Neon Vortex Logo Animation(1).gif",
+      "bytes": 794232,
+      "created_at_utc": "2026-11-13T09:55:20.571658+00:00",
+      "path": "/FR3K Neon Vortex Logo Animation(1).gif",
+      "sha256": "179ce3df71266f13d1361864ceee8e90de14b66323d634b79057bb369a29a9a3"
+    },
+    {
+      "filename": "FR3K Neon Galaxy Logo Animation.gif",
+      "bytes": 780621,
+      "created_at_utc": "2026-11-13T09:55:23.680699+00:00",
+      "path": "/FR3K Neon Galaxy Logo Animation.gif",
+      "sha256": "a9e8a3dbfa8cbcfe467383112b74de1ba1fb4313d83341871fa588cae85ab234"
+    },
+    {
+      "filename": "divine_arsenal_42_image_cinematic.gif",
+      "bytes": 8028209,
+      "created_at_utc": "2026-11-13T09:56:59.619247+00:00",
+      "path": "/divine_arsenal_42_image_cinematic.gif",
+      "sha256": "73f8eb8a1c7320157587197a90c33779d9dd8ef1ae4db09f9dff54a8f4fd8a66"
+    },
+    {
+      "filename": "joined_motion_gif_42_images_2_88s_each.gif",
+      "bytes": 43220296,
+      "created_at_utc": "2026-11-13T10:05:13.290615+00:00",
+      "path": "/joined_motion_gif_42_images_2_88s_each.gif",
+      "sha256": "2c0bb671d6d0e1953c465a01b5cb4977e4e8a733fd37a921d7bf8394ab29cb59"
+    },
+    {
+      "filename": "Hooded Scribe’s Rising Quill.gif",
+      "bytes": 811368,
+      "created_at_utc": "2026-11-13T10:23:01.300091+00:00",
+      "path": "/Hooded Scribe’s Rising Quill.gif",
+      "sha256": "f97b92a69cad5badbe9db7ac08c85bce92eda7a3ba365e2c1adec2aee27ca373"
+    },
+    {
+      "filename": "Neon Wizard’s Rising Spell.gif",
+      "bytes": 820600,
+      "created_at_utc": "2026-11-13T10:23:04.049094+00:00",
+      "path": "/Neon Wizard’s Rising Spell.gif",
+      "sha256": "ae7135e1dc731109a6c2d88347ad310f92468a4f5cac78e89280692e98480cc2"
+    },
+    {
+      "filename": "Wizard’s Arcane Writing Animation.gif",
+      "bytes": 813169,
+      "created_at_utc": "2026-11-13T10:23:06.297101+00:00",
+      "path": "/Wizard’s Arcane Writing Animation.gif",
+      "sha256": "394808d0cb5fb73b87ffefafe06f873457635b0cb83e2773117739b3a33b6511"
+    },
+    {
+      "filename": "Animated Cosmic Dual-Profile Nebula.gif",
+      "bytes": 873162,
+      "created_at_utc": "2026-11-13T10:32:19.935505+00:00",
+      "path": "/Animated Cosmic Dual-Profile Nebula.gif",
+      "sha256": "0c9b004d267a36abb2f8301fbd6f1f886f1eb7fbfe2e38907f4fab826b2d19aa"
+    },
+    {
+      "filename": "image_01.gif",
+      "bytes": 896959,
+      "created_at_utc": "2026-11-13T10:37:02.669244+00:00",
+      "path": "/image_01.gif",
+      "sha256": "d60ae50bc441f3744dd2f98fd947b7acaa9f8f8ed29d315a96ff421b3f0d06b5"
+    },
+    {
+      "filename": "image_01(1).gif",
+      "bytes": 896959,
+      "created_at_utc": "2026-11-13T10:37:15.981465+00:00",
+      "path": "/image_01(1).gif",
+      "sha256": "d60ae50bc441f3744dd2f98fd947b7acaa9f8f8ed29d315a96ff421b3f0d06b5"
+    },
+    {
+      "filename": "Pulsing Cosmic Profile Animation.gif",
+      "bytes": 809025,
+      "created_at_utc": "2026-11-13T10:37:28.637580+00:00",
+      "path": "/Pulsing Cosmic Profile Animation.gif",
+      "sha256": "66d239c487491521b74a83e0b8a65cd1502928c004b5e54a5cf4346582f20b9b"
+    },
+    {
+      "filename": "Pulsing Cosmic Mind Animation.gif",
+      "bytes": 767447,
+      "created_at_utc": "2026-11-13T10:37:31.336488+00:00",
+      "path": "/Pulsing Cosmic Mind Animation.gif",
+      "sha256": "2e2afc98ea7c62175abdfce649a4238b1b5a0ce553d91c7966f66ce3b359ca81"
+    },
+    {
+      "filename": "Animated Neon Sigil Energy Cycle.gif",
+      "bytes": 838806,
+      "created_at_utc": "2026-11-13T10:39:10.181823+00:00",
+      "path": "/Animated Neon Sigil Energy Cycle.gif",
+      "sha256": "e5f81cdf2e994f006d54df89d0a3b6c8c8413dabc1b676b42783d6915c4884f2"
+    },
+    {
+      "filename": "Occult Sigil and Flickering Candles.gif",
+      "bytes": 826620,
+      "created_at_utc": "2026-11-13T10:40:36.359801+00:00",
+      "path": "/Occult Sigil and Flickering Candles.gif",
+      "sha256": "4bcb3091b5bac0edc0d8a6ae3fe103e43c464490030de8243d65552ad9b28c42"
+    },
+    {
+      "filename": "Pulsing Purple Magic Circle.gif",
+      "bytes": 763209,
+      "created_at_utc": "2026-11-13T10:44:28.548499+00:00",
+      "path": "/Pulsing Purple Magic Circle.gif",
+      "sha256": "05f3c80042f6b67f6dd2b8a79089b73ba6319b01e988cb3bd9aeece19c00800d"
+    },
+    {
+      "filename": "Pulsing Neon Arcane Circle.gif",
+      "bytes": 757946,
+      "created_at_utc": "2026-11-13T10:44:30.787995+00:00",
+      "path": "/Pulsing Neon Arcane Circle.gif",
+      "sha256": "f6cece52e79e8b5e3f456563ab8120088d1facc5ea9942b3b9c46ca61377e3f2"
+    },
+    {
+      "filename": "Pulsating Neon Rune Circle Animation.gif",
+      "bytes": 739057,
+      "created_at_utc": "2026-11-13T10:44:33.763975+00:00",
+      "path": "/Pulsating Neon Rune Circle Animation.gif",
+      "sha256": "667fd9d1fcbfdfe7c0adfd2bc30c93a028d86c96cde30b2b7cd6138d86ad51c7"
+    },
+    {
+      "filename": "Neon Purple Sigil Energy Loop.gif",
+      "bytes": 802996,
+      "created_at_utc": "2026-11-13T10:45:37.964396+00:00",
+      "path": "/Neon Purple Sigil Energy Loop.gif",
+      "sha256": "d49b95153c3a057720972d8a873755c3e5b5055ee60fd1b5adf7206bad0082ef"
+    },
+    {
+      "filename": "Neon Tree of Life Activation.gif",
+      "bytes": 676911,
+      "created_at_utc": "2026-11-13T10:46:54.013841+00:00",
+      "path": "/Neon Tree of Life Activation.gif",
+      "sha256": "5ee4f24835ca3a00d38d46c787a5d56adf3c7108d1afb9f68563e98d9fc18fc0"
+    },
+    {
+      "filename": "Animated Purple Vortex Warrior Tableau.gif",
+      "bytes": 813034,
+      "created_at_utc": "2026-11-13T10:47:47.648785+00:00",
+      "path": "/Animated Purple Vortex Warrior Tableau.gif",
+      "sha256": "b7f8026da1a1499f19310632ce870cfb8624d229fd381aed2f349a6742792303"
+    },
+    {
+      "filename": "Pulsing Arcane Sigil Animation.gif",
+      "bytes": 752247,
+      "created_at_utc": "2026-11-13T10:49:17.507507+00:00",
+      "path": "/Pulsing Arcane Sigil Animation.gif",
+      "sha256": "6a19eb708ab91095c649bbb0d68978617eb7ce40ca30d5df13d045f2703b688a"
+    },
+    {
+      "filename": "Celestial City Neon Light Loop.gif",
+      "bytes": 922879,
+      "created_at_utc": "2026-11-13T10:50:08.310397+00:00",
+      "path": "/Celestial City Neon Light Loop.gif",
+      "sha256": "148c23a7309dfcaa1681affedef5cd97a60f257f4804362cf35c45db14233635"
+    },
+    {
+      "filename": "Cosmic Rune Planet Energy Loop.gif",
+      "bytes": 758882,
+      "created_at_utc": "2026-11-13T10:50:52.251213+00:00",
+      "path": "/Cosmic Rune Planet Energy Loop.gif",
+      "sha256": "ae9a06caa94ee87b824661a9449bed3fd3d8584ada0bc4b38fbd3fbde74dc941"
+    },
+    {
+      "filename": "Animated Neon Portal Awakening.gif",
+      "bytes": 771890,
+      "created_at_utc": "2026-11-13T10:51:40.524366+00:00",
+      "path": "/Animated Neon Portal Awakening.gif",
+      "sha256": "dd989d46c4f27c9d0d478b96d618f61373306d6834758d876c7e815e00f91b59"
+    },
+    {
+      "filename": "Pulse of the Enchanted Harps.gif",
+      "bytes": 903705,
+      "created_at_utc": "2026-11-13T10:53:07.551694+00:00",
+      "path": "/Pulse of the Enchanted Harps.gif",
+      "sha256": "1eb4a72925f05b27a165246eccf604cbaba62596bddfe1ea3273dc5c71af86e6"
+    },
+    {
+      "filename": "Animated Cosmic Harps and Purple Energy.gif",
+      "bytes": 839361,
+      "created_at_utc": "2026-11-13T10:53:10.244528+00:00",
+      "path": "/Animated Cosmic Harps and Purple Energy.gif",
+      "sha256": "001ed35d821cdaf39d76eae877318558aeb685278cd25d4313e9e2615eca084c"
+    },
+    {
+      "filename": "Purple Temple Beam Animation.gif",
+      "bytes": 881142,
+      "created_at_utc": "2026-11-13T10:54:01.571198+00:00",
+      "path": "/Purple Temple Beam Animation.gif",
+      "sha256": "3b5dc66c1c4e8f2a958c9c4c4d4d070894eefc97c7081fe40afabbb914bd6bca"
+    },
+    {
+      "filename": "Animated Cosmic Mountain Glow.gif",
+      "bytes": 586458,
+      "created_at_utc": "2026-11-13T10:54:45.603423+00:00",
+      "path": "/Animated Cosmic Mountain Glow.gif",
+      "sha256": "d5b9178f1afca0d94aaac3933a50dd60eafe3294143399cb26707e6cb7a3455e"
+    },
+    {
+      "filename": "Arcane Book Sigil Awakens.gif",
+      "bytes": 777561,
+      "created_at_utc": "2026-11-13T10:55:36.898621+00:00",
+      "path": "/Arcane Book Sigil Awakens.gif",
+      "sha256": "38e5a5d3cad19664b07066dfb9bb863364cde1c05d5c373fdbab4a13a1fe3a24"
+    },
+    {
+      "filename": "Pulsing Enchanted Tree by Moonlit River.gif",
+      "bytes": 864478,
+      "created_at_utc": "2026-11-13T10:56:27.347195+00:00",
+      "path": "/Pulsing Enchanted Tree by Moonlit River.gif",
+      "sha256": "7e61e335c60b11fdecc83d82a86820d1c5b7fc7166d9938b4d86943c33bba94f"
+    },
+    {
+      "filename": "Neon Rose Emblem Glow Loop.gif",
+      "bytes": 624415,
+      "created_at_utc": "2026-11-13T10:58:12.045970+00:00",
+      "path": "/Neon Rose Emblem Glow Loop.gif",
+      "sha256": "e3c8540d2013acbc01fc313327266480a024d2d9b4793b30366547175999856f"
+    },
+    {
+      "filename": "Neon Rose Cross Emblem Animation.gif",
+      "bytes": 613430,
+      "created_at_utc": "2026-11-13T10:58:14.534879+00:00",
+      "path": "/Neon Rose Cross Emblem Animation.gif",
+      "sha256": "1bb540072d133266a0b9e89efe5b7944a67102d15b40c7646321113e5e142702"
+    },
+    {
+      "filename": "Enchanted Scroll Awakens.gif",
+      "bytes": 803732,
+      "created_at_utc": "2026-11-13T10:58:57.018383+00:00",
+      "path": "/Enchanted Scroll Awakens.gif",
+      "sha256": "c04c7535ce30d4fdd3bf033f47ba6da079343235aab4d01d76a635d2dc589bed"
+    },
+    {
+      "filename": "Stormbound Fortress Magic.gif",
+      "bytes": 694075,
+      "created_at_utc": "2026-11-13T10:59:48.906699+00:00",
+      "path": "/Stormbound Fortress Magic.gif",
+      "sha256": "76466e6714eff457a584f09d86eb32e1a4d3c9fe7d9b6af5c18e1e7b2eb7ebcb"
+    },
+    {
+      "filename": "Animated Cosmic Astrolabe Awakening.gif",
+      "bytes": 877754,
+      "created_at_utc": "2026-11-13T11:01:35.828444+00:00",
+      "path": "/Animated Cosmic Astrolabe Awakening.gif",
+      "sha256": "ff3aa893c88f72321aebd5deef043c9b4ee3bb2bf2f373b70b50e6e3aa3b3ed8"
+    },
+    {
+      "filename": "Pulsing Purple Glyph Circle.gif",
+      "bytes": 806935,
+      "created_at_utc": "2026-11-13T11:02:23.213929+00:00",
+      "path": "/Pulsing Purple Glyph Circle.gif",
+      "sha256": "7b1900d3401106007e276574e780f6158ddabb631a5d6774f664877d9dfc97c7"
+    },
+    {
+      "filename": "Enchanted Spellbook Activation Loop.gif",
+      "bytes": 763882,
+      "created_at_utc": "2026-11-13T11:03:20.554311+00:00",
+      "path": "/Enchanted Spellbook Activation Loop.gif",
+      "sha256": "5c892d794c557f9a65f108bf910aadf83828e7c3e5dadb2706d70dfbbf0f2656"
+    },
+    {
+      "filename": "Enchanted Sigil Awakening.gif",
+      "bytes": 814969,
+      "created_at_utc": "2026-11-13T11:04:09.734176+00:00",
+      "path": "/Enchanted Sigil Awakening.gif",
+      "sha256": "4974d4f5d80cf53c7e8a119418854c4717921629cbb25b6541dc764b1df8d984"
+    },
+    {
+      "filename": "Animated Fantasy Mountain Sunrise.gif",
+      "bytes": 762179,
+      "created_at_utc": "2026-11-13T11:04:54.498438+00:00",
+      "path": "/Animated Fantasy Mountain Sunrise.gif",
+      "sha256": "541f191b9d1579736d8415f83a6ba6be1cd531e25e7da15ca1caa608799c9d79"
+    },
+    {
+      "filename": "Stormbound Giants: Lightning Awakens.gif",
+      "bytes": 980673,
+      "created_at_utc": "2026-11-13T11:07:18.117940+00:00",
+      "path": "/Stormbound Giants: Lightning Awakens.gif",
+      "sha256": "8eeb35922de71a7d663039dc2151ee95c941d79f4846716eac87e08e97265106"
+    },
+    {
+      "filename": "Wizard’s Ascending Portal Ritual.gif",
+      "bytes": 1263425,
+      "created_at_utc": "2026-11-13T11:10:35.622654+00:00",
+      "path": "/Wizard’s Ascending Portal Ritual.gif",
+      "sha256": "16ae60793da85c1408e31b36774efa38832cc6a99eb63089c086f8dae3aac175"
+    },
+    {
+      "filename": "Wizard’s Luminous Portal Journey.gif",
+      "bytes": 1218342,
+      "created_at_utc": "2026-11-13T11:12:23.138181+00:00",
+      "path": "/Wizard’s Luminous Portal Journey.gif",
+      "sha256": "7e2f500a18f835e391703cc6612640192fa0b42d293d85ca402b17809362e0df"
+    },
+    {
+      "filename": "1659.gif",
+      "bytes": 813034,
+      "created_at_utc": "2026-11-13T11:12:41+00:00",
+      "path": "/1659.gif",
+      "sha256": "b7f8026da1a1499f19310632ce870cfb8624d229fd381aed2f349a6742792303"
+    },
+    {
+      "filename": "1659_double_fps_double_length.gif",
+      "bytes": 3606455,
+      "created_at_utc": "2026-11-13T11:15:03.460804+00:00",
+      "path": "/1659_double_fps_double_length.gif",
+      "sha256": "899834293e04ff5a6541a47465bbeb11226a0816dedd6a25e4b69d6401b46873"
+    },
+    {
+      "filename": "1659_double_fps_double_length(1).gif",
+      "bytes": 3606455,
+      "created_at_utc": "2026-11-13T11:15:06.065185+00:00",
+      "path": "/1659_double_fps_double_length(1).gif",
+      "sha256": "899834293e04ff5a6541a47465bbeb11226a0816dedd6a25e4b69d6401b46873"
+    },
+    {
+      "filename": "1659_double_fps_double_length(2).gif",
+      "bytes": 3606455,
+      "created_at_utc": "2026-11-13T11:15:43.054614+00:00",
+      "path": "/1659_double_fps_double_length(2).gif",
+      "sha256": "899834293e04ff5a6541a47465bbeb11226a0816dedd6a25e4b69d6401b46873"
+    },
+    {
+      "filename": "1664.gif",
+      "bytes": 752247,
+      "created_at_utc": "2026-11-13T11:20:10+00:00",
+      "path": "/1664.gif",
+      "sha256": "6a19eb708ab91095c649bbb0d68978617eb7ce40ca30d5df13d045f2703b688a"
+    },
+    {
+      "filename": "1664_interpolated_24fps_5s.gif",
+      "bytes": 11652814,
+      "created_at_utc": "2026-11-13T11:23:19.758510+00:00",
+      "path": "/1664_interpolated_24fps_5s.gif",
+      "sha256": "4cf7f760778ca3ae94aa09224885906aacafa7add57f9210836db915f07abcd8"
+    },
+    {
+      "filename": "1664_interpolated_24fps_5s(1).gif",
+      "bytes": 11652814,
+      "created_at_utc": "2026-11-13T11:23:25.254134+00:00",
+      "path": "/1664_interpolated_24fps_5s(1).gif",
+      "sha256": "4cf7f760778ca3ae94aa09224885906aacafa7add57f9210836db915f07abcd8"
+    },
+    {
+      "filename": "1665.gif",
+      "bytes": 922879,
+      "created_at_utc": "2026-11-13T11:23:44+00:00",
+      "path": "/1665.gif",
+      "sha256": "148c23a7309dfcaa1681affedef5cd97a60f257f4804362cf35c45db14233635"
+    },
+    {
+      "filename": "1665_interpolated_24fps_5s.gif",
+      "bytes": 6879725,
+      "created_at_utc": "2026-11-13T11:26:07.996550+00:00",
+      "path": "/1665_interpolated_24fps_5s.gif",
+      "sha256": "f67b0f87eeac3069d18fca0587ea4441bbf974dda7b4f246579a26ca39370555"
+    },
+    {
+      "filename": "1666.gif",
+      "bytes": 758882,
+      "created_at_utc": "2026-11-13T11:27:45+00:00",
+      "path": "/1666.gif",
+      "sha256": "ae9a06caa94ee87b824661a9449bed3fd3d8584ada0bc4b38fbd3fbde74dc941"
+    },
+    {
+      "filename": "1666_interpolated_24fps_5s.gif",
+      "bytes": 6010595,
+      "created_at_utc": "2026-11-13T11:28:39.590374+00:00",
+      "path": "/1666_interpolated_24fps_5s.gif",
+      "sha256": "c098d7952702df0a29fc52acaf6a2434e9e38040212bf478977a577768df0f02"
+    },
+    {
+      "filename": "1667.gif",
+      "bytes": 771890,
+      "created_at_utc": "2026-11-13T11:30:02+00:00",
+      "path": "/1667.gif",
+      "sha256": "dd989d46c4f27c9d0d478b96d618f61373306d6834758d876c7e815e00f91b59"
+    },
+    {
+      "filename": "1667_interpolated_24fps_5s.gif",
+      "bytes": 5619619,
+      "created_at_utc": "2026-11-13T11:30:47.648539+00:00",
+      "path": "/1667_interpolated_24fps_5s.gif",
+      "sha256": "776223237f9eaf7c529929655cddb821964c1ea3d4bbb8cf60ed152ca1bc55d7"
+    },
+    {
+      "filename": "1668.gif",
+      "bytes": 839361,
+      "created_at_utc": "2026-11-13T11:31:31+00:00",
+      "path": "/1668.gif",
+      "sha256": "001ed35d821cdaf39d76eae877318558aeb685278cd25d4313e9e2615eca084c"
+    },
+    {
+      "filename": "1668_interpolated_24fps_5s.gif",
+      "bytes": 5748921,
+      "created_at_utc": "2026-11-13T11:32:11.716630+00:00",
+      "path": "/1668_interpolated_24fps_5s.gif",
+      "sha256": "92961a70d7f0f241556c63d700a6a2ba67555f7d10ca40efba9690d84a4198f5"
+    },
+    {
+      "filename": "1669.gif",
+      "bytes": 881142,
+      "created_at_utc": "2026-11-13T11:33:06+00:00",
+      "path": "/1669.gif",
+      "sha256": "3b5dc66c1c4e8f2a958c9c4c4d4d070894eefc97c7081fe40afabbb914bd6bca"
+    },
+    {
+      "filename": "1669_interpolated_24fps_5s.gif",
+      "bytes": 6480169,
+      "created_at_utc": "2026-11-13T11:34:14.762813+00:00",
+      "path": "/1669_interpolated_24fps_5s.gif",
+      "sha256": "d382fe15ea26efd8b348c2bae99188810f7c6cbaf49a449049f3e894e5d95bae"
+    },
+    {
+      "filename": "1670.gif",
+      "bytes": 586458,
+      "created_at_utc": "2026-11-13T11:34:42+00:00",
+      "path": "/1670.gif",
+      "sha256": "d5b9178f1afca0d94aaac3933a50dd60eafe3294143399cb26707e6cb7a3455e"
+    },
+    {
+      "filename": "1670_interpolated_24fps_5s.gif",
+      "bytes": 3912305,
+      "created_at_utc": "2026-11-13T11:35:22.082274+00:00",
+      "path": "/1670_interpolated_24fps_5s.gif",
+      "sha256": "da2a0e703bd9aa5cc7478fb22629a3064ccfd26d2adbac681005ccc1ff58a930"
+    },
+    {
+      "filename": "1671.gif",
+      "bytes": 777561,
+      "created_at_utc": "2026-11-13T11:35:41+00:00",
+      "path": "/1671.gif",
+      "sha256": "38e5a5d3cad19664b07066dfb9bb863364cde1c05d5c373fdbab4a13a1fe3a24"
+    },
+    {
+      "filename": "1671_interpolated_24fps_5s.gif",
+      "bytes": 6156879,
+      "created_at_utc": "2026-11-13T11:36:24.273522+00:00",
+      "path": "/1671_interpolated_24fps_5s.gif",
+      "sha256": "2d26aa56b8b8adb5ee1fb148716f94dc7b16850da2bc49acde7eaa4561e1d1a3"
+    },
+    {
+      "filename": "1672.gif",
+      "bytes": 864478,
+      "created_at_utc": "2026-11-13T11:37:19+00:00",
+      "path": "/1672.gif",
+      "sha256": "7e61e335c60b11fdecc83d82a86820d1c5b7fc7166d9938b4d86943c33bba94f"
+    },
+    {
+      "filename": "1672_interpolated_24fps_5s.gif",
+      "bytes": 7377715,
+      "created_at_utc": "2026-11-13T11:38:04.543543+00:00",
+      "path": "/1672_interpolated_24fps_5s.gif",
+      "sha256": "19c25caad0d0988bab1e5cdc7cc129b26ebe665aeb8537ff9cda6e3e020b50b4"
+    },
+    {
+      "filename": "1674.gif",
+      "bytes": 803732,
+      "created_at_utc": "2026-11-13T11:39:32+00:00",
+      "path": "/1674.gif",
+      "sha256": "c04c7535ce30d4fdd3bf033f47ba6da079343235aab4d01d76a635d2dc589bed"
+    },
+    {
+      "filename": "1674_interpolated_24fps_5s.gif",
+      "bytes": 5901212,
+      "created_at_utc": "2026-11-13T11:40:17.939437+00:00",
+      "path": "/1674_interpolated_24fps_5s.gif",
+      "sha256": "25590fe87165c280a92be35b5109de077b4a921779c0e658b5b8b02f143ede7f"
+    },
+    {
+      "filename": "1675.gif",
+      "bytes": 694075,
+      "created_at_utc": "2026-11-13T11:40:44+00:00",
+      "path": "/1675.gif",
+      "sha256": "76466e6714eff457a584f09d86eb32e1a4d3c9fe7d9b6af5c18e1e7b2eb7ebcb"
+    },
+    {
+      "filename": "1675_interpolated_24fps_5s.gif",
+      "bytes": 4866742,
+      "created_at_utc": "2026-11-13T11:41:59.881810+00:00",
+      "path": "/1675_interpolated_24fps_5s.gif",
+      "sha256": "5c13dee3a7cff942125fe9236a6b50d7003fa1364d0fa13e2d2d4e0d123a851d"
+    },
+    {
+      "filename": "1676.gif",
+      "bytes": 877754,
+      "created_at_utc": "2026-11-13T11:42:23+00:00",
+      "path": "/1676.gif",
+      "sha256": "ff3aa893c88f72321aebd5deef043c9b4ee3bb2bf2f373b70b50e6e3aa3b3ed8"
+    },
+    {
+      "filename": "1676_interpolated_24fps_5s.gif",
+      "bytes": 8109075,
+      "created_at_utc": "2026-11-13T11:43:19.384003+00:00",
+      "path": "/1676_interpolated_24fps_5s.gif",
+      "sha256": "2147264bbda80127b4b1c690b19d465a0ea37e7e3a5a62ee6f4feb21f3e16306"
+    },
+    {
+      "filename": "1677.gif",
+      "bytes": 806935,
+      "created_at_utc": "2026-11-13T11:43:41+00:00",
+      "path": "/1677.gif",
+      "sha256": "7b1900d3401106007e276574e780f6158ddabb631a5d6774f664877d9dfc97c7"
+    },
+    {
+      "filename": "1677_interpolated_24fps_5s.gif",
+      "bytes": 4133124,
+      "created_at_utc": "2026-11-13T11:44:17.183912+00:00",
+      "path": "/1677_interpolated_24fps_5s.gif",
+      "sha256": "7dc615c67260b5804bf6fb58f7016647843a59403e7e479998561fc63d96bf6e"
+    },
+    {
+      "filename": "1678.gif",
+      "bytes": 763882,
+      "created_at_utc": "2026-11-13T11:44:42+00:00",
+      "path": "/1678.gif",
+      "sha256": "5c892d794c557f9a65f108bf910aadf83828e7c3e5dadb2706d70dfbbf0f2656"
+    },
+    {
+      "filename": "1678_interpolated_24fps_5s.gif",
+      "bytes": 6275715,
+      "created_at_utc": "2026-11-13T11:45:20.692779+00:00",
+      "path": "/1678_interpolated_24fps_5s.gif",
+      "sha256": "b30d06d7f701316e31263aa644919f58f6e06f494f372de8b78fccbdb7829dab"
+    },
+    {
+      "filename": "1679.gif",
+      "bytes": 814969,
+      "created_at_utc": "2026-11-13T11:46:34+00:00",
+      "path": "/1679.gif",
+      "sha256": "4974d4f5d80cf53c7e8a119418854c4717921629cbb25b6541dc764b1df8d984"
+    },
+    {
+      "filename": "1679_interpolated_24fps_5s.gif",
+      "bytes": 6315886,
+      "created_at_utc": "2026-11-13T11:47:13.336658+00:00",
+      "path": "/1679_interpolated_24fps_5s.gif",
+      "sha256": "9bb45a339be057df2f83b387106a9ab2b2fad7aa2c10152775ed194d182aa7cf"
+    },
+    {
+      "filename": "1680.gif",
+      "bytes": 762179,
+      "created_at_utc": "2026-11-13T11:47:42+00:00",
+      "path": "/1680.gif",
+      "sha256": "541f191b9d1579736d8415f83a6ba6be1cd531e25e7da15ca1caa608799c9d79"
+    },
+    {
+      "filename": "1680_interpolated_24fps_5s.gif",
+      "bytes": 5149904,
+      "created_at_utc": "2026-11-13T11:48:22.539218+00:00",
+      "path": "/1680_interpolated_24fps_5s.gif",
+      "sha256": "c347b7a1c90931a5d9dd7c6c95abb5b81f714688586aa2a52bd661186b96dd62"
+    },
+    {
+      "filename": "1682.gif",
+      "bytes": 1263425,
+      "created_at_utc": "2026-11-13T11:49:22+00:00",
+      "path": "/1682.gif",
+      "sha256": "16ae60793da85c1408e31b36774efa38832cc6a99eb63089c086f8dae3aac175"
+    },
+    {
+      "filename": "1682_interpolated_24fps_5s.gif",
+      "bytes": 2038501,
+      "created_at_utc": "2026-11-13T11:50:10.718632+00:00",
+      "path": "/1682_interpolated_24fps_5s.gif",
+      "sha256": "c0f4b0cc96db9c858a6ec4cee30c1a1b08bd5ae27adb8fecf71a632ea09b4c06"
+    }
+  ],
+  "current_session_24fps_5s_exports": [
+    {
+      "id": "1664",
+      "source": {
+        "file": "1664.gif",
+        "w": 355,
+        "h": 355,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 752247,
+        "sha256": "6a19eb708ab91095c649bbb0d68978617eb7ce40ca30d5df13d045f2703b688a"
+      },
+      "gif": {
+        "file": "1664_interpolated_24fps_5s.gif",
+        "w": 355,
+        "h": 355,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 11652814,
+        "sha256": "4cf7f760778ca3ae94aa09224885906aacafa7add57f9210836db915f07abcd8"
+      },
+      "mp4": {
+        "file": "1664_interpolated_24fps_5s.mp4",
+        "w": 355,
+        "h": 355,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 861427,
+        "sha256": "e253e2bcd2f73bd9e71ac9fb8cd0c90fda92298625c29c90654d5b050d1af233"
+      }
+    },
+    {
+      "id": "1665",
+      "source": {
+        "file": "1665.gif",
+        "w": 356,
+        "h": 355,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 922879,
+        "sha256": "148c23a7309dfcaa1681affedef5cd97a60f257f4804362cf35c45db14233635"
+      },
+      "gif": {
+        "file": "1665_interpolated_24fps_5s.gif",
+        "w": 356,
+        "h": 356,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6879725,
+        "sha256": "f67b0f87eeac3069d18fca0587ea4441bbf974dda7b4f246579a26ca39370555"
+      },
+      "mp4": {
+        "file": "1665_interpolated_24fps_5s.mp4",
+        "w": 356,
+        "h": 356,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 707630,
+        "sha256": "69d191a468532764986150bcb71577c212175d1547550aa2fd170049d2b8cd22"
+      }
+    },
+    {
+      "id": "1666",
+      "source": {
+        "file": "1666.gif",
+        "w": 358,
+        "h": 356,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 758882,
+        "sha256": "ae9a06caa94ee87b824661a9449bed3fd3d8584ada0bc4b38fbd3fbde74dc941"
+      },
+      "gif": {
+        "file": "1666_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 356,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6010595,
+        "sha256": "c098d7952702df0a29fc52acaf6a2434e9e38040212bf478977a577768df0f02"
+      },
+      "mp4": {
+        "file": "1666_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 356,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 757829,
+        "sha256": "005890991e66cb215f64f7c21e326999aeb922143deaa250f26bfef3fbbfa7bd"
+      }
+    },
+    {
+      "id": "1667",
+      "source": {
+        "file": "1667.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 771890,
+        "sha256": "dd989d46c4f27c9d0d478b96d618f61373306d6834758d876c7e815e00f91b59"
+      },
+      "gif": {
+        "file": "1667_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5619619,
+        "sha256": "776223237f9eaf7c529929655cddb821964c1ea3d4bbb8cf60ed152ca1bc55d7"
+      },
+      "mp4": {
+        "file": "1667_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 516363,
+        "sha256": "17521d83c16614552e208e3981d7a13d3297a6dad1ae17e4d6a1326eec5260cd"
+      }
+    },
+    {
+      "id": "1668",
+      "source": {
+        "file": "1668.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 839361,
+        "sha256": "001ed35d821cdaf39d76eae877318558aeb685278cd25d4313e9e2615eca084c"
+      },
+      "gif": {
+        "file": "1668_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5748921,
+        "sha256": "92961a70d7f0f241556c63d700a6a2ba67555f7d10ca40efba9690d84a4198f5"
+      },
+      "mp4": {
+        "file": "1668_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 482408,
+        "sha256": "8f5d07fa76254567943e4905c3161b73dcbc74627e997c9c0b7b79e3253c81fc"
+      }
+    },
+    {
+      "id": "1669",
+      "source": {
+        "file": "1669.gif",
+        "w": 358,
+        "h": 357,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 881142,
+        "sha256": "3b5dc66c1c4e8f2a958c9c4c4d4d070894eefc97c7081fe40afabbb914bd6bca"
+      },
+      "gif": {
+        "file": "1669_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 357,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6480169,
+        "sha256": "d382fe15ea26efd8b348c2bae99188810f7c6cbaf49a449049f3e894e5d95bae"
+      },
+      "mp4": {
+        "file": "1669_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 606823,
+        "sha256": "89dad29271c74693f24b29037472d605a85e57cf9c50a0d6f301c71144bf9245"
+      }
+    },
+    {
+      "id": "1670",
+      "source": {
+        "file": "1670.gif",
+        "w": 358,
+        "h": 344,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 586458,
+        "sha256": "d5b9178f1afca0d94aaac3933a50dd60eafe3294143399cb26707e6cb7a3455e"
+      },
+      "gif": {
+        "file": "1670_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 344,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 3912305,
+        "sha256": "da2a0e703bd9aa5cc7478fb22629a3064ccfd26d2adbac681005ccc1ff58a930"
+      },
+      "mp4": {
+        "file": "1670_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 344,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 422335,
+        "sha256": "c65d456cb74790f964ec69a0c8c14d59ed201776334bbf6ae7cc993b7e0b88d8"
+      }
+    },
+    {
+      "id": "1671",
+      "source": {
+        "file": "1671.gif",
+        "w": 358,
+        "h": 347,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 777561,
+        "sha256": "38e5a5d3cad19664b07066dfb9bb863364cde1c05d5c373fdbab4a13a1fe3a24"
+      },
+      "gif": {
+        "file": "1671_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 347,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6156879,
+        "sha256": "2d26aa56b8b8adb5ee1fb148716f94dc7b16850da2bc49acde7eaa4561e1d1a3"
+      },
+      "mp4": {
+        "file": "1671_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 348,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 780469,
+        "sha256": "0b7141c834ebc19e2be7f413aa0a22ecd52650ea7bfd74b3dcd46bdc056eb091"
+      }
+    },
+    {
+      "id": "1672",
+      "source": {
+        "file": "1672.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 864478,
+        "sha256": "7e61e335c60b11fdecc83d82a86820d1c5b7fc7166d9938b4d86943c33bba94f"
+      },
+      "gif": {
+        "file": "1672_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 7377715,
+        "sha256": "19c25caad0d0988bab1e5cdc7cc129b26ebe665aeb8537ff9cda6e3e020b50b4"
+      },
+      "mp4": {
+        "file": "1672_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 927365,
+        "sha256": "4941accf75dcf152de5c95cf7525b18f67f98ff8f73a45a225562a1e9a928a63"
+      }
+    },
+    {
+      "id": "1674",
+      "source": {
+        "file": "1674.gif",
+        "w": 357,
+        "h": 357,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 803732,
+        "sha256": "c04c7535ce30d4fdd3bf033f47ba6da079343235aab4d01d76a635d2dc589bed"
+      },
+      "gif": {
+        "file": "1674_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 357,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5901212,
+        "sha256": "25590fe87165c280a92be35b5109de077b4a921779c0e658b5b8b02f143ede7f"
+      },
+      "mp4": {
+        "file": "1674_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 664033,
+        "sha256": "2959b112fefa27103a7a6e0367b60cd3af7fb2c0b892fe92d84404d129b8276c"
+      }
+    },
+    {
+      "id": "1675",
+      "source": {
+        "file": "1675.gif",
+        "w": 356,
+        "h": 356,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 694075,
+        "sha256": "76466e6714eff457a584f09d86eb32e1a4d3c9fe7d9b6af5c18e1e7b2eb7ebcb"
+      },
+      "gif": {
+        "file": "1675_interpolated_24fps_5s.gif",
+        "w": 356,
+        "h": 356,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 4866742,
+        "sha256": "5c13dee3a7cff942125fe9236a6b50d7003fa1364d0fa13e2d2d4e0d123a851d"
+      },
+      "mp4": {
+        "file": "1675_interpolated_24fps_5s.mp4",
+        "w": 356,
+        "h": 356,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 516826,
+        "sha256": "8d838cc766f062b71e4e9cf3d713996ab3169cb112a4dd6201acc10f8027450c"
+      }
+    },
+    {
+      "id": "1676",
+      "source": {
+        "file": "1676.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 877754,
+        "sha256": "ff3aa893c88f72321aebd5deef043c9b4ee3bb2bf2f373b70b50e6e3aa3b3ed8"
+      },
+      "gif": {
+        "file": "1676_interpolated_24fps_5s.gif",
+        "w": 358,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 8109075,
+        "sha256": "2147264bbda80127b4b1c690b19d465a0ea37e7e3a5a62ee6f4feb21f3e16306"
+      },
+      "mp4": {
+        "file": "1676_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 951569,
+        "sha256": "014a5dbeda580a0e102fdfbc8ae4f03dbf324f1fd019fd106c7283c0a024c013"
+      }
+    },
+    {
+      "id": "1677",
+      "source": {
+        "file": "1677.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 806935,
+        "sha256": "7b1900d3401106007e276574e780f6158ddabb631a5d6774f664877d9dfc97c7"
+      },
+      "gif": {
+        "file": "1677_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 4133124,
+        "sha256": "7dc615c67260b5804bf6fb58f7016647843a59403e7e479998561fc63d96bf6e"
+      },
+      "mp4": {
+        "file": "1677_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 608525,
+        "sha256": "11efcfcc716a063f7a57976de496de354366472d1cac3e8db8bb1fe0506a5e26"
+      }
+    },
+    {
+      "id": "1678",
+      "source": {
+        "file": "1678.gif",
+        "w": 353,
+        "h": 343,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 763882,
+        "sha256": "5c892d794c557f9a65f108bf910aadf83828e7c3e5dadb2706d70dfbbf0f2656"
+      },
+      "gif": {
+        "file": "1678_interpolated_24fps_5s.gif",
+        "w": 353,
+        "h": 343,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6275715,
+        "sha256": "b30d06d7f701316e31263aa644919f58f6e06f494f372de8b78fccbdb7829dab"
+      },
+      "mp4": {
+        "file": "1678_interpolated_24fps_5s.mp4",
+        "w": 354,
+        "h": 344,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 817885,
+        "sha256": "f104296a412f32c3981a93f93515b763c4f53ee4254f167e6e7433dff6288b02"
+      }
+    },
+    {
+      "id": "1679",
+      "source": {
+        "file": "1679.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 814969,
+        "sha256": "4974d4f5d80cf53c7e8a119418854c4717921629cbb25b6541dc764b1df8d984"
+      },
+      "gif": {
+        "file": "1679_interpolated_24fps_5s.gif",
+        "w": 357,
+        "h": 358,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 6315886,
+        "sha256": "9bb45a339be057df2f83b387106a9ab2b2fad7aa2c10152775ed194d182aa7cf"
+      },
+      "mp4": {
+        "file": "1679_interpolated_24fps_5s.mp4",
+        "w": 358,
+        "h": 358,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 857575,
+        "sha256": "0d853d581623d9ba1d3870ea380b209ffc4fe03c453984d934f845d481c98a4e"
+      }
+    },
+    {
+      "id": "1680",
+      "source": {
+        "file": "1680.gif",
+        "w": 356,
+        "h": 352,
+        "frames": 12,
+        "duration_ms": 2880,
+        "bytes": 762179,
+        "sha256": "541f191b9d1579736d8415f83a6ba6be1cd531e25e7da15ca1caa608799c9d79"
+      },
+      "gif": {
+        "file": "1680_interpolated_24fps_5s.gif",
+        "w": 356,
+        "h": 352,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 5149904,
+        "sha256": "c347b7a1c90931a5d9dd7c6c95abb5b81f714688586aa2a52bd661186b96dd62"
+      },
+      "mp4": {
+        "file": "1680_interpolated_24fps_5s.mp4",
+        "w": 356,
+        "h": 352,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 474439,
+        "sha256": "e07d0af06dba697030b5458cebc2e44efb0c2133158f86f1d5014b6bcdef4278"
+      }
+    },
+    {
+      "id": "1682",
+      "source": {
+        "file": "1682.gif",
+        "w": 205,
+        "h": 152,
+        "frames": 48,
+        "duration_ms": 5760,
+        "bytes": 1263425,
+        "sha256": "16ae60793da85c1408e31b36774efa38832cc6a99eb63089c086f8dae3aac175"
+      },
+      "gif": {
+        "file": "1682_interpolated_24fps_5s.gif",
+        "w": 205,
+        "h": 152,
+        "frames": 120,
+        "duration_ms": 5000,
+        "bytes": 2038501,
+        "sha256": "c0f4b0cc96db9c858a6ec4cee30c1a1b08bd5ae27adb8fecf71a632ea09b4c06"
+      },
+      "mp4": {
+        "file": "1682_interpolated_24fps_5s.mp4",
+        "w": 206,
+        "h": 152,
+        "fps": "24/1",
+        "frames": 120,
+        "duration_s": 5,
+        "bytes": 295272,
+        "sha256": "22fd3c0d8bd00d7c72de3e71710e63a8f522a2a3d931ba1ff0b080abcb2390ae"
+      }
+    }
+  ],
+  "not_located_in_current_export_set": [
+    "1673",
+    "1681"
+  ],
+  "historical_spritesheet_tests": [
+    {
+      "frames": 9,
+      "description": "kneeling figure; moving robes; changing light",
+      "prompt_verbatim_available": false
+    },
+    {
+      "frames": 12,
+      "description": "figure rises and raises an arm toward a neon cross",
+      "prompt_verbatim_available": false
+    }
+  ],
+  "library_mp4s": [
+    {
+      "filename": "1664_interpolated_24fps_5s.mp4",
+      "bytes": 861427,
+      "path": "/1664_interpolated_24fps_5s.mp4",
+      "sha256": "e253e2bcd2f73bd9e71ac9fb8cd0c90fda92298625c29c90654d5b050d1af233",
+      "classification": "derived"
+    },
+    {
+      "filename": "1665_interpolated_24fps_5s.mp4",
+      "bytes": 707630,
+      "path": "/1665_interpolated_24fps_5s.mp4",
+      "sha256": "69d191a468532764986150bcb71577c212175d1547550aa2fd170049d2b8cd22",
+      "classification": "derived"
+    },
+    {
+      "filename": "1666_interpolated_24fps_5s.mp4",
+      "bytes": 757829,
+      "path": "/1666_interpolated_24fps_5s.mp4",
+      "sha256": "005890991e66cb215f64f7c21e326999aeb922143deaa250f26bfef3fbbfa7bd",
+      "classification": "derived"
+    },
+    {
+      "filename": "1667_interpolated_24fps_5s.mp4",
+      "bytes": 516363,
+      "path": "/1667_interpolated_24fps_5s.mp4",
+      "sha256": "17521d83c16614552e208e3981d7a13d3297a6dad1ae17e4d6a1326eec5260cd",
+      "classification": "derived"
+    },
+    {
+      "filename": "1668_interpolated_24fps_5s.mp4",
+      "bytes": 482408,
+      "path": "/1668_interpolated_24fps_5s.mp4",
+      "sha256": "8f5d07fa76254567943e4905c3161b73dcbc74627e997c9c0b7b79e3253c81fc",
+      "classification": "derived"
+    },
+    {
+      "filename": "1669_interpolated_24fps_5s.mp4",
+      "bytes": 606823,
+      "path": "/1669_interpolated_24fps_5s.mp4",
+      "sha256": "89dad29271c74693f24b29037472d605a85e57cf9c50a0d6f301c71144bf9245",
+      "classification": "derived"
+    },
+    {
+      "filename": "1670_interpolated_24fps_5s.mp4",
+      "bytes": 422335,
+      "path": "/1670_interpolated_24fps_5s.mp4",
+      "sha256": "c65d456cb74790f964ec69a0c8c14d59ed201776334bbf6ae7cc993b7e0b88d8",
+      "classification": "derived"
+    },
+    {
+      "filename": "1671_interpolated_24fps_5s.mp4",
+      "bytes": 780469,
+      "path": "/1671_interpolated_24fps_5s.mp4",
+      "sha256": "0b7141c834ebc19e2be7f413aa0a22ecd52650ea7bfd74b3dcd46bdc056eb091",
+      "classification": "derived"
+    },
+    {
+      "filename": "1672_interpolated_24fps_5s.mp4",
+      "bytes": 927365,
+      "path": "/1672_interpolated_24fps_5s.mp4",
+      "sha256": "4941accf75dcf152de5c95cf7525b18f67f98ff8f73a45a225562a1e9a928a63",
+      "classification": "derived"
+    },
+    {
+      "filename": "1674_interpolated_24fps_5s.mp4",
+      "bytes": 664033,
+      "path": "/1674_interpolated_24fps_5s.mp4",
+      "sha256": "2959b112fefa27103a7a6e0367b60cd3af7fb2c0b892fe92d84404d129b8276c",
+      "classification": "derived"
+    },
+    {
+      "filename": "1675_interpolated_24fps_5s.mp4",
+      "bytes": 516826,
+      "path": "/1675_interpolated_24fps_5s.mp4",
+      "sha256": "8d838cc766f062b71e4e9cf3d713996ab3169cb112a4dd6201acc10f8027450c",
+      "classification": "derived"
+    },
+    {
+      "filename": "1676_interpolated_24fps_5s.mp4",
+      "bytes": 951569,
+      "path": "/1676_interpolated_24fps_5s.mp4",
+      "sha256": "014a5dbeda580a0e102fdfbc8ae4f03dbf324f1fd019fd106c7283c0a024c013",
+      "classification": "derived"
+    },
+    {
+      "filename": "1677_interpolated_24fps_5s.mp4",
+      "bytes": 608525,
+      "path": "/1677_interpolated_24fps_5s.mp4",
+      "sha256": "11efcfcc716a063f7a57976de496de354366472d1cac3e8db8bb1fe0506a5e26",
+      "classification": "derived"
+    },
+    {
+      "filename": "1678_interpolated_24fps_5s.mp4",
+      "bytes": 817885,
+      "path": "/1678_interpolated_24fps_5s.mp4",
+      "sha256": "f104296a412f32c3981a93f93515b763c4f53ee4254f167e6e7433dff6288b02",
+      "classification": "derived"
+    },
+    {
+      "filename": "1679_interpolated_24fps_5s.mp4",
+      "bytes": 857575,
+      "path": "/1679_interpolated_24fps_5s.mp4",
+      "sha256": "0d853d581623d9ba1d3870ea380b209ffc4fe03c453984d934f845d481c98a4e",
+      "classification": "derived"
+    },
+    {
+      "filename": "1680_interpolated_24fps_5s.mp4",
+      "bytes": 474439,
+      "path": "/1680_interpolated_24fps_5s.mp4",
+      "sha256": "e07d0af06dba697030b5458cebc2e44efb0c2133158f86f1d5014b6bcdef4278",
+      "classification": "derived"
+    },
+    {
+      "filename": "1682_interpolated_24fps_5s.mp4",
+      "bytes": 295272,
+      "path": "/1682_interpolated_24fps_5s.mp4",
+      "sha256": "22fd3c0d8bd00d7c72de3e71710e63a8f522a2a3d931ba1ff0b080abcb2390ae",
+      "classification": "derived"
+    },
+    {
+      "filename": "divine_arsenal_9_animations_45sec(1).mp4",
+      "bytes": 22992971,
+      "path": "/divine_arsenal_9_animations_45sec(1).mp4",
+      "sha256": "0e65da2f47d22b26cef9f7211966abc5969ec7ef897e539da629c8c2b38dfa5b",
+      "classification": "source"
+    },
+    {
+      "filename": "divine_arsenal_9_animations_45sec.mp4",
+      "bytes": 22992971,
+      "path": "/divine_arsenal_9_animations_45sec.mp4",
+      "sha256": "0e65da2f47d22b26cef9f7211966abc5969ec7ef897e539da629c8c2b38dfa5b",
+      "classification": "source"
+    },
+    {
+      "filename": "Divine_Arsenal_Actual_Subject_Movement_10s.mp4",
+      "bytes": 4465879,
+      "path": "/Divine_Arsenal_Actual_Subject_Movement_10s.mp4",
+      "sha256": "69b5daebb23e0a818026d352e59733dc2702d5ea8fcaa7e381d60c9d80c1ec7a",
+      "classification": "source"
+    },
+    {
+      "filename": "Divine_Arsenal_Combined_45s_Mobile.mp4",
+      "bytes": 5308310,
+      "path": "/Divine_Arsenal_Combined_45s_Mobile.mp4",
+      "sha256": "1a83aad194fa6b81ecb8b8227d1af3a23238cec7626f26088c051d8b038c30f0",
+      "classification": "source"
+    },
+    {
+      "filename": "divine_arsenal_harp_motion_test.mp4",
+      "bytes": 158216,
+      "path": "/divine_arsenal_harp_motion_test.mp4",
+      "sha256": "e173827ce1536ea86ebc61c1f5ce2f2d919cf4b89630aad91aec6e50410bd036",
+      "classification": "source"
+    },
+    {
+      "filename": "FR3K_Six_Distinct_Animations_Combined.mp4",
+      "bytes": 9446332,
+      "path": "/FR3K_Six_Distinct_Animations_Combined.mp4",
+      "sha256": "74d3b6d0fb4e23104db439146097d5e489399e50108974dadea45aa409085c90",
+      "classification": "source"
+    },
+    {
+      "filename": "image_01.mp4",
+      "bytes": 338259,
+      "path": "/image_01.mp4",
+      "sha256": "cb65e7666edced46119b75b0b33ad9b834f6a60b22031cba0c6bc7a8e8b62b47",
+      "classification": "source"
+    },
+    {
+      "filename": "psalm-051-repentance.mp4",
+      "bytes": 616451,
+      "path": "/psalm-051-repentance.mp4",
+      "sha256": "530a8a3ba420dfa808ca5f0b9f385bc6f652bc254cf983b38e30c15ec95bd79f",
+      "classification": "source"
+    },
+    {
+      "filename": "psalm-121-protection.mp4",
+      "bytes": 738461,
+      "path": "/psalm-121-protection.mp4",
+      "sha256": "54963ca63572b691b6ae8c7d3c7522d324a52ef7907bfcdf7c646efff73ff6da",
+      "classification": "source"
+    },
+    {
+      "filename": "psalm-139-known.mp4",
+      "bytes": 734282,
+      "path": "/psalm-139-known.mp4",
+      "sha256": "4e7e5d9ab92b33834654f81091dba402eb9d75cfbbc45373ea7814b30e501daf",
+      "classification": "source"
+    },
+    {
+      "filename": "psalm-150-praise.mp4",
+      "bytes": 696083,
+      "path": "/psalm-150-praise.mp4",
+      "sha256": "73ca9647634256fb66b2f51e770770c1c6946d8f9ba59158f3af89f989322fda",
+      "classification": "source"
+    },
+    {
+      "filename": "psalter-book-1-pilgrimage.mp4",
+      "bytes": 698129,
+      "path": "/psalter-book-1-pilgrimage.mp4",
+      "sha256": "8be0048a761b5fce2eda662f3d0b98fcaffc92e152184acd1ffd750a3e4f3d7b",
+      "classification": "source"
+    },
+    {
+      "filename": "psalter-book-2-living-word.mp4",
+      "bytes": 4928499,
+      "path": "/psalter-book-2-living-word.mp4",
+      "sha256": "bc3b684e5274a494520cd3944af6d6f58ca657a750a9fae9c3445f537cfae53a",
+      "classification": "source"
+    },
+    {
+      "filename": "psalter-book-3-sanctuary.mp4",
+      "bytes": 4936465,
+      "path": "/psalter-book-3-sanctuary.mp4",
+      "sha256": "f78126a8367426246548d98257172e1cb04a18dd5e017a8a79c9745e4f8ea956",
+      "classification": "source"
+    },
+    {
+      "filename": "psalter-book-4-eternity.mp4",
+      "bytes": 4725518,
+      "path": "/psalter-book-4-eternity.mp4",
+      "sha256": "41a40859b2e46d5d3edc1be2f810d896229c8012c8711ddfaf45f6732d5e4d26",
+      "classification": "source"
+    },
+    {
+      "filename": "psalter-book-5-praise.mp4",
+      "bytes": 4925377,
+      "path": "/psalter-book-5-praise.mp4",
+      "sha256": "fadb5eb1cbede518aa9c8b7d8794fbc7eda36f4606e0059d807cf296f5856bde",
+      "classification": "source"
+    }
+  ],
+  "binary_payloads_verified_on_omarchy": true,
+  "binary_ingest": {
+    "status": "published_and_verified_on_github_lfs",
+    "archive": "divine-arsenal-animation-assets-20261113.tar.zst",
+    "archive_sha256": "09a5cea7ce6d225d16976d9fc4ab817b611d681f0a4fd509a3f5db87fd4eac63",
+    "file_count": 132,
+    "gif_count": 99,
+    "mp4_count": 33,
+    "total_bytes": 348889575,
+    "bundle_manifest": "binary-manifest.json",
+    "storage": "Git LFS",
+    "transfer_chunks": 9,
+    "transfer_chunk_sha256_verified": true,
+    "github_branch": "feat/source-atlas-psalms-visuals",
+    "github_commit_sha": "df4b4c15eccd394406a2817789f26117f680bdae",
+    "lfs_unique_objects_uploaded": 107,
+    "lfs_unique_bytes": 289479034,
+    "lfs_upload_reported": "107/107 objects; 331 MB",
+    "remote_branch_sha_verified": true,
+    "remote_lfs_pointer_checks": {
+      "checked": 132,
+      "passed": 132,
+      "failed": 0,
+      "method": "GitHub Contents API LFS pointer OID SHA-256 and size matched binary-manifest.json"
+    },
+    "verified_at_utc": "2026-11-13T13:03:53.145Z"
+  },
+  "binary_payloads_verified_on_github": true
+}

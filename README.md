@@ -53,3 +53,82 @@ profile's agent plan; **no global Hermes/Codex/OpenCode settings are modified**.
 [astral](https://github.com/sffjunkie/astral) (Apache-2.0),
 [Model Context Protocol](https://github.com/modelcontextprotocol/python-sdk) (MIT).
 Consult each upstream distribution for exact bundled license terms.
+
+
+## Research corpus and developer execution
+
+The photographed-source research, archival references, evidence model, rights constraints and engineering translation are documented in:
+
+- [Photographed source corpus and Divine Arsenal design](docs/PHOTOGRAPHED_SOURCE_CORPUS_AND_DIVINE_ARSENAL_DESIGN.md)
+- [Primary-source research addendum](docs/research/PRIMARY_SOURCE_RESEARCH_ADDENDUM.md)
+- [AI developer master execution plan](docs/AI_DEV_EXECUTION_PLAN.md)
+- [Omarchy AI developer handoff prompt](docs/AI_DEV_HANDOFF_PROMPT.md)
+
+The execution plan is authoritative for phased implementation. It keeps original sources, historical scholarship, tradition-specific interpretations, reconstructions and hypotheses distinct. It also establishes rights, privacy, provenance, testing and approval gates.
+
+## Research workbench slices (local experimental build)
+
+- **Source Atlas:** 27 schema-validated public metadata records, search, evidence,
+  provenance and separate text/image rights. Records come from the supplied
+  research documents; external sources have not been freshly verified here.
+- **Psalter:** 150 work IDs, MT five-book navigation, common MT/LXX chapter
+  correspondences and edition deep links. No Psalm text bodies are bundled.
+  The chapter table is a reconstruction pending edition review; it does not
+  resolve verse numbering, superscriptions or Psalm 151.
+- **Text lab:** Hebrew RTL input and two explicit versioned symbolic schemes,
+  including per-code-point traces and final-letter rules. No inferred authority.
+- **Manuscript spike:** paste/upload a bounded IIIF Presentation 3 painting-image
+  manifest. Validation is local. External images load only on explicit click,
+  from allowlisted institutional hosts. The checked fixture is synthetic;
+  a real institutional integration remains unverified.
+- **Diagram export:** deterministic SVG mathematical squares with geometry/number
+  groups, visible reconstruction labels and algorithm provenance. This is not
+  a historical trace or full diagram editor.
+
+The canonical UI is packaged at `divine/web/index.html`; `web/index.html` is a
+compatibility symlink. Source and wheel distributions include research data and UI.
+The agent currently executing this work is project-scoped. The app can stage
+adapter proposals; it does not launch a model agent or enable automation.
+
+Reproduce checks:
+
+```bash
+uv sync --extra test
+uv run pytest -q
+uv run python -m compileall -q divine
+node tests/check_web.mjs
+uv build --out-dir /tmp/divine-build
+uv run python tests/check_wheel.py /tmp/divine-build/*.whl
+# With the app running, Chromium and Node installed:
+node tests/ui_smoke.mjs
+```
+
+The browser smoke writes screenshots of public-only research views under
+`docs/execution/evidence/`. Use an empty isolated `DIVINE_DATA_DIR` when checking
+UI so no real private profile is loaded into evidence. Where the uv default cache
+is read-only, set `UV_CACHE_DIR=/tmp/divine-uv-cache`. This session's sandbox also
+blocked TestClient thread wakeups; the same tests passed in the permitted local
+execution environment. See [execution status](docs/execution/STATUS.md),
+[acceptance matrix](docs/execution/ACCEPTANCE_MATRIX.md) and
+[threat model](docs/architecture/SECURITY_AND_PRIVACY.md) for actual scope and gaps.
+
+
+Research Edition 1.1 adds a private transcription/revision editor, journal, cited
+Tradition Graph, locally saved IIIF manifests/canvas URLs, bounded private backup
+and project TEI exchange, traced Hebrew positional operations and neutral grids.
+Psalm verse-coordinate proposals name an edition but do not verify verse existence
+or load text. Default local-only mode disables geocoding/external images; enter
+observer coordinates manually. No model provider agent is launched by the server.
+
+For an isolated repository session:
+
+```sh
+DIVINE_DATA_DIR="$PWD/private/session-1.1" UV_CACHE_DIR=/tmp/divine-uv-cache uv run divine-universal serve
+```
+
+Notebook capacity: 100 documents, 100 revisions each and 900000 UTF-8 backup bytes.
+Backups include private content/history; do not publish them. Imports create new
+IDs and record local import times. TEI support is a strict project exchange profile,
+not general TEI P5 validation. Rights/source/manual acceptance gates remain open;
+see [implementation status](docs/execution/STATUS.md) and
+[requirement disposition](docs/execution/REQUIREMENT_DISPOSITION.md).

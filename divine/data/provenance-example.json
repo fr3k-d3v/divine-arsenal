@@ -1,0 +1,12 @@
+{
+  "id": "original-fixture-chain-v1",
+  "evidence": "RECONSTRUCTION",
+  "limitations": "Synthetic project-original demonstration only. Not historical-source verification or TEI schema validation.",
+  "rights": "Original fixture text, encoding and metadata: MIT",
+  "entities": [
+    {"id": "original-source", "type": "source", "creator": "Divine Arsenal contributors", "text": "Source before symbol."},
+    {"id": "synthetic-page", "type": "page", "derived_from": "original-source", "coordinate": "page 1, synthetic-line: 0,0,500,40"},
+    {"id": "transcription-1", "type": "transcription", "derived_from": "synthetic-page", "state": "human corrected", "revision": 1, "text": "Source before symbol.", "activity": "manual original-fixture encoding; no OCR", "actor": "Divine Arsenal contributors", "date": "2026-11-12"},
+    {"id": "claim-1", "type": "claim", "derived_from": "transcription-1", "evidence": "OBSERVATION", "statement": "The original fixture phrase has three whitespace-separated words.", "verification": "split on ASCII whitespace; count == 3"}
+  ]
+}

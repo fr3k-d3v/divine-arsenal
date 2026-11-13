@@ -1,0 +1,18 @@
+{
+  "browser": "Chrome/155.0.8059.84",
+  "assertions": 41,
+  "consoleExceptions": [],
+  "externalRequests": [],
+  "viewports": [
+    "1440x1100",
+    "390x844"
+  ],
+  "remoteImagesRequested": false,
+  "paletteContrast": {
+    "mutedOnSurface": 8.879792969532701,
+    "textOnInput": 16.4731795748432,
+    "focusOnSurface": 11.41340548331287
+  },
+  "formControlsWithoutName": [],
+  "limitations": "No full WCAG audit, screen reader, real institution or human-use verification"
+}

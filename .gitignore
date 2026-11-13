@@ -14,3 +14,7 @@ coverage/
 node_modules/
 .DS_Store
 *.egg-info/
+
+build/
+dist/
+test-results*.xml
