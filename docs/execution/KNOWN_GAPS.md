@@ -51,3 +51,8 @@ The URE and Divine Arsenal services are managed by enabled user systemd units wi
 ## Scholarly adapter verification — 2026-11-14
 
 The five newly enabled adapters and their exact scope are documented in `docs/research/REA_INTEGRATION_ARCHITECTURE.md` section 13. The complete machine-readable record is `docs/execution/evidence/scholarly-adapter-acceptance-2026-11-14.json`. No real manuscript, institutional manifest or customer spreadsheet was used.
+
+
+## REA Video follow-up gaps — 2026-11-14
+
+Actual Capsule Cinema generation is intentionally not enabled: its Python runtime is not installed, provider credentials are not configured by this workflow, and no paid model call is permitted without explicit approval. VLM/agent review, OCR/HTR, ASR, speaker separation, stems and real-world/platform-recompressed media acceptance remain open. Review templates are not promoted to verified facts. Remake job paths are local-machine-specific and must be sanitized before sharing.

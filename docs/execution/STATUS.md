@@ -97,3 +97,8 @@ The final hardening pass adds version-aware adapter resolution, adapter-version-
 - Live registry: 17 identities, 12 verified/enabled. Full URE suite: **180 unittest cases passed**. Full Divine suite: **155 passed**. Chromium: **53 assertions**, desktop/mobile, zero console exceptions, zero external requests; 188 unique HTML IDs.
 - Evidence: `docs/execution/evidence/scholarly-adapter-acceptance-2026-11-14.json` and `docs/research/REA_INTEGRATION_ARCHITECTURE.md` section 13.
 - Remaining limits: synthetic fixtures only; no OCR/HTR, pixel decoding, PDF rendering, cell-value output, formula execution, external IIIF fetch, TEI P5 validation, full WCAG/manual review, independent security review, remote CI or public production release.
+
+
+## REA Video integration — 2026-11-14
+
+Divine now includes local raw video intake, URE video jobs, artifact downloads and notebook artifact manifests. Pinned upstreams are REA Video v0.1.0 commit b08faf2eb53690fc92ddf94576a8c7c3a4a87f89 and Capsule Cinema commit 97229260c96ee8a3fb37db83027bbc1aefd8f073. The pipeline includes shot breakdown, review-task templates, Capsule Cinema remake planning and dry-run export. No paid model execution occurs. Capsule Cinema generation runtime remains BLOCKED; labels are OBSERVATIONS and visual review is PENDING.

@@ -2,12 +2,15 @@ import base64
 import hashlib
 import json
 import threading
+from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 from fastapi.testclient import TestClient
 
 from divine.server import app
+from divine import rea_api
+from divine.notebook import AnalysisReference
 
 
 class FakeURE:
@@ -413,3 +416,101 @@ def test_scholarly_profiles_are_suggested_and_submittable(fake_ure):
             assert job.json()["adapter"] == expected_adapter
             assert job.json()["authority"] == "OBSERVE"
     assert fake_ure.state["job_request"]["profile"] == "grid"
+
+
+def test_video_raw_stream_intake_is_bounded_and_passed_to_local_ure(fake_ure, monkeypatch):
+    raw=bytes.fromhex("000000186674797069736f6d")+b"owned-video-fixture"
+    seen={}
+    adapters=[{
+        "identity":"rea.video@0.1.0","name":"rea.video","status":"SUPPORTED",
+        "available":True,"verified":True,"enabled":True,"required_authority":"OBSERVE",
+    }]
+    monkeypatch.setattr(rea_api,"_ready_status",lambda:{"status":"READY","adapters":adapters,"worker":{}})
+    def fake_upload(path,filename):
+        seen.update(path=path,filename=filename,data=Path(path).read_bytes())
+        return {"sha256":hashlib.sha256(raw).hexdigest(),"size":len(raw),
+                "filename":filename,"classification":{"format":"video.mp4","mime":"video/mp4"}}
+    monkeypatch.setattr(rea_api.rea_client,"upload_video_file",fake_upload)
+    with TestClient(app) as client:
+        response=client.post("/api/rea/inputs/video",content=raw,headers={
+            "Content-Type":"application/octet-stream","X-File-Name":"sample%20clip.mp4"})
+    assert response.status_code==201,response.text
+    data=response.json()
+    assert data["input"]["sha256"]==hashlib.sha256(raw).hexdigest()
+    assert data["suggested_profiles"]==[{
+        "profile":"video","adapter":"rea.video@0.1.0",
+        "label":rea_api.PROFILE_LABELS["video"],"authority":"OBSERVE"}]
+    assert seen["filename"]=="sample clip.mp4"
+    assert seen["data"]==raw
+    assert not Path(seen["path"]).exists()
+
+
+def test_video_artifact_routes_return_safe_download_headers(fake_ure,monkeypatch):
+    job_id="a"*32
+    manifest=[{"name":"VIDEO.md","sha256":"b"*64,"size":10,"content_type":"text/markdown; charset=utf-8"}]
+    monkeypatch.setattr(rea_api.rea_client,"get_artifacts",lambda identity:manifest)
+    monkeypatch.setattr(rea_api.rea_client,"get_artifact",lambda identity,name:{
+        "name":name,"data":b"<html>owned</html>","content_type":"text/html; charset=utf-8","filename":name})
+    with TestClient(app) as client:
+        listing=client.get(f"/api/rea/jobs/{job_id}/artifacts")
+        report=client.get(f"/api/rea/jobs/{job_id}/artifacts/report.html")
+    assert listing.status_code==200 and listing.json()==manifest
+    assert report.status_code==200 and report.content==b"<html>owned</html>"
+    assert report.headers["content-disposition"]=='attachment; filename="report.html"'
+    assert "sandbox" in report.headers["content-security-policy"]
+    assert report.headers["cache-control"]=="no-store"
+    assert report.headers["x-content-type-options"]=="nosniff"
+
+
+def test_video_analysis_reference_requires_artifact_evidence_link():
+    input_sha="a"*64
+    artifact_sha="b"*64
+    document=AnalysisReference.model_validate({
+        "kind":"analysis-reference","title":"video evidence","job_id":"c"*32,
+        "input_sha256":input_sha,"adapter":"rea.video@0.1.0","profile":"video",
+        "state":"succeeded","evidence_hashes":[input_sha,artifact_sha],
+        "artifacts":[{"name":"VIDEO.md","sha256":artifact_sha,"size":12,
+                      "content_type":"text/markdown; charset=utf-8"}],
+    })
+    assert document.artifacts[0].name=="VIDEO.md"
+    from pydantic import ValidationError
+    with pytest.raises(ValidationError):
+        AnalysisReference.model_validate({
+            "kind":"analysis-reference","title":"unlinked video evidence","job_id":"d"*32,
+            "input_sha256":input_sha,"adapter":"rea.video@0.1.0","profile":"video",
+            "state":"succeeded","evidence_hashes":[input_sha],
+            "artifacts":[{"name":"VIDEO.md","sha256":artifact_sha,"size":12,
+                          "content_type":"text/markdown; charset=utf-8"}],
+        })
+
+
+def test_notebook_save_persists_video_artifact_manifest(monkeypatch):
+    job_id="e"*32
+    input_sha="a"*64
+    artifact_sha="b"*64
+    job={"id":job_id,"state":"succeeded","adapter":"rea.video@0.1.0",
+         "profile":"video","input_sha256":input_sha}
+    report={"analysis":{
+        "execution_summary":{"authority":"OBSERVE","created_at":1.0,"started_at":1.1,
+          "finished_at":2.0,"attempt_count":1,"sandbox_profile":"bubblewrap-static-analysis-v1",
+          "network_policy":"DENIED","filesystem_policy":"ISOLATED_READ_ONLY_INPUTS",
+          "permissions":["OBSERVE"],"exit_code":0,"timed_out":False,"truncated":False,
+          "cancelled":False,"reaped":True},
+        "resource_limits":{},
+        "evidence":[{"sha256":input_sha},{"sha256":artifact_sha}],
+        "artifacts":[{"name":"VIDEO.md","sha256":artifact_sha,"size":12,
+                      "content_type":"text/markdown; charset=utf-8"}],
+        "findings":[],"reconstructions":[],"limitations":[],
+        "provider_limitations":[],"compatibility_notes":[],
+    }}
+    monkeypatch.setattr(rea_api,"_job_report",lambda identity:(job,report))
+    monkeypatch.setattr(rea_api.notebook,"listing",lambda kind:[])
+    captured={}
+    def save(item):
+        captured["document"]=item.document
+        return {"id":"analysis-ref-001","revision":1}
+    monkeypatch.setattr(rea_api.notebook,"save",save)
+    with TestClient(app) as client:
+        response=client.post(f"/api/rea/jobs/{job_id}/notebook",json={"title":"video evidence","note":"test"})
+    assert response.status_code==201,response.text
+    assert captured["document"].artifacts[0].sha256==artifact_sha

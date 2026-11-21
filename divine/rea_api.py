@@ -3,7 +3,11 @@ from __future__ import annotations
 
 from typing import Literal
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import Response
+import os
+import tempfile
+import urllib.parse
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from . import notebook, rea_client
@@ -24,6 +28,7 @@ PROFILE_ADAPTER_PREFIXES = {
     "iiif": "iiif.manifest@",
     "image": "image.metadata@",
     "grid": "grid.inspect@",
+    "video": "rea.video@",
 }
 PROFILE_LABELS = {
     "identify": "Identify format and hash",
@@ -39,6 +44,7 @@ PROFILE_LABELS = {
     "iiif": "IIIF Presentation manifest validation",
     "image": "PNG/JPEG/TIFF header metadata",
     "grid": "CSV/TSV structure inspection",
+    "video": "REA Video shot-by-shot forensics",
 }
 FORMAT_PROFILES = {
     "elf": ("identify", "elf", "ghidra", "radare2", "binwalk", "unblob"),
@@ -60,6 +66,11 @@ FORMAT_PROFILES = {
     "image.tiff": ("identify", "image"),
     "grid.csv": ("identify", "grid"),
     "grid.tsv": ("identify", "grid"),
+    "video.mp4": ("identify", "video"),
+    "video.mov": ("identify", "video"),
+    "video.mkv": ("identify", "video"),
+    "video.webm": ("identify", "video"),
+    "video.avi": ("identify", "video"),
 }
 
 
@@ -81,7 +92,7 @@ class UploadRequest(BaseModel):
 class JobRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     input_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
-    profile: Literal["identify", "elf", "ghidra", "jadx", "binwalk", "radare2", "unblob", "kaitai", "pdf", "tei", "iiif", "image", "grid"]
+    profile: Literal["identify", "elf", "ghidra", "jadx", "binwalk", "radare2", "unblob", "kaitai", "pdf", "tei", "iiif", "image", "grid", "video"]
 
 
 class NotebookReferenceRequest(BaseModel):
@@ -159,9 +170,67 @@ def upload(data: UploadRequest):
         "suggested_profiles": _suggestions(item["classification"]["format"], current["adapters"]),
         "authority": "OBSERVE",
         "limitations": [
-            "The bridge accepts files up to 700,000 bytes; larger artifacts require the local URE CLI.",
+            "Standard artifacts are limited to 700,000 bytes through JSON intake; video has a dedicated raw streaming route capped at 64 MiB.",
+            "Video analysis is a separate pinned, offline REA Video worker. VLM/OCR/HTR/ASR and source separation are disabled by default.",
             "Classification is signature-based. PDF/image/OCR/HTR interpretation is not implied.",
             "The original is stored by the local URE evidence service; Divine Arsenal does not copy it into its repository.",
+        ],
+    }
+
+
+@router.post("/inputs/video", status_code=201)
+async def upload_video(request: Request):
+    current = _ready_status()
+    if request.headers.get("content-type","").split(";",1)[0].strip().lower() != "application/octet-stream":
+        raise HTTPException(415,"Use application/octet-stream for local video intake")
+    raw_name=request.headers.get("x-file-name","")
+    try:
+        filename=urllib.parse.unquote(raw_name,errors="strict")
+    except (UnicodeError,ValueError):
+        raise HTTPException(422,"Invalid video filename")
+    if (not 1<=len(filename)<=255 or filename in (".","..") or filename!=filename.strip()
+        or "/" in filename or chr(92) in filename
+        or any(ord(char)<32 or ord(char)==127 for char in filename)):
+        raise HTTPException(422,"Video filename must be a plain file name")
+    try:
+        expected=int(request.headers.get("content-length",""))
+    except ValueError:
+        raise HTTPException(411,"Content-Length is required")
+    if expected<1:
+        raise HTTPException(400,"Empty video upload")
+    if expected>64*1024*1024:
+        raise HTTPException(413,"Video exceeds the 64 MiB local intake limit")
+    descriptor,temporary=tempfile.mkstemp(prefix="divine-rea-video-")
+    os.fchmod(descriptor,0o600)
+    size=0
+    try:
+        with os.fdopen(descriptor,"wb") as destination:
+            async for chunk in request.stream():
+                size+=len(chunk)
+                if size>64*1024*1024:
+                    raise HTTPException(413,"Video exceeds the 64 MiB local intake limit")
+                destination.write(chunk)
+            destination.flush()
+            os.fsync(destination.fileno())
+        if size!=expected:
+            raise HTTPException(400,"Video upload length mismatch")
+        item=rea_client.upload_video_file(temporary,filename)
+    except Exception as error:
+        if isinstance(error,HTTPException):
+            raise
+        _raise(error)
+    finally:
+        try:os.unlink(temporary)
+        except FileNotFoundError:pass
+    return {
+        "input":item,
+        "suggested_profiles":_suggestions(item["classification"]["format"],current["adapters"]),
+        "authority":"OBSERVE",
+        "limitations":[
+            "Local video intake is capped at 64 MiB and uses a separate raw streaming route.",
+            "The pinned rea-video worker runs offline in Bubblewrap; VLM, OCR/HTR, ASR, speaker separation and stems are disabled.",
+            "Shot production-method labels are provisional until an agent or human reviews the generated storyboard and review tasks.",
+            "The original video is content-addressed in the local URE evidence store; no cloud upload or source-video modification occurs.",
         ],
     }
 
@@ -206,6 +275,31 @@ def get_report(job_id: str):
         _raise(error)
 
 
+@router.get("/jobs/{job_id}/artifacts")
+def get_artifacts(job_id: str):
+    try:
+        return rea_client.get_artifacts(job_id)
+    except Exception as error:
+        _raise(error)
+
+
+@router.get("/jobs/{job_id}/artifacts/{name}")
+def get_artifact(job_id: str, name: str):
+    try:
+        item=rea_client.get_artifact(job_id,name)
+        headers={"X-Content-Type-Options":"nosniff","Cache-Control":"no-store"}
+        if name=="report.html":
+            headers["Content-Disposition"]='attachment; filename="report.html"'
+            headers["Content-Security-Policy"]="sandbox; default-src 'none'; img-src data:; style-src 'unsafe-inline'; font-src data:"
+        elif name in ("storyboard.jpg","audio.png"):
+            headers["Content-Disposition"]=f'inline; filename="{name}"'
+        else:
+            headers["Content-Disposition"]=f'attachment; filename="{name}"'
+        return Response(content=item["data"],media_type=item["content_type"],headers=headers)
+    except Exception as error:
+        _raise(error)
+
+
 @router.post("/jobs/{job_id}/notebook", status_code=201)
 def save_notebook_reference(job_id: str, data: NotebookReferenceRequest):
     try:
@@ -244,6 +338,7 @@ def save_notebook_reference(job_id: str, data: NotebookReferenceRequest):
             "reaped": execution.get("reaped", False),
             "error": execution.get("error"),
             "evidence_hashes": evidence_hashes,
+            "artifacts": analysis.get("artifacts", []),
             "findings": analysis["findings"],
             "reconstructions": analysis["reconstructions"],
             "limitations": analysis["limitations"],

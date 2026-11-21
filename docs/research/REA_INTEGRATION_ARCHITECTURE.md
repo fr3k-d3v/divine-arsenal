@@ -200,3 +200,12 @@ Five versioned OBSERVE adapters are now enabled after the host probe:
 The full URE `unittest discover` suite passes **180 test cases**. Divine Arsenal passes **155 tests**. A live same-host Divine → URE test completed all nine synthetic format paths (PDF, TEI XML, IIIF Presentation v2/v3, PNG, JPEG, TIFF, CSV and TSV). Every job succeeded with three evidence records, matching input SHA-256, OBSERVE authority, Bubblewrap network denial, read-only input isolation and confirmed worker reaping. The live registry reports **17 identities / 12 verified and enabled**. Chromium acceptance remains **53 assertions**, desktop/mobile, zero console exceptions and zero external requests.
 
 The machine-readable acceptance record is [scholarly-adapter-acceptance-2026-11-14.json](../execution/evidence/scholarly-adapter-acceptance-2026-11-14.json). All fixtures were synthetic. This does not establish institutional interoperability, OCR/HTR, scholarly correctness, rights clearance, full TEI P5 conformance, universal IIIF conformance or production release readiness.
+
+
+## REA Video and Capsule Cinema — 2026-11-14
+
+Pinned upstreams: JuneYaooo/rea-video v0.1.0 Apache-2.0 commit b08faf2eb53690fc92ddf94576a8c7c3a4a87f89; JuneYaooo/capsule-cinema Apache-2.0 commit 97229260c96ee8a3fb37db83027bbc1aefd8f073. Both remain separate upstream checkouts.
+
+Divine streams supported video to authenticated URE raw intake (64 MiB). URE stores the original content hash and schedules one OBSERVE-only video job. Bubblewrap runs decomposition and review-task generation with network denied and optional model stages disabled. It then creates a Capsule Cinema remake job graph and validates it using remake-run --dry-run. URE hashes and stores the breakdown, VIDEO.md, reports, storyboard/audio, review templates, remake jobs, dry-run transcript and ZIP package. Divine shows the summary, previews and downloads; notebook saves the full artifact manifest and evidence hashes.
+
+Limits: 240 seconds; one video stream and <=4 audio streams; 4K/60 fps; 14,400 frames; 4 GiB RAM; 120 CPU seconds; 180-second wall; one worker. VLM/OCR/HTR/ASR/speaker separation/stems are disabled. Paid generation is not invoked. Capsule Cinema source is pinned, but its Python runtime is not installed; generation is BLOCKED pending runtime/provider configuration and explicit approval. Tool classifications are OBSERVATIONS; visual review remains PENDING. Synthetic acceptance does not prove real-world accuracy.

@@ -294,6 +294,7 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
 <label for="analysisLimits">Resource limits</label><pre id="analysisLimits" class="rea-output"></pre>
 <label for="analysisTiming">Execution timestamps and exit state</label><pre id="analysisTiming" class="rea-output"></pre>
 <label for="analysisEvidence">Raw evidence references (SHA-256)</label><pre id="analysisEvidence" class="rea-output"></pre>
+<label for="analysisArtifacts">Preserved output artifacts (name, size, SHA-256)</label><pre id="analysisArtifacts" class="rea-output"></pre>
 <label for="analysisFindings">Derived findings</label><pre id="analysisFindings" class="rea-output"></pre>
 <label for="analysisReconstructions">Reconstruction hypotheses</label><pre id="analysisReconstructions" class="rea-output"></pre>
 <label for="analysisLimitations">Limitations / provider compatibility notes</label><pre id="analysisLimitations" class="rea-output"></pre>
@@ -323,25 +324,26 @@ button,a,input,select{min-height:44px}.psalm-link{display:grid;place-items:cente
  <div class="card">
   <h2>Artifact intake · immutable evidence</h2>
   <p>Choose an artifact explicitly. Divine Arsenal hashes the bytes and transfers them to the local URE evidence store. No file is uploaded to a cloud service.</p>
-  <label for="reaFile">Local artifact (maximum 700,000 bytes through this HTTP bridge)</label>
-  <input id="reaFile" type="file" accept=".apk,.dex,.class,.elf,.so,.bin,.img,.zip,.pdf,.tif,.tiff,.jpg,.jpeg,.png,.pcap,.json,.xml,.tei,.csv,.tsv,.txt">
-  <p class="micro">Supported signatures include ELF, PE, APK/ZIP, DEX, Java class, PDF lexical structure, TEI XML, IIIF Presentation JSON, PNG/JPEG/TIFF header metadata, CSV/TSV structure, PCAP, Android boot headers and UTF-8 text. No OCR/HTR, pixel decoding, cell values or external IIIF resources are fetched.</p>
+  <label for="reaFile">Local artifact (standard files 700 KB · video 64 MiB)</label>
+  <input id="reaFile" type="file" accept=".apk,.dex,.class,.elf,.so,.bin,.img,.zip,.pdf,.tif,.tiff,.jpg,.jpeg,.png,.pcap,.json,.xml,.tei,.csv,.tsv,.txt,.mp4,.mov,.mkv,.webm,.avi">
+  <p class="micro">Video: MP4/MOV/MKV/WebM/AVI, maximum 64 MiB, duration 4 minutes, up to 4K/60 fps. REA Video creates shot-by-shot breakdowns, storyboards, audio timelines, VIDEO.md, review tasks and an HTML report. It runs offline in Bubblewrap; VLM, OCR/HTR, ASR, speaker separation and stems are disabled. Visual labels remain provisional until review.</p>
   <button id="reaUpload" class="primary" disabled>Hash & ingest into local URE</button>
   <pre id="reaInputSummary" class="rea-output" role="status">No artifact ingested.</pre>
   <label for="reaProfile">Available analysis profile (OBSERVE only)</label>
   <select id="reaProfile" disabled><option value="">Ingest an artifact first</option></select>
   <div class="row">
-   <button id="reaRun" disabled>Run selected static analysis</button>
+   <button id="reaRun" disabled>Run selected analysis</button>
    <button id="reaCancel" disabled>Cancel active job</button>
   </div>
   <p id="reaJobStatus" role="status" aria-live="polite">No analysis job submitted.</p>
   <div id="reaFindings"></div>
+  <div id="reaArtifacts"></div>
   <details><summary>Inspect execution envelope, evidence hashes and report limitations</summary><pre id="reaReportJson"></pre></details>
   <label for="reaSource">Attach this analysis to a registered source (optional)</label><select id="reaSource"><option value="">No source link</option></select>
   <div class="row"><button id="reaSave" disabled>Save evidence reference to private notebook</button><button id="reaOpenNotebook" disabled>Open notebook reference</button></div>
   <p id="reaSaveStatus" role="status" aria-live="polite">Analysis reports are not saved to the notebook unless you choose to save them.</p>
  </div>
- <div class="notice warning">Authority is fixed to OBSERVE. Unknown binaries are never executed. Synthetic AUTO profiles are not exposed. Every adapter is shown only when the live URE registry reports it available, verified and enabled. Scholarly profiles perform bounded metadata/structure checks only: no PDF rendering, OCR/HTR, image decoding, spreadsheet formula execution or IIIF network fetch. The current bridge limit is 700 KB; larger artifacts must use the local URE CLI. A successful static result is not a vulnerability verdict or proof of runtime behaviour.</div>
+ <div class="notice warning">Authority is fixed to OBSERVE. Unknown binaries are never executed. Synthetic AUTO profiles are not exposed. Every adapter is shown only when the live URE registry reports it available, verified and enabled. Scholarly profiles perform bounded metadata/structure checks only. REA Video is a separate pinned Apache-2.0 tool adapter with network denied, one serialized worker and strict duration/resolution/file limits; no VLM, OCR/HTR, ASR, speaker separation, stems or paid remake execution. Shot classifications are tool observations, not verified production facts. Standard uploads remain limited to 700 KB; video uses a separate 64 MiB local stream. No source video is modified or sent to a cloud service.</div>
 </section>
 
 <footer><span class="gold">FR3KD3V // VERIFY REALITY</span> · OBSERVE → VERIFY → RECONCILE → IMPROVE → TEST → RECORD · Experimental local preview · No unverified prediction or authority transfer</footer>
@@ -618,7 +620,9 @@ function fillDocument(d){
   text($('analysisPermissions'),JSON.stringify(d.permissions||[],null,2));text($('analysisLimits'),JSON.stringify(d.resource_limits||{},null,2));
   const iso=value=>Number.isFinite(value)?new Date(value*1000).toISOString():'UNKNOWN';
   text($('analysisTiming'),JSON.stringify({created_at:iso(d.created_at),started_at:iso(d.started_at),finished_at:iso(d.finished_at),attempt_count:d.attempt_count,exit_code:d.exit_code,timed_out:d.timed_out,truncated:d.truncated,cancelled:d.cancelled,reaped:d.reaped,error:d.error},null,2));
-  text($('analysisEvidence'),JSON.stringify(d.evidence_hashes||[],null,2));text($('analysisFindings'),JSON.stringify(d.findings||[],null,2));
+  text($('analysisEvidence'),JSON.stringify(d.evidence_hashes||[],null,2));
+  text($('analysisArtifacts'),JSON.stringify(d.artifacts||[],null,2));
+  text($('analysisFindings'),JSON.stringify(d.findings||[],null,2));
   text($('analysisReconstructions'),JSON.stringify(d.reconstructions||[],null,2));
   text($('analysisLimitations'),JSON.stringify({limitations:d.limitations||[],provider_limitations:d.provider_limitations||[],compatibility_notes:d.compatibility_notes||[],rights_status:d.rights_status,review_state:d.review_state},null,2));
   $('analysisSource').value=d.source_id||'';$('analysisReviewState').value=d.review_state||'UNREVIEWED';
@@ -686,7 +690,17 @@ window.addEventListener('hashchange',routeHash);
 function renderREAStatus(data){
  reaState.ready=data.status==='READY';
  text($('reaStatus'),data.status||'UNKNOWN');
- text($('reaWorker'),data.message||'No status returned.');
+ const video=data.worker?.rea_video;
+ let message=data.message||'No status returned.';
+ if(video){
+  const cc=video.capsule_cinema||{};
+  message+=' · REA Video '+(video.verified?'verified':'blocked')+' @ '+(video.commit||'UNKNOWN');
+  message+=' · Capsule Cinema '+(cc.verified?'pinned/verified':'not verified');
+  message+=' · remake plan '+(video.remake_plan||'UNKNOWN');
+  message+=' · provider config '+(cc.provider_config_file_present?'present':'absent');
+  message+=' · generation '+(video.generation_execution||'UNKNOWN');
+ }
+ text($('reaWorker'),message);
  $('reaUpload').disabled=!reaState.ready;
  const root=$('reaAdapters');root.replaceChildren();
  for(const adapter of (data.adapters||[])){
@@ -696,7 +710,8 @@ function renderREAStatus(data){
   card.append(node('small','Formats: '+((adapter.formats||[]).join(', ')||'UNKNOWN')));
   card.append(node('small','Verified: '+(adapter.verified?'YES':'NO')+' · Enabled: '+(adapter.enabled?'YES':'NO')));
   const limits=adapter.resource_limits||{};card.append(node('small','Limits: '+(limits.cpu_seconds??'?')+'s CPU · '+(limits.memory_mb??'?')+' MB RAM · '+(limits.wall_seconds??'?')+'s wall · '+(limits.output_bytes??'?')+' output bytes'));
-  if(adapter.limitations?.length)card.append(node('small',adapter.limitations.slice(0,2).join(' · ')));
+  if(adapter.capabilities?.length)card.append(node('small','Capabilities: '+adapter.capabilities.slice(0,8).join(' · ')));
+  if(adapter.limitations?.length)card.append(node('small',adapter.limitations.slice(0,3).join(' · ')));
   root.append(card);
  }
 }
@@ -715,26 +730,37 @@ $('reaFile').onchange=()=>{
  $('reaProfile').replaceChildren(node('option','Ingest an artifact first'));
  $('reaProfile').disabled=true;$('reaRun').disabled=true;$('reaCancel').disabled=true;
  text($('reaInputSummary'),'Artifact selected. Click Hash & ingest to transfer it to the local URE evidence store.');
- $('reaFindings').replaceChildren();text($('reaReportJson'),'');
+ $('reaFindings').replaceChildren();$('reaArtifacts').replaceChildren();text($('reaReportJson'),'');
  text($('reaJobStatus'),'No analysis job submitted.');
 };
 async function uploadREA(){
  if(!reaState.ready)throw Error('Local URE service is not ready');
  const file=$('reaFile').files[0];if(!file)throw Error('Choose an artifact first');
  if(file.size<1)throw Error('Empty artifacts are not accepted');
- if(file.size>700000)throw Error('Artifact exceeds the 700,000-byte HTTP bridge limit. Use the local URE CLI for larger files.');
- const bytes=new Uint8Array(await file.arrayBuffer());let binary='';
- for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+32768,bytes.length)));
- const result=await api('/api/rea/inputs','POST',{filename:file.name,content_base64:btoa(binary)});
+ const isVideo=/\.(mp4|mov|mkv|webm|avi)$/i.test(file.name);
+ let result;
+ if(isVideo){
+  if(file.size>64*1024*1024)throw Error('Video exceeds the 64 MiB local intake limit.');
+  const response=await fetch('/api/rea/inputs/video',{method:'POST',headers:{'Content-Type':'application/octet-stream','X-File-Name':encodeURIComponent(file.name)},body:file});
+  let data;try{data=await response.json();}catch{throw Error('Invalid video-intake response');}
+  if(!response.ok)throw Error(data.detail||'Video intake failed');
+  result=data;
+ }else{
+  if(file.size>700000)throw Error('Standard artifact exceeds 700,000 bytes. Video files use the dedicated video intake route.');
+  const bytes=new Uint8Array(await file.arrayBuffer());let binary='';
+  for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+32768,bytes.length)));
+  result=await api('/api/rea/inputs','POST',{filename:file.name,content_base64:btoa(binary)});
+ }
  reaState.input=result.input;reaState.job=null;reaState.report=null;reaState.savedId=null;$('reaSave').disabled=true;$('reaOpenNotebook').disabled=true;
  text($('reaInputSummary'),JSON.stringify(result.input,null,2));
  const select=$('reaProfile');select.replaceChildren();
  for(const item of result.suggested_profiles||[]){
-  const option=node('option',item.label+' · '+item.adapter);option.value=item.profile;select.append(option);
+  const option=node('option',item.label+' · '+item.adapter);option.value=item.profile;if(item.profile==='video')option.selected=true;select.append(option);
  }
  if(!select.options.length){select.append(node('option','No enabled profile for this format'));select.disabled=true;$('reaRun').disabled=true;}
  else{select.disabled=false;$('reaRun').disabled=false;}
- $('reaCancel').disabled=true;$('reaFindings').replaceChildren();text($('reaReportJson'),'');
+ $('reaCancel').disabled=true;$('reaFindings').replaceChildren();$('reaArtifacts').replaceChildren();text($('reaReportJson'),'');
+ $('reaRun').textContent=select.value==='video'?'Run shot-by-shot video analysis + remake plan':'Run selected analysis';
  text($('reaJobStatus'),'Input ingested. SHA-256 verified: '+result.input.sha256+'. Choose a profile; no analysis has run yet.');
 }
 $('reaUpload').onclick=async()=>{
@@ -752,7 +778,7 @@ async function runREA(){
  await pollREA(job.id);
 }
 async function pollREA(jobId){
- for(let attempt=0;attempt<120;attempt++){
+ for(let attempt=0;attempt<240;attempt++){
   await new Promise(resolve=>setTimeout(resolve,1000));
   if(!reaState.job||reaState.job.id!==jobId)return;
   const job=await api('/api/rea/jobs/'+encodeURIComponent(jobId));
@@ -762,7 +788,7 @@ async function pollREA(jobId){
    $('reaCancel').disabled=true;$('reaRun').disabled=false;
    if(job.state==='succeeded'){
     const report=await api('/api/rea/jobs/'+encodeURIComponent(jobId)+'/report');
-    renderREAReport(report);$('reaSave').disabled=false;note('Static analysis completed. Review findings and limitations; no automatic verification claim is made.');
+    renderREAReport(report);$('reaSave').disabled=false;note('REA analysis completed. Review the evidence, limitations and any pending human/agent review tasks.');
    }else note('REA job ended: '+job.state+(job.error?' · '+job.error:''),true);
    return;
   }
@@ -772,13 +798,29 @@ async function pollREA(jobId){
 }
 function renderREAReport(report){
  reaState.report=report;
- const analysis=report.analysis||{};const root=$('reaFindings');root.replaceChildren();
+ const analysis=report.analysis||{};
+ const root=$('reaFindings');root.replaceChildren();
+ const artifactRoot=$('reaArtifacts');artifactRoot.replaceChildren();
  const execution=analysis.execution_summary||{};const limits=analysis.resource_limits||{};
  const summary=node('article',undefined,'source-card');summary.append(node('span','OBSERVATION · execution envelope','source-type'));
  summary.append(node('h3',(execution.sandbox_profile||'UNKNOWN')+' · '+(execution.network_policy||'UNKNOWN')+' network'));
  summary.append(node('p','Authority: '+(execution.authority||'UNKNOWN')+' · permissions: '+((execution.permissions||[]).join(', ')||'UNKNOWN')+' · attempts: '+(execution.attempt_count??'UNKNOWN')));
  summary.append(node('p','Resource limits: '+JSON.stringify(limits)+' · exit code: '+(execution.exit_code??'UNKNOWN')+' · truncated: '+Boolean(execution.truncated)+' · timed out: '+Boolean(execution.timed_out)));
  root.append(summary);
+ if(analysis.video_summary){
+  const meta=analysis.video_summary;
+  const videoCard=node('article',undefined,'source-card');
+  videoCard.append(node('span','VIDEO FORENSICS · TOOL OBSERVATION','source-type'));
+  videoCard.append(node('h3',(meta.shot_count??'?')+' shots · '+(Number(meta.duration_seconds||0).toFixed(2))+' seconds'));
+  videoCard.append(node('p','Provisional production assessment: '+(meta.verdict||'UNKNOWN')+' · confidence '+(meta.confidence??'UNKNOWN')));
+  videoCard.append(node('p','VLM: '+(meta.vlm_status||'UNKNOWN')+' · independent visual review: '+(meta.review_state||'PENDING')));
+  if(meta.production_mix?.length)videoCard.append(node('p','Production mix: '+meta.production_mix.map(x=>x.label+' '+Math.round((x.ratio||0)*100)+'%').join(' · ')));
+  const plan=meta.remake_plan||{};
+  videoCard.append(node('p','Capsule Cinema remake plan: '+(plan.status||'UNKNOWN')+' · '+(plan.jobs_total??0)+' jobs · '+(plan.generation_jobs??0)+' model-generation jobs · '+(plan.local_ffmpeg_jobs??0)+' local FFmpeg jobs · '+(plan.keep_original_jobs??0)+' keep-original shots'));
+  videoCard.append(node('p','Paid generation executed: NO. The exported job list is dry-run validated only; a separate explicit approval and configured Capsule Cinema runtime are required before model calls.'));
+  videoCard.append(node('p','Treat production labels as leads, not verified facts. Review the storyboard and review-task package before relying on classifications.'));
+  root.append(videoCard);
+ }
  for(const finding of analysis.findings||[]){
   const card=node('article',undefined,'source-card');
   card.append(node('span',finding.kind||'UNKNOWN','source-type'));
@@ -792,8 +834,26 @@ function renderREAReport(report){
   const card=node('article',undefined,'source-card');card.append(node('span','HYPOTHESIS · reconstruction','source-type'));
   card.append(node('h3',reconstruction.kind||'Unclassified reconstruction'),node('p',reconstruction.text||''),node('p','Output SHA-256: '+reconstruction.sha256),node('p','Evidence SHA-256: '+(reconstruction.evidence_hashes||[]).join(', ')));root.append(card);
  }
+ const artifacts=analysis.artifacts||[];
+ if(artifacts.length){
+  const heading=node('h3','REA Video outputs · locally preserved artifacts');
+  artifactRoot.append(heading);
+  for(const artifact of artifacts){
+   const url='/api/rea/jobs/'+encodeURIComponent(reaState.job.id)+'/artifacts/'+encodeURIComponent(artifact.name);
+   const card=node('article',undefined,'source-card');
+   card.append(node('strong',artifact.name));
+   card.append(node('p',(artifact.size||0)+' bytes · SHA-256 '+artifact.sha256));
+   if(artifact.name==='storyboard.jpg'||artifact.name==='audio.png'){
+    const preview=document.createElement('img');preview.src=url;preview.alt=artifact.name==='storyboard.jpg'?'REA Video shot storyboard':'REA Video audio timeline';
+    preview.loading='lazy';preview.style.maxWidth='100%';preview.style.height='auto';preview.style.borderRadius='8px';preview.style.marginTop='8px';card.append(preview);
+   }
+   const link=document.createElement('a');link.href=url;link.textContent='Download '+artifact.name;link.rel='noopener';link.target='_blank';card.append(link);
+   artifactRoot.append(card);
+  }
+ }
  text($('reaReportJson'),JSON.stringify({
-  inputs:analysis.inputs||[],adapters:analysis.adapters||[],execution_summary:execution,resource_limits:limits,evidence:analysis.evidence||[],
+  inputs:analysis.inputs||[],adapters:analysis.adapters||[],video_summary:analysis.video_summary||null,artifacts,
+  execution_summary:execution,resource_limits:limits,evidence:analysis.evidence||[],
   limitations:analysis.limitations||[],provider_limitations:analysis.provider_limitations||[],
   compatibility_notes:analysis.compatibility_notes||[],reconstructions:analysis.reconstructions||[]
  },null,2));
@@ -813,6 +873,7 @@ async function saveREAReference(){
 }
 $('reaSave').onclick=()=>saveREAReference().catch(err=>{note(err.message,true);text($('reaSaveStatus'),err.message);});
 $('reaOpenNotebook').onclick=async()=>{if(!reaState.savedId)return;view('notebook');await loadNotebook();await openDocument(reaState.savedId);};
+$('reaProfile').onchange=()=>{$('reaRun').textContent=$('reaProfile').value==='video'?'Run shot-by-shot video analysis':'Run selected analysis';};
 $('reaRun').onclick=()=>runREA().catch(err=>{note(err.message,true);text($('reaJobStatus'),err.message);$('reaRun').disabled=false;});
 $('reaCancel').onclick=async()=>{
  if(!reaState.job)return;

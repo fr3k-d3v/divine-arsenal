@@ -97,16 +97,26 @@ async def local_security(request: Request, call_next):
     if (origin and origin not in ("http://127.0.0.1:8768", "http://localhost:8768")) or request.headers.get("sec-fetch-site") == "cross-site":
         return JSONResponse(status_code=403, content={"detail": "Invalid origin"})
     if request.method in ("POST", "PUT", "PATCH"):
-        if request.headers.get("content-type", "").split(";")[0].strip().lower() != "application/json":
-            return JSONResponse(status_code=415, content={"detail": "Use application/json"})
-        # Bound chunked input too; never trust Content-Length alone.
-        chunks, size = [], 0
-        async for chunk in request.stream():
-            size += len(chunk)
-            if size > 1_048_576:
-                return JSONResponse(status_code=413, content={"detail": "JSON body exceeds 1 MiB"})
-            chunks.append(chunk)
-        request._body = b"".join(chunks)
+        content_type=request.headers.get("content-type", "").split(";")[0].strip().lower()
+        if request.url.path=="/api/rea/inputs/video" and request.method=="POST":
+            if content_type!="application/octet-stream":
+                return JSONResponse(status_code=415, content={"detail":"Use application/octet-stream for video intake"})
+            try:video_length=int(request.headers.get("content-length",""))
+            except ValueError:return JSONResponse(status_code=411,content={"detail":"Content-Length is required"})
+            if video_length<1:return JSONResponse(status_code=400,content={"detail":"Empty video upload"})
+            if video_length>64*1024*1024:return JSONResponse(status_code=413,content={"detail":"Video exceeds 64 MiB"})
+            # Leave the raw stream untouched; the dedicated route writes it to a private temporary file.
+        else:
+            if content_type != "application/json":
+                return JSONResponse(status_code=415, content={"detail": "Use application/json"})
+            # Bound chunked input too; never trust Content-Length alone.
+            chunks, size = [], 0
+            async for chunk in request.stream():
+                size += len(chunk)
+                if size > 1_048_576:
+                    return JSONResponse(status_code=413, content={"detail": "JSON body exceeds 1 MiB"})
+                chunks.append(chunk)
+            request._body = b"".join(chunks)
     response = await call_next(request)
     if request.url.path.startswith("/api/"):
         response.headers["Cache-Control"] = "no-store"

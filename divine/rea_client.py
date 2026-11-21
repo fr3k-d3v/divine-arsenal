@@ -19,10 +19,12 @@ import urllib.parse
 import urllib.request
 
 MAX_UPLOAD_BYTES = 700_000
+MAX_VIDEO_BYTES = 64 * 1024 * 1024
+MAX_ARTIFACT_BYTES = 16 * 1024 * 1024
 MAX_RESPONSE_BYTES = 4 * 1024 * 1024
 PROFILES = frozenset({
     "identify", "elf", "ghidra", "jadx", "binwalk", "radare2", "unblob", "kaitai",
-    "pdf", "tei", "iiif", "image", "grid",
+    "pdf", "tei", "iiif", "image", "grid", "video",
 })
 JOB_STATES = frozenset({
     "queued", "running", "succeeded", "failed", "timed_out", "cancelled", "blocked"
@@ -163,6 +165,8 @@ def _request(path, method="GET", payload=None):
             raise REAConflict("conflict") from error
         if error.code == 413:
             raise REATooLarge("body_too_large") from error
+        if error.code == 400:
+            raise REAInvalid("invalid_request") from error
         if error.code == 422:
             raise REAInvalid("invalid_request") from error
         raise REAUnavailable("http_error") from error
@@ -222,6 +226,27 @@ def status():
             "memory_mb": caps.get("memory_mb") if type(caps.get("memory_mb")) is int else None,
             "cpu": caps.get("cpu") if type(caps.get("cpu")) is int else None,
         }
+        video = raw_workers.get("rea_video")
+        if isinstance(video, dict):
+            capsule = video.get("capsule_cinema", {})
+            if not isinstance(capsule, dict):
+                capsule = {}
+            worker["rea_video"] = {
+                "verified": video.get("verified") is True,
+                "enabled": video.get("enabled") is True,
+                "version": video.get("version") if isinstance(video.get("version"), str) else "UNKNOWN",
+                "commit": video.get("commit") if isinstance(video.get("commit"), str) else None,
+                "remake_plan": video.get("remake_plan") if video.get("remake_plan") in ("AVAILABLE","UNAVAILABLE") else "UNKNOWN",
+                "generation_execution": video.get("generation_execution") if video.get("generation_execution") in ("BLOCKED_NO_RUNTIME","BLOCKED_NO_PROVIDER_CONFIG","APPROVAL_REQUIRED") else "UNKNOWN",
+                "capsule_cinema": {
+                    "verified": capsule.get("verified") is True,
+                    "commit": capsule.get("commit") if isinstance(capsule.get("commit"), str) else None,
+                    "generation_runtime_ready": capsule.get("generation_runtime_ready") is True,
+                    "provider_config_file_present": capsule.get("provider_config_file_present") is True,
+                    "license": capsule.get("license") is True,
+                    "reason": capsule.get("reason") if isinstance(capsule.get("reason"), str) else "UNKNOWN",
+                },
+            }
         return {
             "configured": True, "status": "READY", "endpoint": f"127.0.0.1:{port}",
             "api_version": health["schema_version"], "adapters": adapters,
@@ -274,6 +299,56 @@ def upload_base64(filename, content_base64):
         "sha256": expected_sha, "size": len(content), "filename": filename,
         "classification": classification,
     }
+
+
+def upload_video_file(path, filename):
+    if not _valid_filename(filename):
+        raise ValueError("invalid_filename")
+    if not isinstance(path,str) or not os.path.isabs(path) or os.path.islink(path):
+        raise ValueError("invalid_video_path")
+    info=os.stat(path,follow_symlinks=False)
+    if not os.path.isfile(path) or info.st_size<1:
+        raise ValueError("invalid_video_file")
+    if info.st_size>MAX_VIDEO_BYTES:
+        raise REATooLarge("video_input_too_large")
+    digest=hashlib.sha256()
+    with open(path,"rb") as source:
+        for chunk in iter(lambda:source.read(1024*1024),b""):
+            digest.update(chunk)
+    expected_sha=digest.hexdigest()
+    base,token,_timeout,_port=_settings()
+    headers={
+        "Accept":"application/json",
+        "Authorization":"Bearer "+token,
+        "User-Agent":"DivineArsenal-Local-REA/1",
+        "Content-Type":"application/octet-stream",
+        "Content-Length":str(info.st_size),
+        "X-File-Name":urllib.parse.quote(filename,safe=""),
+    }
+    opener=urllib.request.build_opener(urllib.request.ProxyHandler({}),_NoRedirect())
+    try:
+        with open(path,"rb") as source:
+            request=urllib.request.Request(base+"/v1/inputs/video",data=source,headers=headers,method="POST")
+            with opener.open(request,timeout=120) as response:
+                raw=response.read(MAX_RESPONSE_BYTES+1)
+                if len(raw)>MAX_RESPONSE_BYTES:raise REAProtocolError("response_too_large")
+                descriptor=_decode_json(raw)
+    except urllib.error.HTTPError as error:
+        if error.code==401:raise REAAuthenticationError("authentication_rejected") from error
+        if error.code==403:raise REAPolicyError("authority_denied") from error
+        if error.code==413:raise REATooLarge("video_body_too_large") from error
+        if error.code in (400,422):raise REAInvalid("invalid_video") from error
+        raise REAUnavailable("video_upload_http_error") from error
+    except REAError:
+        raise
+    except (urllib.error.URLError,TimeoutError,OSError,ValueError) as error:
+        raise REAUnavailable("video_upload_failed") from error
+    if (not isinstance(descriptor,dict) or descriptor.get("sha256")!=expected_sha
+        or descriptor.get("size")!=info.st_size or not isinstance(descriptor.get("classification"),dict)
+        or descriptor["classification"].get("format") not in ("video.mp4","video.mov","video.mkv","video.webm","video.avi")):
+        raise REAProtocolError("video_input_descriptor_mismatch")
+    return {"sha256":expected_sha,"size":info.st_size,"filename":filename,
+            "classification":descriptor["classification"]}
 
 
 def create_job(input_sha256, profile, adapter_identity):
@@ -332,6 +407,57 @@ def cancel_job(job_id):
         raise ValueError("invalid_job_id")
     job = _request("/v1/jobs/" + job_id + "/cancel", "POST", {})
     return _safe_job(job)
+
+
+def get_artifacts(job_id):
+    if not isinstance(job_id,str) or JOB_ID_RE.fullmatch(job_id) is None:
+        raise ValueError("invalid_job_id")
+    result=_request("/v1/jobs/"+job_id+"/artifacts")
+    if not isinstance(result,list) or len(result)>16:
+        raise REAProtocolError("artifact_manifest_schema")
+    seen=set()
+    for item in result:
+        allowed_names={"VIDEO.md","breakdown.json","report.html","report.md","storyboard.jpg","audio.png",
+                       "review_tasks.json","review_answers.json","remake-jobs.json","remake-dry-run.txt","rea-video-package.zip"}
+        if (not isinstance(item,dict) or set(item)!={"name","sha256","size","content_type"}
+            or item.get("name") not in allowed_names or item["name"] in seen
+            or not SHA256_RE.fullmatch(str(item["sha256"]))
+            or type(item["size"]) is not int or not 1<=item["size"]<=MAX_ARTIFACT_BYTES
+            or not isinstance(item["content_type"],str)):
+            raise REAProtocolError("artifact_manifest_schema")
+        seen.add(item["name"])
+    return result
+
+
+def get_artifact(job_id,name):
+    if not isinstance(job_id,str) or JOB_ID_RE.fullmatch(job_id) is None:
+        raise ValueError("invalid_job_id")
+    if name not in ("VIDEO.md","breakdown.json","report.html","report.md","storyboard.jpg","audio.png",
+                    "review_tasks.json","review_answers.json","remake-jobs.json","remake-dry-run.txt","rea-video-package.zip"):
+        raise ValueError("invalid_artifact_name")
+    base,token,timeout,_port=_settings()
+    path="/v1/jobs/"+job_id+"/artifacts/"+urllib.parse.quote(name,safe="")
+    request=urllib.request.Request(base+path,headers={
+        "Accept":"application/octet-stream","Authorization":"Bearer "+token,
+        "User-Agent":"DivineArsenal-Local-REA/1",
+    })
+    opener=urllib.request.build_opener(urllib.request.ProxyHandler({}),_NoRedirect())
+    try:
+        with opener.open(request,timeout=timeout) as response:
+            raw=response.read(MAX_ARTIFACT_BYTES+1)
+            if len(raw)>MAX_ARTIFACT_BYTES:
+                raise REAProtocolError("artifact_too_large")
+            return {"data":raw,"content_type":response.headers.get("Content-Type","application/octet-stream"),
+                    "filename":name}
+    except urllib.error.HTTPError as error:
+        if error.code==401:raise REAAuthenticationError("authentication_rejected") from error
+        if error.code==403:raise REAPolicyError("authority_denied") from error
+        if error.code==404:raise REANotFound("artifact_not_found") from error
+        raise REAUnavailable("artifact_http_error") from error
+    except REAError:
+        raise
+    except (urllib.error.URLError,TimeoutError,OSError,ValueError) as error:
+        raise REAUnavailable("artifact_fetch_failed") from error
 
 
 def get_report(job_id, job=None, adapter_descriptor=None):
@@ -481,12 +607,50 @@ def get_report(job_id, job=None, adapter_descriptor=None):
         "reaped": bool(metadata) and all(isinstance(m, dict) and m.get("reaped") is True for m in metadata),
         "error": job.get("error"),
     }
+    raw_artifacts=analysis.get("artifacts",[])
+    if not isinstance(raw_artifacts,list) or len(raw_artifacts)>16:
+        raise REAProtocolError("artifact_manifest_schema")
+    safe_artifacts=[]
+    allowed_artifacts={"VIDEO.md","breakdown.json","report.html","report.md","storyboard.jpg","audio.png",
+                       "review_tasks.json","review_answers.json","remake-jobs.json","remake-dry-run.txt","rea-video-package.zip"}
+    seen_artifacts=set()
+    for item in raw_artifacts:
+        if (not isinstance(item,dict) or set(item)!={"name","sha256","size","content_type"}
+            or item.get("name") not in allowed_artifacts or item["name"] in seen_artifacts
+            or item.get("sha256") not in evidence_hashes or type(item.get("size")) is not int
+            or not 1<=item["size"]<=MAX_ARTIFACT_BYTES or not isinstance(item.get("content_type"),str)):
+            raise REAProtocolError("artifact_manifest_schema")
+        seen_artifacts.add(item["name"])
+        safe_artifacts.append({"name":item["name"],"sha256":item["sha256"],"size":item["size"],"content_type":item["content_type"]})
+    video_summary=analysis.get("video_summary")
+    if video_summary is not None:
+        if (not isinstance(video_summary,dict) or type(video_summary.get("shot_count")) is not int
+            or not isinstance(video_summary.get("verdict"),str)
+            or not isinstance(video_summary.get("review_state"),str)):
+            raise REAProtocolError("video_summary_schema")
+        plan=video_summary.get("remake_plan")
+        plan_keys={"status","jobs_total","generation_jobs","local_ffmpeg_jobs","keep_original_jobs",
+                   "capsule_cinema_commit","paid_generation_executed"}
+        if (not isinstance(plan,dict) or set(plan)!=plan_keys
+            or plan.get("status") not in ("GENERATED","UNAVAILABLE")
+            or any(type(plan.get(k)) is not int or not 0<=plan[k]<=10000
+                   for k in ("jobs_total","generation_jobs","local_ffmpeg_jobs","keep_original_jobs"))
+            or plan.get("paid_generation_executed") is not False
+            or plan["jobs_total"] != plan["generation_jobs"]+plan["local_ffmpeg_jobs"]+plan["keep_original_jobs"]):
+            raise REAProtocolError("video_remake_plan_schema")
+        commit=plan.get("capsule_cinema_commit")
+        if commit is not None and (not isinstance(commit,str) or re.fullmatch(r"[0-9a-f]{40}", commit) is None):
+            raise REAProtocolError("video_remake_plan_commit")
+        video_summary={k:v for k,v in video_summary.items() if k in (
+            "duration_seconds","shot_count","verdict","production_mix","confidence","vlm_status",
+            "review_state","transitions","overlay_kinds","real_material","remake_plan") }
     return {
         "schema_version": 1,
         "analysis": {
             "schema_version": 1, "inputs": safe_inputs,
             "adapters": adapters[:32], "evidence": safe_evidence,
             "findings": safe_findings, "reconstructions": safe_reconstructions,
+            "artifacts":safe_artifacts,"video_summary":video_summary,
             "limitations": presented_limitations,
             "provider_limitations": provider_limitations,
             "compatibility_notes": compatibility_notes,

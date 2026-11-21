@@ -144,6 +144,13 @@ class AnalysisReconstruction(Strict):
         return self
 
 
+class AnalysisArtifact(Strict):
+    name: str = Field(min_length=1, max_length=128, pattern=r'^[A-Za-z0-9._-]+$')
+    sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+    size: int = Field(ge=1, le=16 * 1024 * 1024)
+    content_type: str = Field(min_length=1, max_length=128)
+
+
 class AnalysisReference(Strict):
     kind: Literal['analysis-reference']
     title: str = Field(min_length=1, max_length=200)
@@ -152,7 +159,7 @@ class AnalysisReference(Strict):
     job_id: str = Field(pattern=r'^[0-9a-f]{32}$')
     input_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
     adapter: str = Field(min_length=1, max_length=160)
-    profile: Literal['identify', 'elf', 'ghidra', 'jadx', 'binwalk', 'radare2', 'unblob', 'kaitai']
+    profile: Literal['identify', 'elf', 'ghidra', 'jadx', 'binwalk', 'radare2', 'unblob', 'kaitai', 'pdf', 'tei', 'iiif', 'image', 'grid', 'video']
     authority: Literal['OBSERVE'] = 'OBSERVE'
     state: Literal['succeeded', 'failed', 'timed_out', 'cancelled', 'blocked']
     created_at: float | None = None
@@ -171,6 +178,7 @@ class AnalysisReference(Strict):
     reaped: bool = False
     error: str | None = Field(default=None, max_length=1000)
     evidence_hashes: list[str] = Field(min_length=1, max_length=256)
+    artifacts: list[AnalysisArtifact] = Field(default_factory=list, max_length=16)
     findings: list[AnalysisFinding] = Field(default_factory=list, max_length=64)
     reconstructions: list[AnalysisReconstruction] = Field(default_factory=list, max_length=64)
     limitations: list[str] = Field(default_factory=list, max_length=64)
@@ -197,6 +205,9 @@ class AnalysisReference(Strict):
         ):
             raise ValueError('Evidence references must be unique SHA-256 hashes')
         allowed = set(self.evidence_hashes)
+        if (len({item.name for item in self.artifacts}) != len(self.artifacts)
+                or any(item.sha256 not in allowed for item in self.artifacts)):
+            raise ValueError('Artifact manifest must be unique and evidence-backed')
         if any(not set(f.evidence_hashes).issubset(allowed) for f in self.findings):
             raise ValueError('Finding references must belong to the analysis evidence set')
         if any(not set(r.evidence_hashes).issubset(allowed) for r in self.reconstructions):

@@ -152,3 +152,6 @@ See [REA integration architecture](docs/research/REA_INTEGRATION_ARCHITECTURE.md
 A completed URE report can be saved explicitly as a structured **REA evidence reference**. The record retains the input SHA-256, stable job ID, adapter/version, OBSERVE authority, sandbox profile, declared resource limits, execution timestamps and terminal flags, evidence hashes, findings, reconstruction hypotheses and limitations. Raw input bytes, worker IDs, leases, fencing tokens and raw process output are not copied into the notebook.
 
 A user may optionally link the reference to a registered scholarly source. The Tradition Graph then displays an OBSERVATION edge from that source to the local analysis record; it does not imply historical influence. New records default to **UNREVIEWED** and rights status **UNKNOWN**. Human review state and notes are separate annotations, never a rewrite of the original analysis.
+
+
+REA Video workflow guidance: docs/research/REA_VIDEO_WORKFLOW_SKILL.md. This covers the pinned offline analyzer, review artifacts, Capsule Cinema dry-run handoff and paid-generation approval boundary.

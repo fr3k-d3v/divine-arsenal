@@ -107,3 +107,7 @@ The profile resolver now selects the highest live verified adapter version and i
 | Divine regression suite | PASS | 155 tests passed |
 | Browser regression | PASS | 53 Chromium assertions; zero console exceptions/external requests |
 | Public production release | NOT ACCEPTED | Real institutional corpus, rights, scholarly correctness, full accessibility, external security and remote CI remain open |
+
+
+| Capsule Cinema runtime | PASS | Isolated Python 3.12 venv; dependencies installed; CLI help/import check passed |
+| Provider configuration | BLOCKED | No local provider configuration file detected; no secrets read or created |
